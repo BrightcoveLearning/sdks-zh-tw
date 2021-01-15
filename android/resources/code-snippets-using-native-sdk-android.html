@@ -1,0 +1,2009 @@
+﻿<!doctype html>
+<html lang="zh-TW">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="在本主題中，您會發現一個程式碼片段的集合，您可能會發現這些程式碼片段可以在開發 SDK 時作為參考。有關更多詳細的解決方案，請參閱Android播放器示例。">
+  
+  <title>使用安卓版本原生 SDK 的程式碼片段</title>
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">  
+  <link data-react-helmet="true" rel="preload" as="font" href="https://files.brightcove.com/fonts/balto/baltoweb-ultra.eot" type="font/eot">
+  <link data-react-helmet="true" rel="preload" as="font" href="https://files.brightcove.com/fonts/balto/baltoweb-ultra.woff" type="font/woff">
+  <link data-react-helmet="true" rel="preload" as="font" href="https://files.brightcove.com/fonts/balto/baltoweb-super.eot" type="font/eot">
+  <link data-react-helmet="true" rel="preload" as="font" href="https://files.brightcove.com/fonts/balto/baltoweb-super.woff" type="font/woff">
+  <link data-react-helmet="true" rel="preload" as="font" href="https://files.brightcove.com/fonts/balto/baltoweb-black.eot" type="font/eot">
+  <link data-react-helmet="true" rel="preload" as="font" href="https://files.brightcove.com/fonts/balto/baltoweb-black.woff" type="font/woff">
+  <link data-react-helmet="true" rel="preload" as="font" href="https://files.brightcove.com/fonts/balto/baltoweb-bold.eot" type="font/eot">
+  <link data-react-helmet="true" rel="preload" as="font" href="https://files.brightcove.com/fonts/balto/baltoweb-bold.woff" type="font/woff">
+  <link data-react-helmet="true" rel="preload" as="font" href="https://files.brightcove.com/fonts/balto/baltoweb-medium.eot" type="font/eot">
+  <link data-react-helmet="true" rel="preload" as="font" href="https://files.brightcove.com/fonts/balto/baltoweb-medium.woff" type="font/woff">
+  <link data-react-helmet="true" rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500&amp;display=swap">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://support.brightcove.com/site-assets/css/site/prism.css">
+  <link rel="stylesheet" href="https://support.brightcove.com/site-assets/css/site/styles.css">
+  <link rel="stylesheet" href="https://support.brightcove.com/site-assets/css/site/landing-page.css">
+  <link rel="stylesheet" href="https://support.brightcove.com/site-assets/css/site/tabs.css">
+  <link rel="stylesheet" href="/assets/css/local.css">
+  <link href="https://fonts.googleapis.com/css?family=Lato&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro&display=swap" rel="stylesheet">
+  <script src="https://kit.fontawesome.com/381443caa8.js" crossorigin="anonymous"></script>
+  <script src="https://support.brightcove.com/site-assets/js/site/google-analytics.js"></script>
+  <script src="/assets/js/sajari-head.js"></script>
+</head>
+
+<body class="body">
+
+<header>
+  <div class="div-header">
+    <a href="/"><img class="product-logo" src="https://support.brightcove.com/site-assets/images/site/product-logos/Video_Cloud_Logo.svg" alt="產品標誌" style="max-height: 100px;max-width: 232px;"/></a>
+<!-- GTranslate: https://gtranslate.io/ -->
+<select onchange="doGTranslate(this);"><option value="">選擇語言</option><option value="en|en" translate="No">English</option><option value="en|zh-TW" translate="No">繁體中文</option><option value="en|fr" translate="No">Français</option><option value="en|de" translate="No">Deutsche</option><option value="en|ja" translate="No">日本語</option><option value="en|ko" translate="No">한국어</option><option value="en|es" translate="No">Español</option></select>
+
+<script>
+/* <![CDATA[ */
+function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;if(lang_pair=='')return;var lang=lang_pair.split('|')[1];var plang=location.hostname.split('.')[0];if(plang.length !=2 && plang.toLowerCase() != 'zh-cn' && plang.toLowerCase() != 'zh-tw')plang='en';location.href=location.protocol+'//'+(lang == 'en' ? '' : lang+'.')+location.hostname.replace('www.', '').replace(RegExp('^' + plang + '\\.'), '')+location.pathname+location.search;}
+/* ]]> */
+</script>
+
+    <select id="site_select" class="bcls-select" style="margin-right: 1rem;">
+      <option value="">其他布萊特灣文件</option>
+      
+        
+          <option value="https://support.brightcove.com">文件首頁</option>
+        
+      
+        
+          <option value="https://audience.support.brightcove.com">布萊特灣觀眾</option>
+        
+      
+        
+          <option value="https://beacon.support.brightcove.com">布萊特灣燈塔</option>
+        
+      
+        
+          <option value="https://campaign.support.brightcove.com">布萊特灣戰役</option>
+        
+      
+        
+          <option value="https://engage.support.brightcove.com">布萊特灣參與</option>
+        
+      
+        
+          <option value="https://live.support.brightcove.com">Brightcove Live</option>
+        
+      
+        
+          <option value="https://gallery.support.brightcove.com">Brightcove 圖庫</option>
+        
+      
+        
+          <option value="https://ssai.support.brightcove.com">布萊特灣</option>
+        
+      
+        
+          <option value="https://social.support.brightcove.com">布萊特灣社會</option>
+        
+      
+        
+          <option value="https://studio.support.brightcove.com">視訊雲端工作室</option>
+        
+      
+        
+          <option value="https://player.support.brightcove.com">布萊特灣球員開發</option>
+        
+      
+        
+          <option value="https://apis.support.brightcove.com">視訊雲端平台 API</option>
+        
+      
+        
+          <option value="https://sdks.support.brightcove.com">視訊雲端裝置開發套件</option>
+        
+      
+        
+          <option value="https://integrations.support.brightcove.com">整合與 CMS 連接器</option>
+        
+      
+        
+          <option value="https://general.support.brightcove.com">視訊雲端一般資訊</option>
+        
+      
+        
+          <option value="https://zencoder.support.brightcove.com">Zencoder</option>
+        
+      
+    </select>
+
+
+    <span class="secondary-nav"><a href="https://supportportal.brightcove.com/s/login/?"><img src="https://support.brightcove.com/site-assets/images/site/support.png" alt="支持"/>聯繫支持</a><span style="vertical-align: top;margin-left:1em;margin-right:1em;">|</span><a href="https://status.brightcove.com/"><img src="https://support.brightcove.com/site-assets/images/site/status.png" alt="系統狀態"/>系統狀況</a></span><br/>
+    
+  </div>
+  <nav aria-label="breadcrumb">
+    <ol class="breadcrumb arr-right">
+      
+      <li class="breadcrumb-item"><a href="/">首頁</a></li>
+      
+      
+      
+      <li class="breadcrumb-item"><a href="/android/resources/">資源</a></li>
+      
+      <li class="breadcrumb-item active" aria-current="page">使用安卓版本原生 SDK 的程式碼片段</li>
+    </ol>
+  </nav>
+</header>
+<div class="container">
+    <div class="row">
+      <div class="col-sm-3 left-side-bar">
+        <nav class="sidenav" id="side_nav">
+          
+            
+            <h5><a href="/index.html">首頁</a></h5>
+            
+          
+            
+              <h5 class="submenu-header"><a href="/getting-started/index.html">開始使<strong>用 + </strong></a></h5>
+              <ul class="sidenav-submenu" style="display:none;">
+                
+                  
+                    <li><a href="/getting-started/brightcove-native-player-sdks.html">布萊特灣原生 SDK </a></li>
+                  
+                
+                  
+                    <li><a href="/getting-started/native-video-playback.html">原生視訊播放</a></li>
+                  
+                
+                  
+                    <li><a href="/getting-started/brightcove-native-sdk-features.html">原生 SDK 功能</a></li>
+                  
+                
+                  
+                    <li><a href="/getting-started/brightcove-native-sdks-feature-support.html">功能支援表</a></li>
+                  
+                
+                  
+                    <li><a href="/getting-started/running-sample-apps-native-sdk-android.html">執行安卓範例應用程式</a></li>
+                  
+                
+                  
+                    <li><a href="/getting-started/running-sample-apps-native-sdk-ios.html">執行IoS/tvOS 範例應用程式</a></li>
+                  
+                
+                  
+                    <li><a href="/getting-started/brightcove-native-sdks-training-videos.html">原生 SDK 訓練影片</a></li>
+                  
+                
+              </ul>
+            
+          
+            
+              <h5 class="submenu-header"><a href="/features/index.html">功能<strong> + </strong></a></h5>
+              <ul class="sidenav-submenu" style="display:none;">
+                
+                  
+                    <li><a href="/features/using-360deg-videos-native-sdks.html">360 度視訊</a></li>
+                  
+                
+                  
+                    <li><a href="/features/advertising-sdks.html">廣告</a></li>
+                  
+                
+                  
+                    <li><a href="/features/analytics-sdks.html">分析</a></li>
+                  
+                
+                  
+                    <li><a href="/features/using-captions-brightcove-native-sdks.html">標題</a></li>
+                  
+                
+                  
+                    <li><a href="/features/connected-tv-set-top-box-apps.html">已連線的電視</a></li>
+                  
+                
+                  
+                    <li><a href="/features/content-security-drm-native-player-sdks.html">內容安全性 (DRM) </a></li>
+                  
+                
+                  
+                    <li><a href="/features/cross-device-resume-sdks.html">跨裝置繼續</a></li>
+                  
+                
+                  
+                    <li><a href="/features/live-streams-native-sdks.html">即時串流</a></li>
+                  
+                
+                  
+                    <li><a href="/features/multiple-audio-tracks-native-sdks.html">多個音軌</a></li>
+                  
+                
+                  
+                    <li><a href="/features/offline-playback-native-player-sdks.html">離線播放</a></li>
+                  
+                
+                  
+                    <li><a href="/features/brightcove-native-player-controls.html">播放器控制</a></li>
+                  
+                
+                  
+                    <li><a href="/features/picture-picture-native-sdks.html">子母畫面</a></li>
+                  
+                
+                  
+                    <li><a href="/features/video-formats-and-captioning-native-sdks.html">視訊格式與字幕</a></li>
+                  
+                
+              </ul>
+            
+          
+            
+              <h5 class="submenu-header"><a href="/android/index.html">安卓開發<strong> + </strong></a></h5>
+              <ul class="sidenav-submenu" style="display:none;">
+                
+                  
+                    <li class="submenu-header">
+                      <a href="/android/basics/index.html">基本知識<strong> + </strong></a>
+                      <ul class="sidenav-subsubmenu" style="display:none;">
+                        
+                        <li><a href="/android/basics/overview-brightcove-player-sdk-android.html">v6.16.0：適用於安卓的播放器 SDK </a></li>
+                        
+                        <li><a href="/android/basics/architecture-brightcove-player-sdk-android.html">建築</a></li>
+                        
+                        <li><a href="/android/basics/android-understanding-brightcoveplayer-class.html">最高級玩家類</a></li>
+                        
+                        <li><a href="/android/basics/android-choosing-video-view.html">選擇視訊檢視</a></li>
+                        
+                        <li><a href="/android/basics/android-brightcove-registration.html">布萊特灣註冊</a></li>
+                        
+                        <li><a href="/android/basics/understanding-events-native-sdk-android.html">瞭解事件</a></li>
+                        
+                        <li><a href="/android/basics/android-working-media-content.html">使用媒體內容</a></li>
+                        
+                        <li><a href="/android/basics/training-demand-developing-brightcove-native-player-sdk-android.html">原生 SDK 訓練影片</a></li>
+                        
+                        <li><a href="/android/basics/step-step-simple-video-app-using-native-sdk-android.html">逐步：簡易視訊應用程式</a></li>
+                        
+                      </ul>
+                    </li>
+                  
+                
+                  
+                    <li class="submenu-header">
+                      <a href="/android/advertising/index.html">廣告<strong> + </strong></a>
+                      <ul class="sidenav-subsubmenu" style="display:none;">
+                        
+                        <li><a href="/android/advertising/android-ad-ui-customization-server-side-ad-insertion-ssai.html">使用 SAI 自訂廣告使用者介面</a></li>
+                        
+                        <li><a href="/features/appending-ad-query-params-native-sdks.html">附加廣告查詢參數</a></li>
+                        
+                        <li><a href="/features/ima-open-measurement-native-sdks.html">IMA 開放測量</a></li>
+                        
+                        <li><a href="/android/advertising/migrating-to-ima-plugin-6-15-0.html">IMA 外掛程式 6.15.0 </a></li>
+                        
+                        <li><a href="/features/implementing-client-side-ads-native-sdks.html">實作客戶端廣告 (CSAI) </a></li>
+                        
+                        <li><a href="/features/implementing-server-side-ads-native-player-sdks.html">實作伺服器端廣告 (SSAI) </a></li>
+                        
+                        <li><a href="/android/advertising/using-pulse-plugin-native-sdk-android.html">英威迪脈衝插件</a></li>
+                        
+                        <li><a href="/android/advertising/ssai-plugin-native-sdk-android.html">安卓版的 SSAI 外掛程式</a></li>
+                        
+                      </ul>
+                    </li>
+                  
+                
+                  
+                    <li class="submenu-header">
+                      <a href="/android/analytics/index.html">分析<strong> + </strong></a>
+                      <ul class="sidenav-subsubmenu" style="display:none;">
+                        
+                        <li><a href="/android/analytics/analytics-related-offline-playback-native-sdks.html">離線播放相關的分析</a></li>
+                        
+                        <li><a href="/android/analytics/sending-brightcove-analytics-native-sdk-android.html">發送布萊特灣分析</a></li>
+                        
+                        <li><a href="/features/viewing-brightcove-analytics-player-sdks.html">觀看布萊特灣分析</a></li>
+                        
+                      </ul>
+                    </li>
+                  
+                
+                  
+                    <li class="submenu-header">
+                      <a href="/android/captions/index.html">標題<strong> + </strong></a>
+                      <ul class="sidenav-subsubmenu" style="display:none;">
+                        
+                        <li><a href="/android/captions/removing-android-captions-background-image.html">移除標題背景影像</a></li>
+                        
+                        <li><a href="/android/captions/selecting-captions-programmatically-native-sdk-android.html">以程式設計方式選取標題</a></li>
+                        
+                        <li><a href="/features/synchronizing-webvtt-captions.html">同步化網路 VTT 字幕</a></li>
+                        
+                      </ul>
+                    </li>
+                  
+                
+                  
+                    <li class="submenu-header">
+                      <a href="/android/tv/index.html">已連線的電視<strong> + </strong></a>
+                      <ul class="sidenav-subsubmenu" style="display:none;">
+                        
+                        <li><a href="/android/tv/cast-plugin-native-sdk-android.html">鉻外掛程式</a></li>
+                        
+                        <li><a href="/features/connected-tv-set-top-box-apps.html">連線電視應用程式</a></li>
+                        
+                        <li><a href="/android/tv/customizing-android-tv-controls.html">自訂安卓電視控制項</a></li>
+                        
+                      </ul>
+                    </li>
+                  
+                
+                  
+                    <li class="submenu-header">
+                      <a href="/android/content-protection/index.html">內容保護<strong> + </strong></a>
+                      <ul class="sidenav-subsubmenu" style="display:none;">
+                        
+                        <li><a href="/features/content-security-drm-native-player-sdks.html">內容安全性 (DRM) </a></li>
+                        
+                      </ul>
+                    </li>
+                  
+                
+                  
+                    <li class="submenu-header">
+                      <a href="/android/framework/index.html">架構<strong> + </strong></a>
+                      <ul class="sidenav-subsubmenu" style="display:none;">
+                        
+                        <li><a href="/android/framework/android-adding-viewmanaging-layout.html">新增檢視/管理配置</a></li>
+                        
+                        <li><a href="/android/framework/android-pie-support-native-sdk-android.html">支援安卓圓形圖</a></li>
+                        
+                        <li><a href="/android/framework/creating-plugin-native-sdk-android.html">建立外掛程式</a></li>
+                        
+                        <li><a href="/android/framework/migrating-exoplayer-2-framework.html">遷移到第 2 層框架</a></li>
+                        
+                        <li><a href="/android/framework/resizing-video-view.html">調整視訊檢視的大小</a></li>
+                        
+                      </ul>
+                    </li>
+                  
+                
+                  
+                    <li class="submenu-header">
+                      <a href="/android/live/index.html">即時<strong> + </strong></a>
+                      <ul class="sidenav-subsubmenu" style="display:none;">
+                        
+                        <li><a href="/features/using-live-ssai-native-sdks.html">使用即時 SAI </a></li>
+                        
+                        <li><a href="/features/using-player-enhancements-live-ssai-native-sdks.html">即時 SSAI 的玩家增強功能</a></li>
+                        
+                        <li><a href="/features/client-side-ads-with-live-ssai.html">使用即時 SSAI 的客戶端預先廣告</a></li>
+                        
+                      </ul>
+                    </li>
+                  
+                
+                  
+                    <li class="submenu-header">
+                      <a href="/android/playback/index.html">播放<strong> + </strong></a>
+                      <ul class="sidenav-subsubmenu" style="display:none;">
+                        
+                        <li><a href="/android/playback/hevc-selection-native-sdk-android.html">HEVC 選擇</a></li>
+                        
+                        <li><a href="/android/playback/hls-playback-native-sdk-android.html">HLS 播放</a></li>
+                        
+                        <li><a href="/features/localization-with-native-sdks.html">本地化播放程式</a></li>
+                        
+                        <li><a href="/android/playback/android-managing-player-controls.html">管理播放器控制項</a></li>
+                        
+                        <li><a href="/android/playback/multiple-audio-tracks-offline-playback-native-sdk-android.html">多個音軌供離線播放</a></li>
+                        
+                        <li><a href="/features/offline-playback-native-player-sdks.html">離線播放</a></li>
+                        
+                        <li><a href="/android/playback/handling-orientation-change-native-sdk-android.html">方位變更</a></li>
+                        
+                        <li><a href="/android/playback/android-source-selection.html">來源選擇</a></li>
+                        
+                        <li><a href="/android/playback/video-and-playlist-objects-json.html">來自 JSON 的視訊和播放清單物件</a></li>
+                        
+                      </ul>
+                    </li>
+                  
+                
+                  
+                    <li class="submenu-header">
+                      <a href="/android/troubleshooting/index.html">疑難排解<strong> + </strong></a>
+                      <ul class="sidenav-subsubmenu" style="display:none;">
+                        
+                        <li><a href="/android/troubleshooting/error-messages-native-sdk-android.html">錯誤訊息指南</a></li>
+                        
+                        <li><a href="/android/troubleshooting/removing-android-log-messages.html">移除安卓記錄訊息</a></li>
+                        
+                      </ul>
+                    </li>
+                  
+                
+                  
+                    <li class="submenu-header">
+                      <a href="/android/resources/index.html">資源<strong> + </strong></a>
+                      <ul class="sidenav-subsubmenu" style="display:none;">
+                        
+                        <li><a href="https://github.com/BrightcoveOS/android-player-samples">安卓程式碼範例</a></li>
+                        
+                        <li><a href="/android/resources/code-snippets-using-native-sdk-android.html">程式碼片段</a></li>
+                        
+                        <li><a href="https://docs.brightcove.com/android-sdk/javadoc/index.html">適用於安卓參考的原生 SDK </a></li>
+                        
+                        <li><a href="https://docs.brightcove.com/index.html">外掛程式參考</a></li>
+                        
+                        <li><a href="/android/resources/brightcove-player-sdk-android-previous-sdk-information.html">舊版本</a></li>
+                        
+                        <li><a href="/android/resources/brightcove-native-sdk-android-release-notes.html">版本資訊</a></li>
+                        
+                      </ul>
+                    </li>
+                  
+                
+              </ul>
+            
+          
+            
+              <h5 class="submenu-header"><a href="/ios/index.html">iOS 開發<strong> + </strong></a></h5>
+              <ul class="sidenav-submenu" style="display:none;">
+                
+                  
+                    <li class="submenu-header">
+                      <a href="/ios/basics/index.html">基本知識<strong> + </strong></a>
+                      <ul class="sidenav-subsubmenu" style="display:none;">
+                        
+                        <li><a href="/ios/basics/overview-brightcove-player-sdk-ios.html">v6.8.1：適用於 iOS 的播放程式 SDK 概觀</a></li>
+                        
+                        <li><a href="/ios/basics/architecture-brightcove-player-sdk-ios.html">建築</a></li>
+                        
+                        <li><a href="/ios/basics/ios-brightcove-registration.html">布萊特灣註冊</a></li>
+                        
+                        <li><a href="/ios/basics/ios-working-media-content.html">使用媒體內容</a></li>
+                        
+                        <li><a href="/ios/basics/understanding-events-native-sdk-ios.html">瞭解事件</a></li>
+                        
+                        <li><a href="/ios/basics/training-demand-developing-brightcove-native-player-sdk-ios.html">原生 SDK 訓練影片</a></li>
+                        
+                        <li><a href="/ios/basics/step-step-simple-video-app-using-objective-c.html">逐步：使用目標 C 的簡單視頻應用程序</a></li>
+                        
+                        <li><a href="/ios/basics/step-step-simple-video-app-using-swift.html">逐步：使用 Swift 的簡單視頻應用</a></li>
+                        
+                      </ul>
+                    </li>
+                  
+                
+                  
+                    <li class="submenu-header">
+                      <a href="/ios/advertising/index.html">廣告<strong> + </strong></a>
+                      <ul class="sidenav-subsubmenu" style="display:none;">
+                        
+                        <li><a href="/features/implementing-client-side-ads-native-sdks.html">實作客戶端廣告 (CSAI) </a></li>
+                        
+                        <li><a href="/features/implementing-server-side-ads-native-player-sdks.html">實作伺服器端廣告 (SSAI) </a></li>
+                        
+                        <li><a href="/features/appending-ad-query-params-native-sdks.html">附加廣告查詢參數</a></li>
+                        
+                        <li><a href="/features/ima-open-measurement-native-sdks.html">IMA 開放測量</a></li>
+                        
+                      </ul>
+                    </li>
+                  
+                
+                  
+                    <li class="submenu-header">
+                      <a href="/ios/analytics/index.html">分析<strong> + </strong></a>
+                      <ul class="sidenav-subsubmenu" style="display:none;">
+                        
+                        <li><a href="/ios/analytics/sending-brightcove-analytics-native-sdk-ios.html">發送布萊特灣分析</a></li>
+                        
+                        <li><a href="/features/viewing-brightcove-analytics-player-sdks.html">觀看布萊特灣分析</a></li>
+                        
+                      </ul>
+                    </li>
+                  
+                
+                  
+                    <li class="submenu-header">
+                      <a href="/ios/captions/index.html">標題<strong> + </strong></a>
+                      <ul class="sidenav-subsubmenu" style="display:none;">
+                        
+                        <li><a href="/features/synchronizing-webvtt-captions.html">同步化網路 VTT 字幕</a></li>
+                        
+                      </ul>
+                    </li>
+                  
+                
+                  
+                    <li class="submenu-header">
+                      <a href="/ios/tv/index.html">已連線的電視<strong> + </strong></a>
+                      <ul class="sidenav-subsubmenu" style="display:none;">
+                        
+                        <li><a href="https://github.com/brightcove/brightcove-player-sdk-ios-googlecast">鉻外掛程式</a></li>
+                        
+                        <li><a href="/features/connected-tv-set-top-box-apps.html">連線電視應用程式</a></li>
+                        
+                      </ul>
+                    </li>
+                  
+                
+                  
+                    <li class="submenu-header">
+                      <a href="/ios/content-protection/index.html">內容保護<strong> + </strong></a>
+                      <ul class="sidenav-subsubmenu" style="display:none;">
+                        
+                        <li><a href="/features/content-security-drm-native-player-sdks.html">內容安全性 (DRM) </a></li>
+                        
+                      </ul>
+                    </li>
+                  
+                
+                  
+                    <li class="submenu-header">
+                      <a href="/ios/framework/index.html">架構<strong> + </strong></a>
+                      <ul class="sidenav-subsubmenu" style="display:none;">
+                        
+                        <li><a href="/ios/framework/working-app-transport-security-ats.html">使用應用程式傳輸安全性 (ATS) </a></li>
+                        
+                      </ul>
+                    </li>
+                  
+                
+                  
+                    <li class="submenu-header">
+                      <a href="/ios/live/index.html">即時<strong> + </strong></a>
+                      <ul class="sidenav-subsubmenu" style="display:none;">
+                        
+                        <li><a href="/features/using-live-ssai-native-sdks.html">使用即時 SAI </a></li>
+                        
+                        <li><a href="/features/using-player-enhancements-live-ssai-native-sdks.html">即時 SSAI 的玩家增強功能</a></li>
+                        
+                        <li><a href="/features/client-side-ads-with-live-ssai.html">使用即時 SSAI 的客戶端預先廣告</a></li>
+                        
+                      </ul>
+                    </li>
+                  
+                
+                  
+                    <li class="submenu-header">
+                      <a href="/ios/playback/index.html">播放<strong> + </strong></a>
+                      <ul class="sidenav-subsubmenu" style="display:none;">
+                        
+                        <li><a href="/features/localization-with-native-sdks.html">本地化播放程式</a></li>
+                        
+                        <li><a href="/features/offline-playback-native-player-sdks.html">離線播放</a></li>
+                        
+                        <li><a href="/ios/playback/ios-source-selection.html">來源選擇</a></li>
+                        
+                      </ul>
+                    </li>
+                  
+                
+                  
+                    <li class="submenu-header">
+                      <a href="/ios/troubleshooting/index.html">疑難排解<strong> + </strong></a>
+                      <ul class="sidenav-subsubmenu" style="display:none;">
+                        
+                        <li><a href="/ios/troubleshooting/error-handling-native-sdk-ios.html">錯誤處理</a></li>
+                        
+                      </ul>
+                    </li>
+                  
+                
+                  
+                    <li class="submenu-header">
+                      <a href="/ios/resources/index.html">資源<strong> + </strong></a>
+                      <ul class="sidenav-subsubmenu" style="display:none;">
+                        
+                        <li><a href="https://github.com/BrightcoveOS/ios-player-samples">iOS 程式碼範例</a></li>
+                        
+                        <li><a href="/ios/resources/code-snippets-using-native-sdk-ios.html">程式碼片段</a></li>
+                        
+                        <li><a href="https://docs.brightcove.com/ios-sdk/index.html">適用於 iOS 的原生 SDK 參考</a></li>
+                        
+                        <li><a href="https://docs.brightcove.com/index.html">外掛程式參考</a></li>
+                        
+                        <li><a href="https://github.com/brightcove/brightcove-player-sdk-ios/blob/master/CHANGELOG.md">版本資訊</a></li>
+                        
+                        <li><a href="/ios/resources/brightcove-player-sdk-ios-previous-sdk-information.html">舊版本</a></li>
+                        
+                      </ul>
+                    </li>
+                  
+                
+              </ul>
+            
+          
+            
+              <h5 class="submenu-header"><a href="/tvos/index.html">電子產品發展<strong> + </strong></a></h5>
+              <ul class="sidenav-submenu" style="display:none;">
+                
+                  
+                    <li class="submenu-header">
+                      <a href="/tvos/basics/index.html">基本知識<strong> + </strong></a>
+                      <ul class="sidenav-subsubmenu" style="display:none;">
+                        
+                        <li><a href="/tvos/basics/overview-brightcove-player-sdk-tvos.html">v6.8.1：播放器 SDK 概述</a></li>
+                        
+                        <li><a href="/ios/basics/architecture-brightcove-player-sdk-ios.html">建築</a></li>
+                        
+                        <li><a href="/ios/basics/ios-brightcove-registration.html">布萊特灣註冊</a></li>
+                        
+                        <li><a href="/ios/basics/ios-working-media-content.html">使用媒體內容</a></li>
+                        
+                        <li><a href="/ios/basics/understanding-events-native-sdk-ios.html">瞭解事件</a></li>
+                        
+                        <li><a href="/features/connected-tv-set-top-box-apps.html">連線電視應用程式</a></li>
+                        
+                        <li><a href="/ios/basics/training-demand-developing-brightcove-native-player-sdk-ios.html">原生 SDK 訓練影片</a></li>
+                        
+                        <li><a href="/tvos/basics/step-step-simple-tv-video-app-using-swift.html">逐步：簡單的電視視頻應用程序</a></li>
+                        
+                      </ul>
+                    </li>
+                  
+                
+                  
+                    <li class="submenu-header">
+                      <a href="/tvos/advertising/index.html">廣告<strong> + </strong></a>
+                      <ul class="sidenav-subsubmenu" style="display:none;">
+                        
+                        <li><a href="/features/implementing-client-side-ads-native-sdks.html">實作客戶端廣告 (CSAI) </a></li>
+                        
+                        <li><a href="/features/implementing-server-side-ads-native-player-sdks.html">實作伺服器端廣告 (SSAI) </a></li>
+                        
+                        <li><a href="/features/appending-ad-query-params-native-sdks.html">附加廣告查詢參數</a></li>
+                        
+                        <li><a href="/features/ima-open-measurement-native-sdks.html">IMA 開放測量</a></li>
+                        
+                      </ul>
+                    </li>
+                  
+                
+                  
+                    <li class="submenu-header">
+                      <a href="/tvos/analytics/index.html">分析<strong> + </strong></a>
+                      <ul class="sidenav-subsubmenu" style="display:none;">
+                        
+                        <li><a href="/ios/analytics/sending-brightcove-analytics-native-sdk-ios.html">發送布萊特灣分析</a></li>
+                        
+                        <li><a href="/features/viewing-brightcove-analytics-player-sdks.html">觀看布萊特灣分析</a></li>
+                        
+                      </ul>
+                    </li>
+                  
+                
+                  
+                    <li class="submenu-header">
+                      <a href="/tvos/captions/index.html">標題<strong> + </strong></a>
+                      <ul class="sidenav-subsubmenu" style="display:none;">
+                        
+                        <li><a href="/features/synchronizing-webvtt-captions.html">同步化網路 VTT 字幕</a></li>
+                        
+                      </ul>
+                    </li>
+                  
+                
+                  
+                    <li class="submenu-header">
+                      <a href="/tvos/content-protection/index.html">內容保護<strong> + </strong></a>
+                      <ul class="sidenav-subsubmenu" style="display:none;">
+                        
+                        <li><a href="/features/content-security-drm-native-player-sdks.html">內容安全性 (DRM) </a></li>
+                        
+                        <li><a href="/tvos/content-protection/adding-fairplay-protection-your-apple-tv-apps.html">蘋果電視</a></li>
+                        
+                      </ul>
+                    </li>
+                  
+                
+                  
+                    <li class="submenu-header">
+                      <a href="/tvos/framework/index.html">架構<strong> + </strong></a>
+                      <ul class="sidenav-subsubmenu" style="display:none;">
+                        
+                        <li><a href="/ios/framework/working-app-transport-security-ats.html">使用應用程式傳輸安全性 (ATS) </a></li>
+                        
+                      </ul>
+                    </li>
+                  
+                
+                  
+                    <li class="submenu-header">
+                      <a href="/tvos/live/index.html">即時<strong> + </strong></a>
+                      <ul class="sidenav-subsubmenu" style="display:none;">
+                        
+                        <li><a href="/features/using-live-ssai-native-sdks.html">使用即時 SAI </a></li>
+                        
+                        <li><a href="/features/using-player-enhancements-live-ssai-native-sdks.html">即時 SSAI 的玩家增強功能</a></li>
+                        
+                        <li><a href="/features/client-side-ads-with-live-ssai.html">使用即時 SSAI 的客戶端預先廣告</a></li>
+                        
+                      </ul>
+                    </li>
+                  
+                
+                  
+                    <li class="submenu-header">
+                      <a href="/tvos/playback/index.html">播放<strong> + </strong></a>
+                      <ul class="sidenav-subsubmenu" style="display:none;">
+                        
+                        <li><a href="/tvos/playback/apple-tv-ui-controls-native-sdk-tvos.html">蘋果電視界面控制</a></li>
+                        
+                        <li><a href="/features/localization-with-native-sdks.html">本地化播放程式</a></li>
+                        
+                        <li><a href="/ios/playback/ios-source-selection.html">來源選擇</a></li>
+                        
+                      </ul>
+                    </li>
+                  
+                
+                  
+                    <li class="submenu-header">
+                      <a href="/tvos/troubleshooting/index.html">疑難排解<strong> + </strong></a>
+                      <ul class="sidenav-subsubmenu" style="display:none;">
+                        
+                        <li><a href="/ios/troubleshooting/error-handling-native-sdk-ios.html">錯誤處理</a></li>
+                        
+                      </ul>
+                    </li>
+                  
+                
+                  
+                    <li class="submenu-header">
+                      <a href="/tvos/resources/index.html">資源<strong> + </strong></a>
+                      <ul class="sidenav-subsubmenu" style="display:none;">
+                        
+                        <li><a href="https://github.com/BrightcoveOS/ios-player-samples/tree/master/Player/AppleTV">蘋果電視基本樣本</a></li>
+                        
+                        <li><a href="https://github.com/BrightcoveOS/ios-player-samples/tree/master/SSAI/BasicSSAItvOSPlayer">蘋果電視</a></li>
+                        
+                        <li><a href="https://docs.brightcove.com/ios-sdk/index.html">適用於 iOS 的原生 SDK 參考</a></li>
+                        
+                        <li><a href="https://docs.brightcove.com/index.html">外掛程式參考</a></li>
+                        
+                        <li><a href="https://github.com/brightcove/brightcove-player-sdk-ios/blob/master/CHANGELOG.md">版本資訊</a></li>
+                        
+                        <li><a href="/tvos/resources/brightcove-player-sdk-tvos-previous-sdk-information.html">舊版本</a></li>
+                        
+                      </ul>
+                    </li>
+                  
+                
+              </ul>
+            
+          
+            
+              <h5 class="submenu-header"><a href="/developer-support/index.html">開發人員支援<strong> + </strong></a></h5>
+              <ul class="sidenav-submenu" style="display:none;">
+                
+                  
+                    <li class="submenu-header">
+                      <a href="/developer-support/announcements/index.html">公告<strong> + </strong></a>
+                      <ul class="sidenav-subsubmenu" style="display:none;">
+                        
+                        <li><a href="/developer-support/announcements/native-sdk-android-will-eol-support-exoplayer-1.html">安卓 SDK EOL 支持代理程序 1 </a></li>
+                        
+                        <li><a href="/developer-support/announcements/announcement-brightcove-sdk-android-version-support.html">安卓版本支援</a></li>
+                        
+                        <li><a href="/developer-support/announcements/apple-announces-new-app-submission-requirement.html">蘋果應用程式提交要求</a></li>
+                        
+                        <li><a href="/developer-support/announcements/native-sdk-ios-eol-support-iostvos-10.html">iOS 開發套件生命週期支援</a></li>
+                        
+                      </ul>
+                    </li>
+                  
+                
+                  
+                    <li class="submenu-header">
+                      <a href="/developer-support/questions/index.html">問題與問題<strong> + </strong></a>
+                      <ul class="sidenav-subsubmenu" style="display:none;">
+                        
+                        <li><a href="https://groups.google.com/forum/#!forum/brightcove-native-player-sdks">SDK 開發者論壇歸檔</a></li>
+                        
+                        <li><a href="/developer-support/questions/faq-brightcove-native-player-sdks.html">常見問題</a></li>
+                        
+                        <li><a href="/developer-support/questions/release-notes-brightcove-native-sdks.html">版本資訊</a></li>
+                        
+                        <li><a href="/developer-support/questions/known-issues-brightcove-native-player-sdks.html">已知問題</a></li>
+                        
+                        <li><a href="/developer-support/questions/report-issue-brightcove-native-sdks.html">報告問題</a></li>
+                        
+                      </ul>
+                    </li>
+                  
+                
+              </ul>
+            
+          
+            
+              <h5 class="submenu-header"><a href="/support/index.html">支援<strong> + </strong></a></h5>
+              <ul class="sidenav-submenu" style="display:none;">
+                
+                  
+                    <li><a href="/support/brightcove-answer.html">布萊特灣答案</a></li>
+                  
+                
+                  
+                    <li><a href="/support/viewing-brightcove-system-status-page.html">檢視布萊特灣系統狀態頁面</a></li>
+                  
+                
+                  
+                    <li><a href="/support/contact-sales.html">聯絡銷售人員</a></li>
+                  
+                
+                  
+                    <li><a href="/support/opening-case-with-brightcove-support.html">開啟支援案例</a></li>
+                  
+                
+              </ul>
+            
+          
+      </nav>
+    </div>
+    <div class="col-lg-7" style="background-color: white;color: #333333;margin-top: -1em;margin-bottom: -1em;padding-bottom:1em;">
+  <!-- bootstrap layout -->
+
+<p id="bc_veggie_burger_wrapper" style="display: none;"><img id="bc_veggie_burger" src="/assets/images/feather/menu.svg" alt="導覽功能表"/></p>
+
+<!-- search bar -->
+<div id="nav-search-box" style="margin-top: 1rem;"></div>
+<!-- in-page navigation for narrow screens -->
+<details class="centered-inpage-nav" id="centered_inpage_nav">
+  <summary><h6 class="toc">頁面內容</h6></summary>
+  <nav id="centered_toc"></nav>
+  <ul id="centered_in_page_toc" class="list-none"></ul>
+</details>
+<!-- open in new tab/window -->
+<a id="open_new_tab" href="#" target="_blank" style="display: none;"><img src="/assets/images/feather/external-link.svg" alt="在新分頁中開啟" style="margin-top:4em;width: 1.5em;"/></a>
+
+
+
+  
+    
+
+
+<h1>使用安卓版本原生 SDK 的程式碼片段</h1>
+<article class="bcls-article">
+  <summary>在本主題中，您會發現一個程式碼片段的集合，您可能會發現這些程式碼片段可以在開發 SDK 時作為參考。有關更多詳細的解決方案，請參見<a href="https://github.com/BrightcoveOS/android-player-samples">Android播放器樣本</a>。</summary>
+
+<section class="bcls-section">
+<h3 id="top">目錄</h3>
+<details style="padding:0;">
+    <summary>廣告</summary>
+    <ul>
+      <li><a href="#Preload_IMA_ads">預載IMA廣告</a></li>
+      <li><a href="#Seek_without_ads">尋求無廣告</a></li>
+    </ul>
+</details>
+<br/>
+
+<details style="padding:0;">
+    <summary>分析</summary>
+    <ul>
+      <li><a href="#Google_analytics">谷歌分析</a></li>
+    </ul>
+</details>
+<br/>
+
+<details style="padding:0;">
+    <summary>字幕</summary>
+    <ul>
+      <li><a href="#Setting_captions_and_themes">設置標題和主題</a></li>
+      <li><a href="#Setting_default_captions">設置默認字幕</a></li>
+    </ul>
+</details>
+<br/>
+
+<details style="padding:0;">
+    <summary>概念</summary>
+    <ul>
+      <li><a href="#Methods_synchronous_or_asynchronous">方法：同步還是異步？</a></li>
+    </ul>
+</details>
+<br/>
+
+<details style="padding:0;">
+    <summary>內容安全性 (DRM)</summary>
+    <ul>
+      <li><a href="#Manually_adding_DRM_content">手動添加DRM內容</a></li>
+    </ul>
+</details>
+<br/>
+
+<details style="padding:0;">
+    <summary>即時串流</summary>
+    <ul>
+      <li><a href="#Getting_duration_for_live_streams">獲取直播時間</a></li>
+    </ul>
+</details>
+<br/>
+
+<details style="padding:0;">
+    <summary>播放</summary>
+    <ul>
+      <li><a href="#Getting_the_ExoPlayer_instance">獲取ExoPlayer實例</a></li>
+      <li><a href="#Offline_playback_with_DRM">使用DRM離線播放</a></li>
+      <li><a href="#Paging_with_the_Playback_API">使用播放 API 進行分頁</a></li>
+      <li><a href="#Playing_local_videos">播放本地視頻</a></li>
+      <li><a href="#Setting_the_buffer_size">設置緩衝區大小</a></li>
+      <li><a href="#Setting_the_peak_bitrate">設置峰值比特率</a></li>
+      <li><a href="#Setting_the_playback_rate">設定播放速率</a></li>
+      <li><a href="#Setting_VR_Goggles_mode_for_360_videos">為 360° 影片設定 VR 護目鏡模式</a></li>
+      <li><a href="#Starting_playback_in_the_middle_of_a_video">在視頻中間開始播放</a></li>
+      <li><a href="#Swapping_videos">交換視頻</a></li>
+    </ul>
+</details>
+<br/>
+
+<details style="padding:0;">
+    <summary>播放器控制</summary>
+    <ul>
+      <li><a href="#Customizing_controls_for_Android_TV">自定義Android TV的控件</a></li>
+      <li><a href="#Fullscreen_mode">全屏模式</a></li>
+      <li><a href="#Mute_unmute_the_player">播放器靜音/取消靜音</a></li>
+      <li><a href="#Positioning_player_controls_on_the_bottom">將播放器控件定位在底部</a></li>
+      <li><a href="#Showing_player_controls">顯示播放器控件</a></li>
+      <!--				  <li><a href="#singleline">Showing single line controls</a></li>-->
+    </ul>
+</details>
+<br/>
+
+<details style="padding:0;">
+    <summary>播放清單</summary>
+    <ul>
+      <li><a href="#Switching_between_videos_in_a_playlist">在播放列表中的視頻之間切換</a></li>
+    </ul>
+</details>
+<br/>
+
+<details style="padding:0;">
+    <summary>視訊內容</summary>
+    <ul>
+      <li><a href="#Getting_URL_for_thumbnail_images">獲取縮略圖的URL</a></li>
+      <li><a href="#Loading_a_remote_video_and_poster_image">加載遠程視頻和海報圖像</a></li>
+      <li><a href="#Showing_hiding_video_still_images">顯示/隱藏視頻靜止圖像</a></li>
+    </ul>
+</details>
+<br/>
+</section>
+
+<section class="bcls-section">
+<h2 id="Customizing_controls_for_Android_TV">自定義Android TV的控件</h2>
+
+<p>您可以將按鈕添加到設備或Android TV的控制欄中。以下步驟將引導您向Android TV的控制欄中添加全屏按鈕：</p>
+
+<ol class="bcls-tasklist-restart">
+	<li>打開<a href="https://github.com/BrightcoveOS/android-player-samples/tree/master/brightcove-player-controls/CustomizedControlsSampleApp">定制控件</a>示例應用程序。我們將以此為起點。查看示例應用程序的<a href="https://github.com/BrightcoveOS/android-player-samples/blob/master/brightcove-player-controls/CustomizedControlsSampleApp/README.md">自述文件</a>文件以獲取有關自定義播放器控件的詳細信息。</li>
+	<li>打開<strong>RES /佈局/土地/my_media_controller.xml</strong> Android Studio中的文件。</li>
+	<li>複製<code translate="No">Button</code>的元素<code translate="No">full_screen</code>按鈕。該代碼應類似於以下內容：
+	<pre class="line-numbers">
+<code class="language-java" translate="No"><a href="https://github.com/BrightcoveOS/android-player-samples/blob/master/brightcove-player-controls/CustomizedControlsSampleApp/src/main/res/layout-land/my_media_controller.xml">&lt;Button
+style="@style/BorderlessButton"
+android:id="@id/full_screen"
+android:padding="4dp"
+android:layout_gravity="center_vertical"
+android:layout_height="wrap_content"
+android:layout_width="wrap_content"
+android:visibility="visible"
+android:text="@string/brightcove_controls_enter_full_screen"/&gt;</a></code></pre>
+	</li>
+	<li>打開<strong>RES /佈局/my_tv_media_controller.xml</strong> Android Studio中的文件。</li>
+	<li>粘貼複製的<code translate="No">Button</code>元素放入此佈局文件。元素的位置決定了它們在控制欄中的位置。</li>
+	<li>滾動到頂部<strong>RES /佈局/my_tv_media_controller.xml</strong>文件。確保將style屬性設置為<code translate="No">@style/BrightcoveControlBar.TV.Custom</code>。該代碼應如下所示：
+	<pre class="line-numbers">
+<code class="language-java" translate="No">&lt;?xml version="1.0" encoding="utf-8"?&gt;
+&lt;com.brightcove.player.mediacontroller.BrightcoveControlBar
+xmlns:android="http://schemas.android.com/apk/res/android"
+xmlns:bmc="http://schemas.android.com/apk/res-auto"
+xmlns:tools="http://schemas.android.com/tools"
+tools:ignore="Overdraw, InconsistentLayout"
+android:id="@+id/brightcove_control_bar"
+android:background="@color/bmc_background"
+android:layout_width="match_parent"
+android:layout_height="wrap_content"
+android:padding="8dp"
+
+android:orientation="horizontal"
+android:layout_gravity="bottom"
+<span class="bcls-highlight">    style="@style/BrightcoveControlBar.TV.Custom"&gt;</span></code></pre>
+	</li>
+	<li>打開<strong>res / values / styles.xml</strong> Android Studio中的文件。</li>
+	<li>到<code translate="No">style</code>帶一個元素<code translate="No">name</code>的價值<code translate="No">BrightcoveControlBar.TV.Custom</code>，添加一個<code translate="No">item</code>全屏按鈕的元素，並將其設置為<code translate="No">true</code>顯示它。
+	<pre class="line-numbers">
+<code class="language-java" translate="No"><a href="https://github.com/BrightcoveOS/android-player-samples/blob/master/brightcove-player-controls/CustomizedControlsSampleApp/src/main/res/values/styles.xml">&lt;style name="BrightcoveControlBar.TV.Custom"&gt;
+&lt;item name="brightcove_vr_mode"&gt;false&lt;/item&gt;
+<span class="bcls-highlight">  &lt;item name="brightcove_full_screen"&gt;true&lt;/item&gt;</span>
+&lt;/style&gt;</a></code></pre>
+	</li>
+	<li>就是這樣在Android TV物理或虛擬設備上運行示例應用程序。您應該在控制欄中看到全屏按鈕。
+	<figure class="bcls-figure"><img class="bcls-image--no-border" alt="「全螢幕」按鈕" src="//learning-services-media.brightcove.com/doc-assets/device-sdks/android/snippets/android_tv_fullscreen.png"/>
+	<figcaption class="bcls-caption--image">「全螢幕」按鈕</figcaption>
+	</figure>
+	</li>
+</ol>
+</section>
+
+<section class="bcls-section">
+<h2 id="Fullscreen_mode">全屏模式</h2>
+
+<p>您可以使用代碼來管理全屏模式。</p>
+
+<ul>
+	<li>
+	<p>這是設置全屏模式的代碼：</p>
+
+	<pre class="line-numbers">
+<code class="language-java" translate="No"><a href="https://docs.brightcove.com/android-sdk/javadoc/com/brightcove/player/event/EventType.html#ENTER_FULL_SCREEN">brightcoveVideoView.getEventEmitter().emit(EventType.ENTER_FULL_SCREEN);</a></code></pre>
+	</li>
+	<li>
+	<p>這是退出全屏模式的代碼：</p>
+
+	<pre class="line-numbers">
+<code class="language-java" translate="No"><a href="https://docs.brightcove.com/android-sdk/javadoc/com/brightcove/player/event/EventType.html#EXIT_FULL_SCREEN">brightcoveVideoView.getEventEmitter().emit(EventType.EXIT_FULL_SCREEN);</a></code></pre>
+	</li>
+</ul>
+</section>
+
+<section class="bcls-section">
+<h2 id="Getting_duration_for_live_streams">獲取直播時間</h2>
+
+<p>要獲取直播的時長，您可以使用<a href="https://docs.brightcove.com/android-sdk/javadoc/com/brightcove/player/event/Event.html#MAX_POSITION"><code translate="No">MAX_POSITION</code></a>。這樣可以為直播提供最大的搜索位置（即，您可以拖動滾動條最遠的位置）。你的代碼應該看起來像這樣：</p>
+
+<pre class="line-numbers">
+<code class="language-java" translate="No"><a href="https://docs.brightcove.com/android-sdk/javadoc/com/brightcove/player/event/Event.html#MAX_POSITION">brightcoveVideoView.getEventEmitter().on(EventType.PROGRESS, new EventListener() {
+  @Override
+  public void processEvent(Event event) {
+  int duration = (int) event.properties.get(Event.MAX_POSITION);
+  }
+});</a></code></pre>
+</section>
+
+<section class="bcls-section">
+<h2 id="Getting_the_ExoPlayer_instance">獲取ExoPlayer實例</h2>
+
+<p>有時候，您需要獲取ExoPlayer對象來修改通過Brightcove Native SDK無法公開的屬性。設置視頻後，將創建此對象的實例。因此，您需要等待<code translate="No">DID_SET_VIDEO</code>事件。</p>
+
+<p>您可以通過執行以下操作來獲取ExoPlayer實例：</p>
+
+<pre class="line-numbers">
+<code class="language-java" translate="No">// Get the ExoPlayer instance
+eventEmitter.on(EventType.DID_SET_VIDEO, new EventListener() {
+  @Override
+  public void processEvent(Event event) {
+    VideoDisplayComponent videoDisplayComponent = brightcoveVideoView.getVideoDisplay();
+    if (videoDisplayComponent instanceof ExoPlayerVideoDisplayComponent) {
+      // Get ExoPlayer
+      ExoPlayer exoPlayer = ((ExoPlayerVideoDisplayComponent) videoDisplayComponent).getExoPlayer();
+      if (exoPlayer instanceof SimpleExoPlayer) {
+        // Get SimpleExoPlayer
+        SimpleExoPlayer simpleExoPlayer = (SimpleExoPlayer) exoPlayer;
+        Log.v(TAG, "onDID_SET_VIDEO: ExoPlayer = " + simpleExoPlayer);
+      }
+    }
+  }
+});</code></pre>
+
+<p>有關修改示例<code translate="No">AudioAttribute</code> ExoPlayer的屬性，請參見<a href="https://groups.google.com/forum/#!topic/brightcove-native-player-sdks/-bbFKw3fOtk">在Exoplayer實例上設置AudioAttributes</a>論壇帖子。</p>
+</section>
+
+<section class="bcls-section">
+<h2 id="Getting_URL_for_thumbnail_images">獲取縮略圖的URL</h2>
+
+<p>您可能要使用Brightcove庫中的縮略圖或視頻靜止圖像。使用以下代碼獲取圖像的URL：</p>
+
+<p>對於使用Edge Catalog（com.brightcove.player.edge.Catalog）的Video Cloud客戶，您可以獲得以下縮略圖URL：</p>
+
+<pre class="line-numbers">
+<code class="language-java" translate="No"><a href="https://docs.brightcove.com/android-sdk/javadoc/com/brightcove/player/model/MetadataObject.html#getProperties()">String thumbnailUrl = video.getProperties().get("thumbnail").toString();</a></code></pre>
+
+<p>如果發現縮略圖圖像太小，則可以獲取視頻靜止圖像：</p>
+
+<pre class="line-numbers">
+<code class="language-java" translate="No"><a href="https://docs.brightcove.com/android-sdk/javadoc/com/brightcove/player/model/MetadataObject.html#getProperties()">String videoStillUrl = video.getProperties().get("stillImageUri").toString();</a></code></pre>
+</section>
+
+<section class="bcls-section">
+<h2 id="Google_analytics">谷歌分析</h2>
+
+<p>如果您使用 Brightcove 播放器和目錄類別，系統會自動收集影片分析，並顯示在您的視訊雲端分析模組中。對於其他指標，您可以將谷歌分析添加到您的應用程序。</p>
+
+<p>若要將 Google Analytics 與您的應用程式整合，請依照下列步驟操</p>
+
+<ol class="bcls-tasklist-restart">
+	<li>將Google Services插件添加到您的項目中。</li>
+	<li>獲取一個Google配置文件並將其添加到您的項目中。</li>
+	<li>擴展應用程序並提供返回您的應用程序跟踪器的幫助程序方法。它看起來應該類似於<a href="https://github.com/googlesamples/google-services/blob/master/android/analytics/app/src/main/java/com/google/samples/quickstart/analytics/AnalyticsApplication.java">google-Services AnalyticsApplication</a>。</li>
+	<li>在擴展BrightcovePlayer的單獨類中，獲取共享的跟踪器實例：
+	<pre class="line-numbers">
+<code class="language-java" translate="No"><a href="https://developers.google.com/analytics/devguides/collection/android/v4/#set-up-your-project">// Obtain the shared Tracker instance
+AnalyticsApplication application = (AnalyticsApplication) getApplication();
+tracker = application.getDefaultTracker();</a></code></pre>
+	</li>
+	<li>覆蓋適當的方法來記錄屏幕更改和/或發送自定義事件以進行跟踪。</li>
+</ol>
+
+<p>有關詳細步驟，請參閱Google的文檔以<a href="https://developers.google.com/analytics/devguides/collection/android/v4/#set-up-your-project">將分析添加到您的Android應用</a>。</p>
+</section>
+
+<section class="bcls-section">
+<h2 id="Loading_a_remote_video_and_poster_image">加載遠程視頻和海報圖像</h2>
+
+<p>僅Brightcove Player客戶使用來自遠程服務器的視頻資產。請按照以下步驟加載位於遠程服務器上的視頻和海報圖像：</p>
+
+<ol class="bcls-tasklist-restart">
+	<li>
+	<p>在裡面<code translate="No">onCreate()</code>方法，在定義視頻視圖後，從託管在遠程服務器上的視頻創建視頻對象。設定<code translate="No">DeliveryType</code>以符合您擁有的視訊類型。</p>
+
+	<pre class="line-numbers" data-start="26">
+<code class="language-java" translate="No">Video video = Video.createVideo("https://learning-services-media.brightcove.com/videos/hls/greatblueheron/greatblueheron.m3u8",
+  DeliveryType.HLS);</code></pre>
+	</li>
+	<li>
+	<p>在開始播放視訊之前，載入要做為海報影像的遠端影像。</p>
+
+	<pre class="line-numbers" data-start="29">
+<code class="language-java" translate="No">try {
+  java.net.URI myposterImage = new java.net.URI("https://solutions.brightcove.com/bcls/assets/images/Great-Blue-Heron.png");
+  video.getProperties().put(Video.Fields.STILL_IMAGE_URI, myposterImage);
+} catch (URISyntaxException e) {
+  e.printStackTrace();
+}</code></pre>
+	</li>
+	<li>
+	<p>將視頻添加到視圖並開始視頻播放。</p>
+
+	<pre class="line-numbers" data-start="37">
+<code class="language-java" translate="No">brightcoveVideoView.add(video);
+brightcoveVideoView.start();</code></pre>
+	</li>
+	<li>
+	<p>檢查以確保您的<code translate="No">onCreate()</code>方法顯示如下：</p>
+
+	<pre class="line-numbers" data-start="15">
+<code class="language-java" translate="No">@Override
+  protected void onCreate(Bundle savedInstanceState) {
+    super.onCreate(savedInstanceState);
+    setContentView(R.layout.activity_main);
+    brightcoveVideoView = (BrightcoveExoPlayerVideoView) findViewById(R.id.brightcove_video_view);
+
+    // Optional: For Brightcove Player customers to register their apps
+    Analytics analytics = brightcoveVideoView.getAnalytics();
+    analytics.setAccount("<span class="bcls-input">your account Id</span>");
+
+    // Define a video from a remote server
+    Video video = Video.createVideo("https://learning-services-media.brightcove.com/videos/hls/greatblueheron/greatblueheron.m3u8", DeliveryType.HLS);
+
+    // Load a remote poster image
+    try {
+        java.net.URI myposterImage = new java.net.URI("https://solutions.brightcove.com/bcls/assets/images/Great-Blue-Heron.png");
+        video.getProperties().put(Video.Fields.STILL_IMAGE_URI, myposterImage);
+    } catch (URISyntaxException e) {
+        e.printStackTrace();
+    }
+
+    // Add video to the view
+    brightcoveVideoView.add(video);
+    // Start video playback
+    brightcoveVideoView.start();
+  }</code></pre>
+	</li>
+</ol>
+</section>
+
+<section class="bcls-section">
+<h2 id="Manually_adding_DRM_content">手動添加DRM內容</h2>
+
+<p>作為Brightcove Player客戶，您可能希望使用自己服務器中受DRM保護的內容。您可以手動加載DRM內容，如下所示：</p>
+
+<pre class="line-numbers">
+<code class="language-java" translate="No"><a href="https://docs.brightcove.com/android-sdk/javadoc/com/brightcove/player/drm/WidevineMediaDrmCallback.html">import com.brightcove.player.display.WidevineMediaDrmCallback;
+
+Video video = Video.createVideo("https://storage.googleapis.com/wvmedia/cenc/h264/tears/tears.mpd");
+video.getProperties().put(WidevineMediaDrmCallback.DEFAULT_URL, "https://proxy.uat.widevine.com/proxy?video_id=&amp;provider=widevine_test");
+brightcoveVideoView.add(video);
+brightcoveVideoView.start();</a></code></pre>
+
+<aside class="bcls-aside bcls-aside--information">您無需在Brightcove庫中手動加載DRM內容。</aside>
+</section>
+
+<section class="bcls-section">
+<h2 id="Methods_synchronous_or_asynchronous">方法：同步還是異步？</h2>
+
+<p>以下是在Android的Native Player SDK中找到的一些異步方法：</p>
+
+<ul>
+	<li>的<a href="https://docs.brightcove.com/android-sdk/javadoc/com/brightcove/player/view/BaseVideoView.html#start()"><code translate="No">start()</code></a>，<a href="https://docs.brightcove.com/android-sdk/javadoc/com/brightcove/player/event/EventType.html#SEEK_TO"><code translate="No">seekTo()</code></a>和<a href="https://docs.brightcove.com/android-sdk/javadoc/com/brightcove/player/view/BaseVideoView.html#stopPlayback()"><code translate="No">stopPlayback()</code></a>方法是異步的，因為它們發出事件供系統中的其他組件處理。</li>
+	<li>的<a href="https://docs.brightcove.com/android-sdk/javadoc/com/brightcove/player/view/BaseVideoView.html#clear()"><code translate="No">clear()</code></a>方法相對於更新列表而言是同步的，但相對於卸載當前視頻而言則是異步的。</li>
+</ul>
+</section>
+
+<section class="bcls-section">
+<h2 id="Mute_unmute_the_player">播放器靜音/取消靜音</h2>
+
+<p>您可以通過編程方式使播放器靜音或取消靜音。Brightcove建議盡可能使用BrightcoveExoPlayerVideoView。</p>
+
+<aside class="bcls-aside bcls-aside--information">您需要等待<code translate="No">DID_SET_VIDEO</code>或者<code translate="No">DID_PLAY</code>執行代碼以使播放器靜音之前發生的事件。否則，靜音將不會生效。等待這些事件的原因是在視頻加載後創建了播放器。</aside>
+
+<h3 id="BrightcoveExoPlayerVideoView">光線外部圖層視訊檢視</h3>
+
+<p>使用時<a href="https://docs.brightcove.com/android-sdk/javadoc/com/brightcove/player/view/BrightcoveExoPlayerVideoView.html">BrightcoveExoPlayerVideoView</a>，您可以通過以下操作以編程方式使播放器靜音或取消靜音：</p>
+
+<pre class="line-numbers">
+<code class="language-java" translate="No"><a href="https://docs.brightcove.com/android-sdk/javadoc/com/brightcove/player/event/EventType.html#SET_VOLUME">float volume = 100F;
+...
+brightcoveVideoView.getEventEmitter().on(EventType.DID_SET_VIDEO, new EventListener() {
+  @Override
+  public void processEvent(Event event) {
+    setMute(true);
+    brightcoveVideoView.start();
+  }
+});
+...
+private void setMute(boolean mute) {
+  volume = mute ? 0F : 100F;
+  Map&lt;string, Object&gt; properties = new HashMap&lt;&gt;();
+  properties.put(Event.VOLUME, volume);
+  brightcoveVideoView.getEventEmitter().emit(EventType.SET_VOLUME, properties);
+}</a></code></pre>
+
+<h3 id="BrightcoveVideoView">BrightcoveVideoView</h3>
+
+<aside class="bcls-aside bcls-aside--warning">Brightcove建議使用BrightcoveExoPlayerVideoView。</aside>
+
+<p>如果您需要使用<a href="https://docs.brightcove.com/android-sdk/javadoc/com/brightcove/player/view/BrightcoveVideoView.html">BrightcoveVideoView</a>，它使用Android的<a href="https://developer.android.com/reference/android/media/MediaPlayer.html">媒體播放器</a>，您可以使用以下代碼以編程方式使播放器靜音或取消靜音：</p>
+
+<pre class="line-numbers">
+<code class="language-java" translate="No"><a href="https://docs.brightcove.com/android-sdk/javadoc/com/brightcove/player/event/EventType.html#SET_VOLUME">float volume = 1F;
+...
+brightcoveVideoView.getEventEmitter().on(EventType.DID_SET_VIDEO, new EventListener() {
+  @Override
+  public void processEvent(Event event) {
+    setMute(true);
+    brightcoveVideoView.start();
+  }
+});
+...
+private void setMute(boolean mute) {
+  volume = mute ? 0F : 1F;
+  Map&lt;String, Object&gt; properties = new HashMap&lt;&gt;();
+  properties.put(Event.LEFT_VOLUME, volume);
+  properties.put(Event.RIGHT_VOLUME, volume);
+  brightcoveVideoView.getEventEmitter().emit(EventType.SET_VOLUME, properties);
+}</a></code></pre>
+</section>
+
+<section class="bcls-section">
+<h2 id="Offline_playback_with_DRM">使用DRM離線播放</h2>
+
+<p>對於下載用於脫機播放的視頻，下載狀態也可以顯示在通知區域中。通知標題設定為影片標題。如果下載暫停或取消，則會移除通知。</p>
+
+<table class="bcls-table">
+	<caption class="bcls-caption--table">下載通知狀態</caption>
+	<thead class="bcls-table__head">
+		<tr>
+			<th>下載狀態</th>
+			<th>通知內容文字</th>
+			<th>通知圖標</th>
+		</tr>
+	</thead>
+	<tbody class="bcls-table__body">
+		<tr>
+			<td>正在下載</td>
+			<td><code translate="No">R.string.odrm_download_running</code> -默認情況下為“正在下載...”<br/><br/>將有一個進度條顯示完成百分比。</td>
+			<td>平台默認的動畫“下載”圖標- <code translate="No">android.R.drawable.stat_sys_download</code></td>
+		</tr>
+		<tr>
+			<td>再試一次</td>
+			<td><code translate="No">R.string.odrm_download_waiting_retry</code> -默認情況下，這是“等待重試...”</td>
+			<td>&nbsp;</td>
+		</tr>
+		<tr>
+			<td>已失敗</td>
+			<td><code translate="No">R.string.odrm_download_failed</code> -默認情況下為“失敗！”</td>
+			<td>&nbsp;</td>
+		</tr>
+		<tr>
+			<td>已完成</td>
+			<td><code translate="No">R.string.odrm_download_complete</code> -默認情況下為“已保存”</td>
+			<td>平台默認的靜態“已下載”圖標- <code translate="No">android.R.drawable.stat_sys_download_done</code></td>
+		</tr>
+	</tbody>
+</table>
+
+<p>對於“重試”或“失敗”的狀態，通知子文本將根據錯誤類型設置為適當的資源。這是完整列表：</p>
+
+<ul>
+	<li><code translate="No">R.string.odrm_error_none</code></li>
+	<li><code translate="No">R.string.odrm_error_cannot_resume</code></li>
+	<li><code translate="No">R.string.odrm_error_device_not_found</code></li>
+	<li><code translate="No">R.string.odrm_error_file_already_exists</code></li>
+	<li><code translate="No">R.string.odrm_error_file_error</code></li>
+	<li><code translate="No">R.string.odrm_error_http_data_error</code></li>
+	<li><code translate="No">R.string.odrm_error_insufficient_space</code></li>
+	<li><code translate="No">R.string.odrm_error_too_many_redirects</code></li>
+	<li><code translate="No">R.string.odrm_error_unhandled_http_code</code></li>
+	<li><code translate="No">R.string.odrm_error_unknown</code></li>
+</ul>
+</section>
+
+<section class="bcls-section">
+<h2 id="Paging_with_the_Playback_API">使用播放 API 進行分頁</h2>
+
+<p>從播放 API 擷取您的視訊雲端內容時，您可以為播放清單實作分頁。</p>
+
+<p>若要逐頁瀏覽播放清單中的一組影片，請使用下列要求 URL 參數：</p>
+
+<ul>
+	<li><code translate="No"><a href="https://apis.support.brightcove.com/playback/getting-started/overview-playback-api.html#playlistRequests">limit</a></code> -定義要從Playback API返回的視頻數</li>
+	<li><code translate="No"><a href="https://apis.support.brightcove.com/playback/getting-started/overview-playback-api.html#playlistRequests">offset</a></code> -設置要從Playback API播放列表中跳過的視頻數</li>
+</ul>
+
+<p>查詢參數將作為以下參數傳遞給Catalog方法<code translate="No">Map</code>對象，作為鍵值對。此範例會傳回以播放清單中第 10 個視訊開頭的 6 個視訊：</p>
+
+<pre class="line-numbers">
+<code class="language-java" translate="No"><a href="https://docs.brightcove.com/android-sdk/javadoc/com/brightcove/player/edge/Catalog.html">Map&lt;String, String&gt; queryParameters = new HashMap&lt;&gt;();
+queryParameters.put("limit", "6");
+queryParameters.put("offset", "9");
+
+Catalog catalog = new Catalog(eventEmitter, "myAccount", "myPolicy");
+catalog.findPlaylistByID("myPlaylistId", null, queryParameters, myListener);</a></code></pre>
+</section>
+
+<section class="bcls-section">
+<h2 id="Playing_local_videos">播放本機視訊</h2>
+
+<p>如果要播放本地存儲的MP4視頻，則應將其保存在應用程序資產文件夾中。</p>
+
+<pre class="line-numbers">
+<code class="language-java" translate="No"><a href="https://docs.brightcove.com/android-sdk/javadoc/com/brightcove/player/model/Video.html">Uri video = Uri.parse("file:///android_asset/path/to/video.mp4");
+brightcoveVideoView.add(Video.createVideo(video.toString()));
+brightcoveVideoView.start();</a></code></pre>
+
+<aside class="bcls-aside bcls-aside--information">如果嘗試播放存儲在應用程序資源文件夾（/ res / raw）中的MP4視頻，則可能會出現異常錯誤。</aside>
+</section>
+
+<section class="bcls-section">
+<h2 id="Positioning_player_controls_on_the_bottom">將播放器控件定位在底部</h2>
+
+<p>默認情況下，播放器控制欄位於視頻的正下方，如下所示：</p>
+
+<figure class="bcls-figure"><img class="bcls-image--no-border" alt="影片下的播放器控制項" src="//learning-services-media.brightcove.com/doc-assets/device-sdks/android/snippets/player-controls-video.png"/>
+<figcaption class="bcls-caption--image">影片下的播放器控制項</figcaption>
+</figure>
+
+<p>您也可以將播放器控制欄放置在視頻視圖的底部。因為控件是<code translate="No">BrightcoveVideoView</code>，將高度設置為<code translate="No">match_parent</code>，該視圖將覆蓋整個屏幕。當控件出現在視圖底部時，視頻將保留在視圖中間。</p>
+
+<figure class="bcls-figure"><img class="bcls-image--no-border" alt="播放器控制底部" src="//learning-services-media.brightcove.com/doc-assets/device-sdks/android/snippets/player-controls-bottom.png"/>
+<figcaption class="bcls-caption--image">播放器控制視頻視圖的底部</figcaption>
+</figure>
+
+<p>有兩種方法可以執行此操作。第一種方法如下：</p>
+
+<ol class="bcls-tasklist-restart">
+	<li>打開<strong>main / res / values / style.xml</strong>文件為您的項目。</li>
+	<li>
+	<p>添加以下XML代碼：</p>
+
+	<pre class="line-numbers">
+<code class="language-java" translate="No">&lt;style name="BrightcoveControlBar" parent="BrightcoveControlBarDefault"&gt;
+  &lt;item name="brightcove_align"&gt;false&lt;/item&gt;
+&lt;/style&gt;</code></pre>
+	</li>
+</ol>
+
+<p>或者，您可以在<strong>MainActivity.java</strong>文件如下：</p>
+
+<ol class="bcls-tasklist-restart">
+	<li>打開<strong>MainActivity.java</strong>文件為您的項目。</li>
+	<li>
+	<p>獲取事件發射器之後，如下所示：</p>
+
+	<pre>
+<code class="language-java" translate="No">EventEmitter eventEmitter = brightcoveVideoView.getEventEmitter();</code></pre>
+
+	<p>添加以下事件偵聽器和代碼。我們一直等到<code translate="No">DID_SET_VIDEO</code>事件，以確保已創建控制欄。</p>
+
+	<pre class="line-numbers">
+<code class="language-java" translate="No">eventEmitter.on(EventType.DID_SET_VIDEO, new EventListener() {
+  @Override
+  public void processEvent(Event event) {
+    BrightcoveControlBar brightcoveControlBar = brightcoveVideoView.getBrightcoveMediaController().getBrightcoveControlBar();
+    brightcoveControlBar.setAlign(false);
+    }
+});</code></pre>
+	</li>
+</ol>
+</section>
+
+<section class="bcls-section">
+<h2 id="Preload_IMA_ads">預載IMA廣告</h2>
+
+<p>要使用Android原生SDK和IMA插件預加載廣告，請使用<code translate="No">setEnablePreloading(true)</code>財產。</p>
+
+<aside class="bcls-aside bcls-aside--information">請注意，這僅適用於單個VAST預貼。</aside>
+
+<p>要使用此屬性，請按照下列步驟操作：</p>
+
+<ol class="bcls-tasklist-restart">
+	<li>
+	<p>起點是<a href="https://github.com/BrightcoveOS/android-player-samples/tree/master/brightcove-exoplayer/AdRulesIMASampleApp">IMA示例應用</a>。</p>
+	</li>
+	<li>
+	<p>找到<code translate="No">private void setupGoogleIMA()</code>功能。</p>
+	</li>
+	<li>
+	<p>在功能的最後代碼行之前添加代碼段代碼塊。</p>
+
+	<pre class="line-numbers" data-start="1">
+<code class="language-java" translate="No">ImaSdkSettings imaSdkSettings = sdkFactory.createImaSdkSettings();
+AdsRenderingSettings adsRenderingSettings =
+ImaSdkFactory.getInstance().createAdsRenderingSettings();
+adsRenderingSettings.setEnablePreloading(true);</code></pre>
+	</li>
+	<li>
+	<p>添加<code translate="No">adsRenderingSettings</code>最後一行代碼的參數。</p>
+
+	<pre>
+<code class="language-java" translate="No">googleIMAComponent = new GoogleIMAComponent(brightcoveVideoView, eventEmitter, true, adsRenderingSettings);</code></pre>
+	</li>
+</ol>
+
+<h2 id="Seek_without_ads">搜尋沒有廣告</h2>
+
+<p>您可以使用<code translate="No">adsDisabled</code>的財產<code translate="No">VideoPlaybackController</code>在搜索視頻時禁用廣告播放。</p>
+
+<aside class="bcls-aside bcls-aside--tip">
+  此功能適用於所有Brightcove廣告插件，包括SSAI和CSAI插件。有關插件的詳細信息，請參見<a href="https://sdks.support.brightcove.com/android/basics/overview-brightcove-player-sdk-android.html#Integrations">適用於Android集成的本機SDK</a>部分。
+</aside>
+<!-- <aside class="bcls-aside bcls-aside--information">
+<ul>
+	<li>As of the Native SDK for Android v4.10.0, this feature is also supported with the FreeWheel plugin.</li>
+</ul>
+</aside> -->
+
+<p>要使用此功能，請按照下列步驟操作：</p>
+
+<ol class="bcls-tasklist-restart">
+	<li>
+	<p>得到<code translate="No">VideoPlaybackController</code>來自的實例<code translate="No">BrightcoveVideoView</code>。</p>
+
+	<pre class="line-numbers" data-start="1">
+<code class="language-java" translate="No">VideoPlaybackController playbackController = brightcoveVideoView.getPlaybackController();</code></pre>
+	</li>
+	<li>
+	<p>禁用廣告播放。</p>
+
+	<pre class="line-numbers" data-start="1">
+<code class="language-java" translate="No">playbackController.setAdsDisabled(true);</code></pre>
+	</li>
+	<li>在當前視頻中尋找所需的時間位置。</li>
+	<li>
+	<p>恢復正常的廣告行為。</p>
+
+	<pre class="line-numbers" data-start="1">
+<code class="language-java" translate="No">playbackController.setAdsDisabled(false);</code></pre>
+	</li>
+</ol>
+
+<p>您的代碼應如下所示：</p>
+
+<pre class="line-numbers" data-start="1">
+<code class="language-java" translate="No">final VideoPlaybackController playbackController = brightcoveVideoView.getPlaybackController();
+eventEmitter.on(EventType.VIDEO_DURATION_CHANGED, new EventListener() {
+  @Override
+  public void processEvent(final Event event) {
+    playbackController.setAdsDisabled(true);
+    brightcoveVideoView.seekTo(10000);
+  }
+});
+
+eventEmitter.on(EventType.DID_SEEK_TO, new EventListener() {
+  @Override
+  public void processEvent(final Event event) {
+    playbackController.setAdsDisabled(false);
+  }
+});</code></pre>
+</section>
+
+<section class="bcls-section">
+<h2 id="Setting_the_buffer_size">設置緩衝區大小</h2>
+
+<p>如果下一段的傳送比CDN延遲，您可以考慮增加緩衝區長度以消除播放器中的緩衝。但是，您可能無法手動完成HLS已經完成的任何操作。</p>
+
+<p>HLS旨在立即播放並在無法跟上時降低音質。這樣，它不需要預加載緩衝區。如果無法跟上，它將以最佳質量加載盡可能多的視頻，以防止中斷。</p>
+
+<p>從適用於Android的本地SDK v6.3.1開始，以下類已添加到SDK中以用於ExoPlayer 2實施：</p>
+
+<ul>
+	<li><code translate="No">LoadControlConfig</code></li>
+	<li><code translate="No">AllocatorConfig</code></li>
+</ul>
+
+<p>這些類中設置的值用於創建ExoPlayer <code translate="No">DefaultLoadControl</code>對象，用於創建ExoPlayer實例。開發人員可以按以下方式控制緩衝區大小：</p>
+
+<ol class="bcls-tasklist-restart">
+	<li>
+	<p>的<code translate="No">LoadControlConfig</code>和<code translate="No">AllocatorConfig</code>類遵循Builder模式。您可以在兩個類中設置的值反映您可以在其構造函數中設置的值。</p>
+
+	<pre class="line-numbers">
+<code class="language-java" translate="No">AllocatorConfig allocatorConfig = new AllocatorConfig.Builder().build();
+LoadControlConfig loadControlConfig = new LoadControlConfig.Builder()
+.setAllocatorConfig(allocatorConfig)
+.setMinBufferMs(X)
+.setMaxBufferMs(Y)
+.build();</code></pre>
+	</li>
+	<li>
+	<p>在構建器中未設置的值將使用默認值。使用<code translate="No">ExoPlayerVideoDisplayerComponent.setLoadControlConfig()</code>設置方法<code translate="No">LoadControlConfig</code>。</p>
+
+	<pre class="line-numbers">
+<code class="language-java" translate="No">brightcoveVideoView = (BrightcoveExoPlayerVideoView) findViewById(R.id.brightcove_video_view);
+...
+ExoPlayerVideoDisplayComponent dc = (ExoPlayerVideoDisplayComponent) brightcoveVideoView.getVideoDisplay();
+dc.setLoadControlConfig(loadControlConfig);</code></pre>
+	</li>
+</ol>
+<!-- <p>That being said, if you are using the ExoPlayer 1 implementation, you can control the following:</p>
+
+<aside class="bcls-aside bcls-aside--warning">The following methods are only available with the ExoPlayer 1 implementation. These methods are deprecated with the ExoPlayer 2 implementation. For details, see the <a href="https://docs.brightcove.com/android-sdk/javadoc/com/brightcove/player/display/ExoPlayerVideoDisplayComponent.html">ExoPlayerVideoDisplayComponent class</a> reference.</aside>
+
+<ul>
+<li><a href="https://docs.brightcove.com/android-sdk/javadoc/com/brightcove/player/display/ExoPlayerVideoDisplayComponent.html"><code translate="No">minBufferDurationToSwitchUp</code></a></li>
+<li><a href="https://docs.brightcove.com/android-sdk/javadoc/com/brightcove/player/display/ExoPlayerVideoDisplayComponent.html"><code translate="No">maxBufferDurationToSwitchDown</code></a></li>
+<li><a href="https://docs.brightcove.com/android-sdk/javadoc/com/brightcove/player/display/ExoPlayerVideoDisplayComponent.html"><code translate="No">minBufferMs</code></a></li>
+<li><a href="https://docs.brightcove.com/android-sdk/javadoc/com/brightcove/player/display/ExoPlayerVideoDisplayComponent.html"><code translate="No">minRebufferMs</code></a></li>
+</ul>
+
+<p>For example, if you want to set the buffer length to 120 seconds, you could set <code translate="No">minBufferMs</code> to <code translate="No">120 * 1000</code>.</p> --></section>
+
+<section class="bcls-section">
+<h2 id="Setting_captions_and_themes">設置標題和主題</h2>
+
+<p>目前，<a href="https://docs.brightcove.com/android-sdk/javadoc/com/brightcove/player/captioning/BrightcoveCaptionPropertiesActivity.html"><code translate="No">BrightcoveCaptionPropertiesActivity</code></a>是在Brightcove Player SDK的清單文件中設置的，因此開發人員無需在其應用程序中指定它：</p>
+
+<pre class="line-numbers">
+<code class="language-xml" translate="No"><a href="https://docs.brightcove.com/android-sdk/javadoc/com/brightcove/player/captioning/BrightcoveCaptionPropertiesActivity.html">&lt;?xml version="1.0" encoding="utf-8"?&gt;
+&lt;manifest
+xmlns:android="http://schemas.android.com/apk/res/android"
+package="com.brightcove.player"
+android:versionCode="1"
+android:versionName="1.0"&gt;
+
+&lt;application&gt;
+&lt;!-- If we don't register this Activity in the Manifest, apps using the SDK will crash when they try to access it. --&gt;
+&lt;!-- During the app's build process, this manifest will be merged with the app-level one. --&gt;
+<span class="bcls-highlight">&lt;activity android:name="com.brightcove.player.captioning.BrightcoveCaptionPropertiesActivity"/&gt;</span>
+&lt;/application&gt;
+&lt;/manifest&gt;</a></code></pre>
+
+<p>的<a href="https://docs.brightcove.com/android-sdk/javadoc/com/brightcove/player/captioning/BrightcoveCaptionPropertiesActivity.html"><code translate="No">BrightcoveCaptionPropertiesActivity</code></a>只要您在設置應用的主題，它將繼承平台默認主題。<code translate="No">&lt;activity&gt;</code>應用清單中的級別。</p>
+
+<p>如果您在<code translate="No">&lt;application&gt;</code>水平，然後<a href="https://docs.brightcove.com/android-sdk/javadoc/com/brightcove/player/captioning/BrightcoveCaptionPropertiesActivity.html"><code translate="No">BrightcoveCaptionPropertiesActivity</code></a>將繼承此應用程序級主題的屬性。對於某些主題，這可能導致該活動的樣式看起來奇怪甚至難以辨認。</p>
+
+<p>在這種情況下，您應指定<a href="https://docs.brightcove.com/android-sdk/javadoc/com/brightcove/player/captioning/BrightcoveCaptionPropertiesActivity.html"><code translate="No">BrightcoveCaptionPropertiesActivity</code></a>在您自己的清單中並在其中應用主題，如下所示：</p>
+
+<pre class="line-numbers">
+<code class="language-xml" translate="No"><a href="https://docs.brightcove.com/android-sdk/javadoc/com/brightcove/player/captioning/BrightcoveCaptionPropertiesActivity.html">&lt;activity
+<span class="bcls-highlight">android:name="com.brightcove.player.captioning.BrightcoveCaptionPropertiesActivity"</span>
+android:theme="@style/MyCustomCaptionSettingsTheme"/&gt;</a></code></pre>
+</section>
+
+<section class="bcls-section">
+<h2 id="Setting_default_captions">設置默認字幕</h2>
+
+<p>如果您的視頻使用多種語言字幕，則可以在播放開始時以編程方式設置默認語言。你的代碼應該看起來像這樣：</p>
+
+<pre class="line-numbers">
+<code class="language-java" translate="No"><a href="https://docs.brightcove.com/android-sdk/javadoc/com/brightcove/player/view/BaseVideoView.html#setSubtitleLocale(java.lang.String)">brightcoveVideoView.getEventEmitter().once(EventType.CAPTIONS_LANGUAGES, new EventListener() {
+  @Override
+  public void processEvent(Event event) {
+    brightcoveVideoView.setClosedCaptioningEnabled(true);
+    brightcoveVideoView.setSubtitleLocale("fr");
+  }
+});</a></code></pre>
+</section>
+
+<section class="bcls-section">
+<h2 id="Setting_the_peak_bitrate">設置峰值比特率</h2>
+
+<p>為了幫助您在播放器中實現比特率選擇器，可以使用以下代碼設置峰值比特率：</p>
+
+<pre class="line-numbers">
+<code class="language-java" translate="No"><a href="https://docs.brightcove.com/android-sdk/javadoc/com/brightcove/player/display/ExoPlayerVideoDisplayComponent.html#setPeakBitrate-int-">((ExoPlayerVideoDisplayComponent) videoView.getVideoDisplay()).setPeakBitrate(bitRate);</a></code></pre>
+</section>
+
+<section class="bcls-section">
+<h2 id="Setting_the_playback_rate">設定播放速率</h2>
+
+<p>ExoPlayer支持調整在Android設備上播放的視頻的播放速度。有關詳細信息，請參見Google的<a href="https://medium.com/google-exoplayer/variable-speed-playback-with-exoplayer-e6e6a71e0343">使用ExoPlayer進行變速播放</a>文件。</p>
+
+<p>您可以使用以下代碼控製播放速度：</p>
+
+<pre class="line-numbers">
+<code class="language-java" translate="No">eventEmitter.on(EventType.DID_PLAY, new EventListener() {
+  @Override
+  public void processEvent(Event event) {
+
+    //Get instance of ExoPlayer2
+    ExoPlayerVideoDisplayComponent displayComponent = (ExoPlayerVideoDisplayComponent) brightcoveVideoView.getVideoDisplay();
+    ExoPlayer exoPlayer = displayComponent.getExoPlayer();
+
+    //Set playback speed
+    PlaybackParameters param = new PlaybackParameters(1.6f, 1.0f);
+    exoPlayer.setPlaybackParameters(param);
+  }
+});</code></pre>
+<aside class="bcls-aside bcls-aside--information">有關為播放速率創建控制按鈕的詳細信息，請參見<a href="https://github.com/BrightcoveOS/android-player-samples/tree/master/brightcove-player-controls/CustomizedControlsSampleApp">定制控件示例應用</a>。</aside>
+</section>
+
+<section class="bcls-section">
+<h2 id="Setting_VR_Goggles_mode_for_360_videos">為 360° 影片設定 VR 護目鏡模式</h2>
+
+<p>播放 360° 影片時，使用者可以選擇控制列上的 360 視訊按鈕，切換至 VR 護目鏡模式。如果您正在使用<code translate="No">BrightcovePlayer</code>要么<code translate="No">BrightcovePlayerFragment</code>活動，則在啟用VR護目鏡模式後，屏幕方向將變為橫向。</p>
+
+<p>如果您使用的是自定義活動，則需要添加以下內容：</p>
+
+<pre class="line-numbers">
+<code class="language-java" translate="No"><a href="https://docs.brightcove.com/android-sdk/javadoc/com/brightcove/player/event/Event.html#REQUESTED_ORIENTATION">brightcoveVideoView.getEventEmitter().on(EventType.CHANGE_ORIENTATION, new EventListener() {
+  @Override
+  public void processEvent(Event event) {
+    int orientation = event.getIntegerProperty(Event.REQUESTED_ORIENTATION);
+    setRequestedOrientation(orientation);
+  }
+});</a></code></pre>
+
+<aside class="bcls-aside bcls-aside--information">在包含以上代碼的方法中，您必須添加<code translate="No">@SuppressWarnings("ResourceType")</code>的方法。</aside>
+</section>
+
+<section class="bcls-section">
+<h2 id="Showing_hiding_video_still_images">顯示/隱藏視頻靜止圖像</h2>
+
+<p>從“視頻雲”庫中檢索視頻時，默認行為是顯示視頻靜止圖像，直到開始播放為止。</p>
+
+<h3>顯示視頻靜止圖像</h3>
+
+<p>您可以隨時通過發出<a href="https://docs.brightcove.com/android-sdk/javadoc/com/brightcove/player/event/EventType.html#SET_VIDEO_STILL"><code translate="No">SET_VIDEO_STILL</code></a>一個事件<a href="https://docs.brightcove.com/android-sdk/javadoc/com/brightcove/player/event/Event.html#VIDEO_STILL"><code translate="No">VIDEO_STILL</code></a>屬性設置為視頻靜態URI。</p>
+<!-- <p>Hiding should happen automatically whenever a <a href="https://docs.brightcove.com/android-sdk/javadoc/com/brightcove/player/event/EventType.html#CUE_POINT"><code translate="No">CUE_POINT</code></a>, <a href="https://docs.brightcove.com/android-sdk/javadoc/com/brightcove/player/event/EventType.html#DID_PLAY"><code translate="No">DID_PLAY</code></a>, <a href="https://docs.brightcove.com/android-sdk/javadoc/com/brightcove/player/event/EventType.html#DID_SEEK_TO"><code translate="No">DID_SEEK_TO</code></a>, <a href="https://docs.brightcove.com/android-sdk/javadoc/com/brightcove/player/event/EventType.html#WILL_INTERRUPT_CONTENT"><code translate="No">WILL_INTERRUPT_CONTENT</code></a>, <a href="https://docs.brightcove.com/android-sdk/javadoc/com/brightcove/player/event/EventType.html#ACTIVITY_STOPPED"><code translate="No">ACTIVITY_STOPPED</code></a>, or <a href="https://docs.brightcove.com/android-sdk/javadoc/com/brightcove/player/event/EventType.html#FRAGMENT_STOPPED"><code translate="No">FRAGMENT_STOPPED</code></a> event occurs.</p> --><!-- <p>In general, we try to promote doing things via events, rather than direct method calls.</p>  -->
+
+<h3>隱藏視頻靜止圖像</h3>
+
+<p>如果要自動播放視頻，則可能要隱藏視頻靜止圖像。為此，您可以收聽<code translate="No">SET_VIDEO_STILL</code>事件並阻止默認行為，如下所示：</p>
+
+<pre class="line-numbers">
+<code class="language-java" translate="No"><a href="https://docs.brightcove.com/android-sdk/javadoc/com/brightcove/player/view/BaseVideoView.html#seekTo(int)">brightcoveVideoView.getEventEmitter().on(EventType.SET_VIDEO_STILL, new EventListener() {
+  @Override
+  public void processEvent(Event event) {
+    event.preventDefault();
+    event.stopPropagation();
+  }
+});</a></code></pre>
+</section>
+
+<section class="bcls-section">
+<h2 id="Showing_player_controls">顯示播放器控件</h2>
+
+<p>默認情況下，播放器控件將在幾秒鐘後消失。用戶可以通過點擊視頻來顯示控件。</p>
+
+<p>如果您希望播放器控件在用戶點擊視頻之前一直保持顯示狀態，則可以按以下方式禁用自動隱藏功能：（突出顯示所需的代碼）</p>
+
+<pre class="line-numbers">
+<code class="language-java" translate="No"><a href="https://docs.brightcove.com/android-sdk/javadoc/com/brightcove/player/mediacontroller/BrightcoveMediaController.html">public class MainActivity extends BrightcovePlayer {
+  <span class="bcls-highlight">private BrightcoveMediaController controller;</span>
+
+  @Override
+  protected void onCreate(Bundle savedInstanceState) {
+    setContentView(R.layout.activity_main);
+    brightcoveVideoView = (BrightcoveExoPlayerVideoView) findViewById(R.id.brightcove_video_view);
+
+<span class="bcls-highlight">    controller = new BrightcoveMediaController(brightcoveVideoView);
+    controller.setShowHideTimeout(0);</span>
+
+    super.onCreate(savedInstanceState);</a></code></pre>
+</section>
+
+<section class="bcls-section">
+<h2 id="Starting_playback_in_the_middle_of_a_video">在視頻中間開始播放</h2>
+
+<p>有時，您可能需要從視頻中間的某個地方開始播放。為此，您可以致電<a href="https://docs.brightcove.com/android-sdk/javadoc/com/brightcove/player/view/BaseVideoView.html#seekTo(int)"><code translate="No">BrightCoveVideoView.seekTo()</code></a>開始播放之前。</p>
+
+<pre class="line-numbers">
+<code class="language-java" translate="No"><a href="https://docs.brightcove.com/android-sdk/javadoc/com/brightcove/player/view/BaseVideoView.html#seekTo(int)">catalog.findVideoByID(getString(R.string.videoId), new VideoListener() {
+  @Override
+  public void onVideo(Video video) {
+    Log.v(TAG, "onVideo: video = " + video);
+
+    brightcoveVideoView.getEventEmitter().on(EventType.DID_SET_VIDEO, new EventListener() {
+    @Override
+      public void processEvent(Event event) {
+      brightcoveVideoView.seekTo(60000);
+      brightcoveVideoView.start();
+      }
+    });
+  brightcoveVideoView.add(video);
+  brightcoveVideoView.pause();
+  }
+});</a></code></pre>
+</section>
+<!--
+											<div id="singleline" class="section">
+													<h2>Showing single line controls</h2>
+													<p>By default, the player controls will appear as a single line in landscape mode and appear stacked in portrait mode. You can override this behavior and display player controls as a single line in portrait mode.</p>
+													<p>Follow these steps:</p>
+													<ul>
+															<li></li>
+													</ul>
+
+													<p><a href="https://docs.brightcove.com/android-sdk/javadoc/com/brightcove/player/view/BaseVideoView.html#setSubtitleLocale(java.lang.String)"><code data-gist-id="ac85a1305f851b406dde" data-gist-hide-footer="true" data-gist-line="115-121"></code></a></p>
+											</div>
+					-->
+
+<section class="bcls-section">
+<h2 id="Swapping_videos">交換視頻</h2>
+
+<p>此示例顯示了一種在播放器中交換視頻的方法。</p>
+
+<h3>使用單個視頻</h3>
+
+<p>自從<a href="https://docs.brightcove.com/android-sdk/javadoc/com/brightcove/player/view/BaseVideoView.html#clear()"><code translate="No">clear()</code></a>卸載當前視頻時，該方法是異步的，您需要等待，然後才能將新視頻添加到播放器。這是兩個選擇。</p>
+
+<ul>
+	<li>
+	<p>由於從Video Cloud獲取視頻的時間應該比更新播放列表的時間相形見,，因此您可以嘗試執行以下操作：</p>
+
+	<pre class="line-numbers">
+<code class="language-java" translate="No"><a href="https://docs.brightcove.com/android-sdk/javadoc/com/brightcove/player/view/BrightcoveVideoView.html">brightcoveVideoView.clear();
+
+catalog.findVideoByID("123456789", new VideoListener() {
+  @Override
+  public void onVideo(final Video video) {
+    brightcoveVideoView.add(video);
+    brightcoveVideoView.start();
+
+  }
+});</a></code></pre>
+	</li>
+	<li>
+	<p>另一種方法是等待事件：</p>
+
+	<pre class="line-numbers">
+<code class="language-java" translate="No"><a href="https://docs.brightcove.com/android-sdk/javadoc/com/brightcove/player/event/EventType.html#DID_CHANGE_LIST">catalog.findVideoByID("", new VideoListener() {
+@Override
+  public void onVideo(final Video video) {
+    eventEmitter.once(EventType.DID_CHANGE_LIST, new EventListener() {
+    @Override
+    public void processEvent(Event event)
+    	{ brightcoveVideoView.add(video); brightcoveVideoView.start(); }
+  });
+  brightcoveVideoView.clear();
+  }
+});</a></code></pre>
+	</li>
+</ul>
+
+<h3>使用播放清單</h3>
+
+<p>如果您使用的是播放列表，請記住，<a href="https://docs.brightcove.com/android-sdk/javadoc/com/brightcove/player/view/BaseVideoView.html#clear()"><code translate="No">clear()</code></a>方法刪除播放列表中的所有元素。因此，您可能會得到<code translate="No">IndexOutOfBounds</code>嘗試跳到播放列表中的第一個視頻時發生異常。</p>
+
+<p>相反，您可以嘗試如下操作：</p>
+
+<pre class="line-numbers">
+<code class="language-java" translate="No"><a href="https://docs.brightcove.com/android-sdk/javadoc/com/brightcove/player/view/BrightcoveVideoView.html">brightcoveVideoView.pause();
+brightcoveVideoView.stopPlayback();
+brightcoveVideoView.setCurrentIndex(0);</a></code></pre>
+</section>
+
+<section class="bcls-section">
+<h2 id="Switching_between_videos_in_a_playlist">在播放列表中的視頻之間切換</h2>
+
+<p>如果使用播放列表，則可以使用以下代碼在播放列表中的視頻之間切換：</p>
+
+<pre class="line-numbers">
+<code class="language-java" translate="No"><a href="https://docs.brightcove.com/android-sdk/javadoc/com/brightcove/player/model/Playlist.html">private void setupControls(List&lt;Video&gt; videos) {
+  previousVideoButton = (Button) findViewById(R.id.previous_video_button);
+  nextVideoButton = (Button) findViewById(R.id.next_video_button);
+
+  if (videos != null) {
+    previousVideoButton.setEnabled(false);
+    previousVideoButton.setOnClickListener(new View.OnClickListener() {
+    public void onClick(View view) {
+    int index = brightcoveVideoView.getCurrentIndex();
+    int size = brightcoveVideoView.getList().size();
+    previousVideoButton.setEnabled(index &gt; 1);
+    nextVideoButton.setEnabled((index + 1) &lt; size);
+
+    if (index &gt; 0) {
+    brightcoveVideoView.setCurrentIndex(index - 1);
+    }
+  }
+});
+
+nextVideoButton.setEnabled(videos.size() &gt; 1);
+nextVideoButton.setOnClickListener(new View.OnClickListener() {
+  public void onClick(View view) {
+    int index = brightcoveVideoView.getCurrentIndex();
+    int size = brightcoveVideoView.getList().size();
+    previousVideoButton.setEnabled(index &gt;= 0);
+    nextVideoButton.setEnabled((index + 2) &lt; size);
+
+    if ((index + 1) &lt; size) {
+    	brightcoveVideoView.setCurrentIndex(index + 1);
+    }
+  }
+});
+}
+}</a></code></pre>
+</section>
+</article>
+
+<!-- complete bootstrap layout -->
+    </div>
+    <div class="col-sm-2 right-side-bar">
+      
+      <nav class="right-side-nav" id="right_side_nav">
+        <h6 class="toc">頁面內容</h6>
+        <ul id="in_page_nav" class="list-none"></ul>
+      </nav>
+      
+    </div>
+  </div>
+</div>
+
+<hr>
+<div class="last-updated">
+  頁面最後更新於2020年10月1日
+</div>
+
+
+
+<footer class="bcls-footer" role="contentinfo">
+  <div class="row">
+    <div class="region region-footer-top-center col-md-12">
+      <nav role="navigation" aria-labelledby="block-brightcovesupport-menu" id="block-brightcovesupport" class="footer-menu">
+
+        <h2>布萊特灣支援</h2>
+
+        <ul class="menu">
+          <li>
+            <a href="https://status.brightcove.com">系統狀態</a>
+          </li>
+          <li>
+            <a href="https://supportportal.brightcove.com/s/login/?">聯絡支援</a>
+          </li>
+          <li>
+            <a href="https://support.brightcove.com/">文獻資料</a>
+          </li>
+        </ul>
+
+      </nav>
+      <nav role="navigation" aria-labelledby="block-training-menu" id="block-training" class="footer-menu">
+
+        <h2>訓練</h2>
+
+        <ul class="menu">
+          <li>
+            <a href="https://studio.support.brightcove.com/training/online-training-courses.html">線上課程</a>
+          </li>
+          <li>
+            <a href="https://studio.support.brightcove.com/training/register-training.html">註冊課程</a>
+          </li>
+          <li>
+            <a href="https://university.brightcove.com/">布萊特灣大學</a>
+          </li>
+        </ul>
+
+      </nav>
+      <nav role="navigation" aria-labelledby="block-brightcove-menu" class="footer-menu">
+
+        <h2>Brightcove</h2>
+
+        <ul class="menu">
+          <li>
+            <a href="https://www.brightcove.com">亮麗</a>
+          </li>
+          <li>
+            <a href="https://supportportal.brightcove.com/s/login/?">聯絡我們</a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </div>
+  <div class="row">
+    <div class="region region-footer-bottom-center col-md-12">
+      <div class="bcls-copyright footer-menu">
+        <table>
+          <tr>
+            <td>
+              <div id="bc_copyright" class="field field--name-field-copyright-year field--type-string field--label-hidden field--item" style="float: left;"> 布萊特灣公司版權所有</div>
+            </td>
+            <td><a href="https://www.brightcove.com/en/legal/privacy">私隱</a> | 條<a href="https://www.brightcove.com/en/terms-and-conditions">款及細則</a></td>
+            <td>
+              <div class="gf-links-cols footer-menu">
+                <div class="gf-social"><a href="https://www.linkedin.com/company/16439" title="LinkedIn" newtab="newtab" class="gf-social-linkedin"><i class="fab fa-linkedin-in" style="font-size: 1.5rem;"></i></a><a href="https://twitter.com/brightcove" title="Twitter" newtab="newtab" class="gf-social-twitter"><i class="fab fa-twitter" style="font-size: 1.5rem;"></i></a><a href="https://www.facebook.com/Brightcove" title="Facebook" newtab="newtab" class="gf-social-facebook"><i class="fab fa-facebook-f" style="font-size: 1.5rem;"></i></a>
+                </div>
+              </div>
+            </td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </div>
+</footer>
+<div id="talla_wrapper">
+  <p style="text-align: right;position: relative;"><button style="background:rgb(2, 28, 146);color:Snow;padding:.3rem;position:fixed;right:0;bottom:1em;z-index:9999999" onclick="javascript:displayChat()">有問題嗎？ </button> </p>
+  <div id="talla_chat">
+</div>
+</div>
+<script>
+      
+  var searchBox = sajari.init({
+    mode: "search-box",
+    project: "1588255093746585379", // Set this to your project.
+    collection: "brightcove-documenation", // Set this to your collection.
+    instantPipeline: "autocomplete", // Pipeline used as you type
+    inputPlaceholder: "Search", // Input element placeholder
+    maxSuggestions: 5, // Maximum number of suggestions to show
+    attachSearchBox: document.getElementById("nav-search-box") // DOM element to attach to
+  });
+  
+    searchBox("sub", "pipeline.search-sent", function (_, query) {
+      window.location = "/search.html?q=" + encodeURIComponent(query.q);
+    });
+  
+
+</script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  <script src="https://support.brightcove.com/site-assets/js/site/https-fix.js"></script>
+  <script src="https://support.brightcove.com/site-assets/js/site/setDate.js"></script>
+  
+  <script src="https://support.brightcove.com/site-assets/js/site/prism.js"></script>
+  
+  <script src="https://support.brightcove.com/site-assets/js/site/site.js"></script>
+  <script src="https://support.brightcove.com/site-assets/js/site/tabs.js"></script>
+  <script src="https://support.brightcove.com/site-assets/js/site/toc.js"></script>
+  <script src="/assets/js/sites_nav.js"></script>
+  <script src="https://support.brightcove.com/site-assets/js/site/bcls-utils.js"></script>
+  <script src="https://support.brightcove.com/site-assets/js/site/local-link-fix.js"></script>
+  <script src="/assets/js/feedback.js"></script>
+  
+  <script src="/assets/js/sajari-search-foot.js"></script>
+  
+  <!-- <script src="/assets/js/sajari-index.js"></script> -->
+  <script src="https://assets.talla.com/latest/embeddedjs/talla.js"></script>
+  <script src="/assets/js/talla-init.js"></script>
+  <style>
+    a.sj-paginator__page-number.sj-paginator__page-number--current.css-so0ov7 {
+      background-color: lightblue;
+    }
+    div.sj-tabs__tab {
+      margin-top: 3rem;
+      margin-left: .3rem;
+      border-top-left-radius: .4rem;
+      border-top-right-radius: .4rem;
+      background-color:#e8e8e8;
+    }
+
+    div.sj-tabs__tab.sj-tabs__tab--selected {
+      border-bottom-color: crimson;
+      background-color: #f8f8f8;
+    }
+
+    p.sj-results__result__description.css-p9jvyt {
+      font-size: 1rem;
+    }
+
+    .sj-result__text.css-31l7gp h3 {
+      color: navy;
+      font-size: 1.4rem;
+    }
+    </style>
+
+</body>
+
+</html>

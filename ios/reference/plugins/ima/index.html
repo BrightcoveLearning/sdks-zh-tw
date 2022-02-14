@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+
+	<title>適用於 iOS 的 Brightcove Native Player 參考</title>
+
+	<link rel="stylesheet" href="css/style.css">
+	<meta name="viewport" content="initial-scale=1, maximum-scale=1.4">
+	<meta name="generator" content="appledoc 2.2.1 (build 1334)">
+</head>
+<body class="appledoc">
+	<header>
+		<div class="container" class="hide-in-xcode">
+			
+			<h1 id="library-title"><a href="index.html">適用於 iOS 的 Brightcove 原生播放器</a></h1>
+
+			<p id="developer-home">
+				<a href="index.html">亮灣</a>
+			</p>
+			
+		</div>
+	</header>
+
+	<aside>
+		<div class="container">
+			<nav>
+				<ul id="header-buttons" role="toolbar">
+					<li><a href="hierarchy.html">等級制度</a></li>
+				</ul>
+			</nav>
+		</div>
+	</aside>
+
+	<article>
+		<div id="overview-contents" class="container">
+			<div id="content">
+				<main role="main">
+					<h1 class="title">適用於 iOS 的 Brightcove Native Player 參考</h1>
+
+					
+					<div class="section section-overview index-overview">
+						
+						
+						<h1>適用於 iOS 版 Brightcove Player SDK 的 IMA 插件，版本 6.9.0.1697</h1><h1>要求</h1>
+
+<ul>
+<li>Xcode 11.0+</li>
+<li>弧</li>
+</ul>
+
+
+<h1>支持的平台</h1>
+
+<p>iOS 11.0 及更高版本。</p>
+
+<h1>安裝</h1>
+
+<p>Brightcove Player SDK 的 IMA 插件提供了一個用於安裝的動態庫框架。</p>
+
+<p>IMA 插件支持適用於 iOS 的 Google IMA SDK 3.12.1 版和適用於 tvOS 的 Google IMA SDK 4.3.2 版。</p>
+
+<h2>可可豆</h2>
+
+<p>您可以使用<a href="http://cocoapods.org">可可豆</a>將適用於 Brightcove Player SDK 的 IMA 插件添加到您的項目中。你可以找到最新的<code>Brightcove-播放器-IMA</code> podspec <a href="https://github.com/brightcove/BrightcoveSpecs/tree/master/Brightcove-Player-IMA">這裡</a> .pod 將自動合併正確版本的 IMA。需要 CocoaPods 1.0 或更新版本。</p>
+
+<p>CocoaPod Podfile 示例：</p>
+
+<pre><code>來源'https://github.com/brightcove/BrightcoveSpecs.git' 使用_框架！平台：ios，'11.0' 目標 'MyIMAPlayer' 做 pod 'Brightcove-Player-IMA' 結尾</code></pre>
+
+<p>從 IMA 3.4.1 版開始，AdMob 作為獨立的動態框架發布，不能再作為 Brightcove Native Player SDK 的 IMA 插件的一部分進行安裝。因此，不再有<code>廣告</code> podspec 的子規範。要使用 AdMob，請下載並手動將其添加到您的項目中，或添加<code>Google-Mobile-Ads-SDK</code> CocoaPod 到你的 Podfile：</p>
+
+<pre><code>pod 'Google-Mobile-Ads-SDK' </code></pre>
+
+<p>更新安裝時，它&rsquo;刷新 BrightcoveSpecs 存儲庫的本地副本是一個好主意，以便您在本地擁有最新的 podspec，就像更新 CococaPods 主存儲庫一樣。</p>
+
+<p>通常，如果您使用<code>豆莢更新</code>在終端中，這將自動發生，或者您可以使用<code>pod repo 更新 Brightcove</code> .（如果您明確將 BrightcoveSpecs 存儲庫添加到 podspecs 存儲庫列表中，則它可能具有不同的名稱。）</p>
+
+<h2>手動的</h2>
+
+<p>手動將適用於 Brightcove Player SDK 的 IMA 插件添加到您的項目中：</p>
+
+<ol>
+<li>下載<a href="https://github.com/brightcove/brightcove-player-sdk-ios/releases">Brightcove 播放器 SDK</a>框架。</li>
+<li>下載<a href="https://github.com/brightcove/brightcove-player-sdk-ios-ima/releases">Brightcove Player SDK 的 IMA 插件</a>框架。</li>
+<li>下載<a href="https://developers.google.com/interactive-media-ads/docs/sdks/ios/download">谷歌IMA</a>框架。</li>
+<li>在&ldquo;一般的&rdquo;應用程序目標的選項卡，添加<strong>動態的</strong>框架，BrightcovePlayerSDK.framework，從 Brightcove Player SDK 下載到列表<strong>框架、庫、嵌入式內容</strong> .動態框架 BrightcovePlayerSDK.framework 位於下載的 ios/dynamic 目錄中。</li>
+<li>在&ldquo;一般的&rdquo;應用程序目標的選項卡，將 BrightcoveIMA.framework 從用於 Brightcove Player SDK 下載的 IMA 插件添加到列表<strong>框架、庫、嵌入式內容</strong> .</li>
+<li>在&ldquo;一般的&rdquo;應用程序目標的選項卡，將 GoogleInteractiveMediaAds.framework 從 Google IMA 下載添加到列表中<strong>框架、庫、嵌入式內容</strong> .</li>
+<li>在&ldquo;構建設置&rdquo;應用程序目標的選項卡，確保&ldquo;框架搜索路徑&rdquo;包括框架的路徑。這應該自動完成，除非框架存儲在與您的項目不同的根目錄下。</li>
+<li>在&ldquo;構建設置&rdquo;應用程序目標的選項卡：
+
+<ul>
+<li>確保這件事<code>-ObjC</code>已添加到&ldquo;其他鏈接器標誌&rdquo;構建設置。</li>
+</ul>
+</li>
+</ol>
+
+
+<h2>進口</h2>
+
+<p>Brightcove Player SDK 的 IMA 插件可以通過幾種不同的方式導入代碼；<code> @import BrightcoveIMA;</code> , <code> #import &lt;BrightcoveIMA/BrightcoveIMA.h&gt;</code>或者<code>#import &lt;BrightcoveIMA/[特定類].h&gt;</code> .您可以導入<code>谷歌互動媒體廣告</code>和<code>Brightcove播放器SDK</code>模塊以類似的方式。</p>
+
+<h1>快速開始</h1>
+
+<p>BrightcoveIMA 插件是兩者之間的橋樑<a href="https://developers.google.com/interactive-media-ads/docs/sdks/ios/download">谷歌 IMA iOS SDK v3</a>和<a href="https://github.com/brightcove/brightcove-player-sdk-ios">適用於 iOS 的 Brightcove Player SDK</a> .此代碼段顯示了其與 VMAP 廣告規則的基本用法。</p>
+
+<pre><code>[1] IMASettings *imaSettings = [[IMASettings alloc] init]; imaSettings.ppid = kViewControllerIMAPublisherID; imaSettings.language = kViewControllerIMALanguage; IMAAdsRenderingSettings *renderSettings = [[IMAAdsRenderingSettings alloc] init]; renderSettings.webOpenerPresentingController = self; UIView *videoContainerView = &lt;視頻容器的UIView&gt;; NSString *adTag = &lt;廣告標籤&gt;; [2] BCOVIMAAdsRequestPolicy *adsRequestPolicy = [BCOVIMAAdsRequestPolicy adsRequestPolicyWithVMAPAdTagUrl:adTag]; BCOVPlayerSDKManager *manager = [BCOVPlayerSDKManager sharedManager]; id&lt;BCOVPlaybackController&gt; controller = [3] [manager createIMAPlaybackControllerWithSettings:imaSettings adsRenderingSettings:renderSettings adsRequestPolicy:adsRequestPolicy adContainer:videoContainerView viewController:self partnerSlots:nil viewStrategy:nil];控制器.delegate = self; [videoContainerView addSubview:controller.view]; NSString *policyKey = &lt;your-policy-key&gt;; NSString *accountId = &lt;your-account-id&gt;; NSString *videoID = &lt;your-video-id&gt;; BCOVPlaybackService *playbackService = [[BCOVPlaybackService alloc] initWithAccountId:accountID policyKey:policyKey]; [playbackService findVideoWithVideoID:videoID parameters:nil completion:^(BCOVVideo *video, NSDictionary *jsonResponse, NSError *error) { [controller setVideos:@[ video ]]; [controller play]; } ];</code></pre>
+
+<p>將代碼分解為幾個步驟：</p>
+
+<ol>
+<li>創建與使用 Google 時相同的 IMA 設置和廣告呈現設置&rsquo; s IMA iOS SDK 直接。這些是必需的。</li>
+<li><a href="Classes/BCOVIMAAdsRequestPolicy.html">BCOVIMAAdsRequestPolicy</a>提供指定 VAST 或 VMAP 廣告規則的方法。選擇適當的方法來選擇您的廣告政策。</li>
+<li>BrightcoveIMA 向 BCOVPlaybackManager 添加了一些類別方法。其中第一個是<code>-createIMAPlaybackControllerWithSettings:adsRenderingSettings:adsRequestPolicy:adContainer:companionSlots:viewStrategy:</code> .使用此方法創建您的播放控制器。</li>
+</ol>
+
+
+<h1>播放和暫停</h1>
+
+<p>Brightcove IMA 插件實施自定義播放和暫停邏輯，以確保盡可能流暢的廣告體驗。因此，您需要確保在<code>BCOVPlaybackController</code>或者<code>[BCOVSessionProviderExtension ima_play]</code>或者<code>[BCOVSessionProviderExtension ima_pause]</code> ( <a href="https://github.com/brightcove/brightcove-player-sdk-ios-ima/blob/master/ios/BrightcoveIMA.framework/Headers/BCOVIMAComponent.h"> BCOVSessionProviderExtension</a> )，而不是 AVPlayer。</p>
+
+<p>例如，第一次調用 play <code> BCOVPlaybackController</code>允許 BCOVIMA 處理前貼片廣告，而無需在前貼片前播放任何內容。有關 BCOVIMA 如何覆蓋默認值的更多信息<code>BCOVPlaybackController</code>方法，請查看<a href="https://github.com/brightcove/brightcove-player-sdk-ios-ima/blob/master/ios/BrightcoveIMA.framework/Headers/BCOVIMAComponent.h">BCOVSessionProviderExtension</a> .</p>
+
+<h1>使用內置 PlayerUI</h1>
+
+<p>在你的<code>視圖控制器</code>， 創建一個<code>BCOVPUIPlayerView</code>稱為播放器視圖的屬性，包含播放控件、視頻內容視圖和 IMA 可以顯示其廣告的特殊視圖。</p>
+
+<pre><code>// PlayerUI 的播放器視圖 @property (nonatomic) BCOVPUIPlayerView *playerView;</code></pre>
+
+<p>然後創建您的播放器視圖；提供一個 nil 播放控制器，稍後會添加。此播放器視圖包含視頻內容視圖和顯示播放控件和廣告控件的視圖。無論您使用什麼插件，此設置都是相同的。設置播放器視圖以匹配佈局中的視頻容器 ( <code>視頻視圖</code> ) 調整大小時。</p>
+
+<pre><code>// 創建和配置控制視圖。BCOVPUIBasicControlView *controlView = [BCOVPUIBasicControlView basicControlViewWithVODLayout]; // 使用零播放控制器創建播放器視圖。 self.playerView = [[BCOVPUIPlayerView alloc] initWithPlaybackController:nil options:nil controlsView:controlView]; // 將 BCOPUIPlayerView 添加到您的視頻視圖中。 [self.videoView addSubview:self.playerView];</code></pre>
+
+<p>你&rsquo;需要為播放器視圖設置佈局，您可以使用自動佈局或較舊的 Springs &amp; Struts 方法來完成此操作。</p>
+
+<p><strong>彈簧和支柱</strong><code>self.playerView.frame = self.videoView.bounds; self.playerView.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;</code></p>
+
+<p><strong>自動佈局</strong><code>self.playerView.translatesAutoresizingMaskIntoConstraints = NO; [NSLayoutConstraint activateConstraints:@[ [self.playerView.topAnchor constraintEqualToAnchor:self.videoView.topAnchor], [self.playerView.rightAnchor constraintEqualToAnchor:self.videoView.rightAnchor], [self.playerView.leftAnchor constraintEqualvideoToAnchor.leftAnchor] , [self.playerView.bottomAnchor constraintEqualToAnchor:self.videoView.bottomAnchor], ]];</code></p>
+
+<p>創建播放控制器特定於 IMA。像上面一樣創建你的播放控制器，但不是你的視頻容器視圖，而是傳入<code>內容疊加視圖</code>從播放器視圖作為您的<code>廣告容器</code> .這<code>內容疊加視圖</code>是用於在主要視頻內容上疊加視圖的特殊視圖。</p>
+
+<pre><code>// 創建播放控制器。 id&lt;BCOVPlaybackController&gt; controller = [manager createIMAPlaybackControllerWithSettings:imaSettings adsRenderingSettings:renderSettings adsRequestPolicy:adsRequestPolicy adContainer:self.playerView.contentOverlayView // IMA 廣告內容的特殊視圖 viewController:self partnerSlots:nil viewStrategy:nil];控制器.delegate = self; // 將新的播放控制器分配給播放器視圖。 // 這將 playerController 的會話與 PlayerUI 相關聯。 // 您可以保留此播放器視圖並在創建新的播放控制器時為其分配 // 播放控制器。 self.playerView.playbackController = self.playbackController;</code></pre>
+
+<p>現在，當播放帶有廣告的視頻時，您將在播放視頻內容時看到 PlayerUI 控件，以及時間線滑塊上的廣告標記（僅限 VMAP 廣告）。</p>
+
+<p>PlayerUI 是高度可定制的。有關更多信息和示例代碼，請參閱<strong>自定義佈局</strong> README.md 文件中的部分<a href="https://github.com/brightcove/brightcove-player-sdk-ios">Brightcove Native Player SDK 存儲庫</a> .</p>
+
+<h1>無廣告搜索</h1>
+
+<p>用<code>-[BCOVPlaybackController seekWithoutAds:(CMTime)seekToTime completionHandler:(void (^)(BOOL finished))completion]</code>在特定時間恢復播放而不強迫用戶觀看之前安排的廣告<code>尋找時間</code> .</p>
+
+<p>在準備<code>seekWithoutAds:completionHandler:</code> , 禁用<code>自動播放</code>當設置<code>BCOVPlaybackController</code> .</p>
+
+<p>Apple 建議在使用 AVPlayerItem 之前等待 AVPlayerItem 的狀態更改為準備播放。因此，調用<code>seekWithoutAds:completionHandler:</code>在裡面<code>kBCOVPlaybackSessionLifecycleEventReady</code>的處理者<code>播放控制器：播放會話：didReceiveLifecycleEvent</code>你的方法<code>BCOVPlaybackControllerDelegate</code> .</p>
+
+<p>```objective-c - (void)playbackController:(NSObject<BCOVPlaybackController><em>)控制器播放會話:(NSObject<BCOVPlaybackSession></em>)session didReceiveLifecycleEvent:(BCOVPlaybackSessionLifecycleEvent *)lifecycleEvent { if ([kBCOVPlaybackSessionLifecycleEventReady isEqualToString:lifecycleEvent.eventType]) { // self.resumePlayback 是這裡用於說明的假設實例變量。 if (self.resumePlayback) { __weak typeof(controller) weakController = controller;</p>
+
+<pre><code>// 搜索而不播放在搜索時間之前安排的廣告，即恢復播放。 [控制器seekWithoutAds:CMTimeMake(seekWithoutAdsValue,seekWithoutAdsTimescale) completionHandler:^(BOOL 完成) { if (!finished) { NSLog (@"seekWithoutAds failed to finish"); } typeof(controller) strongController = weakController;如果（強控制器）{ // fade out the shutter to reveal the player view. strongController.shutterFadeTime = 0.25; strongController.shutter = NO; // turn off seek without ads - especially important if this player is being used with a playlist self.resumePlayback = NO; } }]; }</code></pre>
+
+<p>  } }```</p>
+
+<p>這<code>快門</code>和<code>快門淡入淡出時間</code>的屬性<code>BCOVPlaybackController</code>可以與<code>seekWithoutAds:completionHandler:</code>隱藏在 AVPlayer 加載資產時可能發生的幀閃爍。在您的 BCOVPlaybackController 設置代碼中，啟用快門以隱藏播放器視圖：</p>
+
+<p>```objective-c NSObject<BCOVPlaybackController> *播放控制器；</p>
+
+<p>  播放控制器 = [sdkManager createFWPlaybackControllerWithAdContextPolicy:nil viewStrategy:nil];播放控制器.delegate = self;</p>
+
+<p>  if (self.resumePlayback) { // 將快門淡入淡出時間設置為零以立即隱藏播放器視圖。播放控制器.shutterFadeTime = 0.0;播放控制器.shutter = YES;</p>
+
+<pre><code>// 恢復播放時禁用自動播放。播放控制器.autoPlay = NO;</code></pre>
+
+<p>  }```</p>
+
+<p>請注意，在您的應用程序中使用 Seek without Ads 時，您可能會觀察到網絡流量，這通常作為設置 IMA 插件的一部分發生。此流量是正確設置插件所必需的，並且不會影響無廣告搜索功能。</p>
+
+<h1>自定義插件行為</h1>
+
+<p>BCOVIMA 中有幾個配置點。您可以將 BCOVIMA 與適用於 iOS 的 Brightcove Player SDK 的另一個插件結合使用，您可以創建自定義視圖策略，並且可以提供自定義廣告請求策略。</p>
+
+<h2>VAST 和 VMAP 廣告規則</h2>
+
+<p>BCOVIMA 通過<a href="Classes/BCOVIMAAdsRequestPolicy.html"><code>BCOVIMAAdsRequestPolicy</code></a>班級。該類為支持的策略提供工廠方法。獲得正確策略的實例後，您需要將其提供給<code>BCOVPlayerSDKManager</code>創建播放控制器或播放會話提供程序。</p>
+
+<p>在快速入門中，給出了 VMAP 的示例。這是一個 VAST 示例。</p>
+
+<pre><code>IMASettings *imaSettings = [[IMASettings alloc] init]; imaSettings.ppid = kViewControllerIMAPublisherID; imaSettings.language = kViewControllerIMALanguage; IMAAdsRenderingSettings *renderSettings = [[IMAAdsRenderingSettings alloc] init]; renderSettings.webOpenerPresentingController = self; UIView *videoContainerView = &lt;視頻容器的UIView&gt;; [1] BCOVIMAAdsRequestPolicy *adsRequestPolicy = [BCOVIMAAdsRequestPolicy adsRequestPolicyWithVASTAdTagsInCuePointsAndAdsCuePointProgressPolicy:nil]; BCOVPlayerSDKManager *manager = [BCOVPlayerSDKManager sharedManager]; id&lt;BCOVPlaybackController&gt; controller = [manager createIMAPlaybackControllerWithSettings:imaSettings adsRenderingSettings:renderSettings adsRequestPolicy:adsRequestPolicy adContainer:videoContainerView viewController:self partnerSlots:nil viewStrategy:nil];</code></pre>
+
+<p>讓&rsquo;將這段代碼分解成幾個步驟，使其更容易消化：</p>
+
+<ol>
+<li>此示例與快速入門中提供的示例相同，只是我們現在調用了不同的<code>BCOVIMAAdsRequestPolicy</code>策略方法來指定我們要使用 VAST。</li>
+</ol>
+
+
+<p><a href="Classes/BCOVIMAAdsRequestPolicy.html">BCOVIMAAdsRequestPolicy</a>有四種工廠方法來生成廣告請求策略；兩個用於 VMAP，兩個用於 VAST。下面更詳細地描述了 VMAP 的兩種工廠方法：</p>
+
+<ul>
+<li><p><code>+videoPropertiesVMAPAdTagUrlAdsRequestPolicy</code>：此方法返回默認廣告請求政策，該政策會查找<code>kBCOVIMAAdTag</code>在每個 BCOV 視頻中&rsquo; s 屬性來確定應用於請求廣告的 VMAP 廣告代碼。</p></li>
+<li><p><code>+adsRequestPolicyWithVMAPAdTagUrl：</code>：此方法返回一個廣告請求政策，該政策始終為每個視頻使用相同的廣告標籤。如果您使用此政策，則不必將廣告標籤放入 BCOVVideos' 特性。如果您知道您的廣告代碼在應用程序會話的整個生命週期內永遠不會改變，那麼這是指定廣告代碼的最簡單方法。</p></li>
+</ul>
+
+
+<p>VAST 有兩種工廠方法。所有 VAST 方法都採用 BCOVCuePointProgressPolicy。提示點策略確定哪些 BCOVCuePoints 將由<a href="Classes/BCOVIMAAdsRequestPolicy.html">BCOVIMAAdsRequestPolicy</a> .VAST 政策如下：</p>
+
+<ul>
+<li><p><code>+adsRequestPolicyWithVASTadTagsInCuePointsAndAdsCuePointProgressPolicy：</code>此方法返回一個廣告請求策略，用於檢查每個 BCOVVideo 的 BCOVCuePoints 類型&lsquo; kBCOVIMACuePointTypeAd &rsquo;並在每個提示點屬性中查找鍵<code>kBCOVIMAAdTag</code>確定應用於請求廣告的 VAST 廣告代碼。</p></li>
+<li><p><code>+adsRequestPolicyFromCuePointPropertiesWithAdTag:adsCuePointProgressPolicy：</code>此方法返回一個廣告請求政策，該政策為所有 BCOVCuePoints 類型使用指定的 VAST 廣告代碼<strong>kBCOVIMACuePointTypeAd</strong> .提示點的屬性作為查詢參數附加到廣告代碼。</p></li>
+</ul>
+
+
+<p>您可以使用<code>更新：</code>上的方法<code>BCOV視頻</code>目的。以下示例添加了前貼片、中貼和後貼片提示點：</p>
+
+<pre><code>// Objective-C - (BCOVVideo *)updateVideo:(BCOVVideo *)video { // Determine mid-point of video so we can insert a cue point there CGFloat durationMiliSeconds = ((NSNumber *)video.properties[@"duration"]).doubleValue; CGFloat midpointSeconds = (durationMiliSeconds / 2) / 1000; CMTime midpointTime = CMTimeMakeWithSeconds(midpointSeconds, 1); return [video update:^(id&lt;BCOVMutableVideo&gt; mutableVideo) { mutableVideo.cuePoints = [[BCOVCuePointCollection alloc] initWithArray:@[ [[BCOVCuePoint alloc] initWithType:kBCOVIMACuePointTypeAd position:kCMTimeZero properties:@{ kBCOVIMAAdTag : kVASTAdTagURL } ], [[BCOVCuePoint alloc] initWithType:kBCOVIMACuePointTypeAd position:midpointTime properties:@ { kBCOVIMAAdTag : kVASTAdTagURL } ], [[BCOVCuePoint alloc] initWithType:kBCOVIMACuePointTypeAd position:kBCOVCuePointPositionTypeAfter 屬性：@ { kBCOVIMAAdTag : kVASTAdTagURL } ] ]]; }]; }</code></pre>
+
+<pre><code>// Swift func updateVideo(withVASTTagvastTag:字符串）-&gt; BCOVVideo？{ guard let durationNum = self.properties["duration"] as? NSNumber else { return nil } let durationMiliSeconds = durationNum.doubleValue let midpointSeconds = (durationMiliSeconds / 2) / 1000 let midpointTime = CMTimeMakeWithSeconds(midpointSeconds, preferredTimescale: 1) let cuePointPositionTypeAfter = CMTime.positiveInfinity 返回更新{ (mutableVideo: BCOVMutableVideo?) in guard let mutableVideo = mutableVideo else { return } mutableVideo.cuePoints = BCOVCuePointCollection(array: [ BCOVCuePoint(type: kBCOVIMACuePointTypeAd, position:CMTime.zero, properties: [kBCOVIMAAdTag:vastTag])!, BCOVCuePoint(type: kBCOVIMACuePointTypeAd, position: midpointTime, properties: [kBCOVIMAAdTag:vastTag])!, BCOVCuePoint(type: kBCOVIMAAdTag:vastTag, position: cueIMPointpropertiesAADTOVtTypeAfter ])!, ]) } }</code></pre>
+
+<p>您還可以將 VideoCloud 中創建的提示點轉換為 VAST 提示點，如下所示：</p>
+
+<pre><code>- (BCOVVideo *)updateVideo:(BCOVVideo *)video NSArray *cuePoints = video.cuePoints.array; NSMutableArray *updatedCuePoints = @[].mutableCopy; for (BCOVCuePoint *cuePoint in cuePoints) { if ([cuePoint.type isEqualToString:kBCOVIMACuePointTypeAd]) { // The "metadata" property is the value of the // "Key/Value Pairs" field in VideoCloud when // creating/editing a Cue Point. In this example // the only value in this field is the VAST ad tag URL. // If you have additional values you'll need to parse // out just the ad tag URL. NSString *metadata = cuePoint.properties[@"metadata"]; NSDictionary *properties = @{ kBCOVIMAAdTag : metadata } ; BCOVCuePoint *updatedCuePoint = [[BCOVCuePoint alloc] initWithType:cuePoint.type position:cuePoint.position properties:properties]; [updatedCuePoints addObject:updatedCuePoint];返回 [視頻更新：^(id&lt;BCOVMutableVideo&gt; mutableVideo) { mutableVideo.cuePoints = [BCOVCuePointCollection collectionWithArray:updatedCuePoints]; } ]; }</code></pre>
+
+<h2>修改 IMAAdsRequest</h2>
+
+<p>IMA 插件通過<code>IMAAds 請求</code>反對一個<code>BCOMIMAPlaybackSessionDelegate</code>在打電話之前<code>IMAAdsLoader -requestAdsWithAdsRequest</code>，允許用戶首先修改廣告請求。要接收廣告請求回調，請創建一個實現<a href="Protocols/BCOVIMAPlaybackSessionDelegate.html"><code>BCOVIMAPlaybackSessionDelegate</code></a>協議。</p>
+
+<pre><code>@import BrightcovePlayerSDK; @import BrightcoveIMA; @interface MyViewController ：UIViewController BCOVIMAPlaybackSessionDelegate</code></pre>
+
+<p>創建一個<code>BCOVIMASessionProvider</code>使用任一<code>createIMAPlaybackControllerWithSettings</code>或者<code>createIMASessionProviderWithSettings</code> , 並提供一個 NSDictionary of options 和一個鍵為<code>kBCOVIMAOptionIMAPlaybackSessionDelegateKey</code>以及作為您的委託的價值。</p>
+
+<pre><code>NSDictionary *imaSessionProviderOptions = @ { kBCOVIMAOptionIMAPlaybackSessionDelegateKey: self } ; id&lt;BCOVPlaybackSessionProvider&gt; imaSessionProvider = [sdkManager createIMASessionProviderWithSettings:imaSettings adsRenderingSettings:renderSettings adsRequestPolicy:adsRequestPolicy adContainer:self.playerView.contentOverlayView viewController:self partnerSlots:ni upstreamSessionProvider:nil options:imaSessionProviderOptions];</code></pre>
+
+<p>實施<code>willCallIMAAdsLoaderRequestAdsWithRequest:forPosition:</code>在你的<code>BCOVIMAPlaybackSessionDelegate</code> .</p>
+
+<pre><code>- (void)willCallIMAAdsLoaderRequestAdsWithRequest:(IMAAdsRequest *)adsRequest forPosition:(NSTimeInterval)position { adsRequest.vastLoadTimeout = 3000.; }</code></pre>
+
+<h2>查看策略</h2>
+
+<p>您可以在構建播放控制器或會話提供程序時向 BCOVPlaybackManager 提供自定義視圖策略，而不是直接指定 defaultControlsViewStrategy。使用自定義視圖策略，廣告容器視圖和廣告隨播廣告位可以與視頻內容視圖相關聯。這是自定義視圖策略的示例。</p>
+
+<pre><code>BCOVPlaybackControllerViewStrategy customViewStrategy = ^UIView* (UIView *view, id&lt;BCOVPlaybackController&gt;playbackController) { BCOVPlaybackControllerViewStrategy defaultControlsViewStrategy = [playbackManager defaultControlsViewStrategy]; UIView *contentAndDefaultControlsView = defaultControlsViewStrategy(view, playbackController); [&lt;UIView of video container&gt; addSubview:contentAndDefaultControlsView]; return &lt;UIView of video container&gt;; } ;</code></pre>
+
+<h2>組成會話提供程序</h2>
+
+<p>如果您在 iOS 版 Brightcove Player SDK 中使用多個插件需要創建自定義播放控制器，則必須改為組合一系列會話提供程序並將最終會話提供程序傳遞給<code>[BCOVPlayerSDKManager createPlaybackControllerWithSessionProvider:viewStrategy:]</code>方法。</p>
+
+<p>組合會話提供程序時，可以從以下位置啟用會話預加載<a href="https://github.com/brightcove/brightcove-player-sdk-ios/blob/fd5e766693e533854f202f270d3d62e32ceaae04/ios/dynamic/BrightcovePlayerSDK.framework/Headers/BCOVBasicSessionProvider.h#L31-L46"><code>BCOVBasicSessionProvider</code></a> ;但是，使用 IMA 插件預加載會話是<strong>強烈勸阻</strong>由於內存中有多個 AVPlayer 時 Google IMA SDK 中的錯誤。</p>
+
+<h1>註冊廣告疊加</h1>
+
+<p>如果您在播放廣告時對其進行查看，則必須向 IMA SDK 註冊這些查看。閱讀<strong>友好障礙物</strong>的部分<a href="https://developers.google.com/interactive-media-ads/docs/sdks/ios/omsdk">在 IMA SDK 中打開測量</a>頁面了解更多信息。</p>
+
+<p>您可以獲取當前 IMAAdDisplayContainer 對象，以便從<code>播放控制器：播放會話：didEnterAdSequence：</code> BCOVPlaybackController 實例的委託方法。例如：<code> - (void)playbackController:(id&lt;BCOVPlaybackController&gt;)controller playbackSession:(id&lt;BCOVPlaybackSession&gt;)session didEnterAdSequence:(BCOVAdSequence *)adSequence { NSDictionary *props = session.video.properties; IMAAdDisplayContainer *adDisplayContainer = props[kBCOVIMAVideoPropertiesKeyAdDisplayContainer]; [adDisplayContainer registerFriendlyObstruction:self.adOverlayView]; }</code></p>
+
+<p>要在廣告序列完成後取消註冊障礙物，<code>播放控制器：播放會話：didExitAdSequence：</code>可以使用 BCOVPlaybackController 實例的委託方法。例如：<code> - (void)playbackController:(id&lt;BCOVPlaybackController&gt;)controller playbackSession:(id&lt;BCOVPlaybackSession&gt;)session didExitAdSequence:(BCOVAdSequence *)adSequence { NSDictionary *props = session.video.properties; IMAAdDisplayContainer *adDisplayContainer = props[kBCOVIMAVideoPropertiesKeyAdDisplayContainer]; [adDisplayContainer unregisterAllFriendlyObstructions]; }</code></p>
+
+<h1>隔空播放</h1>
+
+<p>IMA 插件支持 AirPlay 前貼片廣告和後貼片廣告。放<code>啟用背景播放</code>到<code>是的</code>在<code>IMA 設置</code>以及在您的設備上啟用 AirPlay <code> BCOVPlaybackController</code> .見&ldquo;<em>AirPlay</em>&rdquo;的部分<a href="https://github.com/brightcove/brightcove-player-sdk-ios#airplay-">核心 SDK README</a>想要查詢更多的信息。</p>
+
+<h1>細分受眾群定位</h1>
+
+<p>如果你&rsquo;想要將受眾群體定位與您的 IMA VAST 廣告請求結合使用，您可以使用<code>更新AudienceSegmentTargetingValues</code>在<code>BCOVPlaybackController</code> .例如：</p>
+
+<pre><code>[playbackController updateAudienceSegmentTargetingValues:@ { @"account_id":@"11223344", @"account_type":@"premium"" } ];</code></pre>
+
+<p>這些值將附加到<code>cust_params</code> IMA 廣告請求 URL 的查詢參數。例如：</p>
+
+<p>網址<a href="http://pubads.g.doubleclick.net/gampad/ads"><code>http://pubads.g.doubleclick.net/gampad/ads</code></a>會成為<a href="http://pubads.g.doubleclick.net/gampad/ads?cust_params=account_id%3D11223344%26account_type%3Dpremium"><code>http://pubads.g.doubleclick.net/gampad/ads?cust_params=account_id%3D11223344%26account_type%3Dpremium</code></a> .</p>
+
+<h1>設備廣告定位</h1>
+
+<p>您可以使用<code>kBCOVIMAOptionBlockAdTargetingAPIsKey</code>在設置您的<code>IMA 會話提供程序</code>或 IMA <code> BCOVPlaybackController</code>防止調用<a href="https://developer.apple.com/documentation/adsupport">廣告支持</a>和<a href="https://developer.apple.com/documentation/apptrackingtransparency">AppTrackingTransparency</a>部分App Store提交場景無法使用的API。</p>
+
+<pre><code>// BCOVPlaybackController NSDictionary *imaPlaybackSessionOptions = @ { kBCOVIMAOptionIMAPlaybackSessionDelegateKey: self, kBCOVIMAOptionBlockAdTargetingAPIsKey: @(YES) } ; self.playbackController = [manager createIMAPlaybackControllerWithSettings:imaSettings adsRenderingSettings:renderSettings adsRequestPolicy:adsRequestPolicy adContainer:self.playerView.contentOverlayView viewController:self partnerSlots:nil viewStrategy:nil options:imaPlaybackSessionOptions];</code></pre>
+
+<pre><code>// IMASessionProvider NSDictionary *imaPlaybackSessionOptions = @ { kBCOVIMAOptionIMAPlaybackSessionDelegateKey: self, kBCOVIMAOptionBlockAdTargetingAPIsKey: @(YES) } ; id&lt;BCOVPlaybackSessionProvider&gt; imaSessionProvider = [manager createIMASessionProviderWithSettings:imaSettings adsRenderingSettings:renderSettings adsRequestPolicy:adsRequestPolicy adContainer:self.playerView.contentOverlayView viewController:self partnerSlots:nil upstreamSessionProvider:nil options:imaPlaybackSessionOptions];</code></pre>
+
+<h1>經常問的問題</h1>
+
+<p><em>我可以聽到廣告，但我可以&rsquo;不看他們玩。</em></p>
+
+<p>這通常發生在廣告容器視圖不在視圖層次結構中，或者當廣告視圖（它是廣告容器視圖的子視圖）被其他視圖覆蓋時。</p>
+
+<h1>支持</h1>
+
+<p>如果您有問題、需要幫助或想提供反饋，請使用<a href="https://supportportal.brightcove.com/s/login/">支持門戶</a>或聯繫您的客戶經理。要接收新 SDK 軟件發布的通知，請訂閱 Brightcove Native Player SDK <a href="https://groups.google.com/g/brightcove-native-player-sdks">谷歌集團</a> .</p>
+						
+						
+					</div>
+					
+
+					<div class="index-container">
+						
+
+						
+						<div class="index-column">
+							<h2 class="index-title">類引用</h2>
+							<ul>
+								
+								<li>BCOVIMAAdsRequestPolicy<a href="Classes/BCOVIMAAdsRequestPolicy.html"></a></li>
+								
+								<li><a href="Classes/BCOVIMAComponent.html">BCOVIMA組件</a></li>
+								
+							</ul>
+						</div>
+						
+
+						
+						<div class="index-column">
+							
+							<h2 class="index-title">協議參考</h2>
+							<ul>
+								
+								<li>BCOVIMAPlaybackSessionDelegate<a href="Protocols/BCOVIMAPlaybackSessionDelegate.html"></a></li>
+								
+							</ul>
+							
+
+							
+
+							
+							<h2 class="index-title">類別參考</h2>
+							<ul>
+								
+								<li>BCOVPlayerSDKManager(BCOVIMAAdditions)<a href="Categories/BCOVPlayerSDKManager-BCOVIMAAdditions.html"></a></li>
+								
+								<li>BCOVSessionProviderExtension(BCOVIMAAdditions)<a href="Categories/BCOVSessionProviderExtension-BCOVIMAAdditions.html"></a></li>
+								
+							</ul>
+							
+						</div>
+						
+					</div>
+
+					<footer>
+						<div class="footer-copyright">
+							
+							<p class="copyright">版權&copy; 2021 年光明灣。版權所有。更新：2021-07-08</p>
+							
+							
+							<p class="generator">生成者<a href="http://appledoc.gentlebytes.com">蘋果文檔 2.2.1（內部版本 1334）</a> .</p>
+							
+						</div>
+					</footer>
+				</main>
+			</div>
+		</div>
+	</article>
+
+	<script src="js/script.js"></script>
+</body>
+</html>

@@ -1,0 +1,830 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+
+	<title>BCOVPlaybackSession 協議參考</title>
+
+	<link rel="stylesheet" href="../css/style.css">
+	<meta name="viewport" content="initial-scale=1, maximum-scale=1.4">
+	<meta name="generator" content="appledoc 2.2.1 (build 1334)">
+</head>
+<body class="appledoc">
+	<header>
+		<div class="container" class="hide-in-xcode">
+			
+			<h1 id="library-title"><a href="../index.html">適用於 iOS 的 Brightcove 原生播放器</a></h1>
+
+			<p id="developer-home">
+				<a href="../index.html">亮灣</a>
+			</p>
+			
+		</div>
+	</header>
+
+	<aside>
+		<div class="container">
+			<nav>
+				<ul id="header-buttons" role="toolbar">
+					<li><a href="../index.html">指數</a></li>
+<li><a href="../hierarchy.html">等級制度</a></li>
+
+					<li id="on-this-page" role="navigation">
+						<label>
+							在本頁
+
+							<div class="chevron">
+								<div class="chevy chevron-left"></div>
+								<div class="chevy chevron-right"></div>
+							</div>
+
+							<select id="jump-to">
+	<option value="top">跳到…</option>
+	
+	<option value="overview">概述</option>
+	
+
+	
+	
+	<option value="tasks">任務</option>
+	
+	
+
+	
+	
+	<optgroup label="Properties">
+		
+		<option value="//api/name/audibleMediaSelectionGroup">audibleMediaSelectionGroup</option>
+		
+		<option value="//api/name/legibleMediaSelectionGroup">清晰的媒體選擇組</option>
+		
+		<option value="//api/name/player">播放器</option>
+		
+		<option value="//api/name/playerLayer">播放器層</option>
+		
+		<option value="//api/name/providerExtension">提供者擴展</option>
+		
+		<option value="//api/name/selectedAudibleMediaOption">選定的可聽媒體選項</option>
+		
+		<option value="//api/name/selectedLegibleMediaOption">選定的易讀媒體選項</option>
+		
+		<option value="//api/name/source">來源</option>
+		
+		<option value="//api/name/video">視頻</option>
+		
+	</optgroup>
+	
+
+	
+
+	
+	<optgroup label="Instance Methods">
+		
+		<option value="//api/name/displayNameFromAudibleMediaSelectionOption:">- displayNameFromAudibleMediaSelectionOption：</option>
+		
+		<option value="//api/name/displayNameFromLegibleMediaSelectionOption:">- displayNameFromLegibleMediaSelectionOption:</option>
+		
+		<option value="//api/name/selectAudibleMediaOptionAutomatically">- 自動選擇AudibleMediaOption</option>
+		
+		<option value="//api/name/selectLegibleMediaOptionAutomatically">- 自動選擇LegibleMediaOption</option>
+		
+		<option value="//api/name/terminate">- 終止</option>
+		
+	</optgroup>
+	
+	
+</select>
+						</label>
+					</li>
+				</ul>
+			</nav>
+		</div>
+	</aside>
+
+	<article>
+		<div id="overview_contents" class="container">
+			<div id="content">
+				<main role="main">
+					<h1 class="title">BCOVPlaybackSession 協議參考</h1>
+
+					
+					<div class="section section-specification"><table cellspacing="0"><tbody>
+						<tr>
+	<th>符合</th>
+	<td>NSObject</td>
+</tr><tr>
+	<th>聲明於</th>
+	<td>BCOVPlaybackSession.h</td>
+</tr>
+						</tbody></table></div>
+					
+
+                    
+					
+					<div class="section section-overview">
+						<a title="Overview" name="overview"></a>
+						<h2 class="subtitle subtitle-overview">概述</h2>
+						<p>一個回放會話代表單個的回放<a href="#//api/name/video">視頻</a> .該會話為與該視頻的播放體驗相關的所有內容提供單一訪問點：<a href="#//api/name/video">視頻</a>和<a href="#//api/name/source">來源</a>選擇播放，<a href="#//api/name/player">球員</a>播放發生在其中，以及播放會話期間發生的事件。播放會話永遠不會重用於多個視頻（即使是同一視頻的單獨排隊）<a href="#//api/name/video">視頻</a>）。</p>
+					</div>
+					
+					
+
+					
+					
+					<div class="section section-tasks">
+						<a title="Tasks" name="tasks"></a>
+						
+
+						
+						
+
+						<div class="task-list">
+							<div class="section-method">
+	<a name="//api/name/video" title="video"></a>
+	<h3 class="method-title"><code><a href="#//api/name/video">&nbsp;&nbsp;視頻</a></code><span class="task-item-suffix">所需方法</span></h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>此會話代表其播放的視頻。</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration">@property (nonatomic, readonly, copy) BCOVVideo *video<code></code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">討論</h4>
+				<p>此會話代表其播放的視頻。</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">申報在</h4>
+				<p>BCOVPlaybackSession.h<code class="declared-in-ref"></code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/source" title="source"></a>
+	<h3 class="method-title"><code><a href="#//api/name/source">&nbsp;&nbsp;來源</a></code><span class="task-item-suffix">所需方法</span></h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>來源在<code>自己。</code>視頻<code></code>此會話用於加載內容。</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration">@property (nonatomic, readonly, copy) BCOVSource *source<code></code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">討論</h4>
+				<p>來源在<code>自己。</code>視頻<code></code>此會話用於加載內容。</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">申報在</h4>
+				<p>BCOVPlaybackSession.h<code class="declared-in-ref"></code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/player" title="player"></a>
+	<h3 class="method-title"><code><a href="#//api/name/player">&nbsp;&nbsp;球員</a></code><span class="task-item-suffix">所需方法</span></h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>此會話用於呈現內容的播放器。</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration">@property (nonatomic, readonly, strong) AVPlayer *player<code></code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">討論</h4>
+				<p>此會話用於呈現內容的播放器。</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">申報在</h4>
+				<p>BCOVPlaybackSession.h<code class="declared-in-ref"></code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/playerLayer" title="playerLayer"></a>
+	<h3 class="method-title"><code><a href="#//api/name/playerLayer">&nbsp;&nbsp;播放器層</a></code><span class="task-item-suffix">所需方法</span></h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>承載可見的層<a href="#//api/name/video">視頻</a>輸出。</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration">@property (nonatomic, readonly, strong) AVPlayerLayer *playerLayer<code></code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">討論</h4>
+				<p>承載可見的層<a href="#//api/name/video">視頻</a>輸出。</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">申報在</h4>
+				<p>BCOVPlaybackSession.h<code class="declared-in-ref"></code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/audibleMediaSelectionGroup" title="audibleMediaSelectionGroup"></a>
+	<h3 class="method-title"><code><a href="#//api/name/audibleMediaSelectionGroup">&nbsp;&nbsp; audibleMediaSelectionGroup</a></code><span class="task-item-suffix">所需方法</span></h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>當前BCOVPlaybackSession的AVPlayer的AVPlayerItem的AVAsset的可聽媒體選擇選項的AVMediaSelectionGroup。</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration">@property (nonatomic, readonly) AVMediaSelectionGroup *audibleMediaSelectionGroup<code></code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">討論</h4>
+				<p>當前BCOVPlaybackSession的AVPlayer的AVPlayerItem的AVAsset的可聽媒體選擇選項的AVMediaSelectionGroup。</p>
+
+<p>AVMediaSelectionGroup 是未排序的，可以包含不可播放的選項。使用 AVMediaSeledtionGroup 的 +playableMediaSelectionOptionsFromArray: 類方法返回可播放媒體選項列表。AVMediaSelectionGroup 提供過濾方法，例如，根據用戶的語言首選項對選項列表進行排序。</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">申報在</h4>
+				<p>BCOVPlaybackSession.h<code class="declared-in-ref"></code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/selectedAudibleMediaOption" title="selectedAudibleMediaOption"></a>
+	<h3 class="method-title"><code><a href="#//api/name/selectedAudibleMediaOption">&nbsp;&nbsp;選定的可聽媒體選項</a></code><span class="task-item-suffix">所需方法</span></h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>選定的有聲媒體選項。設置該屬性時，如果 selectedAudibleMediaOption 不是當前 BCOVPlaybackSession 的 AVPlayer 的 AVMediaSelectionGroup 的成員，則表示狀態不會發生變化。</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration">@property (nonatomic, readwrite) AVMediaSelectionOption *selectedAudibleMediaOption<code></code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">討論</h4>
+				<p>選定的有聲媒體選項。設置該屬性時，如果 selectedAudibleMediaOption 不是當前 BCOVPlaybackSession 的 AVPlayer 的 AVMediaSelectionGroup 的成員，則表示狀態不會發生變化。</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">申報在</h4>
+				<p>BCOVPlaybackSession.h<code class="declared-in-ref"></code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/legibleMediaSelectionGroup" title="legibleMediaSelectionGroup"></a>
+	<h3 class="method-title"><code><a href="#//api/name/legibleMediaSelectionGroup">&nbsp;&nbsp;清晰的媒體選擇組</a></code><span class="task-item-suffix">所需方法</span></h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>當前BCOVPlaybackSession的AVPlayer的AVPlayerItem的AVAsset的可讀媒體選擇選項的AVMediaSelectionGroup。</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration">@property (nonatomic, readonly) AVMediaSelectionGroup *legibleMediaSelectionGroup<code></code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">討論</h4>
+				<p>當前BCOVPlaybackSession的AVPlayer的AVPlayerItem的AVAsset的可讀媒體選擇選項的AVMediaSelectionGroup。</p>
+
+<p>AVMediaSelectionGroup 是未排序的，可以包含不可播放的選項。使用 AVMediaSelectionGroup 的 +playableMediaSelectionOptionsFromArray: 類方法返回可播放媒體選項列表。AVMediaSelectionOption 提供過濾方法，例如，從適合在選擇 UI 中提供的清晰選項中排除強製字幕。</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">申報在</h4>
+				<p>BCOVPlaybackSession.h<code class="declared-in-ref"></code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/selectedLegibleMediaOption" title="selectedLegibleMediaOption"></a>
+	<h3 class="method-title"><code><a href="#//api/name/selectedLegibleMediaOption">&nbsp;&nbsp;選定的易讀媒體選項</a></code><span class="task-item-suffix">所需方法</span></h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>選定的易讀媒體選項。設置該屬性時，如果 selectedLegibleMediaOption 不是當前 BCOVPlaybackSession 的 AVPlayer 的 AVMediaSelectionGroup 的成員，則表示狀態不會發生變化。如果 selectedLegibleMediaOption 設置為 nil 並且當前 BCOVPlaybackSession 的 AVMediaSelectionGroup 的 allowedEmptySelecton 屬性&rsquo; s AVPlayer 為YES，組內所有媒體選擇選項將被取消選擇。</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration">@property (nonatomic, readwrite) AVMediaSelectionOption *selectedLegibleMediaOption<code></code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">討論</h4>
+				<p>選定的易讀媒體選項。設置該屬性時，如果 selectedLegibleMediaOption 不是當前 BCOVPlaybackSession 的 AVPlayer 的 AVMediaSelectionGroup 的成員，則表示狀態不會發生變化。如果 selectedLegibleMediaOption 設置為 nil 並且當前 BCOVPlaybackSession 的 AVMediaSelectionGroup 的 allowedEmptySelecton 屬性&rsquo; s AVPlayer 為YES，組內所有媒體選擇選項將被取消選擇。</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">申報在</h4>
+				<p>BCOVPlaybackSession.h<code class="declared-in-ref"></code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/providerExtension" title="providerExtension"></a>
+	<h3 class="method-title"><code><a href="#//api/name/providerExtension">&nbsp;&nbsp;提供者擴展</a></code><span class="task-item-suffix">所需方法</span></h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>此會話的會話提供程序擴展。默認值為 nil。</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration">@property (nonatomic, readonly, strong) BCOVSessionProviderExtension *providerExtension<code></code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">討論</h4>
+				<p>此會話的會話提供程序擴展。默認值為 nil。</p>
+
+<p>如果一個<a href="../Protocols/BCOVPlaybackSessionProvider.html">BCOVPlaybackSessionProvider</a>用於需要公開插件特定功能，此屬性將返回一個<a href="../Classes/BCOVSessionProviderExtension.html">BCOVSessionProviderExtension</a> .</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">申報在</h4>
+				<p>BCOVPlaybackSession.h<code class="declared-in-ref"></code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/selectAudibleMediaOptionAutomatically" title="selectAudibleMediaOptionAutomatically"></a>
+	<h3 class="method-title"><code><a href="#//api/name/selectAudibleMediaOptionAutomatically">&ndash;&nbsp;自動選擇AudibleMediaOption</a></code><span class="task-item-suffix">所需方法</span></h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>在可聽媒體選擇組中選擇與當前 AVPlayerItem 最匹配的可聽媒體選項&rsquo; s 自動選擇標準。</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration">- (void)selectAudibleMediaOptionAutomatically<code></code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">討論</h4>
+				<p>在可聽媒體選擇組中選擇與當前 AVPlayerItem 最匹配的可聽媒體選項&rsquo; s 自動選擇標準。</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">申報在</h4>
+				<p>BCOVPlaybackSession.h<code class="declared-in-ref"></code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/selectLegibleMediaOptionAutomatically" title="selectLegibleMediaOptionAutomatically"></a>
+	<h3 class="method-title"><code><a href="#//api/name/selectLegibleMediaOptionAutomatically">&ndash;&nbsp; selectLegibleMediaOptionAutomatically</a></code><span class="task-item-suffix">所需方法</span></h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>在易讀媒體選擇組中選擇與當前 AVPlayerItem 最匹配的易讀媒體選項&rsquo; s 自動選擇標準。</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration">- (void)selectLegibleMediaOptionAutomatically<code></code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">討論</h4>
+				<p>在易讀媒體選擇組中選擇與當前 AVPlayerItem 最匹配的易讀媒體選項&rsquo; s 自動選擇標準。</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">申報在</h4>
+				<p>BCOVPlaybackSession.h<code class="declared-in-ref"></code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/displayNameFromAudibleMediaSelectionOption:" title="displayNameFromAudibleMediaSelectionOption:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/displayNameFromAudibleMediaSelectionOption:">&ndash;&nbsp; displayNameFromAudibleMediaSelectionOption:</a></code><span class="task-item-suffix">所需方法</span></h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>返迴聲音選擇選項的描述性顯示字符串。如果語言環境與 stringValue 不同，則顯示名稱字符串是附加有選項語言環境的選項的 stringValue。</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration">- (NSString *)displayNameFromAudibleMediaSelectionOption:(AVMediaSelectionOption *)<code><em>選項</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">參數</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>選項</code></th>
+						<td><p>來自 AVMediaSelectionGroup 的特定音頻媒體選擇選項</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">討論</h4>
+				<p>返迴聲音選擇選項的描述性顯示字符串。如果語言環境與 stringValue 不同，則顯示名稱字符串是附加有選項語言環境的選項的 stringValue。</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">申報在</h4>
+				<p>BCOVPlaybackSession.h<code class="declared-in-ref"></code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/displayNameFromLegibleMediaSelectionOption:" title="displayNameFromLegibleMediaSelectionOption:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/displayNameFromLegibleMediaSelectionOption:">&ndash;&nbsp; displayNameFromLegibleMediaSelectionOption:</a></code><span class="task-item-suffix">所需方法</span></h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>返回清晰選擇選項的描述性顯示字符串。如果語言環境與 stringValue 不同，則顯示名稱字符串是附加有選項語言環境的選項的 stringValue。清晰的選項名稱進一步附加&ldquo; SDH &rdquo;當存在可訪問性特徵時。</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration">- (NSString *)displayNameFromLegibleMediaSelectionOption:(AVMediaSelectionOption *)<code><em>選項</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">參數</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>選項</code></th>
+						<td><p>來自 AVMediaSelectionGroup 的特定清晰媒體選擇選項</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">討論</h4>
+				<p>返回清晰選擇選項的描述性顯示字符串。如果語言環境與 stringValue 不同，則顯示名稱字符串是附加有選項語言環境的選項的 stringValue。清晰的選項名稱進一步附加&ldquo; SDH &rdquo;當存在可訪問性特徵時。</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">申報在</h4>
+				<p>BCOVPlaybackSession.h<code class="declared-in-ref"></code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/terminate" title="terminate"></a>
+	<h3 class="method-title"><code><a href="#//api/name/terminate">&ndash;&nbsp;終止</a></code><span class="task-item-suffix">所需方法</span></h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>終止此回放會話，表示準備好新會話出列。應立即丟棄終止的播放會話。</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- （無效）終止</code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">討論</h4>
+				<p>終止此回放會話，表示準備好新會話出列。應立即丟棄終止的播放會話。</p>
+
+<p>在典型配置中使用<a href="../Protocols/BCOVPlaybackController.html">BCOVPlaybackController</a>，不需要直接調用這個方法。控制器上的方法是進入下一個播放會話的首選機制。但是，不使用<a href="../Protocols/BCOVPlaybackController.html">BCOVPlaybackController</a>可能需要調用此方法來推進隊列。</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">申報在</h4>
+				<p>BCOVPlaybackSession.h<code class="declared-in-ref"></code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div>
+						</div>
+						
+					</div>
+					
+					
+
+                    
+				</main>
+
+				<footer>
+					<div class="footer-copyright">
+						
+						<p class="copyright">版權&copy; 2021 年光明灣。版權所有。更新：2021-07-08</p>
+						
+						
+						<p class="generator">生成者<a href="http://appledoc.gentlebytes.com">蘋果文檔 2.2.1（內部版本 1334）</a> .</p>
+						
+					</div>
+				</footer>
+			</div>
+		</div>
+	</article>
+
+	<script src="../js/script.js"></script>
+</body>
+</html>

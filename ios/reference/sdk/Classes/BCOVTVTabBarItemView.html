@@ -1,0 +1,622 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+
+	<title>BCOVTVTabBarItemView 類參考</title>
+
+	<link rel="stylesheet" href="../css/style.css">
+	<meta name="viewport" content="initial-scale=1, maximum-scale=1.4">
+	<meta name="generator" content="appledoc 2.2.1 (build 1334)">
+</head>
+<body class="appledoc">
+	<header>
+		<div class="container" class="hide-in-xcode">
+			
+			<h1 id="library-title"><a href="../index.html">適用於 iOS 的 Brightcove 原生播放器</a></h1>
+
+			<p id="developer-home">
+				<a href="../index.html">亮灣</a>
+			</p>
+			
+		</div>
+	</header>
+
+	<aside>
+		<div class="container">
+			<nav>
+				<ul id="header-buttons" role="toolbar">
+					<li><a href="../index.html">指數</a></li>
+<li><a href="../hierarchy.html">等級制度</a></li>
+
+					<li id="on-this-page" role="navigation">
+						<label>
+							在本頁
+
+							<div class="chevron">
+								<div class="chevy chevron-left"></div>
+								<div class="chevy chevron-right"></div>
+							</div>
+
+							<select id="jump-to">
+	<option value="top">跳到…</option>
+	
+
+	
+	
+	<option value="tasks">任務</option>
+	
+	
+
+	
+	
+	<optgroup label="Properties">
+		
+		<option value="//api/name/enabled">啟用</option>
+		
+		<option value="//api/name/playerView">播放器視圖</option>
+		
+		<option value="//api/name/title">標題</option>
+		
+	</optgroup>
+	
+
+	
+
+	
+	<optgroup label="Instance Methods">
+		
+		<option value="//api/name/initWithSize:playerView:">- initWithSize:playerView:</option>
+		
+		<option value="//api/name/tabBarItemViewDidAdvanceToPlaybackSession:">- tabBarItemViewDidAdvanceToPlaybackSession：</option>
+		
+		<option value="//api/name/tabBarItemViewDidAppear:">- tabBarItemViewDidAppear：</option>
+		
+		<option value="//api/name/tabBarItemViewDidDisappear:">- tabBarItemViewDidDisappear：</option>
+		
+		<option value="//api/name/tabBarItemViewWillAppear:">- tabBarItemViewWillAppear：</option>
+		
+		<option value="//api/name/tabBarItemViewWillDisappear:">- tabBarItemViewWillDisappear：</option>
+		
+		<option value="//api/name/updateForDarkMode:">- updateForDarkMode：</option>
+		
+	</optgroup>
+	
+	
+</select>
+						</label>
+					</li>
+				</ul>
+			</nav>
+		</div>
+	</aside>
+
+	<article>
+		<div id="overview_contents" class="container">
+			<div id="content">
+				<main role="main">
+					<h1 class="title">BCOVTVTabBarItemView 類參考</h1>
+
+					
+					<div class="section section-specification"><table cellspacing="0"><tbody>
+						<tr>
+	<th>繼承自</th>
+	<td>界面視圖</td>
+</tr><tr>
+	<th>符合</th>
+	<td>BCOVPlaybackSessionConsumer<a href="../Protocols/BCOVPlaybackSessionConsumer.html"></a></td>
+</tr><tr>
+	<th>聲明於</th>
+	<td>BCOVTVTabBarItemView.h</td>
+</tr>
+						</tbody></table></div>
+					
+
+                    
+
+					
+					
+					<div class="section section-tasks">
+						<a title="Tasks" name="tasks"></a>
+						
+
+						
+						
+
+						<div class="task-list">
+							<div class="section-method">
+	<a name="//api/name/enabled" title="enabled"></a>
+	<h3 class="method-title"><code><a href="#//api/name/enabled">&nbsp;&nbsp;啟用</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>當 enabled 屬性為 NO 時，標籤欄項目視圖不會安裝到頂部標籤欄。使用<a href="../Classes/BCOVTVSettingsView.html">BCOVTVSettingsView</a>方法<code>- (void)enable:(BOOL)enable tabBarItemView:(BCOVTVTabBarItemView *)tabBarItemView</code>同時切換<code>啟用</code>屬性並更新頂部標籤欄&rsquo; s UITabBarItems 列表。</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>@property (nonatomic) BOOL 已啟用</code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">討論</h4>
+				<p>當 enabled 屬性為 NO 時，標籤欄項目視圖不會安裝到頂部標籤欄。使用<a href="../Classes/BCOVTVSettingsView.html">BCOVTVSettingsView</a>方法<code>- (void)enable:(BOOL)enable tabBarItemView:(BCOVTVTabBarItemView *)tabBarItemView</code>同時切換<code>啟用</code>屬性並更新頂部標籤欄&rsquo; s UITabBarItems 列表。</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">申報在</h4>
+				<p>BCOVTVTabBarItemView.h<code class="declared-in-ref"></code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/title" title="title"></a>
+	<h3 class="method-title"><code><a href="#//api/name/title">&nbsp;&nbsp;標題</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>該屬性用於設置頂部標籤欄中對應的 UITabBarItem 的名稱。標題應該在將標籤欄項目視圖安裝到設置視圖之前設置&rsquo;秒<code>topTabBarItemViews</code>財產。</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration">@property (nonatomic) NSString *title<code></code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">討論</h4>
+				<p>該屬性用於設置頂部標籤欄中對應的 UITabBarItem 的名稱。標題應該在將標籤欄項目視圖安裝到設置視圖之前設置&rsquo;秒<code>topTabBarItemViews</code>財產。</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">申報在</h4>
+				<p>BCOVTVTabBarItemView.h<code class="declared-in-ref"></code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/playerView" title="playerView"></a>
+	<h3 class="method-title"><code><a href="#//api/name/playerView">&nbsp;&nbsp;播放器視圖</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>此屬性存儲對傳遞給電視播放器視圖的引用<code>-initWithFrame:playerView:</code>方法。</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration">@property (nonatomic, readonly, weak) BCOVTVPlayerView *playerView<code></code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">討論</h4>
+				<p>此屬性存儲對傳遞給電視播放器視圖的引用<code>-initWithFrame:playerView:</code>方法。</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">申報在</h4>
+				<p>BCOVTVTabBarItemView.h<code class="declared-in-ref"></code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/initWithSize:playerView:" title="initWithSize:playerView:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/initWithSize:playerView:">&ndash;&nbsp; initWithSize:playerView:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<ul>
+<li>初始化 BCOVTVTabBarItemView。</li>
+</ul>
+
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration">- (instancetype)initWithSize:(CGSize)<code><em>尺寸</em> 播放器視圖：（BCOVVTVPlayerView *）<em>播放器視圖</em></code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">討論</h4>
+				<ul>
+<li><p>初始化 BCOVTVTabBarItemView。</p></li>
+<li><p>@param size 新 BCOVTVTabBarItemView 的大小。該視圖將在選項卡欄項目容器視圖中水平居中。</p></li>
+<li>@參數<a href="#//api/name/playerView">播放器視圖</a>將包含您的新視圖的 TV Player 視圖。</li>
+<li>@return 新創建的 BCOVTVTabBarItemView。</li>
+</ul>
+
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">申報在</h4>
+				<p>BCOVTVTabBarItemView.h<code class="declared-in-ref"></code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/tabBarItemViewDidAdvanceToPlaybackSession:" title="tabBarItemViewDidAdvanceToPlaybackSession:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/tabBarItemViewDidAdvanceToPlaybackSession:">&ndash;&nbsp; tabBarItemViewDidAdvanceToPlaybackSession：</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>從播放控制器傳遞新會話時調用的方法。覆蓋此方法以檢索有關您的視頻的信息並填充您的用戶界面。</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration">- (void)tabBarItemViewDidAdvanceToPlaybackSession:(id&lt;BCOVPlaybackSession&gt;)<code><em>會議</em></code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">討論</h4>
+				<p>從播放控制器傳遞新會話時調用的方法。覆蓋此方法以檢索有關您的視頻的信息並填充您的用戶界面。</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">申報在</h4>
+				<p>BCOVTVTabBarItemView.h<code class="declared-in-ref"></code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/tabBarItemViewWillAppear:" title="tabBarItemViewWillAppear:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/tabBarItemViewWillAppear:">&ndash;&nbsp; tabBarItemViewWillAppear:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>通知視圖它即將被添加到視圖層次結構中。</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration">- (void)tabBarItemViewWillAppear:(BOOL)<code><em>動畫</em></code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">討論</h4>
+				<p>通知視圖它即將被添加到視圖層次結構中。</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">申報在</h4>
+				<p>BCOVTVTabBarItemView.h<code class="declared-in-ref"></code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/tabBarItemViewDidAppear:" title="tabBarItemViewDidAppear:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/tabBarItemViewDidAppear:">&ndash;&nbsp; tabBarItemViewDidAppear：</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>通知視圖它已添加到視圖層次結構中。</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration">- (void)tabBarItemViewDidAppear:(BOOL)<code><em>動畫</em></code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">討論</h4>
+				<p>通知視圖它已添加到視圖層次結構中。</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">申報在</h4>
+				<p>BCOVTVTabBarItemView.h<code class="declared-in-ref"></code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/tabBarItemViewWillDisappear:" title="tabBarItemViewWillDisappear:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/tabBarItemViewWillDisappear:">&ndash;&nbsp; tabBarItemViewWillDisappear：</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>通知視圖它即將從視圖層次結構中刪除。</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration">- (void)tabBarItemViewWillDisappear:(BOOL)<code><em>動畫</em></code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">討論</h4>
+				<p>通知視圖它即將從視圖層次結構中刪除。</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">申報在</h4>
+				<p>BCOVTVTabBarItemView.h<code class="declared-in-ref"></code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/tabBarItemViewDidDisappear:" title="tabBarItemViewDidDisappear:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/tabBarItemViewDidDisappear:">&ndash;&nbsp; tabBarItemViewDidDisappear：</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>通知視圖它已從視圖層次結構中刪除。</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration">- (void)tabBarItemViewDidDisappear:(BOOL)<code><em>動畫</em></code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">討論</h4>
+				<p>通知視圖它已從視圖層次結構中刪除。</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">申報在</h4>
+				<p>BCOVTVTabBarItemView.h<code class="declared-in-ref"></code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/updateForDarkMode:" title="updateForDarkMode:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/updateForDarkMode:">&ndash;&nbsp;更新暗模式：</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>當特徵集合發生變化時調用，這可能改變了系統外觀或主題設置。</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration">- (void)updateForDarkMode:(BOOL)<code><em>使用暗模式</em></code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">討論</h4>
+				<p>當特徵集合發生變化時調用，這可能改變了系統外觀或主題設置。</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">申報在</h4>
+				<p>BCOVTVTabBarItemView.h<code class="declared-in-ref"></code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div>
+						</div>
+						
+					</div>
+					
+					
+
+                    
+				</main>
+
+				<footer>
+					<div class="footer-copyright">
+						
+						<p class="copyright">版權&copy; 2021 年光明灣。版權所有。更新：2021-07-08</p>
+						
+						
+						<p class="generator">生成者<a href="http://appledoc.gentlebytes.com">蘋果文檔 2.2.1（內部版本 1334）</a> .</p>
+						
+					</div>
+				</footer>
+			</div>
+		</div>
+	</article>
+
+	<script src="../js/script.js"></script>
+</body>
+</html>

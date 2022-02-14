@@ -1,0 +1,1850 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+
+	<title>BCOVOfflineVideoManager 類參考</title>
+
+	<link rel="stylesheet" href="../css/style.css">
+	<meta name="viewport" content="initial-scale=1, maximum-scale=1.4">
+	<meta name="generator" content="appledoc 2.2.1 (build 1334)">
+</head>
+<body class="appledoc">
+	<header>
+		<div class="container" class="hide-in-xcode">
+			
+			<h1 id="library-title"><a href="../index.html">適用於 iOS 的 Brightcove 原生播放器</a></h1>
+
+			<p id="developer-home">
+				<a href="../index.html">亮灣</a>
+			</p>
+			
+		</div>
+	</header>
+
+	<aside>
+		<div class="container">
+			<nav>
+				<ul id="header-buttons" role="toolbar">
+					<li><a href="../index.html">指數</a></li>
+<li><a href="../hierarchy.html">等級制度</a></li>
+
+					<li id="on-this-page" role="navigation">
+						<label>
+							在本頁
+
+							<div class="chevron">
+								<div class="chevy chevron-left"></div>
+								<div class="chevy chevron-right"></div>
+							</div>
+
+							<select id="jump-to">
+	<option value="top">跳到…</option>
+	
+	<option value="overview">概述</option>
+	
+
+	
+	
+	<option value="tasks">任務</option>
+	
+	
+
+	
+	
+	<optgroup label="Properties">
+		
+		<option value="//api/name/authProxy">授權代理</option>
+		
+		<option value="//api/name/delegate">代表</option>
+		
+		<option value="//api/name/offlineVideoTokens">離線視頻令牌</option>
+		
+	</optgroup>
+	
+
+	
+	<optgroup label="Class Methods">
+		
+		<option value="//api/name/initializeOfflineVideoManagerWithDelegate:options:">+ initializeOfflineVideoManagerWithDelegate:options:</option>
+		
+		<option value="//api/name/sharedManager">+ 共享管理器</option>
+		
+	</optgroup>
+	
+
+	
+	<optgroup label="Instance Methods">
+		
+		<option value="//api/name/addFairPlayApplicationCertificate:identifier:">- 添加FairPlayApplicationCertificate:identifier:</option>
+		
+		<option value="//api/name/alternativeRenditionAttributesDictionariesForVideo:completion:">-alternativeRenditionAttributesDictionariesForVideo:completion:</option>
+		
+		<option value="//api/name/cancelVideoDownload:">- 取消視頻下載：</option>
+		
+		<option value="//api/name/clearOfflineVideoCache">- 清除離線視頻緩存</option>
+		
+		<option value="//api/name/deleteOfflineVideo:">- 刪除離線視頻：</option>
+		
+		<option value="//api/name/downloadedMediaSelectionOptionsForMediaCharacteristic:offlineVideoToken:">- 下載的MediaSelectionOptionsForMediaCharacteristic:offlineVideoToken:</option>
+		
+		<option value="//api/name/estimateDownloadSize:options:completion:">- 估計下載大小：選項：完成：</option>
+		
+		<option value="//api/name/fairPlayLicenseExpiration:">- fairPlayLicenseExpiration：</option>
+		
+		<option value="//api/name/forceStopAllDownloadTasks">- forceStopAllDownloadTasks</option>
+		
+		<option value="//api/name/invalidateFairPlayLicense:">- invalidateFairPlayLicense:</option>
+		
+		<option value="//api/name/mediaSelectionGroupForMediaCharacteristic:offlineVideoToken:">- mediaSelectionGroupForMediaCharacteristic:offlineVideoToken:</option>
+		
+		<option value="//api/name/offlineVideoStatus">- 離線視頻狀態</option>
+		
+		<option value="//api/name/offlineVideoStatusForToken:">- offlineVideoStatusForToken：</option>
+		
+		<option value="//api/name/pauseVideoDownload:">- 暫停視頻下載：</option>
+		
+		<option value="//api/name/preloadFairPlayLicense:parameters:completion:">- preloadFairPlayLicense:parameters:completion:</option>
+		
+		<option value="//api/name/renewFairPlayLicense:video:authToken:parameters:completion:">-renewFairPlayLicense:video:authToken:parameters:completion:</option>
+		
+		<option value="//api/name/renewFairPlayLicense:video:parameters:completion:">- 更新公平播放許可證：視頻：參數：完成：</option>
+		
+		<option value="//api/name/requestVideoDownload:mediaSelections:parameters:completion:">- requestVideoDownload:mediaSelections:parameters:completion:</option>
+		
+		<option value="//api/name/resumeVideoDownload:">- 簡歷視頻下載：</option>
+		
+		<option value="//api/name/urlAssetForVideo:error:">- urlAssetForVideo：錯誤：</option>
+		
+		<option value="//api/name/variantAttributesDictionariesForVideo:completion:">- variantAttributesDictionariesForVideo:completion:</option>
+		
+		<option value="//api/name/variantBitratesForVideo:completion:">- variantBitratesForVideo:completion:</option>
+		
+		<option value="//api/name/videoObjectFromOfflineVideoToken:">- videoObjectFromOfflineVideoToken：</option>
+		
+	</optgroup>
+	
+	
+</select>
+						</label>
+					</li>
+				</ul>
+			</nav>
+		</div>
+	</aside>
+
+	<article>
+		<div id="overview_contents" class="container">
+			<div id="content">
+				<main role="main">
+					<h1 class="title">BCOVOfflineVideoManager 類參考</h1>
+
+					
+					<div class="section section-specification"><table cellspacing="0"><tbody>
+						<tr>
+	<th>繼承自</th>
+	<td>NSObject</td>
+</tr><tr>
+	<th>聲明於</th>
+	<td>BCOVOfflineVideoManager.h</td>
+</tr>
+						</tbody></table></div>
+					
+
+                    
+					
+					<div class="section section-overview">
+						<a title="Overview" name="overview"></a>
+						<h2 class="subtitle subtitle-overview">概述</h2>
+						<p>BCOVOfflineVideoManager 這個單例類處理視頻文件下載的大部分方面</p>
+					</div>
+					
+					
+
+					
+					
+					<div class="section section-tasks">
+						<a title="Tasks" name="tasks"></a>
+						
+
+						
+						
+
+						<div class="task-list">
+							<div class="section-method">
+	<a name="//api/name/authProxy" title="authProxy"></a>
+	<h3 class="method-title"><code><a href="#//api/name/authProxy">&nbsp;&nbsp;授權代理</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>處理 FairPlay 密鑰交換的特定子任務的代理對象<a href="../Protocols/BCOVFPSAuthorizationProxy.html">BCOVFPSAuthorizationProxy</a>協議。</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration">@property (nonatomic, strong) id&lt;BCOVFPSAuthorizationProxy&gt; authProxy<code></code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">申報在</h4>
+				<p>BCOVOfflineVideoManager.h<code class="declared-in-ref"></code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/delegate" title="delegate"></a>
+	<h3 class="method-title"><code><a href="#//api/name/delegate">&nbsp;&nbsp;代表</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>此 BCOVOfflineVideoManager 的委託。</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>@property (nonatomic,assign) id&lt;BCOVOfflineVideoManagerDelegate&gt; 委託</code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">申報在</h4>
+				<p>BCOVOfflineVideoManager.h<code class="declared-in-ref"></code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/offlineVideoTokens" title="offlineVideoTokens"></a>
+	<h3 class="method-title"><code><a href="#//api/name/offlineVideoTokens">&nbsp;&nbsp;離線視頻令牌</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>返回所有離線視頻令牌的數組。</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration">@property (nonatomic, readonly) NSArray&lt;BCOVOfflineVideoToken&gt; *offlineVideoTokens<code></code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">討論</h4>
+				<p>每個令牌是指設備存儲中的視頻下載，包括當前正在下載的視頻，以及被取消、暫停或失敗的視頻。</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">申報在</h4>
+				<p>BCOVOfflineVideoManager.h<code class="declared-in-ref"></code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/sharedManager" title="sharedManager"></a>
+	<h3 class="method-title"><code><a href="#//api/name/sharedManager">+ &nbsp;共享管理器</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>用於訪問單例 BCOVOfflineVideoManager 對象的共享實例。</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration">+ (BCOVOfflineVideoManager *)sharedManager<code></code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">申報在</h4>
+				<p>BCOVOfflineVideoManager.h<code class="declared-in-ref"></code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/initializeOfflineVideoManagerWithDelegate:options:" title="initializeOfflineVideoManagerWithDelegate:options:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/initializeOfflineVideoManagerWithDelegate:options:">+ &nbsp; initializeOfflineVideoManagerWithDelegate:options:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>初始化離線視頻管理器。</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration">+ (void)initializeOfflineVideoManagerWithDelegate:(id&lt;BCOVOfflineVideoManagerDelegate&gt;)<code><em>代表</em> 選項:(NSDictionary *)<em>選項</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">參數</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>代表</code></th>
+						<td><p>這<a href="#//api/name/delegate">代表</a>對象符合<a href="../Protocols/BCOVOfflineVideoManagerDelegate.html">BCOVOfflineVideoManagerDelegate</a>協議。</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>選項</code></th>
+						<td><p>選項的 NSDictionary。唯一有效的字典條目是 kBCOVOfflineVideoManagerAllowsCellularDownloadKey、kBCOVOfflineVideoManagerAllowsCellularPlaybackKey、kBCOVOfflineVideoManagerAllowsCellularAnalyticsKey 和 kBCOVOfflineVideoManagerAnalyticsStorageLimitKey。</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">討論</h4>
+				<p>這應該是對離線視頻管理器的第一次調用。您可以再次調用此方法來更新<a href="#//api/name/delegate">代表</a>和選項。</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">申報在</h4>
+				<p>BCOVOfflineVideoManager.h<code class="declared-in-ref"></code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/requestVideoDownload:mediaSelections:parameters:completion:" title="requestVideoDownload:mediaSelections:parameters:completion:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/requestVideoDownload:mediaSelections:parameters:completion:">&ndash;&nbsp; requestVideoDownload:mediaSelections:parameters:completion:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>發起視頻下載請求。</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration">- (void)requestVideoDownload:(BCOVVideo *)<code><em>視頻</em> mediaSelections:(NSArray&lt;AVMediaSelection*&gt; *)<em>媒體選擇</em> 參數：（NSDictionary *）<em>參數</em> 完成:(void (^) (BCOVOfflineVideoToken offlineVideoToken, NSError *error ))<em>完成處理程序</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">參數</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>視頻</code></th>
+						<td><p><a href="../Classes/BCOVVideo.html">BCOV視頻</a>要下載。視頻應具有採用 HTTPS 方案的 HLS 源，並且可以使用 FairPlay 加密。</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>媒體選擇</code></th>
+						<td><p>除了主視頻之外，還要下載一系列 AVMediaSelection。可以通過調用 -urlAssetForVideo:error: 後跟 [AVAsset preferredMediaSelection] 或 [AVAsset allMediaSelections] 來檢索 BCOVVideo 的可用 AVMediaSelection。為 mediaSelection 傳遞 nil 將導致獲取首選的 AVMediaSelection。請注意，在 iOS 13+ 中，所有視頻資產都必須通過一次調用 requestVideoDownload:mediaSelections:parameters:completion: 來下載。以後無法下載其他曲目。</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>參數</code></th>
+						<td><p>此下載請求中使用的參數的 NSDictionary。可能為零。有效參數為：kBCOVOfflineVideoManagerRequestedBitrateKey、kBCOVFairPlayLicensePurchaseKey、kBCOVFairPlayLicenseRentalDurationKey。</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>完成處理程序</code></th>
+						<td><p>請求成功後接收新的offlineVideoToken的塊。如果有錯誤，offlineVideoToken 將為 nil，並且 error 將報告任何 NSError。</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">討論</h4>
+				<p>如果您將 FairPlay 視頻與 Video Cloud Dynamic Delivery 一起使用，FairPlay 應用程序證書將自動下載並根據需要使用。如果您使用的是舊版 Video Cloud FairPlay 視頻，則應在開始下載之前使用 -[addFairPlayApplicationCertificate:identifier:] 將任何所需的應用程序證書添加到 BCOVOfflineVideoManger。</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">申報在</h4>
+				<p>BCOVOfflineVideoManager.h<code class="declared-in-ref"></code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/offlineVideoStatus" title="offlineVideoStatus"></a>
+	<h3 class="method-title"><code><a href="#//api/name/offlineVideoStatus">&ndash;&nbsp;離線視頻狀態</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>返回所有視頻下載狀態的數組，包括當前正在下載的視頻以及被取消、暫停或失敗的視頻。</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration">- (NSArray&lt;BCOVOfflineVideoStatus*&gt; *)offlineVideoStatus<code></code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">討論</h4>
+				<p>數組中的所有對像都是副本，因此雖然您可以修改對象，但不會對下載管理器產生影響。</p>
+
+<p>此方法提供有關每次下載的信息，例如下載狀態、開始時間、進度百分比、底層 AVAssetDownloadTask 和錯誤（如果有的話）。</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">申報在</h4>
+				<p>BCOVOfflineVideoManager.h<code class="declared-in-ref"></code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/offlineVideoStatusForToken:" title="offlineVideoStatusForToken:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/offlineVideoStatusForToken:">&ndash;&nbsp; offlineVideoStatusForToken：</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>返回副本<a href="../Classes/BCOVOfflineVideoStatus.html">BCOV離線視頻狀態</a>特定視頻下載的對象。</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration">- (BCOVOfflineVideoStatus *)offlineVideoStatusForToken:(BCOVOfflineVideoToken)<code><em>離線視頻令牌</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">參數</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>離線視頻令牌</code></th>
+						<td><p>用於識別下載視頻的離線視頻令牌。</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">討論</h4>
+				<p><a href="../Classes/BCOVOfflineVideoStatus.html">BCOV離線視頻狀態</a>提供有關下載的信息，例如下載狀態、開始時間、進度百分比、底層 AVAggregateAssetDownloadTask 和錯誤（如果有的話）。</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">申報在</h4>
+				<p>BCOVOfflineVideoManager.h<code class="declared-in-ref"></code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/pauseVideoDownload:" title="pauseVideoDownload:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/pauseVideoDownload:">&ndash;&nbsp;暫停視頻下載：</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>暫停當前的視頻下載任務。</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration">- (void)pauseVideoDownload:(BCOVOfflineVideoToken)<code><em>離線視頻令牌</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">參數</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>離線視頻令牌</code></th>
+						<td><p>用於識別下載任務的離線視頻令牌。</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">申報在</h4>
+				<p>BCOVOfflineVideoManager.h<code class="declared-in-ref"></code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/resumeVideoDownload:" title="resumeVideoDownload:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/resumeVideoDownload:">&ndash;&nbsp;簡歷視頻下載：</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>恢復暫停的視頻下載任務</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration">- (void)resumeVideoDownload:(BCOVOfflineVideoToken)<code><em>離線視頻令牌</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">參數</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>離線視頻令牌</code></th>
+						<td><p>用於識別下載任務的離線視頻令牌。</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">申報在</h4>
+				<p>BCOVOfflineVideoManager.h<code class="declared-in-ref"></code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/cancelVideoDownload:" title="cancelVideoDownload:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/cancelVideoDownload:">&ndash;&nbsp;取消視頻下載：</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>取消視頻下載任務</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration">- (void)cancelVideoDownload:(BCOVOfflineVideoToken)<code><em>離線視頻令牌</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">參數</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>離線視頻令牌</code></th>
+						<td><p>用於識別下載任務的離線視頻令牌。</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">申報在</h4>
+				<p>BCOVOfflineVideoManager.h<code class="declared-in-ref"></code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/deleteOfflineVideo:" title="deleteOfflineVideo:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/deleteOfflineVideo:">&ndash;&nbsp;刪除離線視頻：</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>刪除本地存儲中與此離線視頻令牌相關的所有文件。</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration">- (void)deleteOfflineVideo:(BCOVOfflineVideoToken)<code><em>離線視頻令牌</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">參數</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>離線視頻令牌</code></th>
+						<td><p>用於識別下載視頻的離線視頻令牌。</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">討論</h4>
+				<p>此調用後，offlineVideoToken 將被視為無效。</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">申報在</h4>
+				<p>BCOVOfflineVideoManager.h<code class="declared-in-ref"></code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/forceStopAllDownloadTasks" title="forceStopAllDownloadTasks"></a>
+	<h3 class="method-title"><code><a href="#//api/name/forceStopAllDownloadTasks">&ndash;&nbsp; forceStopAllDownloadTasks</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>停止所有正在進行的下載任務。</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration">- (void)forceStopAllDownloadTasks<code></code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">討論</h4>
+				<p>此方法通過刪除其底層下載文件夾來強制所有下載任務因錯誤而終止。已經完成的下載不受影響。</p>
+
+<p>警告：這種方法應該只在非常特殊的情況下使用。 iOS 11.0.x 和 iOS 11.1.x 存在一個問題，如果下載任務被暫停然後取消，它將繼續完成。在這種情況下，您無法取消或刪除失控任務，因此最好的選擇是刪除所有下載任務。</p>
+
+<p>此方法不能保證停止所有下載任務。</p>
+
+<p>在 iOS 11.2 及更高版本中，您應該使用<a href="#//api/name/cancelVideoDownload:">取消視頻下載：</a></p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">申報在</h4>
+				<p>BCOVOfflineVideoManager.h<code class="declared-in-ref"></code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/estimateDownloadSize:options:completion:" title="estimateDownloadSize:options:completion:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/estimateDownloadSize:options:completion:">&ndash;&nbsp;估計下載大小：選項：完成：</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>估計視頻下載的大小（以兆字節為單位）。</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration">- (void)estimateDownloadSize:(BCOVVideo *)<code><em>視頻</em> 選項:(NSDictionary *)<em>選項</em> 完成：（void（^）（雙兆字節，NSError *error））<em>完成處理程序</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">參數</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>視頻</code></th>
+						<td><p>這<a href="../Classes/BCOVVideo.html">BCOV視頻</a>來自視頻雲的對象。視頻對象應包含有效的 HLS 源。</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>選項</code></th>
+						<td><p>此請求中使用的選項的 NSDictionary。使用 kBCOVOfflineVideoManagerRequestedBitrateKey 指定您計劃下載的比特率。</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>完成處理程序</code></th>
+						<td><p>請求成功後接收視頻估計大小的塊。如果有錯誤，<code>兆字節</code>將被設置為零，並且<code>錯誤</code>將報告任何 NSError。</p>
+
+<p>不會在任何特定線程上調用完成處理程序。如果您需要執行任何 UI 工作，您應該切換到主線程。它可以被同步或異步調用。</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">討論</h4>
+				<p>此方法使用 HLS 清單中最大再現的視頻大小的估計值（以兆字節為單位）調用完成處理程序。如果檢索值有任何問題，<code>錯誤</code>將被設置，並且<code>尺寸</code>將為零。</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">申報在</h4>
+				<p>BCOVOfflineVideoManager.h<code class="declared-in-ref"></code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/urlAssetForVideo:error:" title="urlAssetForVideo:error:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/urlAssetForVideo:error:">&ndash;&nbsp; urlAssetForVideo：錯誤：</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>給定一個<a href="../Classes/BCOVVideo.html">BCOV視頻</a> , 返回一個 AVURLAsset 代表將用於離線下載的視頻源。<a href="../Classes/BCOVVideo.html">BCOV視頻</a>對象可以包含多個視頻源，首選源是安全的並且適合在 iOS 上播放。不要在在線播放的上下文中使用此方法。</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration">- (AVURLAsset *)urlAssetForVideo:(BCOVVideo *)<code><em>視頻</em> 錯誤:(NSError **)<em>錯誤</em></code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">申報在</h4>
+				<p>BCOVOfflineVideoManager.h<code class="declared-in-ref"></code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/variantAttributesDictionariesForVideo:completion:" title="variantAttributesDictionariesForVideo:completion:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/variantAttributesDictionariesForVideo:completion:">&ndash;&nbsp; variantAttributesDictionariesForVideo:completion:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>檢索一組 NSDictionary 對象，一個用於指定在線 HLS 視頻中的每個變體流。</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration">- (void)variantAttributesDictionariesForVideo:(BCOVVideo *)<code><em>視頻</em> 完成:(void (^) ( NSArray&lt;NSDictionary*&gt; *variantAttributesDictionariesArray , NSError *error ))<em>完成處理程序</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">參數</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>視頻</code></th>
+						<td><p>這<a href="../Classes/BCOVVideo.html">BCOV視頻</a>來自視頻雲的對象。視頻對象應包含有效的在線 HLS 源。</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>完成處理程序</code></th>
+						<td><p>如果請求成功，則接收 NSDictionary 對象的變體屬性數組的塊。如果有錯誤，<code> variantAttributesDictionariesArray</code>將為零，並且<code>錯誤</code>將報告任何 NSError。</p>
+
+<p>不會在任何特定線程上調用完成處理程序。如果您需要執行任何 UI 工作，您應該切換到主線程。它可以被同步或異步調用。</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">討論</h4>
+				<p>每個字典包含每個變體流的鍵：值對&rsquo; s 屬性，由其在 HLS 清單中的相應 EXT-X-STREAM-INF 標記指定。</p>
+
+<p>在選擇特定比特率進行下載時，可以使用這些屬性。如果您只需要比特率值，請使用 -[variantBitratesForVideo:completion:]。</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">申報在</h4>
+				<p>BCOVOfflineVideoManager.h<code class="declared-in-ref"></code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/alternativeRenditionAttributesDictionariesForVideo:completion:" title="alternativeRenditionAttributesDictionariesForVideo:completion:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/alternativeRenditionAttributesDictionariesForVideo:completion:">&ndash;&nbsp; optionalRenditionAttributesDictionariesForVideo:completion:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>檢索一組 NSDictionary 對象，一個用於指定在線 HLS 視頻中的每個替代再現。替代演繹包括字幕、副標題和輔助音軌。</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration">- (void)alternativeRenditionAttributesDictionariesForVideo:(BCOVVideo *)<code><em>視頻</em> 完成:(void ( ^ ) ( NSArray&lt;NSDictionary*&gt; *alternativeRenditionAttributesDictionariesArray , NSError *error ))<em>完成處理程序</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">參數</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>視頻</code></th>
+						<td><p>這<a href="../Classes/BCOVVideo.html">BCOV視頻</a>來自視頻雲的對象。視頻對象應包含有效的在線 HLS 源。</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>完成處理程序</code></th>
+						<td><p>如果請求成功，則接收呈現屬性 NSDictionary 對像數組的塊。如果有錯誤，<code>替代RenditionAttributesDictionariesArray</code>將為零，並且<code>錯誤</code>將報告任何 NSError。</p>
+
+<p>不會在任何特定線程上調用完成處理程序。如果您需要執行任何 UI 工作，您應該切換到主線程。它可以被同步或異步調用。</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">討論</h4>
+				<p>每個字典都包含每個再現的鍵：值對&rsquo; s 屬性，由其在 HLS 清單中的相應 EXT-X-MEDIA 標記指定。這些屬性可用於確定哪些語言可用於文本和音頻軌道，以便可以將這些語言呈現給最終用戶，或者根據區域設置或某些其他標準自行選擇下載。</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">申報在</h4>
+				<p>BCOVOfflineVideoManager.h<code class="declared-in-ref"></code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/variantBitratesForVideo:completion:" title="variantBitratesForVideo:completion:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/variantBitratesForVideo:completion:">&ndash;&nbsp; variantBitratesForVideo:completion:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>檢索指定在線 HLS 視頻的可用比特率數組。</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration">- (void)variantBitratesForVideo:(BCOVVideo *)<code><em>視頻</em> 完成:(void (^) ( NSArray&lt;NSNumber*&gt; *bitrates , NSError *error ))<em>完成處理程序</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">參數</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>視頻</code></th>
+						<td><p>這<a href="../Classes/BCOVVideo.html">BCOV視頻</a>來自視頻雲的對象。視頻對象應包含有效的在線 HLS 源。</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>完成處理程序</code></th>
+						<td><p>如果請求成功，則接收比特率數組的塊。如果有錯誤，<code>比特率</code>將為零，並且<code>錯誤</code>將報告任何 NSError。</p>
+
+<p>不會在任何特定線程上調用完成處理程序。如果您需要執行任何 UI 工作，您應該切換到主線程。它可以被同步或異步調用。</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">討論</h4>
+				<p>該數組將從最小到最大比特率排序。</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">申報在</h4>
+				<p>BCOVOfflineVideoManager.h<code class="declared-in-ref"></code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/videoObjectFromOfflineVideoToken:" title="videoObjectFromOfflineVideoToken:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/videoObjectFromOfflineVideoToken:">&ndash;&nbsp; videoObjectFromOfflineVideoToken:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>將離線視頻令牌轉換為可播放的<a href="../Classes/BCOVVideo.html">BCOV視頻</a>目的。</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration">- (BCOVVideo *)videoObjectFromOfflineVideoToken:(BCOVOfflineVideoToken)<code><em>離線視頻令牌</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">參數</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>離線視頻令牌</code></th>
+						<td><p>用於識別下載視頻的離線視頻令牌。</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">討論</h4>
+				<p>返回的<a href="../Classes/BCOVVideo.html">BCOV視頻</a>還包含上面列出的所有新屬性，例如下載的縮略圖和海報圖像文件路徑、FairPlay 許可證到期日期、下載開始和結束時間等。</p>
+
+<p>如果視頻的下載狀態是<code>BCOVOfflineVideoDownloadStateCompleted</code>然後與令牌關聯的視頻將被緩存。如果您出於任何原因需要清除緩存，您可以調用<a href="#//api/name/clearOfflineVideoCache"><code>清除離線視頻緩存</code></a>在<code>BCOV離線視頻管理器</code> .</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">申報在</h4>
+				<p>BCOVOfflineVideoManager.h<code class="declared-in-ref"></code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/clearOfflineVideoCache" title="clearOfflineVideoCache"></a>
+	<h3 class="method-title"><code><a href="#//api/name/clearOfflineVideoCache">&ndash;&nbsp;清除離線視頻緩存</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>清除離線緩存<a href="../Classes/BCOVVideo.html">BCOV視頻</a>對象</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration">- (void)clearOfflineVideoCache<code></code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">討論</h4>
+				<p>什麼時候<a href="#//api/name/videoObjectFromOfflineVideoToken:"><code>videoObjectFromOfflineVideoToken:</code></a>與下載狀態為<code>BCOVOfflineVideoDownloadStateCompleted</code>然後 BCOVOfflienVideoManager 將緩存該對像以提高性能。此方法將清除緩存以便下次<a href="#//api/name/videoObjectFromOfflineVideoToken:"><code>videoObjectFromOfflineVideoToken:</code></a>被稱為全新<a href="../Classes/BCOVVideo.html">BCOV視頻</a>將創建對象。</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">申報在</h4>
+				<p>BCOVOfflineVideoManager.h<code class="declared-in-ref"></code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/preloadFairPlayLicense:parameters:completion:" title="preloadFairPlayLicense:parameters:completion:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/preloadFairPlayLicense:parameters:completion:">&ndash;&nbsp; preloadFairPlayLicense:parameters:completion:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>在開始下載視頻之前預加載 FairPlay 許可證。</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration">- (void)preloadFairPlayLicense:(BCOVVideo *)<code><em>視頻</em> 參數：（NSDictionary *）<em>參數</em> 完成:(void (^) (BCOVOfflineVideoToken offlineVideoToken, NSError *error ))<em>完成處理程序</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">參數</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>視頻</code></th>
+						<td><p><a href="../Classes/BCOVVideo.html">BCOV視頻</a>要下載。視頻應具有使用 FairPlay 加密和 HTTPS 方案的來源。</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>參數</code></th>
+						<td><p>此下載請求中使用的參數的 NSDictionary。有效參數為：kBCOVFairPlayLicensePurchaseKey、kBCOVFairPlayLicenseRentalDurationKey。</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>完成處理程序</code></th>
+						<td><p>請求成功後接收新的offlineVideoToken的塊。如果有錯誤，offlineVideoToken 將為 nil，並且 error 將報告任何 NSError。</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">討論</h4>
+				<p>如果視頻沒有 FairPlay 源，這將返回錯誤。下載多個受 FairPlay 保護的視頻時，您應該在開始任何下載之前為每個視頻調用此方法以獲取每個視頻的許可證。這確保即使在後台啟動下載時也可以正確存儲視頻。</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">申報在</h4>
+				<p>BCOVOfflineVideoManager.h<code class="declared-in-ref"></code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/renewFairPlayLicense:video:parameters:completion:" title="renewFairPlayLicense:video:parameters:completion:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/renewFairPlayLicense:video:parameters:completion:">&ndash;&nbsp;更新公平播放許可證：視頻：參數：完成：</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>發起對新 FairPlay 許可證的請求。</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration">- (void)renewFairPlayLicense:(BCOVOfflineVideoToken)<code><em>離線視頻令牌</em> 視頻:(BCOVVideo *)<em>視頻</em> 參數：（NSDictionary *）<em>參數</em> 完成:(void (^) (BCOVOfflineVideoToken offlineVideoToken, NSError *error ))<em>完成處理程序</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">參數</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>離線視頻令牌</code></th>
+						<td><p>離線視頻令牌，用於標識要為其獲取新許可證的下載視頻。</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>視頻</code></th>
+						<td><p><a href="../Classes/BCOVVideo.html">BCOV視頻</a>通過 Playback API 檢索的在線視頻對象的對像或<a href="../Classes/BCOVPlaybackService.html">BCOVPlaybackService</a>班級。該視頻必須不是由&lsquo; -videoObjectFromOfflineVideoToken: &rsquo; .</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>參數</code></th>
+						<td><p>此許可證續訂請求中使用的參數的 NSDictionary。可能為零。有效參數為：kBCOVFairPlayLicensePurchaseKey、kBCOVFairPlayLicenseRentalDurationKey。</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>完成處理程序</code></th>
+						<td><p>在許可證續訂請求完成後調用的塊。如果請求導致錯誤，它將在此處作為 NSError 返回。offlineVideoToken 參數將與作為第一個參數傳入的離線視頻令牌相同。</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">討論</h4>
+				<p>在獲得初始許可後，您可以隨時申請新的 FairPlay 許可。</p>
+
+<p>在參數中，您可以指定新的租賃期限，或者您可以將租賃許可證轉換為購買許可證。</p>
+
+<p>視頻無需重新下載即可使用新的 FairPlay 許可，但您確實需要從 Playback API（直接或通過<a href="../Classes/BCOVPlaybackService.html">BCOVPlaybackService</a>班級）。如果引用的視頻不再通過 Playback API 可用，您可以使用基本相似的視頻，這意味著視頻應該來自同一個帳戶，並且還具有相同的 FairPlay 配置。</p>
+
+<p>您不應在參數中指定比特率。要更改比特率，您需要刪除當前下載，然後以新的比特率啟動全新的下載。</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">申報在</h4>
+				<p>BCOVOfflineVideoManager.h<code class="declared-in-ref"></code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/renewFairPlayLicense:video:authToken:parameters:completion:" title="renewFairPlayLicense:video:authToken:parameters:completion:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/renewFairPlayLicense:video:authToken:parameters:completion:">&ndash;&nbsp;更新公平播放許可證：視頻：authToken：參數：完成：</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>發起對新 FairPlay 許可證的請求。</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration">- (void)renewFairPlayLicense:(BCOVOfflineVideoToken)<code><em>離線視頻令牌</em> 視頻:(BCOVVideo *)<em>視頻</em> authToken:(NSString *)<em>身份驗證令牌</em> 參數：（NSDictionary *）<em>參數</em> 完成:(void (^) (BCOVOfflineVideoToken offlineVideoToken, NSError *error ))<em>完成處理程序</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">參數</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>離線視頻令牌</code></th>
+						<td><p>離線視頻令牌，用於標識要為其獲取新許可證的下載視頻。</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>視頻</code></th>
+						<td><p><a href="../Classes/BCOVVideo.html">BCOV視頻</a>通過 Playback API 檢索的在線視頻對象的對像或<a href="../Classes/BCOVPlaybackService.html">BCOVPlaybackService</a>班級。該視頻必須不是由&lsquo; -videoObjectFromOfflineVideoToken: &rsquo; .</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>身份驗證令牌</code></th>
+						<td><p>用於驗證視頻的身份驗證令牌&rsquo;執照</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>參數</code></th>
+						<td><p>此許可證續訂請求中使用的參數的 NSDictionary。可能為零。有效參數為：kBCOVFairPlayLicensePurchaseKey、kBCOVFairPlayLicenseRentalDurationKey。</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>完成處理程序</code></th>
+						<td><p>在許可證續訂請求完成後調用的塊。如果請求導致錯誤，它將在此處作為 NSError 返回。offlineVideoToken 參數將與作為第一個參數傳入的離線視頻令牌相同。</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">討論</h4>
+				<p>在獲得初始許可後，您可以隨時申請新的 FairPlay 許可。</p>
+
+<p>在參數中，您可以指定新的租賃期限，或者您可以將租賃許可證轉換為購買許可證。</p>
+
+<p>視頻無需重新下載即可使用新的 FairPlay 許可，但您確實需要從 Playback API（直接或通過<a href="../Classes/BCOVPlaybackService.html">BCOVPlaybackService</a>班級）。如果引用的視頻不再通過 Playback API 可用，您可以使用基本相似的視頻，這意味著視頻應該來自同一個帳戶，並且還具有相同的 FairPlay 配置。</p>
+
+<p>您不應在參數中指定比特率。要更改比特率，您需要刪除當前下載，然後以新的比特率啟動全新的下載。</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">申報在</h4>
+				<p>BCOVOfflineVideoManager.h<code class="declared-in-ref"></code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/addFairPlayApplicationCertificate:identifier:" title="addFairPlayApplicationCertificate:identifier:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/addFairPlayApplicationCertificate:identifier:">&ndash;&nbsp; addFairPlayApplicationCertificate:identifier:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>此方法用於向離線視頻管理器添加 FairPlay 應用程序證書&rsquo; s 可用的 FairPlay 應用程序證書列表。</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration">- (void)addFairPlayApplicationCertificate:(NSData *)<code><em>申請證書數據</em> 標識符:(NSString *)<em>標識符</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">參數</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>申請證書數據</code></th>
+						<td><p>NSData 對像中的 FairPlay 應用程序證書。如果設置為 nil，則將刪除給定標識符的任何現有應用程序證書。</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>標識符</code></th>
+						<td><p>用於定位應用程序證書的字符串。</p>
+
+<p>此字符串可能不為零。</p>
+
+<p>對於動態傳遞，標識符必須是用於檢索此證書的 URL。</p>
+
+<p>對於舊版視頻雲帳戶，應將其設置為 kBCOVDefaultFairPlayApplicationCertificateIdentifier 以應用於所有帳戶。</p>
+
+<p>如果您使用多個舊版 Video Cloud 帳戶，請將此參數設置為帳戶 ID。</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">討論</h4>
+				<p>證書將在應用程序的整個生命週期內保留。要刪除證書，請添加帶有 nil 的相同標識符作為證書數據。</p>
+
+<p>如果您使用 Dynamic Delivery，FairPlay 插件會自動檢索應用程序證書，因此不需要此方法。但是，您可以使用此方法預加載您的應用程序證書，以加快第一個 FairPlay 加密視頻的播放速度。</p>
+
+<p>證書被存儲並重新用於後續視頻。</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">申報在</h4>
+				<p>BCOVOfflineVideoManager.h<code class="declared-in-ref"></code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/invalidateFairPlayLicense:" title="invalidateFairPlayLicense:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/invalidateFairPlayLicense:">&ndash;&nbsp; invalidateFairPlayLicense:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>使指定的離線視頻令牌的 FairPlay 許可證無效。</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration">- (void)invalidateFairPlayLicense:(BCOVOfflineVideoToken)<code><em>離線視頻令牌</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">參數</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>離線視頻令牌</code></th>
+						<td><p>離線視頻令牌，用於標識已下載的許可將失效的視頻。</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">討論</h4>
+				<p>此方法刪除與離線視頻令牌關聯的視頻的 FairPlay 許可證（如果有）。</p>
+
+<p>嘗試在沒有許可證的情況下播放受 FairPlay 保護的視頻將導致 kBCOVOfflineVideoManagerErrorCodeInvalidLicense 錯誤。</p>
+
+<p>如果需要，您可以在視頻刪除後申請新的 FairPlay 許可。</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">申報在</h4>
+				<p>BCOVOfflineVideoManager.h<code class="declared-in-ref"></code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/fairPlayLicenseExpiration:" title="fairPlayLicenseExpiration:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/fairPlayLicenseExpiration:">&ndash;&nbsp; fairPlayLicense 有效期：</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>返回一個 NSDate，表示與離線視頻令牌關聯的視頻的 FairPlay 許可證到期。</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration">- (NSDate *)fairPlayLicenseExpiration:(BCOVOfflineVideoToken)<code><em>離線視頻令牌</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">參數</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>離線視頻令牌</code></th>
+						<td><p>用於識別下載視頻的離線視頻令牌。</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">返回值</h4>
+				<p>NSDate 表示 FairPlay 許可證的到期，NSDate.distantFuture 表示購買許可證或清晰（無 FairPlay）視頻，如果沒有許可證，則為 nil。</p>
+			</div>
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">討論</h4>
+				<p>返回 NSDate.distantFuture 的&ldquo;購買&rdquo;許可證。</p>
+
+<p>如果視頻未使用 FairPlay 加密，則返回 NSDate.distantFuture。</p>
+
+<p>如果視頻沒有 FairPlay 許可證，則返回 nil。</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">申報在</h4>
+				<p>BCOVOfflineVideoManager.h<code class="declared-in-ref"></code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/mediaSelectionGroupForMediaCharacteristic:offlineVideoToken:" title="mediaSelectionGroupForMediaCharacteristic:offlineVideoToken:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/mediaSelectionGroupForMediaCharacteristic:offlineVideoToken:">&ndash;&nbsp; mediaSelectionGroupForMediaCharacteristic:offlineVideoToken:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>返回由離線視頻令牌指定的下載視頻的媒體選擇組。</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration">- (AVMediaSelectionGroup *)mediaSelectionGroupForMediaCharacteristic:(NSString *)<code><em>mediaCharacteristic</em> offlineVideoToken:(BCOVOfflineVideoToken)<em>離線視頻令牌</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">參數</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name">mediaCharacteristic<code></code></th>
+						<td><p>您感興趣的媒體特徵。支持的值為 AVMediaCharacteristicAudible 和 AVMediaCharacteristicLegible。</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>離線視頻令牌</code></th>
+						<td><p>用於識別下載視頻的離線視頻令牌。不得引用正在進行的下載。</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">討論</h4>
+				<p>下載的視頻必須是完整的，否則這個方法會返回nil。</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">申報在</h4>
+				<p>BCOVOfflineVideoManager.h<code class="declared-in-ref"></code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/downloadedMediaSelectionOptionsForMediaCharacteristic:offlineVideoToken:" title="downloadedMediaSelectionOptionsForMediaCharacteristic:offlineVideoToken:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/downloadedMediaSelectionOptionsForMediaCharacteristic:offlineVideoToken:">&ndash;&nbsp;下載的MediaSelectionOptionsForMediaCharacteristic:offlineVideoToken:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>返回由離線視頻令牌指定的下載視頻的下載媒體選擇選項，如基礎 AVURLAsset 的 AVMediaCache 報告的那樣。可能返回零。</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration">- (NSArray&lt;AVMediaSelectionOption*&gt; *)downloadedMediaSelectionOptionsForMediaCharacteristic:(NSString *)<code><em>mediaCharacteristic</em> offlineVideoToken:(BCOVOfflineVideoToken)<em>離線視頻令牌</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">參數</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name">mediaCharacteristic<code></code></th>
+						<td><p>您感興趣的媒體特徵。支持的值為 AVMediaCharacteristicAudible 和 AVMediaCharacteristicLegible。</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>離線視頻令牌</code></th>
+						<td><p>用於識別下載視頻的離線視頻令牌。</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">申報在</h4>
+				<p>BCOVOfflineVideoManager.h<code class="declared-in-ref"></code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div>
+						</div>
+						
+					</div>
+					
+					
+
+                    
+				</main>
+
+				<footer>
+					<div class="footer-copyright">
+						
+						<p class="copyright">版權&copy; 2021 年光明灣。版權所有。更新：2021-07-08</p>
+						
+						
+						<p class="generator">生成者<a href="http://appledoc.gentlebytes.com">蘋果文檔 2.2.1（內部版本 1334）</a> .</p>
+						
+					</div>
+				</footer>
+			</div>
+		</div>
+	</article>
+
+	<script src="../js/script.js"></script>
+</body>
+</html>

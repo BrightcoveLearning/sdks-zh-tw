@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+
+	<title>BCOVPlayerSDKManager(BCOVPulseAdditions) 分類參考</title>
+
+	<link rel="stylesheet" href="../css/style.css">
+	<meta name="viewport" content="initial-scale=1, maximum-scale=1.4">
+	<meta name="generator" content="appledoc 2.2.1 (build 1334)">
+</head>
+<body class="appledoc">
+	<header>
+		<div class="container" class="hide-in-xcode">
+			
+			<h1 id="library-title"><a href="../index.html">適用於 iOS 的 Brightcove 原生播放器</a></h1>
+
+			<p id="developer-home">
+				<a href="../index.html">亮灣</a>
+			</p>
+			
+		</div>
+	</header>
+
+	<aside>
+		<div class="container">
+			<nav>
+				<ul id="header-buttons" role="toolbar">
+					<li><a href="../index.html">指數</a></li>
+<li><a href="../hierarchy.html">等級制度</a></li>
+
+					<li id="on-this-page" role="navigation">
+						<label>
+							在本頁
+
+							<div class="chevron">
+								<div class="chevy chevron-left"></div>
+								<div class="chevy chevron-right"></div>
+							</div>
+
+							<select id="jump-to">
+	<option value="top">跳到…</option>
+	
+	<option value="overview">概述</option>
+	
+
+	
+	
+	<option value="tasks">任務</option>
+	
+	
+
+	
+	
+
+	
+
+	
+	<optgroup label="Instance Methods">
+		
+		<option value="//api/name/createPulsePlaybackControllerWithPulseHost:contentMetadata:requestSettings:adContainer:companionSlots:viewStrategy:options:">- createPulsePlaybackControllerWithPulseHost:contentMetadata:requestSettings:adContainer:companionSlots:viewStrategy:options:</option>
+		
+		<option value="//api/name/createPulseSessionProviderWithPulseHost:contentMetadata:requestSettings:adContainer:companionSlots:upstreamSessionProvider:options:">- createPulseSessionProviderWithPulseHost:contentMetadata:requestSettings:adContainer:companionSlots:upstreamSessionProvider:options:</option>
+		
+	</optgroup>
+	
+	
+</select>
+						</label>
+					</li>
+				</ul>
+			</nav>
+		</div>
+	</aside>
+
+	<article>
+		<div id="overview_contents" class="container">
+			<div id="content">
+				<main role="main">
+					<h1 class="title">BCOVPlayerSDKManager(BCOVPulseAdditions) 分類參考</h1>
+
+					
+					<div class="section section-specification"><table cellspacing="0"><tbody>
+						<tr>
+	<th>聲明於</th>
+	<td>BCOVPulseComponent.h</td>
+</tr>
+						</tbody></table></div>
+					
+
+                    
+					
+					<div class="section section-overview">
+						<a title="Overview" name="overview"></a>
+						<h2 class="subtitle subtitle-overview">概述</h2>
+						<p>類別方法添加到 BCOVPlayerSDKManager 以支持 Pulse。</p>
+					</div>
+					
+					
+
+					
+					
+					<div class="section section-tasks">
+						<a title="Tasks" name="tasks"></a>
+						
+
+						
+						
+
+						<div class="task-list">
+							<div class="section-method">
+	<a name="//api/name/createPulsePlaybackControllerWithPulseHost:contentMetadata:requestSettings:adContainer:companionSlots:viewStrategy:options:" title="createPulsePlaybackControllerWithPulseHost:contentMetadata:requestSettings:adContainer:companionSlots:viewStrategy:options:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/createPulsePlaybackControllerWithPulseHost:contentMetadata:requestSettings:adContainer:companionSlots:viewStrategy:options:">&ndash;&nbsp; createPulsePlaybackControllerWithPulseHost:contentMetadata:requestSettings:adContainer:companionSlots:viewStrategy:options:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>使用指定的 Pulse 主機、OOContentMetadata 對象、OORequestSettings 對象和用戶選項創建並返回一個新的播放控制器。返回的播放控制器將使用 Pulse 會話提供程序進行配置。</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration">- (id&lt;BCOVPlaybackController&gt;)createPulsePlaybackControllerWithPulseHost:(NSString *)<code><em>脈衝主機</em> contentMetadata:(OOContentMetadata *)<em>內容元數據</em> requestSettings:(OORequestSettings *)<em>請求設置</em> 廣告容器：（UIView *）<em>廣告容器</em> 同伴插槽：（NSArray *）<em>同伴插槽</em> 視圖策略：（BCOVPlaybackControllerViewStrategy）<em>戰略</em> 選項:(NSDictionary *)<em>選項</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">參數</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>脈衝主機</code></th>
+						<td><p>正在使用的客戶帳戶的 Pulse 主機名。</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>內容元數據</code></th>
+						<td><p>一個 OOContentMetadata，用於配置返回的播放控制器使用的會話對象。</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>請求設置</code></th>
+						<td><p>一個 OORequestSettings，用於配置返回的播放控制器使用的會話對象。</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>廣告容器</code></th>
+						<td><p>將在其中顯示廣告和呈現廣告信息 UI 的視圖。</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>同伴插槽</code></th>
+						<td><p>要填充的 BCOVPulseCompanionSlots 數組。</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>戰略</code></th>
+						<td><p>一種視圖策略，用於確定返回的播放控制器的視圖。</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>選項</code></th>
+						<td><p>脈衝選項的 NSDictionary。可以為零或空。唯一有效的選項鍵是 kBCOVPulseOptionPulsePlaybackSessionDelegateKey kBCOVPulseOptionPulseDeviceContainerKey kBCOVPulseOptionPulsePersistentIdKey</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">返回值</h4>
+				<p>具有指定參數的新播放控制器。</p>
+			</div>
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">討論</h4>
+				<p>使用指定的 Pulse 主機、OOContentMetadata 對象、OORequestSettings 對象和用戶選項創建並返回一個新的播放控制器。返回的播放控制器將使用 Pulse 會話提供程序進行配置。</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">申報在</h4>
+				<p>BCOVPulseComponent.h<code class="declared-in-ref"></code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/createPulseSessionProviderWithPulseHost:contentMetadata:requestSettings:adContainer:companionSlots:upstreamSessionProvider:options:" title="createPulseSessionProviderWithPulseHost:contentMetadata:requestSettings:adContainer:companionSlots:upstreamSessionProvider:options:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/createPulseSessionProviderWithPulseHost:contentMetadata:requestSettings:adContainer:companionSlots:upstreamSessionProvider:options:">&ndash;&nbsp; createPulseSessionProviderWithPulseHost:contentMetadata:requestSettings:adContainer:companionSlots:upstreamSessionProvider:options:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>創建並返回一個新的<a href="../Classes/BCOVPulseSessionProvider.html">BCOVPulseSessionProvider</a>與指定的參數。</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration">- (id&lt;BCOVPlaybackSessionProvider&gt;)createPulseSessionProviderWithPulseHost:(NSString *)<code><em>脈衝主機</em> contentMetadata:(OOContentMetadata *)<em>內容元數據</em> requestSettings:(OORequestSettings *)<em>請求設置</em> 廣告容器：（UIView *）<em>廣告容器</em> 同伴插槽：（NSArray *）<em>同伴插槽</em> upstreamSessionProvider:(id&lt;BCOVPlaybackSessionProvider&gt;)<em>提供者</em> 選項:(NSDictionary *)<em>選項</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">參數</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>脈衝主機</code></th>
+						<td><p>正在使用的客戶帳戶的 Pulse 主機名。</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>內容元數據</code></th>
+						<td><p>一個 OOContentMetadata，用於配置返回的播放控制器使用的會話對象。</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>請求設置</code></th>
+						<td><p>一個 OORequestSettings，用於配置返回的播放控制器使用的會話對象。</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>廣告容器</code></th>
+						<td><p>將在其中顯示廣告和呈現廣告信息 UI 的視圖。</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>同伴插槽</code></th>
+						<td><p>要填充的 BCOVPulseCompanionSlots 數組。</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>提供者</code></th>
+						<td><p>一個會話提供程序，用於附加上游並將播放會話傳送到返回的會話提供程序。</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>選項</code></th>
+						<td><p>脈衝選項的 NSDictionary。可以為零或空。唯一有效的選項鍵是 kBCOVPulseOptionPulsePlaybackSessionDelegateKey kBCOVPulseOptionPulseDeviceContainerKey kBCOVPulseOptionPulsePersistentIdKey</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">返回值</h4>
+				<p>一個新的<a href="../Classes/BCOVPulseSessionProvider.html">BCOVPulseSessionProvider</a>與指定的參數。</p>
+			</div>
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">討論</h4>
+				<p>創建並返回一個新的<a href="../Classes/BCOVPulseSessionProvider.html">BCOVPulseSessionProvider</a>與指定的參數。</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">申報在</h4>
+				<p>BCOVPulseComponent.h<code class="declared-in-ref"></code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div>
+						</div>
+						
+					</div>
+					
+					
+
+                    
+				</main>
+
+				<footer>
+					<div class="footer-copyright">
+						
+						<p class="copyright">版權&copy; 2021 年光明灣。版權所有。更新：2021-07-08</p>
+						
+						
+						<p class="generator">生成者<a href="http://appledoc.gentlebytes.com">蘋果文檔 2.2.1（內部版本 1334）</a> .</p>
+						
+					</div>
+				</footer>
+			</div>
+		</div>
+	</article>
+
+	<script src="../js/script.js"></script>
+</body>
+</html>

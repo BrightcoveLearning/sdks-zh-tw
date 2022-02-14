@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+
+	<title>BCOVCuePointProgressPolicy 類參考</title>
+
+	<link rel="stylesheet" href="../css/style.css">
+	<meta name="viewport" content="initial-scale=1, maximum-scale=1.4">
+	<meta name="generator" content="appledoc 2.2.1 (build 1334)">
+</head>
+<body class="appledoc">
+	<header>
+		<div class="container" class="hide-in-xcode">
+			
+			<h1 id="library-title"><a href="../index.html">適用於 iOS 的 Brightcove 原生播放器</a></h1>
+
+			<p id="developer-home">
+				<a href="../index.html">亮灣</a>
+			</p>
+			
+		</div>
+	</header>
+
+	<aside>
+		<div class="container">
+			<nav>
+				<ul id="header-buttons" role="toolbar">
+					<li><a href="../index.html">指數</a></li>
+<li><a href="../hierarchy.html">等級制度</a></li>
+
+					<li id="on-this-page" role="navigation">
+						<label>
+							在本頁
+
+							<div class="chevron">
+								<div class="chevy chevron-left"></div>
+								<div class="chevy chevron-right"></div>
+							</div>
+
+							<select id="jump-to">
+	<option value="top">跳到…</option>
+	
+	<option value="overview">概述</option>
+	
+
+	
+	
+	<option value="tasks">任務</option>
+	
+	
+
+	
+	
+	<optgroup label="Properties">
+		
+		<option value="//api/name/ignoringPreviouslyProcessedCuePoints">忽略PreviouslyProcessedCuePoints</option>
+		
+	</optgroup>
+	
+
+	
+	<optgroup label="Class Methods">
+		
+		<option value="//api/name/progressPolicyProcessingCuePoints:resumingPlaybackFrom:ignoringPreviouslyProcessedCuePoints:">+ progressPolicyProcessingCuePoints:resumingPlaybackFrom:ignoringPreviouslyProcessedCuePoints:</option>
+		
+	</optgroup>
+	
+
+	
+	<optgroup label="Instance Methods">
+		
+		<option value="//api/name/applyToEvent:">- 應用到事件：</option>
+		
+	</optgroup>
+	
+	
+</select>
+						</label>
+					</li>
+				</ul>
+			</nav>
+		</div>
+	</aside>
+
+	<article>
+		<div id="overview_contents" class="container">
+			<div id="content">
+				<main role="main">
+					<h1 class="title">BCOVCuePointProgressPolicy 類參考</h1>
+
+					
+					<div class="section section-specification"><table cellspacing="0"><tbody>
+						<tr>
+	<th>繼承自</th>
+	<td>NSObject</td>
+</tr><tr>
+	<th>聲明於</th>
+	<td>BCOVCuePointProgressPolicy.h</td>
+</tr>
+						</tbody></table></div>
+					
+
+                    
+					
+					<div class="section section-overview">
+						<a title="Overview" name="overview"></a>
+						<h2 class="subtitle subtitle-overview">概述</h2>
+						<p>此策略為 BCOVPlayerSDK 的客戶端提供了指定響應提示點事件的代碼行為的方法。對此最常見的應用是創建廣告策略：播放頭到達指示應顯示廣告的提示點，客戶端代碼提供此策略的一個實例以指定播放器應如何行為，涉及：</p>
+
+<ol>
+<li>哪些提示點應該由諮詢策略的代碼處理。</li>
+<li>處理提示點後應恢復播放的時間（播放頭位置）。這是使用傳遞到策略中的提示點之一指定的，或者<code>零</code>（這表示內容應從其當前播放頭位置恢復）。</li>
+</ol>
+
+					</div>
+					
+					
+
+					
+					
+					<div class="section section-tasks">
+						<a title="Tasks" name="tasks"></a>
+						
+
+						
+						
+
+						<div class="task-list">
+							<div class="section-method">
+	<a name="//api/name/applyToEvent:" title="applyToEvent:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/applyToEvent:">&ndash;&nbsp;適用於事件：</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>返回一個<a href="../Classes/BCOVCuePointProgressPolicyResult.html">BCOVCuePointProgressPolicyResult</a>指定參考此策略的代碼將處理哪些提示點，以及在處理完所有提示點後應恢復播放的位置。</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration">- (BCOVCuePointProgressPolicyResult *)applyToEvent:(NSDictionary *)<code><em>提示點事件</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">參數</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>提示點事件</code></th>
+						<td><p>包含提示點事件信息的字典，如<a href="../Protocols/BCOVPlaybackController.html">BCOVPlaybackController</a>提示點委託方法。</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">返回值</h4>
+				<p>指定提示點事件的策略結果。</p>
+			</div>
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">討論</h4>
+				<p>返回一個<a href="../Classes/BCOVCuePointProgressPolicyResult.html">BCOVCuePointProgressPolicyResult</a>指定參考此策略的代碼將處理哪些提示點，以及在處理完所有提示點後應恢復播放的位置。</p>
+
+<p>此方法由提示點進度策略的使用者調用。在大多數情況下，該消費者是 Brightcove Player SDK 的廣告插件，而不是 Player SDK 的客戶端（應用程序）。如果無法使用便利工廠類方法生成策略，則自定義提示點策略應覆蓋此方法。</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">申報在</h4>
+				<p>BCOVCuePointProgressPolicy.h<code class="declared-in-ref"></code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/ignoringPreviouslyProcessedCuePoints" title="ignoringPreviouslyProcessedCuePoints"></a>
+	<h3 class="method-title"><code><a href="#//api/name/ignoringPreviouslyProcessedCuePoints">&nbsp;&nbsp;忽略PreviouslyProcessedCuePoints</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>策略是否應該告訴它的調用者忽略它已經被指示處理的提示點。</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration">@property (nonatomic, readonly) BOOL ignoringPreviouslyProcessedCuePoints<code></code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">討論</h4>
+				<p>策略是否應該告訴它的調用者忽略它已經被指示處理的提示點。</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">申報在</h4>
+				<p>BCOVCuePointProgressPolicy.h<code class="declared-in-ref"></code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/progressPolicyProcessingCuePoints:resumingPlaybackFrom:ignoringPreviouslyProcessedCuePoints:" title="progressPolicyProcessingCuePoints:resumingPlaybackFrom:ignoringPreviouslyProcessedCuePoints:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/progressPolicyProcessingCuePoints:resumingPlaybackFrom:ignoringPreviouslyProcessedCuePoints:">+ &nbsp; progressPolicyProcessingCuePoints:resumingPlaybackFrom:ignoringPreviouslyProcessedCuePoints:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>返回根據指定參數配置的提示點進度策略的便利工廠方法。</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration">+ (instancetype)progressPolicyProcessingCuePoints:(BCOVProgressPolicyCuePointsToProcess)<code><em>提示點到流程</em> 恢復播放自：（BCOVProgressPolicyResumePosition）<em>簡歷位置</em> ignoringPreviouslyProcessedCuePoints:(BOOL)<em>忽略上一個</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">參數</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>提示點到流程</code></th>
+						<td><p>一種<a href="../Constants/BCOVProgressPolicyCuePointsToProcess.html">BCOVProgressPolicyCuePointsToProcess</a>配置返回的策略以告訴其調用者應該處理哪些提示點，在給定提示點事件中的提示點之外。</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>簡歷位置</code></th>
+						<td><p>一種<a href="../Constants/BCOVProgressPolicyResumePosition.html">BCOVProgressPolicyResumePosition</a>配置返回的策略以告訴調用者在處理完所有指定的提示點後應從何處恢復內容播放。</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>忽略上一個</code></th>
+						<td><p>返回的策略是否應該告訴它的調用者忽略它已經被指示處理的提示點。</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">返回值</h4>
+				<p>使用指定設置配置的提示點進度策略。</p>
+			</div>
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">討論</h4>
+				<p>返回根據指定參數配置的提示點進度策略的便利工廠方法。</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">申報在</h4>
+				<p>BCOVCuePointProgressPolicy.h<code class="declared-in-ref"></code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div>
+						</div>
+						
+					</div>
+					
+					
+
+                    
+				</main>
+
+				<footer>
+					<div class="footer-copyright">
+						
+						<p class="copyright">版權&copy; 2021 年光明灣。版權所有。更新：2021-07-08</p>
+						
+						
+						<p class="generator">生成者<a href="http://appledoc.gentlebytes.com">蘋果文檔 2.2.1（內部版本 1334）</a> .</p>
+						
+					</div>
+				</footer>
+			</div>
+		</div>
+	</article>
+
+	<script src="../js/script.js"></script>
+</body>
+</html>

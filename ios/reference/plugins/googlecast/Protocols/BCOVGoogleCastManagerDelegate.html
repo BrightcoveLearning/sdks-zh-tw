@@ -1,0 +1,606 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+
+	<title>BCOVGoogleCastManagerDelegate 協議參考</title>
+
+	<link rel="stylesheet" href="../css/style.css">
+	<meta name="viewport" content="initial-scale=1, maximum-scale=1.4">
+	<meta name="generator" content="appledoc 2.2.1 (build 1334)">
+</head>
+<body class="appledoc">
+	<header>
+		<div class="container" class="hide-in-xcode">
+			
+			<h1 id="library-title"><a href="../index.html">適用於 iOS 的 Brightcove 原生播放器</a></h1>
+
+			<p id="developer-home">
+				<a href="../index.html">亮灣</a>
+			</p>
+			
+		</div>
+	</header>
+
+	<aside>
+		<div class="container">
+			<nav>
+				<ul id="header-buttons" role="toolbar">
+					<li><a href="../index.html">指數</a></li>
+<li><a href="../hierarchy.html">等級制度</a></li>
+
+					<li id="on-this-page" role="navigation">
+						<label>
+							在本頁
+
+							<div class="chevron">
+								<div class="chevy chevron-left"></div>
+								<div class="chevy chevron-right"></div>
+							</div>
+
+							<select id="jump-to">
+	<option value="top">跳到…</option>
+	
+	<option value="overview">概述</option>
+	
+
+	
+	
+	<option value="tasks">任務</option>
+	
+	
+
+	
+	
+	<optgroup label="Properties">
+		
+		<option value="//api/name/playbackController">播放控制器</option>
+		
+	</optgroup>
+	
+
+	
+
+	
+	<optgroup label="Instance Methods">
+		
+		<option value="//api/name/castedVideoFailedToPlay">- castedVideoFailedToPlay</option>
+		
+		<option value="//api/name/currentCastedVideoDidComplete">- currentCastedVideoDidComplete</option>
+		
+		<option value="//api/name/shouldCastVideo:">- shouldCastVideo：</option>
+		
+		<option value="//api/name/suitableSourceNotFound">- 合適的SourceNotFound</option>
+		
+		<option value="//api/name/switchedToLocalPlayback:withError:">-switchedToLocalPlayback:withError:</option>
+		
+		<option value="//api/name/switchedToRemotePlayback">- 切換到遠程播放</option>
+		
+		<option value="//api/name/useSourceFromSources:">- 使用SourceFromSources：</option>
+		
+		<option value="//api/name/willBuildMediaInformationBuilder:">- willBuildMediaInformationBuilder：</option>
+		
+		<option value="//api/name/willSendMediaLoadOptions:">- willSendMediaLoadOptions：</option>
+		
+	</optgroup>
+	
+	
+</select>
+						</label>
+					</li>
+				</ul>
+			</nav>
+		</div>
+	</aside>
+
+	<article>
+		<div id="overview_contents" class="container">
+			<div id="content">
+				<main role="main">
+					<h1 class="title">BCOVGoogleCastManagerDelegate 協議參考</h1>
+
+					
+					<div class="section section-specification"><table cellspacing="0"><tbody>
+						<tr>
+	<th>符合</th>
+	<td>NSObject</td>
+</tr><tr>
+	<th>聲明於</th>
+	<td>BCOVGoogleCastManager.h</td>
+</tr>
+						</tbody></table></div>
+					
+
+                    
+					
+					<div class="section section-overview">
+						<a title="Overview" name="overview"></a>
+						<h2 class="subtitle subtitle-overview">概述</h2>
+						<p>遵守此協議以接收有關 Google Cast 會話狀態的信息</p>
+					</div>
+					
+					
+
+					
+					
+					<div class="section section-tasks">
+						<a title="Tasks" name="tasks"></a>
+						
+
+						
+						
+
+						<div class="task-list">
+							<div class="section-method">
+	<a name="//api/name/playbackController" title="playbackController"></a>
+	<h3 class="method-title"><code><a href="#//api/name/playbackController">&nbsp;&nbsp;播放控制器</a></code><span class="task-item-suffix">所需方法</span></h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+
+			<div class="method-subsection method-declaration"><code>@property (nonatomic, strong, readonly) id&lt;BCOVPlaybackController&gt; _Nullable 播放控制器</code></div>
+
+		    
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/switchedToLocalPlayback:withError:" title="switchedToLocalPlayback:withError:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/switchedToLocalPlayback:withError:">&ndash;&nbsp;切換到本地播放：帶錯誤：</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>當轉換會話結束時調用此方法</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration">- (void)switchedToLocalPlayback:(NSTimeInterval)<code><em>最後一個已知流位置</em> withError:(可為空的 NSError *)<em>錯誤</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">參數</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>最後一個已知流位置</code></th>
+						<td><p>最後一個已知流位置的 NSTimeInterval 值</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>錯誤</code></th>
+						<td><p>如果我們收到來自 Google Cast SDK 的錯誤，它會通過這裡</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">討論</h4>
+				<p>一旦投射會話結束，您可以使用它來顯示/隱藏 UI 元素或觸發其他事件</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">申報在</h4>
+				<p>BCOVGoogleCastManager.h<code class="declared-in-ref"></code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/switchedToRemotePlayback" title="switchedToRemotePlayback"></a>
+	<h3 class="method-title"><code><a href="#//api/name/switchedToRemotePlayback">&ndash;&nbsp;切換到遠程回放</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>當轉換會話開始時調用此方法</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration">- (void)switchedToRemotePlayback<code></code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">討論</h4>
+				<p>一旦開始投射會話，您可以使用它來顯示/隱藏 UI 元素或觸發其他事件。</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">申報在</h4>
+				<p>BCOVGoogleCastManager.h<code class="declared-in-ref"></code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/currentCastedVideoDidComplete" title="currentCastedVideoDidComplete"></a>
+	<h3 class="method-title"><code><a href="#//api/name/currentCastedVideoDidComplete">&ndash;&nbsp; currentCastedVideoDidComplete</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>當投射視頻完成播放時調用此方法。</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration">- (void)currentCastedVideoDidComplete<code></code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">討論</h4>
+				<p>一旦投射視頻完成播放，您可以使用它來顯示/隱藏 UI 元素或觸發其他事件</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">申報在</h4>
+				<p>BCOVGoogleCastManager.h<code class="declared-in-ref"></code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/castedVideoFailedToPlay" title="castedVideoFailedToPlay"></a>
+	<h3 class="method-title"><code><a href="#//api/name/castedVideoFailedToPlay">&ndash;&nbsp; castedVideoFailedToPlay</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>當投射視頻無法播放時調用此方法。</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration">- (void)castedVideoFailedToPlay<code></code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">討論</h4>
+				<p>一旦投射視頻無法播放，您可以使用它來顯示/隱藏 UI 元素或觸發其他事件</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">申報在</h4>
+				<p>BCOVGoogleCastManager.h<code class="declared-in-ref"></code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/suitableSourceNotFound" title="suitableSourceNotFound"></a>
+	<h3 class="method-title"><code><a href="#//api/name/suitableSourceNotFound">&ndash;&nbsp;未找到合適的來源</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>當找不到合適的源時調用此方法。</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration">- (void)suitableSourceNotFound<code></code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">討論</h4>
+				<p>這<a href="../Classes/BCOVGoogleCastManager.html">BCOVGoogleCastManager</a>將查找 HLS v3 的 HTTPS 版本，然後檢查 DASH，最後是 MP4 源。如果未找到 HTTPS 版本，它將檢查相同源類型的 HTTP 版本。如果未找到 HTTP 版本，則將調用此方法。</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">申報在</h4>
+				<p>BCOVGoogleCastManager.h<code class="declared-in-ref"></code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/willBuildMediaInformationBuilder:" title="willBuildMediaInformationBuilder:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/willBuildMediaInformationBuilder:">&ndash;&nbsp; willBuildMediaInformationBuilder：</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>這個方法在調用之前被調用<code>建造</code>在 GCKMediaInformationBuilder 的當前實例上為即將投射的當前視頻設置。這將允許您根據需要向構建器添加任何其他值。您可以使用此方法將自定義數據傳遞給接收器應用程序中的構建器。</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration">- (void)willBuildMediaInformationBuilder:(GCKMediaInformationBuilder *_Nonnull)<code><em>建設者</em></code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">討論</h4>
+				<p>這個方法在調用之前被調用<code>建造</code>在 GCKMediaInformationBuilder 的當前實例上為即將投射的當前視頻設置。這將允許您根據需要向構建器添加任何其他值。您可以使用此方法將自定義數據傳遞給接收器應用程序中的構建器。</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">申報在</h4>
+				<p>BCOVGoogleCastManager.h<code class="declared-in-ref"></code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/willSendMediaLoadOptions:" title="willSendMediaLoadOptions:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/willSendMediaLoadOptions:">&ndash;&nbsp; willSendMediaLoadOptions:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>此方法稱為先調用<code>加載媒體：帶選項</code>在當前的演員表上&rsquo; s 遠程媒體客戶端。</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration">- (void)willSendMediaLoadOptions:(GCKMediaLoadOptions *_Nonnull)<code><em>媒體加載選項</em></code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">討論</h4>
+				<p>在將 GCKMediaLoadOptions 發送給 remoteMediaClient 之前，您可以使用此委託方法根據需要進一步配置 GCKMediaLoadOptions。</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">申報在</h4>
+				<p>BCOVGoogleCastManager.h<code class="declared-in-ref"></code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/useSourceFromSources:" title="useSourceFromSources:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/useSourceFromSources:">&ndash;&nbsp;使用SourceFromSources：</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>當需要在轉換之前解析源時調用此方法。</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration">- (BCOVSource *_Nonnull)useSourceFromSources:(NSArray&lt;BCOVSource*&gt; *_Nonnull)<code><em>來源</em></code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">討論</h4>
+				<p>您可以使用此方法指定要與 Cast Receiver 一起使用的源。如果不實現這個方法，<a href="../Classes/BCOVGoogleCastManager.html"> BCOVGoogleCastManager</a>將自行執行源選擇（請參閱<code>未找到合適的來源</code>想要查詢更多的信息）。</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">申報在</h4>
+				<p>BCOVGoogleCastManager.h<code class="declared-in-ref"></code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/shouldCastVideo:" title="shouldCastVideo:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/shouldCastVideo:">&ndash;&nbsp; shouldCast視頻：</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>這個方法在調用之後<a href="../Classes/BCOVGoogleCastManager.html">BCOVGoogleCastManager</a>已收到新的播放會話。</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration">- (BOOL)shouldCastVideo:(BCOVVideo *_Nonnull)<code><em>視頻</em></code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">討論</h4>
+				<p>什麼時候<a href="../Classes/BCOVGoogleCastManager.html">BCOVGoogleCastManager</a>從播放會話接收新的 BCOVVideo 它將嘗試將其與之前的 BCOVVideo（如果有）進行比較，以防止投射會話使用相同的視頻重新啟動。您可以使用此方法覆蓋內部檢查，以便您可以控制是否應該投射當前視頻。</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">申報在</h4>
+				<p>BCOVGoogleCastManager.h<code class="declared-in-ref"></code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div>
+						</div>
+						
+					</div>
+					
+					
+
+                    
+				</main>
+
+				<footer>
+					<div class="footer-copyright">
+						
+						<p class="copyright">版權&copy; 2021 年光明灣。版權所有。更新：2021-07-08</p>
+						
+						
+						<p class="generator">生成者<a href="http://appledoc.gentlebytes.com">蘋果文檔 2.2.1（內部版本 1334）</a> .</p>
+						
+					</div>
+				</footer>
+			</div>
+		</div>
+	</article>
+
+	<script src="../js/script.js"></script>
+</body>
+</html>

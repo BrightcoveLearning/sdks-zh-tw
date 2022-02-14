@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+
+	<title>適用於 iOS 的 Brightcove Native Player 參考</title>
+
+	<link rel="stylesheet" href="css/style.css">
+	<meta name="viewport" content="initial-scale=1, maximum-scale=1.4">
+	<meta name="generator" content="appledoc 2.2.1 (build 1334)">
+</head>
+<body class="appledoc">
+	<header>
+		<div class="container" class="hide-in-xcode">
+			
+			<h1 id="library-title"><a href="index.html">適用於 iOS 的 Brightcove 原生播放器</a></h1>
+
+			<p id="developer-home">
+				<a href="index.html">亮灣</a>
+			</p>
+			
+		</div>
+	</header>
+
+	<aside>
+		<div class="container">
+			<nav>
+				<ul id="header-buttons" role="toolbar">
+					<li><a href="hierarchy.html">等級制度</a></li>
+				</ul>
+			</nav>
+		</div>
+	</aside>
+
+	<article>
+		<div id="overview-contents" class="container">
+			<div id="content">
+				<main role="main">
+					<h1 class="title">適用於 iOS 的 Brightcove Native Player 參考</h1>
+
+					
+					<div class="section section-overview index-overview">
+						
+						
+						<h1>適用於 iOS 版 Brightcove Player SDK 的 Pulse 插件，版本 6.9.0.1697</h1><h1>要求</h1>
+
+<ul>
+<li>Xcode 11.0+</li>
+<li>弧</li>
+</ul>
+
+
+<h1>支持的平台</h1>
+
+<p>iOS 11.0 及更高版本。 tvOS 11.0 及以上</p>
+
+<h1>安裝</h1>
+
+<p>Brightcove Player SDK 的Pulse Plugin 提供了一個用於安裝的動態庫框架。</p>
+
+<p>Pulse 插件支持適用於 iOS 的 INVIDI Technologies Pulse SDK 2.5.20.1.0 版和適用於 tvOS 的 2.5.19.9.0 版，<a href="http://pulse-sdks.videoplaza.com/ios_2/latest/"> Pulse iOS 和 tvOS SDK 參考</a> .Brightcove Player SDK 參考的 Pulse 插件的 Podspec <a href="http://pulse-sdks.videoplaza.com/ios_2/latest/changelog.html"> Pulse SDK 發布歷史</a> .</p>
+
+<h2>可可豆</h2>
+
+<p>您可以使用<a href="http://cocoapods.org">可可豆</a>將用於 Brightcove Player SDK 的 Pulse 插件添加到您的項目中。你可以找到最新的<code>Brightcove-Player-Pulse</code> podspec <a href="https://github.com/brightcove/BrightcoveSpecs/tree/master/Brightcove-Player-Pulse">這裡</a> .PulseSDK 需要添加到您的項目中，下載最新版本<a href="https://github.com/INVIDITechnologies/pulse-sdk-ios-2.x-sample">這裡</a> .需要 CocoaPods 1.0 或更新版本。</p>
+
+<p>CocoaPod Podfile 示例：</p>
+
+<pre><code>來源'https://github.com/CocoaPods/Specs' 來源'https://github.com/brightcove/BrightcoveSpecs.git' 平台：ios，'11.0' 使用_框架！目標'我的應用程序' 做 pod 'Brightcove-Player-Pulse' 結尾</code></pre>
+
+<h2>手動的</h2>
+
+<p>手動將 Brightcove Player SDK 的 Pulse 插件添加到您的項目中：</p>
+
+<ol>
+<li>從以下位置下載最新的壓縮 Brightcove Player SDK 框架<a href="https://github.com/brightcove/brightcove-player-sdk-ios/releases">發布頁面</a> .</li>
+<li>從以下位置下載適用於 Brightcove Player SDK 框架的最新壓縮 Pulse 插件<a href="https://github.com/brightcove/brightcove-player-sdk-ios-pulse/releases">發布頁面</a> .</li>
+<li>下載<a href="https://github.com/INVIDITechnologies/pulse-sdk-ios-2.x-sample">脈衝SDK</a>框架。</li>
+<li>在&ldquo;一般的&rdquo;應用程序目標的選項卡，添加<strong>動態的</strong>框架，BrightcovePlayerSDK.framework，從 Brightcove Player SDK 下載到列表<strong>框架、庫和嵌入內容</strong> .動態框架 BrightcovePlayerSDK.framework 位於下載的 ios/dynamic 目錄中。這 <em>嵌入</em> 框架的設置必須是&ldquo;<em>嵌入和簽名</em>.&rdquo;</li>
+<li>在&ldquo;一般的&rdquo;應用程序目標的選項卡，將 BrightcovePulse.framework 從 Pulse Plugin for Brightcove Player SDK 下載添加到列表中<strong>框架、庫和嵌入內容</strong> .這 <em>嵌入</em> 框架的設置必須是&ldquo;<em>嵌入和簽名</em>.&rdquo;</li>
+<li>在&ldquo;一般的&rdquo;在應用程序目標的選項卡中，將來自英偉迪技術下載的 PulseSDK.framework 添加到<strong>框架、庫和嵌入內容</strong> .這 <em>嵌入</em> 框架的設置必須是&ldquo;<em>嵌入和簽名</em>.&rdquo;</li>
+<li>在&ldquo;構建設置&rdquo;應用程序目標的選項卡，確保&ldquo;框架搜索路徑&rdquo;包括框架的路徑。這應該自動完成，除非框架存儲在與您的項目不同的根目錄下。</li>
+<li>在&ldquo;構建設置&rdquo;應用程序目標的選項卡：
+
+<ul>
+<li>確保這件事<code>-ObjC</code>已添加到&ldquo;其他鏈接器標誌&rdquo;構建設置。</li>
+</ul>
+</li>
+</ol>
+
+
+<h2>進口</h2>
+
+<p>Brightcove Player SDK 的 Pulse 插件可以通過幾種不同的方式導入到代碼中；<code> @import BrightcovePulse;</code> , <code> #import &lt;BrightcovePulse/BrightcovePulse.h&gt;</code>或者<code>#import &lt;BrightcovePulse/[特定類].h&gt;</code> .您可以導入<code>脈衝SDK</code>和<code>Brightcove播放器SDK</code>模塊以類似的方式。</p>
+
+<h1>快速開始</h1>
+
+<p>BrightcovePulse 插件是兩者之間的橋樑<a href="https://github.com/INVIDITechnologies/pulse-sdk-ios-2.x-sample">脈衝SDK</a>和<a href="https://github.com/brightcove/brightcove-player-sdk-ios">適用於 iOS 的 Brightcove Player SDK</a> .此代碼段顯示了它與服務器端廣告規則的基本用法。</p>
+
+<pre><code>[1] OOContentMetadata *contentMetadata = [OOContentMetadata new]; contentMetadata.category = &lt;category&gt;; contentMetadata.tags = @[ &lt;tag1&gt;, &lt;tag2&gt;, ..., &lt;tagN&gt; ]; contentMetadata.flags = @[ &lt;flag1&gt;, &lt;flag2&gt;, ..., &lt;flagN&gt; ]; OORequestSettings *requestSettings = [OORequestSettings new]; requestSettings.linearPlaybackPositions = @[ @(position1), @(position2), ..., @(positionN) ]; NSString *pulseHost = &lt;脈衝域&gt;; [2] NSDictionary *pulseOptions = @ { kBCOVPulseOptionPulsePlaybackSessionDelegateKey: self, kBCOVPulseOptionPulsePersistentIdKey: [NSUUID.UUID UUIDString] } ; BCOVPlayerSDKManager *manager = [BCOVPlayerSDKManager sharedManager]; id&lt;BCOVPlaybackController&gt; controller = [3] [manager createPulsePlaybackControllerWithPulseHost:pulseHost contentMetadata:contentMetadata requestSettings:requestSettings adContainer:self.playerView.contentOverlayView partnerSlots:nil viewStrategy:nil options:pulseOptions];控制器.delegate = self; [videoContainerView addSubview:controller.view]; NSString *policyKey = &lt;your-policy-key&gt;; NSString *accountId = &lt;your-account-id&gt;; NSString *videoID = &lt;your-video-id&gt;; BCOVPlaybackService *playbackService = [[BCOVPlaybackService alloc] initWithAccountId:accountID policyKey:policyKey]; [playbackService findVideoWithVideoID:videoID parameters:nil completion:^(BCOVVideo *video, NSDictionary *jsonResponse, NSError *error) { [controller setVideos:@[ video ]]; [controller play]; } ];</code></pre>
+
+<p>將代碼分解為幾個步驟：</p>
+
+<ol>
+<li>創建相同<a href="http://pulse-sdks.videoplaza.com/ios_2/latest/Classes/OOContentMetadata.html">面向對象的元數據</a> , <a href="http://pulse-sdks.videoplaza.com/ios_2/latest/Classes/OORequestSettings.html"> OO請求設置</a>如果您使用英偉迪技術，您會創建&rsquo; s Pulse iOS SDK 直接。Pulse 插件需要一個有效的域和一個 UIView 容器來顯示廣告。</li>
+<li>可選地，插件可以接收一個 NSDictionary，其中包含要在插件中使用的屬性。可用的鍵是<code>kBCOVPulseOptionPulsePlaybackSessionDelegateKey</code> , <code> kBCOVPulseOptionPulseDeviceContainerKey</code>和<code>kBCOVPulseOptionPulsePersistentIdKey</code> .要覆蓋 Pulse 會話，需要實現 PulsePlaybackSessionDelegate，傳遞<code>kBCOVPulseOptionPulsePlaybackSessionDelegateKey</code>與實現該方法的類。</li>
+<li>BrightcovePulse 向 BCOVPlaybackManager 添加了一些類別方法。其中第一個是<code>-createPulsePlaybackControllerWithPulseHost:contentMetadata:requestSettings:adContainer:companionSlots:viewStrategy:options:</code> .使用此方法創建您的播放控制器。</li>
+</ol>
+
+
+<h1>播放和暫停</h1>
+
+<p>Brightcove Pulse 插件實現自定義播放和暫停邏輯，以確保盡可能流暢的廣告體驗。因此，您需要確保在<code>BCOVPlaybackController</code>或者<code>[BCOVSessionProviderExtension pulse_play]</code>或者<code>[BCOVSessionProviderExtension pulse_pause]</code> ( <a href="https://github.com/brightcove/brightcove-player-sdk-ios-pulse/blob/master/ios/BrightcovePulse.framework/Headers/BCOVPulseComponent.h"> BCOVSessionProviderExtension</a> )，而不是 AVPlayer。</p>
+
+<p>例如，第一次調用 play <code> BCOVPlaybackController</code>允許 BCOVPulse 處理前貼片廣告，而無需在前貼片前播放任何內容。有關 BCOVPulse 如何覆蓋默認值的更多信息<code>BCOVPlaybackController</code>方法，請查看<a href="https://github.com/brightcove/brightcove-player-sdk-ios-pulse/blob/master/ios/BrightcovePulse.framework/Headers/BCOVPulseComponent.h">BCOVSessionProviderExtension</a> .</p>
+
+<h1>使用內置 PlayerUI</h1>
+
+<p>在你的<code>視圖控制器</code>， 創建一個<code>BCOVPUIPlayerView</code>稱為播放器視圖的屬性，包含播放控件、視頻內容視圖和 Pulse 可以顯示其廣告的特殊視圖。</p>
+
+<pre><code>// PlayerUI 的播放器視圖 @property (nonatomic) BCOVPUIPlayerView *playerView;</code></pre>
+
+<p>然後創建您的播放器視圖；提供一個 nil 播放控制器，稍後會添加。此播放器視圖包含視頻內容視圖和顯示播放控件和廣告控件的視圖。無論您使用什麼插件，此設置都是相同的。設置播放器視圖以匹配佈局中的視頻容器 ( <code>視頻視圖</code> ) 調整大小時。</p>
+
+<pre><code>// 創建和配置控制視圖。BCOVPUIBasicControlView *controlView = [BCOVPUIBasicControlView basicControlViewWithVODLayout]; // 使用零播放控制器創建播放器視圖。 self.playerView = [[BCOVPUIPlayerView alloc] initWithPlaybackController:nil options:nil controlsView:controlView]; // 將 BCOPUIPlayerView 添加到您的視頻視圖中。 [self.videoView addSubview:self.playerView];</code></pre>
+
+<p>你&rsquo;需要為播放器視圖設置佈局，您可以使用自動佈局或較舊的 Springs &amp; Struts 方法來完成此操作。</p>
+
+<p><strong>彈簧和支柱</strong><code>self.playerView.frame = self.videoView.bounds; self.playerView.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;</code></p>
+
+<p><strong>自動佈局</strong><code>self.playerView.translatesAutoresizingMaskIntoConstraints = NO; [NSLayoutConstraint activateConstraints:@[ [self.playerView.topAnchor constraintEqualToAnchor:self.videoView.topAnchor], [self.playerView.rightAnchor constraintEqualToAnchor:self.videoView.rightAnchor], [self.playerView.leftAnchor constraintEqualvideoToAnchor.leftAnchor] , [self.playerView.bottomAnchor constraintEqualToAnchor:self.videoView.bottomAnchor], ]];</code></p>
+
+<p>創建播放控制器特定於 Pulse。像上面一樣創建你的播放控制器，但不是你的視頻容器視圖，而是傳入<code>內容疊加視圖</code>從播放器視圖作為您的<code>廣告容器</code> .這<code>內容疊加視圖</code>是用於在主要視頻內容上疊加視圖的特殊視圖。你也應該使用<code>零</code>代替<code>[manager defaultControlsViewStrategy]</code>如果你用它作為你的<code>視圖策略</code>（這是使用內置控件的較舊方法）。</p>
+
+<pre><code>// 創建播放控制器。 id&lt;BCOVPlaybackController&gt; controller = [manager createPulsePlaybackControllerWithPulseHost:pulseHost contentMetadata:contentMetadata requestSettings:requestSettings adContainer:self.playerView.contentOverlayView partnerSlots:nil viewStrategy:nil options:nil];控制器.delegate = self; // 將新的播放控制器分配給播放器視圖。 // 這將 playerController 的會話與 PlayerUI 相關聯。 // 您可以保留此播放器視圖並在創建新的播放控制器時為其分配 // 播放控制器。 self.playerView.playbackController = self.playbackController;</code></pre>
+
+<p>現在，當播放帶有廣告的視頻時，您將在播放視頻內容時看到 PlayerUI 控件，以及時間線滑塊上的廣告標記。</p>
+
+<p>PlayerUI 是高度可定制的。有關更多信息和示例代碼，請參閱<strong>自定義佈局</strong> README.md 文件中的部分<a href="https://github.com/brightcove/brightcove-player-sdk-ios">Brightcove Native Player SDK 存儲庫</a> .</p>
+
+<h1>自定義插件行為</h1>
+
+<p>BCOVPulse 中有幾個配置點。您可以將 BCOVPulse 與適用於 iOS 的 Brightcove Player SDK 的另一個插件結合使用，您可以創建自定義視圖策略，並且您可以覆蓋當前的廣告請求。</p>
+
+<h2>BCOVPulsePlaybackSessionDelegate<a href="Protocols/BCOVPulsePlaybackSessionDelegate.html"></a></h2>
+
+<p>這<a href="Protocols/BCOVPulsePlaybackSessionDelegate.html"><code>BCOVPulsePlaybackSessionDelegate</code></a>協議為 BrightcovePulse 插件提供了一種與主機應用程序通信的方式。此委託允許您在會話開始之前覆蓋內容元數據和請求設置。</p>
+
+<p>這<code>視圖控制器</code>需要採用<a href="Protocols/BCOVPulsePlaybackSessionDelegate.html"><code>BCOVPulsePlaybackSessionDelegate</code></a>協議。</p>
+
+<pre><code>@interface ViewController() &lt;BCOVPulsePlaybackSessionDelegate&gt;</code></pre>
+
+<p>創建一個 NSDictionary 傳遞<code>kBCOVPulseOptionPulsePlaybackSessionDelegateKey</code>與將實現覆蓋會話的方法的類。</p>
+
+<pre><code>NSDictionary *pulseOptions = @ { kBCOVPulseOptionPulsePlaybackSessionDelegateKey: self } ;</code></pre>
+
+<p>創建一個<code>BCOVPlaybackSessionProvider</code>或者<code>BCOVPlaybackController</code>使用 Pulse 中的方法<code>BCOV播放管理器</code>，記得傳遞上一步創建的字典。此示例使用播放控制器。</p>
+
+<pre><code>BCOVPlayerSDKManager *manager = [BCOVPlayerSDKManager sharedManager]; id&lt;BCOVPlaybackController&gt; controller = [manager createPulsePlaybackControllerWithPulseHost:pulseHost contentMetadata:[OOContentMetadata new] requestSettings:[OORequestSettings new] adContainer:self.playerView.contentOverlayView partnerSlots:nil viewStrategy:nil options:pulseOptions];</code></pre>
+
+<p>這<code>createSessionForVideo:withPulseHost:contentMetadata:requestSettings:</code>方法提供當前視頻、主機域、<a href="http://pulse-sdks.videoplaza.com/ios_2/latest/Classes/OOContentMetadata.html">內容元數據</a>和<a href="http://pulse-sdks.videoplaza.com/ios_2/latest/Classes/OORequestSettings.html">請求設置</a>為會議。在這個例子中，以前的對像是空的，將被一個新的覆蓋<a href="http://pulse-sdks.videoplaza.com/ios_2/latest/Classes/OOContentMetadata.html#/c:objc(cs)OOContentMetadata(py)category">類別</a>和<a href="http://pulse-sdks.videoplaza.com/ios_2/latest/Classes/OORequestSettings.html#/c:objc(cs)OORequestSettings(py)linearPlaybackPositions">線性播放位置</a>大批。</p>
+
+<pre><code>- (id&lt;OOPulseSession&gt;)createSessionForVideo:(BCOVVideo *)video withPulseHost:(NSString *)pulseHost contentMetadata:(OOContentMetadata *)contentMetadata requestSettings:(OORequestSettings *)requestSettings { // Override the content metadata. contentMetadata.category = @"new_category_for_midrolls"; // Override the request settings. requestSettings.linearPlaybackPositions = @[ @(15) ]; return [OOPulse sessionWithContentMetadata:contentMetadata requestSettings:requestSettings]; }</code></pre>
+
+<h2>查看策略</h2>
+
+<p>您可以在構建播放控制器或會話提供程序時向 BCOVPlaybackManager 提供自定義視圖策略，而不是直接指定 defaultControlsViewStrategy。使用自定義視圖策略，廣告容器視圖和廣告隨播廣告位可以與視頻內容視圖相關聯。這是自定義視圖策略的示例。</p>
+
+<pre><code>BCOVPlaybackControllerViewStrategy customViewStrategy = ^UIView* (UIView *view, id&lt;BCOVPlaybackController&gt;playbackController) { BCOVPlaybackControllerViewStrategy defaultControlsViewStrategy = [playbackManager defaultControlsViewStrategy]; UIView *contentAndDefaultControlsView = defaultControlsViewStrategy(view, playbackController); [&lt;UIView of video container&gt; addSubview:contentAndDefaultControlsView]; return &lt;UIView of video container&gt;; } ;</code></pre>
+
+<h2>組成會話提供程序</h2>
+
+<p>如果您在 iOS 版 Brightcove Player SDK 中使用多個插件需要創建自定義播放控制器，則必須改為組合一系列會話提供程序並將最終會話提供程序傳遞給<code>[BCOVPlayerSDKManager createPlaybackControllerWithSessionProvider:viewStrategy:]</code>方法。</p>
+
+<p>組合會話提供程序時，可以從以下位置啟用會話預加載<a href="https://github.com/brightcove/brightcove-player-sdk-ios/blob/fd5e766693e533854f202f270d3d62e32ceaae04/ios/dynamic/BrightcovePlayerSDK.framework/Headers/BCOVBasicSessionProvider.h#L31-L46"><code>BCOVBasicSessionProvider</code></a> .</p>
+
+<h1>經常問的問題</h1>
+
+<p><em>我可以聽到廣告，但我可以&rsquo;不看他們玩。</em></p>
+
+<p>這通常發生在廣告容器視圖不在視圖層次結構中，或者當廣告視圖（它是廣告容器視圖的子視圖）被其他視圖覆蓋時。</p>
+
+<h1>支持</h1>
+
+<p>如果您有問題、需要幫助或想提供反饋，請使用<a href="https://supportportal.brightcove.com/s/login/">支持門戶</a>或聯繫您的客戶經理。要接收新 SDK 軟件發布的通知，請訂閱 Brightcove Native Player SDK <a href="https://groups.google.com/g/brightcove-native-player-sdks">谷歌集團</a> .</p>
+						
+						
+					</div>
+					
+
+					<div class="index-container">
+						
+
+						
+						<div class="index-column">
+							<h2 class="index-title">類引用</h2>
+							<ul>
+								
+								<li>BCOVPulseCompanionSlot<a href="Classes/BCOVPulseCompanionSlot.html"></a></li>
+								
+								<li><a href="Classes/BCOVPulseComponent.html">BCOV脈衝組件</a></li>
+								
+								<li>BCOVPulseSessionProvider<a href="Classes/BCOVPulseSessionProvider.html"></a></li>
+								
+							</ul>
+						</div>
+						
+
+						
+						<div class="index-column">
+							
+							<h2 class="index-title">協議參考</h2>
+							<ul>
+								
+								<li>BCOVPulsePlaybackSessionDelegate<a href="Protocols/BCOVPulsePlaybackSessionDelegate.html"></a></li>
+								
+							</ul>
+							
+
+							
+
+							
+							<h2 class="index-title">類別參考</h2>
+							<ul>
+								
+								<li>BCOVPlayerSDKManager(BCOVPulseAdditions)<a href="Categories/BCOVPlayerSDKManager-BCOVPulseAdditions.html"></a></li>
+								
+								<li>BCOVSessionProviderExtension(BCOVPulseAdditions)<a href="Categories/BCOVSessionProviderExtension-BCOVPulseAdditions.html"></a></li>
+								
+							</ul>
+							
+						</div>
+						
+					</div>
+
+					<footer>
+						<div class="footer-copyright">
+							
+							<p class="copyright">版權&copy; 2021 年光明灣。版權所有。更新：2021-07-08</p>
+							
+							
+							<p class="generator">生成者<a href="http://appledoc.gentlebytes.com">蘋果文檔 2.2.1（內部版本 1334）</a> .</p>
+							
+						</div>
+					</footer>
+				</main>
+			</div>
+		</div>
+	</article>
+
+	<script src="js/script.js"></script>
+</body>
+</html>

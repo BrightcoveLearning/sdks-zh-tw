@@ -1,0 +1,798 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+
+	<title>BCOVPUIPlayerView 類參考</title>
+
+	<link rel="stylesheet" href="../css/style.css">
+	<meta name="viewport" content="initial-scale=1, maximum-scale=1.4">
+	<meta name="generator" content="appledoc 2.2.1 (build 1334)">
+</head>
+<body class="appledoc">
+	<header>
+		<div class="container" class="hide-in-xcode">
+			
+			<h1 id="library-title"><a href="../index.html">BCOVPlayerUI</a></h1>
+
+			<p id="developer-home">
+				<a href="../index.html">亮灣</a>
+			</p>
+			
+		</div>
+	</header>
+
+	<aside>
+		<div class="container">
+			<nav>
+				<ul id="header-buttons" role="toolbar">
+					<li><a href="../index.html">指數</a></li>
+<li><a href="../hierarchy.html">等級制度</a></li>
+
+					<li id="on-this-page" role="navigation">
+						<label>
+							在本頁
+
+							<div class="chevron">
+								<div class="chevy chevron-left"></div>
+								<div class="chevy chevron-right"></div>
+							</div>
+
+							<select id="jump-to">
+	<option value="top">跳到…</option>
+	
+	<option value="overview">概述</option>
+	
+
+	
+	
+	<option value="tasks">任務</option>
+	
+	
+
+	
+	
+	<optgroup label="Properties">
+		
+		<option value="//api/name/contentContainerView">內容容器視圖</option>
+		
+		<option value="//api/name/contentOverlayView">內容疊加視圖</option>
+		
+		<option value="//api/name/controlsFadingView">控件FadingView</option>
+		
+		<option value="//api/name/controlsStaticView">控件靜態視圖</option>
+		
+		<option value="//api/name/controlsView">控件視圖</option>
+		
+		<option value="//api/name/delegate">代表</option>
+		
+		<option value="//api/name/overlayView">疊加視圖</option>
+		
+		<option value="//api/name/playbackController">播放控制器</option>
+		
+	</optgroup>
+	
+
+	
+
+	
+	<optgroup label="Instance Methods">
+		
+		<option value="//api/name/initWithPlaybackController:">- initWithPlaybackController:</option>
+		
+		<option value="//api/name/initWithPlaybackController:options:">- initWithPlaybackController:options:</option>
+		
+		<option value="//api/name/initWithPlaybackController:options:controlsView:">- initWithPlaybackController:options:controlsView:</option>
+		
+		<option value="//api/name/performScreenTransitionWithScreenMode:">- performScreenTransitionWithScreenMode:</option>
+		
+	</optgroup>
+	
+	
+</select>
+						</label>
+					</li>
+				</ul>
+			</nav>
+		</div>
+	</aside>
+
+	<article>
+		<div id="overview_contents" class="container">
+			<div id="content">
+				<main role="main">
+					<h1 class="title">BCOVPUIPlayerView 類參考</h1>
+
+					
+					<div class="section section-specification"><table cellspacing="0"><tbody>
+						<tr>
+	<th>繼承自</th>
+	<td>界面視圖</td>
+</tr><tr>
+	<th>聲明於</th>
+	<td>BCOVPUIPlayerView.h</td>
+</tr>
+						</tbody></table></div>
+					
+
+                    
+					
+					<div class="section section-overview">
+						<a title="Overview" name="overview"></a>
+						<h2 class="subtitle subtitle-overview">概述</h2>
+						<p>用於顯示視頻和控件的視圖。</p>
+					</div>
+					
+					
+
+					
+					
+					<div class="section section-tasks">
+						<a title="Tasks" name="tasks"></a>
+						
+
+						
+						
+
+						<div class="task-list">
+							<div class="section-method">
+	<a name="//api/name/playbackController" title="playbackController"></a>
+	<h3 class="method-title"><code><a href="#//api/name/playbackController">&nbsp;&nbsp;播放控制器</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>與此播放器視圖關聯的播放控制器。</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>@property (nonatomic, weak, readonly) id&lt;BCOVPlaybackController&gt; 播放控制器</code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">討論</h4>
+				<p>與此播放器視圖關聯的播放控制器。</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">申報在</h4>
+				<p>BCOVPUIPlayerView.h<code class="declared-in-ref"></code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/delegate" title="delegate"></a>
+	<h3 class="method-title"><code><a href="#//api/name/delegate">&nbsp;&nbsp;代表</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>符合的委託<a href="../Protocols/BCOVPUIPlayerViewDelegate.html">BCOVPUIPlayerViewDelegate</a> .</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>@property (nonatomic, weak) id&lt;BCOVPUIPlayerViewDelegate&gt; 委託</code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">討論</h4>
+				<p>符合的委託<a href="../Protocols/BCOVPUIPlayerViewDelegate.html">BCOVPUIPlayerViewDelegate</a> .</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">申報在</h4>
+				<p>BCOVPUIPlayerView.h<code class="declared-in-ref"></code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/contentContainerView" title="contentContainerView"></a>
+	<h3 class="method-title"><code><a href="#//api/name/contentContainerView">&nbsp;&nbsp;內容容器視圖</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>包含視頻內容的視圖。</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration">@property (nonatomic, weak, readonly) UIView *contentContainerView<code></code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">討論</h4>
+				<p>包含視頻內容的視圖。</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">申報在</h4>
+				<p>BCOVPUIPlayerView.h<code class="declared-in-ref"></code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/contentOverlayView" title="contentOverlayView"></a>
+	<h3 class="method-title"><code><a href="#//api/name/contentOverlayView">&nbsp;&nbsp;內容疊加視圖</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>視圖旨在包含覆蓋視頻內容的視圖。</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration">@property (nonatomic, weak, readonly) UIView *contentOverlayView<code></code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">討論</h4>
+				<p>視圖旨在包含覆蓋視頻內容的視圖。</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">申報在</h4>
+				<p>BCOVPUIPlayerView.h<code class="declared-in-ref"></code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/controlsStaticView" title="controlsStaticView"></a>
+	<h3 class="method-title"><code><a href="#//api/name/controlsStaticView">&nbsp;&nbsp;控件靜態視圖</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>視圖旨在包含不應淡出/淡入的控制元素。</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration">@property (nonatomic, weak, readonly) UIView *controlsStaticView<code></code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">討論</h4>
+				<p>視圖旨在包含不應淡出/淡入的控制元素。</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">申報在</h4>
+				<p>BCOVPUIPlayerView.h<code class="declared-in-ref"></code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/controlsFadingView" title="controlsFadingView"></a>
+	<h3 class="method-title"><code><a href="#//api/name/controlsFadingView">&nbsp;&nbsp;控件FadingView</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>視圖旨在包含應該淡出/淡入的控制元素。</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration">@property (nonatomic, weak, readonly) UIView *controlsFadingView<code></code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">討論</h4>
+				<p>視圖旨在包含應該淡出/淡入的控制元素。</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">申報在</h4>
+				<p>BCOVPUIPlayerView.h<code class="declared-in-ref"></code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/overlayView" title="overlayView"></a>
+	<h3 class="method-title"><code><a href="#//api/name/overlayView">&nbsp;&nbsp;疊加視圖</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>視圖旨在包含應覆蓋所有其他視圖的視圖。</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration">@property (nonatomic, weak, readonly) UIView *overlayView<code></code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">討論</h4>
+				<p>視圖旨在包含應覆蓋所有其他視圖的視圖。</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">申報在</h4>
+				<p>BCOVPUIPlayerView.h<code class="declared-in-ref"></code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/controlsView" title="controlsView"></a>
+	<h3 class="method-title"><code><a href="#//api/name/controlsView">&nbsp;&nbsp;控件視圖</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>內容控制視圖。這種觀點應該存在於<a href="#//api/name/contentOverlayView">內容疊加視圖</a>或者<a href="#//api/name/controlsFadingView">控件FadingView</a>看法。</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration">@property (nonatomic, weak, readonly) BCOVPUIBasicControlView *controlsView<code></code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">討論</h4>
+				<p>內容控制視圖。這種觀點應該存在於<a href="#//api/name/contentOverlayView">內容疊加視圖</a>或者<a href="#//api/name/controlsFadingView">控件FadingView</a>看法。</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">申報在</h4>
+				<p>BCOVPUIPlayerView.h<code class="declared-in-ref"></code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/initWithPlaybackController:" title="initWithPlaybackController:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/initWithPlaybackController:">&ndash;&nbsp; initWithPlaybackController:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>使用具有給定 BCOVPlaybackController 的默認選項初始化 BCOVPUIPlayerView。</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration">- (instancetype)initWithPlaybackController:(id&lt;BCOVPlaybackController&gt;)<code><em>播放控制器</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">參數</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>播放控制器</code></th>
+						<td><p>播放器視圖使用的播放控制器。這不能是零。</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">返回值</h4>
+				<p>完全初始化的播放器視圖。</p>
+			</div>
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">討論</h4>
+				<p>使用具有給定 BCOVPlaybackController 的默認選項初始化 BCOVPUIPlayerView。</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">申報在</h4>
+				<p>BCOVPUIPlayerView.h<code class="declared-in-ref"></code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/initWithPlaybackController:options:" title="initWithPlaybackController:options:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/initWithPlaybackController:options:">&ndash;&nbsp; initWithPlaybackController:options:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>使用提供的初始化 BCOVPIPlayerView <a href="../Classes/BCOVPUIPlayerViewOptions.html"> BCOVPUIPlayerViewOptions</a>和 BCOVPlaybackController。</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration">- (instancetype)initWithPlaybackController:(id&lt;BCOVPlaybackController&gt;)<code><em>播放控制器</em> 選項:(BCOVPUIPlayerViewOptions *)<em>選項</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">參數</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>播放控制器</code></th>
+						<td><p>播放器視圖使用的播放控制器。這不能是零。</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>選項</code></th>
+						<td><p>播放器視圖的選項。如果為零，將使用默認選項。</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">返回值</h4>
+				<p>完全初始化的播放器視圖。</p>
+			</div>
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">討論</h4>
+				<p>使用提供的初始化 BCOVPIPlayerView <a href="../Classes/BCOVPUIPlayerViewOptions.html"> BCOVPUIPlayerViewOptions</a>和 BCOVPlaybackController。</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">申報在</h4>
+				<p>BCOVPUIPlayerView.h<code class="declared-in-ref"></code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/initWithPlaybackController:options:controlsView:" title="initWithPlaybackController:options:controlsView:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/initWithPlaybackController:options:controlsView:">&ndash;&nbsp; initWithPlaybackController:options:controlsView:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>使用提供的初始化 BCOVPIPlayerView <a href="../Classes/BCOVPUIPlayerViewOptions.html"> BCOVPUIPlayerViewOptions</a> , BCOVPlaybackController 和自定義<a href="../Classes/BCOVPUIBasicControlView.html">BCOVPUIBasicControlView</a> .</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration">- (instancetype)initWithPlaybackController:(id&lt;BCOVPlaybackController&gt;)<code><em>播放控制器</em> 選項:(BCOVPUIPlayerViewOptions *)<em>選項</em> 控件視圖：（BCOVPUIBasicControlView *）<em>控件視圖</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">參數</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>播放控制器</code></th>
+						<td><p>播放器視圖使用的播放控制器。這不能是零。</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>選項</code></th>
+						<td><p>播放視圖的選項。如果為零，將使用默認選項。</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>控件視圖</code></th>
+						<td><p>在播放器視圖中使用的控件視圖。如果為零，將使用默認控件視圖。</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">返回值</h4>
+				<p>完全初始化的播放器視圖。</p>
+			</div>
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">討論</h4>
+				<p>使用提供的初始化 BCOVPIPlayerView <a href="../Classes/BCOVPUIPlayerViewOptions.html"> BCOVPUIPlayerViewOptions</a> , BCOVPlaybackController 和自定義<a href="../Classes/BCOVPUIBasicControlView.html">BCOVPUIBasicControlView</a> .</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">申報在</h4>
+				<p>BCOVPUIPlayerView.h<code class="declared-in-ref"></code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/performScreenTransitionWithScreenMode:" title="performScreenTransitionWithScreenMode:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/performScreenTransitionWithScreenMode:">&ndash;&nbsp; performScreenTransitionWithScreenMode:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>執行到指定模式的屏幕轉換。</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration">- (void)performScreenTransitionWithScreenMode:(BCOVPUIScreenMode)<code><em>屏幕模式</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">參數</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>屏幕模式</code></th>
+						<td><p>要轉換到的屏幕模式。</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">討論</h4>
+				<p>執行到指定模式的屏幕轉換。</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">申報在</h4>
+				<p>BCOVPUIPlayerView.h<code class="declared-in-ref"></code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div>
+						</div>
+						
+					</div>
+					
+					
+
+                    
+                    
+          
+				</main>
+
+				<footer>
+					<div class="footer-copyright">
+						
+						<p class="copyright">版權&copy; 2016 年光明灣。版權所有。更新：2016-06-09</p>
+						
+						
+						<p class="generator">生成者<a href="http://appledoc.gentlebytes.com">蘋果文檔 2.2.1（內部版本 1334）</a> .</p>
+						
+					</div>
+				</footer>
+			</div>
+		</div>
+	</article>
+
+	<script src="../js/script.js"></script>
+<script src="https://learning-services-media.brightcove.com/doc-assets/js/https-fix.js"></script>
+<script src="https://learning-services-media.brightcove.com/doc-assets/js/support-feedback.js"></script><script src="https://support.brightcove.com/site-assets/js/site/feedback-docs.js"></script>
+</body>
+</html>

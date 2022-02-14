@@ -1,0 +1,1036 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+
+	<title>BCOVTVPlayerViewDelegate 協議參考</title>
+
+	<link rel="stylesheet" href="../css/style.css">
+	<meta name="viewport" content="initial-scale=1, maximum-scale=1.4">
+	<meta name="generator" content="appledoc 2.2.1 (build 1334)">
+</head>
+<body class="appledoc">
+	<header>
+		<div class="container" class="hide-in-xcode">
+			
+			<h1 id="library-title"><a href="../index.html">適用於 iOS 的 Brightcove 原生播放器</a></h1>
+
+			<p id="developer-home">
+				<a href="../index.html">亮灣</a>
+			</p>
+			
+		</div>
+	</header>
+
+	<aside>
+		<div class="container">
+			<nav>
+				<ul id="header-buttons" role="toolbar">
+					<li><a href="../index.html">指數</a></li>
+<li><a href="../hierarchy.html">等級制度</a></li>
+
+					<li id="on-this-page" role="navigation">
+						<label>
+							在本頁
+
+							<div class="chevron">
+								<div class="chevy chevron-left"></div>
+								<div class="chevy chevron-right"></div>
+							</div>
+
+							<select id="jump-to">
+	<option value="top">跳到…</option>
+	
+	<option value="overview">概述</option>
+	
+
+	
+	
+	<option value="tasks">任務</option>
+	
+	
+
+	
+	
+
+	
+
+	
+	<optgroup label="Instance Methods">
+		
+		<option value="//api/name/liveIndicatorViewForIsPlaying:atLiveEdge:">- liveIndicatorViewForIsPlaying:atLiveEdge:</option>
+		
+		<option value="//api/name/playerDidBeginFastForward">- playerDidBeginFastForward</option>
+		
+		<option value="//api/name/playerDidBeginFastRewind">- playerDidBeginFastRewind</option>
+		
+		<option value="//api/name/playerDidEndFastForward">- playerDidEndFastForward</option>
+		
+		<option value="//api/name/playerDidEndFastRewind">- playerDidEndFastRewind</option>
+		
+		<option value="//api/name/playerView:controlsFadingViewDidFadeIn:">- playerView:controlsFadingViewDidFadeIn:</option>
+		
+		<option value="//api/name/playerView:controlsFadingViewDidFadeOut:">- playerView:controlsFadingViewDidFadeOut:</option>
+		
+		<option value="//api/name/playerView:controlsFadingViewWillFadeIn:">- playerView:controlsFadingViewWillFadeIn:</option>
+		
+		<option value="//api/name/playerView:controlsFadingViewWillFadeOut:">- playerView:controlsFadingViewWillFadeOut:</option>
+		
+		<option value="//api/name/playerViewShouldDisplayThumbnailPreviewWithSize:">- playerViewShouldDisplayThumbnailPreviewWithSize：</option>
+		
+		<option value="//api/name/playerViewShouldRequireLinearPlayback:">- playerViewShouldRequireLinearPlayback：</option>
+		
+		<option value="//api/name/progressViewPanGestureStateBegan:">- progressViewPanGestureStateBegan：</option>
+		
+		<option value="//api/name/progressViewPanGestureStateChanged:">- progressViewPanGestureStateChanged：</option>
+		
+		<option value="//api/name/progressViewPanGestureStateEnded:">- progressViewPanGestureStateEnded：</option>
+		
+		<option value="//api/name/willDisplayIconType:withImageView:">- willDisplayIconType:withImageView:</option>
+		
+	</optgroup>
+	
+	
+</select>
+						</label>
+					</li>
+				</ul>
+			</nav>
+		</div>
+	</aside>
+
+	<article>
+		<div id="overview_contents" class="container">
+			<div id="content">
+				<main role="main">
+					<h1 class="title">BCOVTVPlayerViewDelegate 協議參考</h1>
+
+					
+					<div class="section section-specification"><table cellspacing="0"><tbody>
+						<tr>
+	<th>符合</th>
+	<td>NSObject</td>
+</tr><tr>
+	<th>聲明於</th>
+	<td>BCOVTVPlayerView.h</td>
+</tr>
+						</tbody></table></div>
+					
+
+                    
+					
+					<div class="section section-overview">
+						<a title="Overview" name="overview"></a>
+						<h2 class="subtitle subtitle-overview">概述</h2>
+						<p>遵守此協議以接收有關<a href="../Classes/BCOVTVPlayerView.html">BCOVTVP 播放器視圖</a> .</p>
+					</div>
+					
+					
+
+					
+					
+					<div class="section section-tasks">
+						<a title="Tasks" name="tasks"></a>
+						
+
+						
+						
+
+						<div class="task-list">
+							<div class="section-method">
+	<a name="//api/name/playerView:controlsFadingViewWillFadeOut:" title="playerView:controlsFadingViewWillFadeOut:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/playerView:controlsFadingViewWillFadeOut:">&ndash;&nbsp; playerView:controlsFadingViewWillFadeOut:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>在 playerView 控件淡出之前調用。</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)playerView:(BCOVVTVPlayerView *)<em>播放器視圖</em> 控件FadingViewWillFadeOut:(UIView *)<em>控件FadingView</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">參數</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>播放器視圖</code></th>
+						<td><p>管理控件的播放器視圖。</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>控件FadingView</code></th>
+						<td><p>將淡出的控件淡出視圖。</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">討論</h4>
+				<p>在 playerView 控件淡出之前調用。</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">申報在</h4>
+				<p>BCOVTVPlayerView.h<code class="declared-in-ref"></code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/playerView:controlsFadingViewWillFadeIn:" title="playerView:controlsFadingViewWillFadeIn:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/playerView:controlsFadingViewWillFadeIn:">&ndash;&nbsp; playerView:controlsFadingViewWillFadeIn:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>在 playerView 控件淡入之前調用。</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)playerView:(BCOVVTVPlayerView *)<em>播放器視圖</em> 控件FadingViewWillFadeIn:(UIView *)<em>控件FadingView</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">參數</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>播放器視圖</code></th>
+						<td><p>管理控件的播放器視圖。</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>控件FadingView</code></th>
+						<td><p>將淡入的控件淡入淡出視圖。</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">討論</h4>
+				<p>在 playerView 控件淡入之前調用。</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">申報在</h4>
+				<p>BCOVTVPlayerView.h<code class="declared-in-ref"></code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/playerView:controlsFadingViewDidFadeOut:" title="playerView:controlsFadingViewDidFadeOut:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/playerView:controlsFadingViewDidFadeOut:">&ndash;&nbsp; playerView:controlsFadingViewDidFadeOut:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>當 playerView 控件淡出時調用。</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)playerView:(BCOVVTVPlayerView *)<em>播放器視圖</em> 控件FadingViewDidFadeOut:(UIView *)<em>控件FadingView</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">參數</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>播放器視圖</code></th>
+						<td><p>管理控件的播放器視圖。</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>控件FadingView</code></th>
+						<td><p>淡出的控件淡出視圖。</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">討論</h4>
+				<p>當 playerView 控件淡出時調用。</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">申報在</h4>
+				<p>BCOVTVPlayerView.h<code class="declared-in-ref"></code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/playerView:controlsFadingViewDidFadeIn:" title="playerView:controlsFadingViewDidFadeIn:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/playerView:controlsFadingViewDidFadeIn:">&ndash;&nbsp; playerView:controlsFadingViewDidFadeIn:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>當 playerView 控件淡入時調用。</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)playerView:(BCOVVTVPlayerView *)<em>播放器視圖</em> 控件FadingViewDidFadeIn:(UIView *)<em>控件FadingView</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">參數</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>播放器視圖</code></th>
+						<td><p>管理控件的播放器視圖。</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>控件FadingView</code></th>
+						<td><p>淡入的控件淡入淡出視圖。</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">討論</h4>
+				<p>當 playerView 控件淡入時調用。</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">申報在</h4>
+				<p>BCOVTVPlayerView.h<code class="declared-in-ref"></code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/playerViewShouldRequireLinearPlayback:" title="playerViewShouldRequireLinearPlayback:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/playerViewShouldRequireLinearPlayback:">&ndash;&nbsp; playerViewShouldRequireLinearPlayback：</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>當用戶試圖尋找或跳過視頻內容時調用。返回 YES 以防止查找和跳過。返回 NO 以允許搜索和跳過。默認行為是允許搜索。類似於 AVPlayerViewController 的 requireLinearPlayback 屬性。</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration">- (BOOL)playerViewShouldRequireLinearPlayback:(BCOVTVPlayerView *)<code><em>播放器視圖</em></code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">討論</h4>
+				<p>當用戶試圖尋找或跳過視頻內容時調用。返回 YES 以防止查找和跳過。返回 NO 以允許搜索和跳過。默認行為是允許搜索。類似於 AVPlayerViewController 的 requireLinearPlayback 屬性。</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">申報在</h4>
+				<p>BCOVTVPlayerView.h<code class="declared-in-ref"></code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/playerViewShouldDisplayThumbnailPreviewWithSize:" title="playerViewShouldDisplayThumbnailPreviewWithSize:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/playerViewShouldDisplayThumbnailPreviewWithSize:">&ndash;&nbsp; playerViewShouldDisplayThumbnailPreviewWithSize：</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>在設置縮略圖預覽之前調用。</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration">- (CGSize)playerViewShouldDisplayThumbnailPreviewWithSize:(BCOVTVPlayerView *)<code><em>播放器視圖</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">參數</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>播放器視圖</code></th>
+						<td><p>將顯示縮略圖預覽的播放器視圖。</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">返回值</h4>
+				<p>應顯示縮略圖的寬度和高度。</p>
+			</div>
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">討論</h4>
+				<p>在設置縮略圖預覽之前調用。</p>
+
+<p>您可以實現此功能來自定義縮略圖預覽大小。</p>
+
+<p>如果未實現此委託方法，縮略圖預覽的大小將為 playerView 大小的 1/5。</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">申報在</h4>
+				<p>BCOVTVPlayerView.h<code class="declared-in-ref"></code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/progressViewPanGestureStateBegan:" title="progressViewPanGestureStateBegan:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/progressViewPanGestureStateBegan:">&ndash;&nbsp; progressViewPanGestureStateBegan：</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>在 progressView 平移手勢（尋求）開始時調用。</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration">- (void)progressViewPanGestureStateBegan:(NSTimeInterval)<code><em>進度值</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">參數</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>進度值</code></th>
+						<td><p>平移手勢表示的進度值，作為參數傳遞，因為<a href="../Classes/BCOVTVProgressView.html">BCOVTVProgressView</a>在播放恢復之前不會更新。</p>
+
+<p>該方法在主線程上調用，不應被阻塞。</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">討論</h4>
+				<p>在 progressView 平移手勢（尋求）開始時調用。</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">申報在</h4>
+				<p>BCOVTVPlayerView.h<code class="declared-in-ref"></code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/progressViewPanGestureStateChanged:" title="progressViewPanGestureStateChanged:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/progressViewPanGestureStateChanged:">&ndash;&nbsp; progressViewPanGestureStateChanged：</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>當 progressView 平移手勢（尋求）改變狀態（播放頭位置）時調用。</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration">- (void)progressViewPanGestureStateChanged:(NSTimeInterval)<code><em>進度值</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">參數</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>進度值</code></th>
+						<td><p>平移手勢表示的進度值，作為參數傳遞，因為<a href="../Classes/BCOVTVProgressView.html">BCOVTVProgressView</a>在播放恢復之前不會更新。</p>
+
+<p>該方法在主線程上調用，不應被阻塞。</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">討論</h4>
+				<p>當 progressView 平移手勢（尋求）改變狀態（播放頭位置）時調用。</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">申報在</h4>
+				<p>BCOVTVPlayerView.h<code class="declared-in-ref"></code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/progressViewPanGestureStateEnded:" title="progressViewPanGestureStateEnded:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/progressViewPanGestureStateEnded:">&ndash;&nbsp; progressViewPanGestureStateEnded：</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>當平移手勢（搜索）結束時調用。</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration">- (void)progressViewPanGestureStateEnded:(NSTimeInterval)<code><em>進度值</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">參數</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>進度值</code></th>
+						<td><p>平移手勢表示的進度值，作為參數傳遞，因為<a href="../Classes/BCOVTVProgressView.html">BCOVTVProgressView</a>在播放恢復之前不會更新。</p>
+
+<p>該方法在主線程上調用，不應被阻塞。</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">討論</h4>
+				<p>當平移手勢（搜索）結束時調用。</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">申報在</h4>
+				<p>BCOVTVPlayerView.h<code class="declared-in-ref"></code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/playerDidBeginFastForward" title="playerDidBeginFastForward"></a>
+	<h3 class="method-title"><code><a href="#//api/name/playerDidBeginFastForward">&ndash;&nbsp; playerDidBeginFastForward</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>當播放器開始快進時調用。</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration">- (void)playerDidBeginFastForward<code></code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">討論</h4>
+				<p>當播放器開始快進時調用。</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">申報在</h4>
+				<p>BCOVTVPlayerView.h<code class="declared-in-ref"></code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/playerDidEndFastForward" title="playerDidEndFastForward"></a>
+	<h3 class="method-title"><code><a href="#//api/name/playerDidEndFastForward">&ndash;&nbsp; playerDidEndFastForward</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>當播放器快進結束時調用。</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration">- (void)playerDidEndFastForward<code></code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">討論</h4>
+				<p>當播放器快進結束時調用。</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">申報在</h4>
+				<p>BCOVTVPlayerView.h<code class="declared-in-ref"></code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/playerDidBeginFastRewind" title="playerDidBeginFastRewind"></a>
+	<h3 class="method-title"><code><a href="#//api/name/playerDidBeginFastRewind">&ndash;&nbsp; playerDidBeginFastRewind</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>當播放器快退開始時調用。</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration">- (void)playerDidBeginFastRewind<code></code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">討論</h4>
+				<p>當播放器快退開始時調用。</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">申報在</h4>
+				<p>BCOVTVPlayerView.h<code class="declared-in-ref"></code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/playerDidEndFastRewind" title="playerDidEndFastRewind"></a>
+	<h3 class="method-title"><code><a href="#//api/name/playerDidEndFastRewind">&ndash;&nbsp; playerDidEndFastRewind</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>當播放器快退結束時調用。</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration">- (void)playerDidEndFastRewind<code></code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">討論</h4>
+				<p>當播放器快退結束時調用。</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">申報在</h4>
+				<p>BCOVTVPlayerView.h<code class="declared-in-ref"></code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/liveIndicatorViewForIsPlaying:atLiveEdge:" title="liveIndicatorViewForIsPlaying:atLiveEdge:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/liveIndicatorViewForIsPlaying:atLiveEdge:">&ndash;&nbsp; liveIndicatorViewForIsPlaying:atLiveEdge:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>在視頻播放期間調用。</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration">- (UIView *)liveIndicatorViewForIsPlaying:(BOOL)<code><em>玩</em> 在LiveEdge：（布爾）<em>在LiveEdge</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">參數</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>玩</code></th>
+						<td><p>視頻當前是否正在播放</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>在LiveEdge</code></th>
+						<td><p>視頻是否處於實時邊緣</p>
+
+<p>該方法在主線程上調用，不應被阻塞。</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">討論</h4>
+				<p>在視頻播放期間調用。</p>
+
+<p>使用此可選委託方法提供自定義視圖，以向用戶指示視頻是否處於實時邊緣。如果您的委託未實現此方法，則顯示的默認行為&ldquo;居住&rdquo;在左上角<a href="../Classes/BCOVTVPlayerView.html">BCOVTVP 播放器視圖</a>將顯示，與&ldquo;升&rdquo;如果視頻處於實時邊緣，則為綠色。</p>
+
+<p>該視圖將作為子視圖添加到內部<a href="../Classes/BCOVTVPlayerView.html">BCOVTVP 播放器視圖</a>並將與它相關。x, y 值為 0 的框架將按預期定位在視圖的左上角。您可以隨意定位視圖。</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">申報在</h4>
+				<p>BCOVTVPlayerView.h<code class="declared-in-ref"></code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/willDisplayIconType:withImageView:" title="willDisplayIconType:withImageView:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/willDisplayIconType:withImageView:">&ndash;&nbsp; willDisplayIconType:withImageView:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>在為某些 UI 行為顯示圖標之前調用。</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (BOOL)willDisplayIconType:(BCOVVTVIconType)<em>圖標類型</em> withImageView:(UIImageView *)<em>圖像視圖</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">參數</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>圖標類型</code></th>
+						<td><p>應顯示的圖標類型</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>圖像視圖</code></th>
+						<td><p>圖標將顯示在的圖像視圖</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">返回值</h4>
+				<p>一個布爾值，指示是否應覆蓋默認圖標。</p>
+			</div>
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">討論</h4>
+				<p>在為某些 UI 行為顯示圖標之前調用。</p>
+
+<p>這些目前包括圖標&lsquo;跳回&rsquo; , &lsquo;向前跳躍&rsquo; , &lsquo;快進&rsquo;和&lsquo;倒帶&rsquo; .</p>
+
+<p>您可以使用此委託方法設置自己的圖標圖像。您還需要設置圖像的框架並註意其超級視圖是 40x40。您可以隨意定位 imageView &rsquo; d 喜歡在超級視圖內部，同時保持最大高度和寬度為 40。返回<code>是的</code>如果你覆蓋了圖標，否則返回<code>不</code></p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">申報在</h4>
+				<p>BCOVTVPlayerView.h<code class="declared-in-ref"></code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div>
+						</div>
+						
+					</div>
+					
+					
+
+                    
+				</main>
+
+				<footer>
+					<div class="footer-copyright">
+						
+						<p class="copyright">版權&copy; 2021 年光明灣。版權所有。更新：2021-07-08</p>
+						
+						
+						<p class="generator">生成者<a href="http://appledoc.gentlebytes.com">蘋果文檔 2.2.1（內部版本 1334）</a> .</p>
+						
+					</div>
+				</footer>
+			</div>
+		</div>
+	</article>
+
+	<script src="../js/script.js"></script>
+</body>
+</html>

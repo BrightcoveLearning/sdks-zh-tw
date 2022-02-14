@@ -1,0 +1,698 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+
+	<title>BCOVCuePoint 類參考</title>
+
+	<link rel="stylesheet" href="../css/style.css">
+	<meta name="viewport" content="initial-scale=1, maximum-scale=1.4">
+	<meta name="generator" content="appledoc 2.2.1 (build 1334)">
+</head>
+<body class="appledoc">
+	<header>
+		<div class="container" class="hide-in-xcode">
+			
+			<h1 id="library-title"><a href="../index.html">適用於 iOS 的 Brightcove 原生播放器</a></h1>
+
+			<p id="developer-home">
+				<a href="../index.html">亮灣</a>
+			</p>
+			
+		</div>
+	</header>
+
+	<aside>
+		<div class="container">
+			<nav>
+				<ul id="header-buttons" role="toolbar">
+					<li><a href="../index.html">指數</a></li>
+<li><a href="../hierarchy.html">等級制度</a></li>
+
+					<li id="on-this-page" role="navigation">
+						<label>
+							在本頁
+
+							<div class="chevron">
+								<div class="chevy chevron-left"></div>
+								<div class="chevy chevron-right"></div>
+							</div>
+
+							<select id="jump-to">
+	<option value="top">跳到…</option>
+	
+	<option value="overview">概述</option>
+	
+
+	
+	
+	<option value="tasks">任務</option>
+	
+	
+
+	
+	
+
+	
+	<optgroup label="Class Methods">
+		
+		<option value="//api/name/afterCuePointOfType:properties:">+ afterCuePointOfType:properties:</option>
+		
+		<option value="//api/name/beforeCuePointOfType:properties:">+ beforeCuePointOfType:properties:</option>
+		
+		<option value="//api/name/cuePointWithType:positionInSeconds:properties:">+ cuePointWithType:positionInSeconds:properties:</option>
+		
+	</optgroup>
+	
+
+	
+	<optgroup label="Instance Methods">
+		
+		<option value="//api/name/compare:">- 相比：</option>
+		
+		<option value="//api/name/hasPosition:">- 有位置：</option>
+		
+		<option value="//api/name/initWithType:position:">- initWithType：位置：</option>
+		
+		<option value="//api/name/initWithType:position:properties:">- initWithType:position:properties:</option>
+		
+		<option value="//api/name/isEqualToCuePoint:">- isEqualToCuePoint：</option>
+		
+	</optgroup>
+	
+	
+</select>
+						</label>
+					</li>
+				</ul>
+			</nav>
+		</div>
+	</aside>
+
+	<article>
+		<div id="overview_contents" class="container">
+			<div id="content">
+				<main role="main">
+					<h1 class="title">BCOVCuePoint 類參考</h1>
+
+					
+					<div class="section section-specification"><table cellspacing="0"><tbody>
+						<tr>
+	<th>繼承自</th>
+	<td>NSObject</td>
+</tr><tr>
+	<th>符合</th>
+	<td>BCOVCuePoint<a href="../Protocols/BCOVCuePoint.html"></a><br />NSCopying</td>
+</tr><tr>
+	<th>聲明於</th>
+	<td>BCOVCuePoint.h</td>
+</tr>
+						</tbody></table></div>
+					
+
+                    
+					
+					<div class="section section-overview">
+						<a title="Overview" name="overview"></a>
+						<h2 class="subtitle subtitle-overview">概述</h2>
+						<p>BCOVCuePoint 協議的實現。</p>
+					</div>
+					
+					
+
+					
+					
+					<div class="section section-tasks">
+						<a title="Tasks" name="tasks"></a>
+						
+
+						
+						
+
+						<div class="task-list">
+							<div class="section-method">
+	<a name="//api/name/initWithType:position:" title="initWithType:position:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/initWithType:position:">&ndash;&nbsp; initWithType：位置：</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>構造具有指定類型和位置的新提示點。</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration">- (instancetype)initWithType:(NSString *)<code><em>類型</em> 位置：（CMTime）<em>位置</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">參數</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>類型</code></th>
+						<td><p>新提示點的類型。</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>位置</code></th>
+						<td><p>新提示點的位置。</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">返回值</h4>
+				<p>具有指定類型和位置的新提示點。</p>
+			</div>
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">討論</h4>
+				<p>構造具有指定類型和位置的新提示點。</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">申報在</h4>
+				<p>BCOVCuePoint.h<code class="declared-in-ref"></code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/initWithType:position:properties:" title="initWithType:position:properties:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/initWithType:position:properties:">&ndash;&nbsp; initWithType:position:properties:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>構造具有指定類型、位置和屬性的新提示點。</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration">- (instancetype)initWithType:(NSString *)<code><em>類型</em> 位置：（CMTime）<em>位置</em> 屬性:(NSDictionary *)<em>特性</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">參數</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>類型</code></th>
+						<td><p>新提示點的類型。</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>位置</code></th>
+						<td><p>新提示點的位置。</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>特性</code></th>
+						<td><p>新提示點的屬性。</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">返回值</h4>
+				<p>具有指定類型、位置和屬性的新提示點。</p>
+			</div>
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">討論</h4>
+				<p>構造具有指定類型、位置和屬性的新提示點。</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">申報在</h4>
+				<p>BCOVCuePoint.h<code class="declared-in-ref"></code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/compare:" title="compare:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/compare:">&ndash;&nbsp;相比：</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>返回一個 NSComparisionResult 指示這個提示點是否&rsquo; s 的位置早於、相同或晚於<code>提示點</code> .只比較位置。</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration">- (NSComparisonResult)compare:(BCOVCuePoint *)<code><em>提示點</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">參數</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>提示點</code></th>
+						<td><p>要與此實例進行位置比較的提示點。</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">返回值</h4>
+				<p>這個提示點是否&rsquo; s 位置較早、相同或較晚。</p>
+			</div>
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">討論</h4>
+				<p>返回一個 NSComparisionResult 指示這個提示點是否&rsquo; s 的位置早於、相同或晚於<code>提示點</code> .只比較位置。</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">申報在</h4>
+				<p>BCOVCuePoint.h<code class="declared-in-ref"></code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/hasPosition:" title="hasPosition:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/hasPosition:">&ndash;&nbsp;有位置：</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>如果此實例返回 YES &rsquo; s 的位置是<code>位置</code> .</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration">- (BOOL)hasPosition:(CMTime)<code><em>位置</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">參數</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>位置</code></th>
+						<td><p>測試此實例的位置&rsquo;反對的立場。</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">返回值</h4>
+				<p>此實例是否具有指定位置。</p>
+			</div>
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">討論</h4>
+				<p>如果此實例返回 YES &rsquo; s 的位置是<code>位置</code> .</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">申報在</h4>
+				<p>BCOVCuePoint.h<code class="declared-in-ref"></code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/isEqualToCuePoint:" title="isEqualToCuePoint:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/isEqualToCuePoint:">&ndash;&nbsp; isEqualToCuePoint：</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>返回 YES 如果<code>提示點</code>相當於這個實例。</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration">- (BOOL)isEqualToCuePoint:(BCOVCuePoint *)<code><em>提示點</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">參數</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>提示點</code></th>
+						<td><p>測試與此實例等效的提示點。</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">返回值</h4>
+				<p>無論<code>提示點</code>相當於這個實例。</p>
+			</div>
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">討論</h4>
+				<p>返回 YES 如果<code>提示點</code>相當於這個實例。</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">申報在</h4>
+				<p>BCOVCuePoint.h<code class="declared-in-ref"></code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/afterCuePointOfType:properties:" title="afterCuePointOfType:properties:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/afterCuePointOfType:properties:">+ &nbsp; afterCuePointOfType：屬性：</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>返回具有指定類型和屬性的提示點，其位置為 kBCOVCuePointPositionTypeAfter。</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration">+ (BCOVCuePoint *)afterCuePointOfType:(NSString *)<code><em>類型</em> 屬性:(NSDictionary *)<em>特性</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">參數</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>類型</code></th>
+						<td><p>要返回的提示點的類型。</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>特性</code></th>
+						<td><p>要返回的提示點的屬性。</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">返回值</h4>
+				<p>這&ldquo;後&rdquo;具有指定類型和屬性的提示點。</p>
+			</div>
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">討論</h4>
+				<p>返回具有指定類型和屬性的提示點，其位置為 kBCOVCuePointPositionTypeAfter。</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">申報在</h4>
+				<p>BCOVCuePoint.h<code class="declared-in-ref"></code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/beforeCuePointOfType:properties:" title="beforeCuePointOfType:properties:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/beforeCuePointOfType:properties:">+ &nbsp; beforeCuePointOfType:properties:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>返回具有指定類型和屬性的提示點，其位置為 kBCOVCuePointPositionTypeBefore。</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration">+ (BCOVCuePoint *)beforeCuePointOfType:(NSString *)<code><em>類型</em> 屬性:(NSDictionary *)<em>特性</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">參數</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>類型</code></th>
+						<td><p>要返回的提示點的類型。</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>特性</code></th>
+						<td><p>要返回的提示點的屬性。</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">返回值</h4>
+				<p>這&ldquo;前&rdquo;具有指定類型和屬性的提示點。</p>
+			</div>
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">討論</h4>
+				<p>返回具有指定類型和屬性的提示點，其位置為 kBCOVCuePointPositionTypeBefore。</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">申報在</h4>
+				<p>BCOVCuePoint.h<code class="declared-in-ref"></code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/cuePointWithType:positionInSeconds:properties:" title="cuePointWithType:positionInSeconds:properties:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/cuePointWithType:positionInSeconds:properties:">+ &nbsp; cuePointWithType:positionInSeconds:properties:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>返回具有指定類型和屬性的提示點，其位置（以秒為單位）位於<code>秒內位置</code> .</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration">+ (BCOVCuePoint *)cuePointWithType:(NSString *)<code><em>類型</em> positionInSeconds:(NSTimeInterval)<em>秒內位置</em> 屬性:(NSDictionary *)<em>特性</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">參數</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>類型</code></th>
+						<td><p>要返回的提示點的類型。</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>秒內位置</code></th>
+						<td><p>此提示點在擁有它的視頻的時間線中的位置（以秒為單位）。</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>特性</code></th>
+						<td><p>要返回的提示點的屬性。</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">返回值</h4>
+				<p>具有指定類型、位置和屬性的提示點。</p>
+			</div>
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">討論</h4>
+				<p>返回具有指定類型和屬性的提示點，其位置（以秒為單位）位於<code>秒內位置</code> .</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">申報在</h4>
+				<p>BCOVCuePoint.h<code class="declared-in-ref"></code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div>
+						</div>
+						
+					</div>
+					
+					
+
+                    
+				</main>
+
+				<footer>
+					<div class="footer-copyright">
+						
+						<p class="copyright">版權&copy; 2021 年光明灣。版權所有。更新：2021-07-08</p>
+						
+						
+						<p class="generator">生成者<a href="http://appledoc.gentlebytes.com">蘋果文檔 2.2.1（內部版本 1334）</a> .</p>
+						
+					</div>
+				</footer>
+			</div>
+		</div>
+	</article>
+
+	<script src="../js/script.js"></script>
+</body>
+</html>

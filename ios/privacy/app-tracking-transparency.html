@@ -1,0 +1,78 @@
+---
+title: '使用適用於 iOS 的本機 SDK 實現應用跟踪透明度' 
+description:在本主題中，您將學習如何使用適用於 iOS 的 Brightcove Native SDK 管理用戶隱私和數據使用。
+parent: Privacy 
+grandparent: iOS Development
+---
+ <h1>{{ page.title }}</h1>
+<article class="bcls-article">
+  <summary>{{ page.description }}</summary>
+
+<section class="bcls-section">
+<h2 id="Introduction">介紹</h2>
+<p>在 iOS 14.5 中，有一項名為 App Tracking Transparency 的新隱私功能。您可以在您的應用中使用此功能來請求用戶的跟踪許可。當用戶拒絕跟踪時，該應用程序將無法使用 Apple 的廣告商 ID (IDFA) 或其他標識符（如散列的電子郵件地址）來共享有關其廣告定位活動的數據。</p>
+<p>如果您的應用程序收集最終用戶數據並與其他公司共享以跨應用程序和網站進行跟踪，那麼您必須使用<code translate="No">AppTrackingTransparency</code>框架。</p>
+<p>有關詳細信息，請參見以下內容：</p>
+<ul>
+  <li><a href="https://developer.apple.com/app-store/user-privacy-and-data-use/">應用商店：用戶隱私和數據使用</a></li>
+  <li><a href="https://developer.apple.com/documentation/apptrackingtransparency">應用跟踪透明度</a></li>
+  <li><a href="https://developers.google.com/interactive-media-ads/docs/sdks/ios/client-side/ios14">IMA SDK：啟用 SKAdNetwork 以跟踪轉化</a></li>
+  <li><a href="https://docs.invidi.com/r/INVIDI-Pulse-Documentation/Pulse-SDKs-parameter-reference">英偉迪脈衝文檔</a></li>
+</ul>
+<aside class="bcls-aside bcls-aside--tip">適用於 iOS 和 tvOS 的原生 SDK 支持 App Tracking Transparency <a href="https://sdks.support.brightcove.com/ios/basics/overview-brightcove-player-sdk-ios.html#Integrations"> Brightcove IMA 和 Pulse 插件</a> .</aside>
+
+</section>
+
+<section class="bcls-section">
+  <h2 id="Requirements">要求</h2>
+  <p>App Tracking Transparency 需要以下要求：</p>
+  <h3>平台</h3>
+  <p>以下是系統要求：</p>
+  <ul>
+    <li>iOS 或 tvOS 14.5 或更高版本</li>
+  </ul>
+  <h3>Brightcove 原生 SDK</h3>
+  <p>建議使用最新版本的 Native SDK。</p>
+  <ul>
+    <li>適用於 iOS 或 tvOS 版本 6.8.0 或更高版本的原生 SDK</li>
+    <li>有關詳細信息，請參閱<a href="https://github.com/brightcove/brightcove-player-sdk-ios/blob/master/CHANGELOG.md#release-680">SDK 發行說明</a></li>
+  </ul>
+  
+  
+  </section>
+
+<section class="bcls-section">
+  <h2 id="Implementation">執行</h2>
+  <p>下面提到的示例應用展示瞭如何顯示應用跟踪透明度警報以確定您的應用是否可以使用廣告商 ID (IDFA)。</p>
+  <ol class="bcls-tasklist">
+    <li>
+      <p>打開並查看以下任一示例應用程序：</p>
+      <ul>
+        <li> <a href="https://github.com/BrightcoveOS/ios-player-samples/tree/master/IMA/BasicIMAPlayer">基本 IMAP 播放器</a></li>
+        <li> <a href="https://github.com/BrightcoveOS/ios-player-samples/tree/b73b41833cf9b92f19a3eee5177e52912c54687b/Pulse/BasicPulsePlayer">基本脈衝播放器</a></li>
+      </ul>
+    </li>
+    <li>打開<code translate="No">BaseViewController</code>，並找到<code translate="No">viewDidLoad</code>方法。</li>
+    <li>
+      <p>對於 iOS 14，SDK 檢查<code translate="No">ATTrackingManager.trackingAuthorizationStatus</code> .如果值為<code translate="No">ATTrackingManagerAuthorizationStatusAuthorized</code>，則 SDK 使用 IDFA。</p>
+      <pre class="line-numbers">
+<code class="language-objectivec" translate="No">if (@available(iOS 14, *))
+  {
+  __weak typeof(self) weakSelf = self;
+  [ATTrackingManager requestTrackingAuthorizationWithCompletionHandler:^(ATTrackingManagerAuthorizationStatus status) {
+      __strong typeof(weakSelf) strongSelf = weakSelf;
+      dispatch_async(dispatch_get_main_queue(), ^{
+          // Tracking authorization completed. Start loading ads here.
+          [strongSelf videoLibrary];
+          
+          [strongSelf setupPlayerView];
+          [strongSelf setupPlaybackController];
+          [strongSelf requestVideo];
+      });
+  }];</code></pre>
+    </li>
+    <li>對於較舊的 iOS 版本，SDK 使用值<code translate="No">ASIdentifierManager.sharedManager.isAdvertisingTrackingEnabled</code>以確定是否應使用 IDFA。</li>
+  </ol>
+  </section>
+
+</article>

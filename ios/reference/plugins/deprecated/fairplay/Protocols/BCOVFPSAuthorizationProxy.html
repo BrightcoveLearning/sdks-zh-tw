@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+
+	<title>BCOVFPSAuthorizationProxy 協議參考</title>
+
+	<link rel="stylesheet" href="../css/style.css">
+	<meta name="viewport" content="initial-scale=1, maximum-scale=1.4">
+	<meta name="generator" content="appledoc 2.2.1 (build 1334)">
+</head>
+<body class="appledoc">
+	<header>
+		<div class="container" class="hide-in-xcode">
+			
+			<h1 id="library-title"><a href="../index.html">BCOVFairPlay</a></h1>
+
+			<p id="developer-home">
+				<a href="../index.html">亮灣</a>
+			</p>
+			
+		</div>
+	</header>
+
+	<aside>
+		<div class="container">
+			<nav>
+				<ul id="header-buttons" role="toolbar">
+					<li><a href="../index.html">指數</a></li>
+<li><a href="../hierarchy.html">等級制度</a></li>
+
+					<li id="on-this-page" role="navigation">
+						<label>
+							在本頁
+
+							<div class="chevron">
+								<div class="chevy chevron-left"></div>
+								<div class="chevy chevron-right"></div>
+							</div>
+
+							<select id="jump-to">
+	<option value="top">跳到…</option>
+	
+	<option value="overview">概述</option>
+	
+
+	
+	
+	<option value="tasks">任務</option>
+	
+	
+
+	
+	
+
+	
+
+	
+	<optgroup label="Instance Methods">
+		
+		<option value="//api/name/contentIdentifierFromLoadingRequest:">- contentIdentifierFromLoadingRequest：</option>
+		
+		<option value="//api/name/encryptedContentKeyForLoadingRequest:contentKeyRequest:source:completionHandler:">- encryptedContentKeyForLoadingRequest:contentKeyRequest:source:completionHandler:</option>
+		
+	</optgroup>
+	
+	
+</select>
+						</label>
+					</li>
+				</ul>
+			</nav>
+		</div>
+	</aside>
+
+	<article>
+		<div id="overview_contents" class="container">
+			<div id="content">
+				<main role="main">
+					<h1 class="title">BCOVFPSAuthorizationProxy 協議參考</h1>
+
+					
+					<div class="section section-specification"><table cellspacing="0"><tbody>
+						<tr>
+	<th>符合</th>
+	<td>NSObject</td>
+</tr><tr>
+	<th>聲明於</th>
+	<td>BCOVFPSComponent.h</td>
+</tr>
+						</tbody></table></div>
+					
+
+                    
+					
+					<div class="section section-overview">
+						<a title="Overview" name="overview"></a>
+						<h2 class="subtitle subtitle-overview">概述</h2>
+						<p>在與自定義 FPS 許可證服務器交互時實施此協議。</p>
+					</div>
+					
+					
+
+					
+					
+					<div class="section section-tasks">
+						<a title="Tasks" name="tasks"></a>
+						
+
+						
+						
+
+						<div class="task-list">
+							<div class="section-method">
+	<a name="//api/name/contentIdentifierFromLoadingRequest:" title="contentIdentifierFromLoadingRequest:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/contentIdentifierFromLoadingRequest:">&ndash;&nbsp; contentIdentifierFromLoadingRequest：</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>可選方法。實現此方法以處理從加載請求中檢索內容標識符。這是為每個資產調用的。不保證調用它的線程。您應該返回與此加載請求對應的內容標識符。這通常是從&ldquo; skd:// &hellip;&rdquo; loadingRequest.request.URL 中的 URL。內容標識符將傳遞給 [AVAssetResourceLoadingRequest streamingContentKeyRequestDataForApp:contentIdentifier:options:error:] 以檢索 SPC。</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration">- (nullable NSData *)contentIdentifierFromLoadingRequest:(nonnull AVAssetResourceLoadingRequest *)<code><em>加載請求</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">參數</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>加載請求</code></th>
+						<td><p>skd:// 為資產發出的加載請求。</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">討論</h4>
+				<p>可選方法。實現此方法以處理從加載請求中檢索內容標識符。這是為每個資產調用的。不保證調用它的線程。您應該返回與此加載請求對應的內容標識符。這通常是從&ldquo; skd:// &hellip;&rdquo; loadingRequest.request.URL 中的 URL。內容標識符將傳遞給 [AVAssetResourceLoadingRequest streamingContentKeyRequestDataForApp:contentIdentifier:options:error:] 以檢索 SPC。</p>
+
+<p>如果未提供此方法，則將使用默認方法。默認方法刪除&ldquo; skd:// &rdquo;從 loadingRequest.request.URL 生成內容標識符。</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">申報在</h4>
+				<p>BCOVFPSComponent.h<code class="declared-in-ref"></code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/encryptedContentKeyForLoadingRequest:contentKeyRequest:source:completionHandler:" title="encryptedContentKeyForLoadingRequest:contentKeyRequest:source:completionHandler:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/encryptedContentKeyForLoadingRequest:contentKeyRequest:source:completionHandler:">&ndash;&nbsp; encryptedContentKeyForLoadingRequest:contentKeyRequest:source:completionHandler:</a></code><span class="task-item-suffix">所需方法</span></h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>實現此方法來處理檢索內容鍵。這是為每個資產調用的。不保證調用它的線程。</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration">- (void)encryptedContentKeyForLoadingRequest:(nonnull AVAssetResourceLoadingRequest *)<code><em>加載請求</em> contentKeyRequest:(非空 NSData *)<em>密鑰請求</em> 來源：（非空 BCOVSource *）<em>來源</em> completionHandler:(nonnull void (^) ( NSURLResponse *__nullable response , NSData *__nullable contentKey , NSError *__nullable error ))<em>完成處理程序</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">參數</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>加載請求</code></th>
+						<td><p>這&ldquo; skd:// &hellip;&rdquo;為資產發出的加載請求。</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>密鑰請求</code></th>
+						<td><p>[AVAssetResourceLoadingRequest streamingContentKeyRequestDataForApp:contentIdentifier:options:error:]返回的關鍵請求數據。</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>來源</code></th>
+						<td><p>BCOV 來源</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>完成處理程序</code></th>
+						<td><p>返回內容鍵的完成處理程序。如果返回錯誤，則必須將 contentkey 和響應參數保留為 nil。</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">討論</h4>
+				<p>實現此方法來處理檢索內容鍵。這是為每個資產調用的。不保證調用它的線程。</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">申報在</h4>
+				<p>BCOVFPSComponent.h<code class="declared-in-ref"></code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div>
+						</div>
+						
+					</div>
+					
+					
+
+                    
+                    
+          
+				</main>
+
+				<footer>
+					<div class="footer-copyright">
+						
+						<p class="copyright">版權&copy; 2017 年光明灣。版權所有。更新：2017-03-02</p>
+						
+						
+						<p class="generator">生成者<a href="http://appledoc.gentlebytes.com">蘋果文檔 2.2.1（內部版本 1334）</a> .</p>
+						
+					</div>
+				</footer>
+			</div>
+		</div>
+	</article>
+
+	<script src="../js/script.js"></script>
+<script src="https://learning-services-media.brightcove.com/doc-assets/js/https-fix.js"></script>
+<script src="https://learning-services-media.brightcove.com/doc-assets/js/support-feedback.js"></script><script src="https://support.brightcove.com/site-assets/js/site/feedback-docs.js"></script>
+</body>
+</html>

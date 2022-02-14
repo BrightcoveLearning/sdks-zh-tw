@@ -1,0 +1,1267 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+
+	<title>BCOVPUIPlayerViewDelegate 協議參考</title>
+
+	<link rel="stylesheet" href="../css/style.css">
+	<meta name="viewport" content="initial-scale=1, maximum-scale=1.4">
+	<meta name="generator" content="appledoc 2.2.1 (build 1334)">
+</head>
+<body class="appledoc">
+	<header>
+		<div class="container" class="hide-in-xcode">
+			
+			<h1 id="library-title"><a href="../index.html">適用於 iOS 的 Brightcove 原生播放器</a></h1>
+
+			<p id="developer-home">
+				<a href="../index.html">亮灣</a>
+			</p>
+			
+		</div>
+	</header>
+
+	<aside>
+		<div class="container">
+			<nav>
+				<ul id="header-buttons" role="toolbar">
+					<li><a href="../index.html">指數</a></li>
+<li><a href="../hierarchy.html">等級制度</a></li>
+
+					<li id="on-this-page" role="navigation">
+						<label>
+							在本頁
+
+							<div class="chevron">
+								<div class="chevy chevron-left"></div>
+								<div class="chevy chevron-right"></div>
+							</div>
+
+							<select id="jump-to">
+	<option value="top">跳到…</option>
+	
+	<option value="overview">概述</option>
+	
+
+	
+	
+	<option value="tasks">任務</option>
+	
+	
+
+	
+	
+
+	
+
+	
+	<optgroup label="Instance Methods">
+		
+		<option value="//api/name/didCloseInAppBrowserWithAd:">- didCloseInAppBrowserWithAd：</option>
+		
+		<option value="//api/name/didOpenInAppBrowserWithAd:">- didOpenInAppBrowserWithAd：</option>
+		
+		<option value="//api/name/didReturnFromExternalBrowserWithAd:">- didReturnFromExternalBrowserWithAd：</option>
+		
+		<option value="//api/name/didSetVideo360NavigationMethod:projectionStyle:">- didSetVideo360NavigationMethod:projectionStyle:</option>
+		
+		<option value="//api/name/pictureInPictureController:failedToStartPictureInPictureWithError:">-pictureInPictureController:failedToStartPictureInPictureWithError:</option>
+		
+		<option value="//api/name/pictureInPictureController:restoreUserInterfaceForPictureInPictureStopWithCompletionHandler:">-pictureInPictureController:restoreUserInterfaceForPictureInPictureStopWithCompletionHandler:</option>
+		
+		<option value="//api/name/pictureInPictureControllerDidStartPictureInPicture:">-pictureInPictureControllerDidStartPictureInPicture：</option>
+		
+		<option value="//api/name/pictureInPictureControllerDidStopPictureInPicture:">-pictureInPictureControllerDidStopPictureInPicture：</option>
+		
+		<option value="//api/name/pictureInPictureControllerWillStartPictureInPicture:">-pictureInPictureControllerWillStartPictureInPicture：</option>
+		
+		<option value="//api/name/pictureInPictureControllerWillStopPictureInPicture:">-pictureInPictureControllerWillStopPictureInPicture：</option>
+		
+		<option value="//api/name/playerView:controlsFadingViewDidFadeIn:">- playerView:controlsFadingViewDidFadeIn:</option>
+		
+		<option value="//api/name/playerView:controlsFadingViewDidFadeOut:">- playerView:controlsFadingViewDidFadeOut:</option>
+		
+		<option value="//api/name/playerView:didTransitionToScreenMode:">- playerView:didTransitionToScreenMode:</option>
+		
+		<option value="//api/name/playerView:willTransitionToScreenMode:">- playerView:willTransitionToScreenMode:</option>
+		
+		<option value="//api/name/playerViewShouldDisplayThumbnailPreviewWithRect:">- playerViewShouldDisplayThumbnailPreviewWithRect：</option>
+		
+		<option value="//api/name/progressSliderDidChangeValue:">- progressSliderDidChangeValue：</option>
+		
+		<option value="//api/name/progressSliderDidTouchDown:">- progressSliderDidTouchDown：</option>
+		
+		<option value="//api/name/progressSliderDidTouchUp:">- progressSliderDidTouchUp：</option>
+		
+		<option value="//api/name/routePickerViewDidEndPresentingRoutes:">- routePickerViewDidEndPresentingRoutes：</option>
+		
+		<option value="//api/name/routePickerViewWillBeginPresentingRoutes:">- routePickerViewWillBeginPresentingRoutes：</option>
+		
+		<option value="//api/name/willCloseInAppBrowserWithAd:">- willCloseInAppBrowserWithAd：</option>
+		
+		<option value="//api/name/willOpenExternalBrowserWithAd:">- willOpenExternalBrowserWithAd：</option>
+		
+		<option value="//api/name/willOpenInAppBrowserWithAd:">- willOpenInAppBrowserWithAd：</option>
+		
+	</optgroup>
+	
+	
+</select>
+						</label>
+					</li>
+				</ul>
+			</nav>
+		</div>
+	</aside>
+
+	<article>
+		<div id="overview_contents" class="container">
+			<div id="content">
+				<main role="main">
+					<h1 class="title">BCOVPUIPlayerViewDelegate 協議參考</h1>
+
+					
+					<div class="section section-specification"><table cellspacing="0"><tbody>
+						<tr>
+	<th>符合</th>
+	<td>NSObject</td>
+</tr><tr>
+	<th>聲明於</th>
+	<td>BCOVPUIPlayerView.h</td>
+</tr>
+						</tbody></table></div>
+					
+
+                    
+					
+					<div class="section section-overview">
+						<a title="Overview" name="overview"></a>
+						<h2 class="subtitle subtitle-overview">概述</h2>
+						<p>遵守本協議以接收有關<a href="../Classes/BCOVPUIPlayerView.html">BCOVPUIPlayerView</a> .</p>
+					</div>
+					
+					
+
+					
+					
+					<div class="section section-tasks">
+						<a title="Tasks" name="tasks"></a>
+						
+
+						
+						
+
+						<div class="task-list">
+							<div class="section-method">
+	<a name="//api/name/playerView:willTransitionToScreenMode:" title="playerView:willTransitionToScreenMode:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/playerView:willTransitionToScreenMode:">&ndash;&nbsp; playerView:willTransitionToScreenMode:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>在 playerView 開始轉換到新的屏幕模式之前調用。</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration">- (void)playerView:(BCOVPUIPlayerView *)<code><em>播放器視圖</em> willTransitionToScreenMode:(BCOVPUIScreenMode)<em>屏幕模式</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">參數</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>播放器視圖</code></th>
+						<td><p>正在轉換的播放器視圖。</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>屏幕模式</code></th>
+						<td><p>將轉換到的屏幕模式。</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">討論</h4>
+				<p>在 playerView 開始轉換到新的屏幕模式之前調用。</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">申報在</h4>
+				<p>BCOVPUIPlayerView.h<code class="declared-in-ref"></code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/playerView:didTransitionToScreenMode:" title="playerView:didTransitionToScreenMode:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/playerView:didTransitionToScreenMode:">&ndash;&nbsp; playerView:didTransitionToScreenMode:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>當 playerView 完成轉換到新的屏幕模式時調用。</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration">- (void)playerView:(BCOVPUIPlayerView *)<code><em>播放器視圖</em> didTransitionToScreenMode:(BCOVPUIScreenMode)<em>屏幕模式</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">參數</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>播放器視圖</code></th>
+						<td><p>正在轉換的播放器視圖。</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>屏幕模式</code></th>
+						<td><p>轉換到的屏幕模式。</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">討論</h4>
+				<p>當 playerView 完成轉換到新的屏幕模式時調用。</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">申報在</h4>
+				<p>BCOVPUIPlayerView.h<code class="declared-in-ref"></code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/playerView:controlsFadingViewDidFadeOut:" title="playerView:controlsFadingViewDidFadeOut:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/playerView:controlsFadingViewDidFadeOut:">&ndash;&nbsp; playerView:controlsFadingViewDidFadeOut:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>當 playerView 控件淡出時調用。</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration">- (void)playerView:(BCOVPUIPlayerView *)<code><em>播放器視圖</em> 控件FadingViewDidFadeOut:(UIView *)<em>控件FadingView</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">參數</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>播放器視圖</code></th>
+						<td><p>管理控件的播放器視圖。</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>控件FadingView</code></th>
+						<td><p>淡出的控件淡出視圖。</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">討論</h4>
+				<p>當 playerView 控件淡出時調用。</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">申報在</h4>
+				<p>BCOVPUIPlayerView.h<code class="declared-in-ref"></code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/playerView:controlsFadingViewDidFadeIn:" title="playerView:controlsFadingViewDidFadeIn:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/playerView:controlsFadingViewDidFadeIn:">&ndash;&nbsp; playerView:controlsFadingViewDidFadeIn:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>當 playerView 控件淡入時調用。</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration">- (void)playerView:(BCOVPUIPlayerView *)<code><em>播放器視圖</em> 控件FadingViewDidFadeIn:(UIView *)<em>控件FadingView</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">參數</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>播放器視圖</code></th>
+						<td><p>管理控件的播放器視圖。</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>控件FadingView</code></th>
+						<td><p>淡入的控件淡入淡出視圖。</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">討論</h4>
+				<p>當 playerView 控件淡入時調用。</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">申報在</h4>
+				<p>BCOVPUIPlayerView.h<code class="declared-in-ref"></code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/playerViewShouldDisplayThumbnailPreviewWithRect:" title="playerViewShouldDisplayThumbnailPreviewWithRect:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/playerViewShouldDisplayThumbnailPreviewWithRect:">&ndash;&nbsp; playerViewShouldDisplayThumbnailPreviewWithRect:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>在設置縮略圖預覽之前調用。</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration">- (CGRect)playerViewShouldDisplayThumbnailPreviewWithRect:(BCOVPUIPlayerView *)<code><em>播放器視圖</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">參數</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>播放器視圖</code></th>
+						<td><p>將顯示縮略圖預覽的播放器視圖。</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">返回值</h4>
+				<p>用於縮略圖預覽的自定義 CGRect</p>
+			</div>
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">討論</h4>
+				<p>在設置縮略圖預覽之前調用。</p>
+
+<p>您可以實現此功能以自定義不同設備、佈局、屏幕模式等的縮略圖預覽大小。</p>
+
+<p>這<code>X</code> CGRect 的值將被忽略，因此您可以保留<code>X</code>值設置為 0。</p>
+
+<p>如果未實現此委託方法，則縮略圖預覽的大小將為 100x56，垂直偏移為 -60。</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">申報在</h4>
+				<p>BCOVPUIPlayerView.h<code class="declared-in-ref"></code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/willOpenInAppBrowserWithAd:" title="willOpenInAppBrowserWithAd:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/willOpenInAppBrowserWithAd:">&ndash;&nbsp; willOpenInAppBrowserWithAd：</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>當“了解更多”按鈕被按下並且與廣告關聯的點擊 URL 將在應用程序內瀏覽器中打開時，將調用此委託方法。</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration">- (void)willOpenInAppBrowserWithAd:(BCOVAd *)<code><em>廣告</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">參數</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>廣告</code></th>
+						<td><p>點擊後到達網址將在應用內瀏覽器中打開的廣告。</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">討論</h4>
+				<p>當“了解更多”按鈕被按下並且與廣告關聯的點擊 URL 將在應用程序內瀏覽器中打開時，將調用此委託方法。</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">申報在</h4>
+				<p>BCOVPUIPlayerView.h<code class="declared-in-ref"></code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/didOpenInAppBrowserWithAd:" title="didOpenInAppBrowserWithAd:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/didOpenInAppBrowserWithAd:">&ndash;&nbsp; didOpenInAppBrowserWithAd：</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>當“了解更多”按鈕被按下並且點擊 URL 與在應用程序內瀏覽器中打開的廣告相關聯時，將調用此委託方法。</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration">- (void)didOpenInAppBrowserWithAd:(BCOVAd *)<code><em>廣告</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">參數</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>廣告</code></th>
+						<td><p>點擊後到達網址在應用內瀏覽器中打開的廣告。</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">討論</h4>
+				<p>當“了解更多”按鈕被按下並且點擊 URL 與在應用程序內瀏覽器中打開的廣告相關聯時，將調用此委託方法。</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">申報在</h4>
+				<p>BCOVPUIPlayerView.h<code class="declared-in-ref"></code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/willCloseInAppBrowserWithAd:" title="willCloseInAppBrowserWithAd:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/willCloseInAppBrowserWithAd:">&ndash;&nbsp; willCloseInAppBrowserWithAd：</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>當應用內瀏覽器關閉時，將調用此委託方法。</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration">- (void)willCloseInAppBrowserWithAd:(BCOVAd *)<code><em>廣告</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">參數</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>廣告</code></th>
+						<td><p>點擊後到達網址將在應用內瀏覽器中關閉的廣告。</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">討論</h4>
+				<p>當應用內瀏覽器關閉時，將調用此委託方法。</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">申報在</h4>
+				<p>BCOVPUIPlayerView.h<code class="declared-in-ref"></code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/didCloseInAppBrowserWithAd:" title="didCloseInAppBrowserWithAd:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/didCloseInAppBrowserWithAd:">&ndash;&nbsp; didCloseInAppBrowserWithAd：</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>當應用內瀏覽器關閉時，將調用此委託方法。</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration">- (void)didCloseInAppBrowserWithAd:(BCOVAd *)<code><em>廣告</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">參數</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>廣告</code></th>
+						<td><p>點擊後到達網址從應用內瀏覽器關閉的廣告。</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">討論</h4>
+				<p>當應用內瀏覽器關閉時，將調用此委託方法。</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">申報在</h4>
+				<p>BCOVPUIPlayerView.h<code class="declared-in-ref"></code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/willOpenExternalBrowserWithAd:" title="willOpenExternalBrowserWithAd:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/willOpenExternalBrowserWithAd:">&ndash;&nbsp; willOpenExternalBrowserWithAd：</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>當點擊網址將在系統瀏覽器中打開時，將調用此可選委託方法。</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration">- (void)willOpenExternalBrowserWithAd:(BCOVAd *)<code><em>廣告</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">參數</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>廣告</code></th>
+						<td><p>其點擊後到達網址將在系統瀏覽器中打開的廣告。</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">討論</h4>
+				<p>當點擊網址將在系統瀏覽器中打開時，將調用此可選委託方法。</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">申報在</h4>
+				<p>BCOVPUIPlayerView.h<code class="declared-in-ref"></code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/didReturnFromExternalBrowserWithAd:" title="didReturnFromExternalBrowserWithAd:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/didReturnFromExternalBrowserWithAd:">&ndash;&nbsp; didReturnFromExternalBrowserWithAd：</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>在系統瀏覽器中打開點擊 url 後，當應用程序返回到前台時，將調用此可選委託方法。</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration">- (void)didReturnFromExternalBrowserWithAd:(BCOVAd *)<code><em>廣告</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">參數</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>廣告</code></th>
+						<td><p>點擊後到達網址在系統瀏覽器中打開的廣告。</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">討論</h4>
+				<p>在系統瀏覽器中打開點擊 url 後，當應用程序返回到前台時，將調用此可選委託方法。</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">申報在</h4>
+				<p>BCOVPUIPlayerView.h<code class="declared-in-ref"></code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/routePickerViewWillBeginPresentingRoutes:" title="routePickerViewWillBeginPresentingRoutes:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/routePickerViewWillBeginPresentingRoutes:">&ndash;&nbsp; routePickerViewWillBeginPresentingRoutes：</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>通知委託 AVRoutePickerView 將開始向用戶展示路線。</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration">- (void)routePickerViewWillBeginPresentingRoutes:(AVRoutePickerView *)<code><em>路線選擇器視圖</em></code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">討論</h4>
+				<p>通知委託 AVRoutePickerView 將開始向用戶展示路線。</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">申報在</h4>
+				<p>BCOVPUIPlayerView.h<code class="declared-in-ref"></code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/routePickerViewDidEndPresentingRoutes:" title="routePickerViewDidEndPresentingRoutes:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/routePickerViewDidEndPresentingRoutes:">&ndash;&nbsp; routePickerViewDidEndPresentingRoutes：</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>通知代理 AVRoutePickerView 已完成向用戶呈現路由。</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration">- (void)routePickerViewDidEndPresentingRoutes:(AVRoutePickerView *)<code><em>路線選擇器視圖</em></code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">討論</h4>
+				<p>通知代理 AVRoutePickerView 已完成向用戶呈現路由。</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">申報在</h4>
+				<p>BCOVPUIPlayerView.h<code class="declared-in-ref"></code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/didSetVideo360NavigationMethod:projectionStyle:" title="didSetVideo360NavigationMethod:projectionStyle:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/didSetVideo360NavigationMethod:projectionStyle:">&ndash;&nbsp; didSetVideo360NavigationMethod:projectionStyle:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>當點擊控制欄中的 Video 360 按鈕時，將調用此可選委託方法。這用於在使用 BCOVVideo360ProjectionStyleVRGoggles 投影時將當前 UIViewController 方向切換為橫向。</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration">- (void)didSetVideo360NavigationMethod:(BCOVPUIVideo360NavigationMethod)<code><em>導航方法</em> 投影風格：（BCOVVideo360ProjectionStyle）<em>投影樣式</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">參數</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>導航方法</code></th>
+						<td><p>新的導航方式類型<a href="../Constants/BCOVPUIVideo360NavigationMethod.html">BCOVPUIVideo360NavigationMethod</a></p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">討論</h4>
+				<p>當點擊控制欄中的 Video 360 按鈕時，將調用此可選委託方法。這用於在使用 BCOVVideo360ProjectionStyleVRGoggles 投影時將當前 UIViewController 方向切換為橫向。</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">申報在</h4>
+				<p>BCOVPUIPlayerView.h<code class="declared-in-ref"></code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/pictureInPictureControllerDidStartPictureInPicture:" title="pictureInPictureControllerDidStartPictureInPicture:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/pictureInPictureControllerDidStartPictureInPicture:">&ndash;&nbsp; pictureInPictureControllerDidStartPictureInPicture：</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>傳遞 AVPictureInPictureControllerDelegate 方法</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration">- (void)pictureInPictureControllerDidStartPictureInPicture:(AVPictureInPictureController *)<code><em>畫中畫控制器</em></code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">討論</h4>
+				<p>傳遞 AVPictureInPictureControllerDelegate 方法</p>
+
+<p>看<a href="https://developer.apple.com/documentation/avkit/avpictureinpicturecontrollerdelegate">https://developer.apple.com/documentation/avkit/avpictureinpicturecontrollerdelegate</a>想要查詢更多的信息</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">申報在</h4>
+				<p>BCOVPUIPlayerView.h<code class="declared-in-ref"></code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/pictureInPictureControllerDidStopPictureInPicture:" title="pictureInPictureControllerDidStopPictureInPicture:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/pictureInPictureControllerDidStopPictureInPicture:">&ndash;&nbsp; pictureInPictureControllerDidStopPictureInPicture：</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+
+			<div class="method-subsection method-declaration">- (void)pictureInPictureControllerDidStopPictureInPicture:(AVPictureInPictureController *)<code><em>畫中畫控制器</em></code></div>
+
+		    
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/pictureInPictureControllerWillStartPictureInPicture:" title="pictureInPictureControllerWillStartPictureInPicture:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/pictureInPictureControllerWillStartPictureInPicture:">&ndash;&nbsp;畫中畫控制器WillStartPictureInPicture：</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+
+			<div class="method-subsection method-declaration">- (void)pictureInPictureControllerWillStartPictureInPicture:(AVPictureInPictureController *)<code><em>畫中畫控制器</em></code></div>
+
+		    
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/pictureInPictureControllerWillStopPictureInPicture:" title="pictureInPictureControllerWillStopPictureInPicture:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/pictureInPictureControllerWillStopPictureInPicture:">&ndash;&nbsp; pictureInPictureControllerWillStopPictureInPicture:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+
+			<div class="method-subsection method-declaration">- (void)pictureInPictureControllerWillStopPictureInPicture:(AVPictureInPictureController *)<code><em>畫中畫控制器</em></code></div>
+
+		    
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/pictureInPictureController:failedToStartPictureInPictureWithError:" title="pictureInPictureController:failedToStartPictureInPictureWithError:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/pictureInPictureController:failedToStartPictureInPictureWithError:">&ndash;&nbsp; pictureInPictureController:failedToStartPictureInPictureWithError:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+
+			<div class="method-subsection method-declaration">- (void)pictureInPictureController:(AVPictureInPictureController *)<code><em>畫中畫控制器</em> failedToStartPictureInPictureWithError:(NSError *)<em>錯誤</em></code></div>
+
+		    
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/pictureInPictureController:restoreUserInterfaceForPictureInPictureStopWithCompletionHandler:" title="pictureInPictureController:restoreUserInterfaceForPictureInPictureStopWithCompletionHandler:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/pictureInPictureController:restoreUserInterfaceForPictureInPictureStopWithCompletionHandler:">&ndash;&nbsp; pictureInPictureController:restoreUserInterfaceForPictureInPictureStopWithCompletionHandler:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+
+			<div class="method-subsection method-declaration">- (void)pictureInPictureController:(AVPictureInPictureController *)<code><em>畫中畫控制器</em> restoreUserInterfaceForPictureInPictureStopWithCompletionHandler:(void (^) (BOOL))<em>完成處理程序</em></code></div>
+
+		    
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/progressSliderDidTouchDown:" title="progressSliderDidTouchDown:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/progressSliderDidTouchDown:">&ndash;&nbsp; progressSliderDidTouchDown：</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>SDK 處理事件後調用。委託不應阻塞主線程。</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration">- (void)progressSliderDidTouchDown:(UISlider *)<code><em>滑塊</em></code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">討論</h4>
+				<p>SDK 處理事件後調用。委託不應阻塞主線程。</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">申報在</h4>
+				<p>BCOVPUIPlayerView.h<code class="declared-in-ref"></code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/progressSliderDidTouchUp:" title="progressSliderDidTouchUp:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/progressSliderDidTouchUp:">&ndash;&nbsp; progressSliderDidTouchUp：</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>在 SDK 將玩家尋找到新的進度值後調用。委託不應阻塞主線程。</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration">- (void)progressSliderDidTouchUp:(UISlider *)<code><em>滑塊</em></code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">討論</h4>
+				<p>在 SDK 將玩家尋找到新的進度值後調用。委託不應阻塞主線程。</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">申報在</h4>
+				<p>BCOVPUIPlayerView.h<code class="declared-in-ref"></code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/progressSliderDidChangeValue:" title="progressSliderDidChangeValue:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/progressSliderDidChangeValue:">&ndash;&nbsp; progressSliderDidChangeValue:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>SDK 處理事件後調用。委託不應阻塞主線程。</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration">- (void)progressSliderDidChangeValue:(UISlider *)<code><em>滑塊</em></code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">討論</h4>
+				<p>SDK 處理事件後調用。委託不應阻塞主線程。</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">申報在</h4>
+				<p>BCOVPUIPlayerView.h<code class="declared-in-ref"></code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div>
+						</div>
+						
+					</div>
+					
+					
+
+                    
+				</main>
+
+				<footer>
+					<div class="footer-copyright">
+						
+						<p class="copyright">版權&copy; 2021 年光明灣。版權所有。更新：2021-07-08</p>
+						
+						
+						<p class="generator">生成者<a href="http://appledoc.gentlebytes.com">蘋果文檔 2.2.1（內部版本 1334）</a> .</p>
+						
+					</div>
+				</footer>
+			</div>
+		</div>
+	</article>
+
+	<script src="../js/script.js"></script>
+</body>
+</html>

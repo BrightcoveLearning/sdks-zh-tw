@@ -1,0 +1,933 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+
+	<title>BCOVPISlider 類參考</title>
+
+	<link rel="stylesheet" href="../css/style.css">
+	<meta name="viewport" content="initial-scale=1, maximum-scale=1.4">
+	<meta name="generator" content="appledoc 2.2.1 (build 1334)">
+</head>
+<body class="appledoc">
+	<header>
+		<div class="container" class="hide-in-xcode">
+			
+			<h1 id="library-title"><a href="../index.html">適用於 iOS 的 Brightcove 原生播放器</a></h1>
+
+			<p id="developer-home">
+				<a href="../index.html">亮灣</a>
+			</p>
+			
+		</div>
+	</header>
+
+	<aside>
+		<div class="container">
+			<nav>
+				<ul id="header-buttons" role="toolbar">
+					<li><a href="../index.html">指數</a></li>
+<li><a href="../hierarchy.html">等級制度</a></li>
+
+					<li id="on-this-page" role="navigation">
+						<label>
+							在本頁
+
+							<div class="chevron">
+								<div class="chevy chevron-left"></div>
+								<div class="chevy chevron-right"></div>
+							</div>
+
+							<select id="jump-to">
+	<option value="top">跳到…</option>
+	
+	<option value="overview">概述</option>
+	
+
+	
+	
+	<option value="tasks">任務</option>
+	
+	
+
+	
+	
+	<optgroup label="Properties">
+		
+		<option value="//api/name/advertisingMaximumTrackTintColor">廣告MaximumTrackTintColor</option>
+		
+		<option value="//api/name/advertisingMinimumTrackTintColor">廣告MinimumTrackTintColor</option>
+		
+		<option value="//api/name/advertisingMode">廣告模式</option>
+		
+		<option value="//api/name/bufferProgress">緩衝進度</option>
+		
+		<option value="//api/name/bufferProgressTintColor">緩衝進度顏色</option>
+		
+		<option value="//api/name/duration">期間</option>
+		
+		<option value="//api/name/markerTickColor">標記顏色</option>
+		
+		<option value="//api/name/trackHeight">軌道高度</option>
+		
+	</optgroup>
+	
+
+	
+
+	
+	<optgroup label="Instance Methods">
+		
+		<option value="//api/name/addMarkerAt:duration:isAd:image:">- addMarkerAt:duration:isAd:image:</option>
+		
+		<option value="//api/name/removeAdMarkers">- 移除廣告標記</option>
+		
+		<option value="//api/name/removeAllMarkers">- 刪除所有標記</option>
+		
+		<option value="//api/name/removeGenericMarkers">- 移除GenericMarkers</option>
+		
+		<option value="//api/name/removeMarkerAtPosition:">- removeMarkerAtPosition：</option>
+		
+		<option value="//api/name/setCustomMaximumTrackImage:forState:">- setCustomMaximumTrackImage:forState:</option>
+		
+		<option value="//api/name/setCustomMinimumTrackImage:forState:">- setCustomMinimumTrackImage:forState:</option>
+		
+	</optgroup>
+	
+	
+</select>
+						</label>
+					</li>
+				</ul>
+			</nav>
+		</div>
+	</aside>
+
+	<article>
+		<div id="overview_contents" class="container">
+			<div id="content">
+				<main role="main">
+					<h1 class="title">BCOVPISlider 類參考</h1>
+
+					
+					<div class="section section-specification"><table cellspacing="0"><tbody>
+						<tr>
+	<th>繼承自</th>
+	<td>用戶界面滑塊</td>
+</tr><tr>
+	<th>聲明於</th>
+	<td>BCOVPUISlider.h</td>
+</tr>
+						</tbody></table></div>
+					
+
+                    
+					
+					<div class="section section-overview">
+						<a title="Overview" name="overview"></a>
+						<h2 class="subtitle subtitle-overview">概述</h2>
+						<p>UISlider 的一個子類，它提供了一個&ldquo;緩衝的&rdquo;帶有用於廣告或一般用途的標記的軌道，加上一個&ldquo;廣告模式&rdquo;用於顯示廣告的進度。</p>
+					</div>
+					
+					
+
+					
+					
+					<div class="section section-tasks">
+						<a title="Tasks" name="tasks"></a>
+						
+
+						
+						
+
+						<div class="task-list">
+							<div class="section-method">
+	<a name="//api/name/trackHeight" title="trackHeight"></a>
+	<h3 class="method-title"><code><a href="#//api/name/trackHeight">&nbsp;&nbsp;軌道高度</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>軌道區域的高度 默認值為 5。</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration">@property (nonatomic, readwrite) CGFloat trackHeight<code></code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">討論</h4>
+				<p>軌道區域的高度 默認值為 5。</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">申報在</h4>
+				<p>BCOVPUISlider.h<code class="declared-in-ref"></code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/bufferProgress" title="bufferProgress"></a>
+	<h3 class="method-title"><code><a href="#//api/name/bufferProgress">&nbsp;&nbsp;緩衝進度</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>緩衝量。該值將固定為最小值/最大值。</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration">@property (nonatomic, readwrite) float bufferProgress<code></code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">討論</h4>
+				<p>緩衝量。該值將固定為最小值/最大值。</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">申報在</h4>
+				<p>BCOVPUISlider.h<code class="declared-in-ref"></code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/advertisingMode" title="advertisingMode"></a>
+	<h3 class="method-title"><code><a href="#//api/name/advertisingMode">&nbsp;&nbsp;廣告模式</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>設置為 YES 以更改滑塊&rsquo; s UI 到廣告模式。在廣告模式下，這會隱藏緩衝指示器、隱藏標記並將最小/最大軌道顏色設置為<a href="#//api/name/advertisingMinimumTrackTintColor">廣告MinimumTrackTintColor</a>和<a href="#//api/name/advertisingMaximumTrackTintColor">廣告MaximumTrackTintColor</a> .</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>@property (nonatomic, readwrite) BOOL AdvertisingMode</code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">討論</h4>
+				<p>設置為 YES 以更改滑塊&rsquo; s UI 到廣告模式。在廣告模式下，這會隱藏緩衝指示器、隱藏標記並將最小/最大軌道顏色設置為<a href="#//api/name/advertisingMinimumTrackTintColor">廣告MinimumTrackTintColor</a>和<a href="#//api/name/advertisingMaximumTrackTintColor">廣告MaximumTrackTintColor</a> .</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">申報在</h4>
+				<p>BCOVPUISlider.h<code class="declared-in-ref"></code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/bufferProgressTintColor" title="bufferProgressTintColor"></a>
+	<h3 class="method-title"><code><a href="#//api/name/bufferProgressTintColor">&nbsp;&nbsp;緩衝進度顏色</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>用於緩衝區的色調顏色。</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration">@property (nonatomic) UIColor *bufferProgressTintColor<code></code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">討論</h4>
+				<p>用於緩衝區的色調顏色。</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">申報在</h4>
+				<p>BCOVPUISlider.h<code class="declared-in-ref"></code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/advertisingMinimumTrackTintColor" title="advertisingMinimumTrackTintColor"></a>
+	<h3 class="method-title"><code><a href="#//api/name/advertisingMinimumTrackTintColor">&nbsp;&nbsp;廣告MinimumTrackTintColor</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>在廣告模式下用於最小軌道區域的色調顏色。此顏色也用於正常模式下的廣告刻度線。默認的廣告最小軌道顏色為黃色。</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration">@property (nonatomic) UIColor *advertisingMinimumTrackTintColor<code></code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">討論</h4>
+				<p>在廣告模式下用於最小軌道區域的色調顏色。此顏色也用於正常模式下的廣告刻度線。默認的廣告最小軌道顏色為黃色。</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">申報在</h4>
+				<p>BCOVPUISlider.h<code class="declared-in-ref"></code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/advertisingMaximumTrackTintColor" title="advertisingMaximumTrackTintColor"></a>
+	<h3 class="method-title"><code><a href="#//api/name/advertisingMaximumTrackTintColor">&nbsp;&nbsp;廣告MaximumTrackTintColor</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>在廣告模式下用於最大軌道區域的色調顏色。默認的廣告最小軌道顏色是深灰色。</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration">@property (nonatomic) UIColor *advertisingMaximumTrackTintColor<code></code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">討論</h4>
+				<p>在廣告模式下用於最大軌道區域的色調顏色。默認的廣告最小軌道顏色是深灰色。</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">申報在</h4>
+				<p>BCOVPUISlider.h<code class="declared-in-ref"></code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/markerTickColor" title="markerTickColor"></a>
+	<h3 class="method-title"><code><a href="#//api/name/markerTickColor">&nbsp;&nbsp;標記顏色</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>當沒有提供自定義標記圖像時，用於在軌道區域中繪製的通用標記的顏色。默認的通用標記顏色為白色。設置為 nil 以恢復默認顏色。</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration">@property (nonatomic) UIColor *markerTickColor<code></code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">討論</h4>
+				<p>當沒有提供自定義標記圖像時，用於在軌道區域中繪製的通用標記的顏色。默認的通用標記顏色為白色。設置為 nil 以恢復默認顏色。</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">申報在</h4>
+				<p>BCOVPUISlider.h<code class="declared-in-ref"></code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/duration" title="duration"></a>
+	<h3 class="method-title"><code><a href="#//api/name/duration">&nbsp;&nbsp;期間</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>由滑塊範圍表示的持續時間（以秒為單位）。用於定位標記。默認值為 30，但應設置為其關聯視頻的長度。持續時間將自動為安裝到 PlayerUI 中 playerView.controlsView.progressSlider 的進度滑塊設置。</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>@property (nonatomic, readwrite) 雙倍持續時間</code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">討論</h4>
+				<p>由滑塊範圍表示的持續時間（以秒為單位）。用於定位標記。默認值為 30，但應設置為其關聯視頻的長度。持續時間將自動為安裝到 PlayerUI 中 playerView.controlsView.progressSlider 的進度滑塊設置。</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">申報在</h4>
+				<p>BCOVPUISlider.h<code class="declared-in-ref"></code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/addMarkerAt:duration:isAd:image:" title="addMarkerAt:duration:isAd:image:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/addMarkerAt:duration:isAd:image:">&ndash;&nbsp; addMarkerAt:duration:isAd:image:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>添加將顯示在滑塊上特定位置的標記。</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration">- (void)addMarkerAt:(double)<code><em>位置</em> 持續時間：（雙倍）<em>期間</em> isAd:(BOOL)<em>廣告</em> 圖像:(UIImage *)<em>圖片</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">參數</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>位置</code></th>
+						<td><p>滑塊上應放置標記的位置（以秒為單位）。見&ldquo;期間&rdquo;相關細節的財產。</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>期間</code></th>
+						<td><p>這<a href="#//api/name/duration">期間</a>由刻度線表示；可以設置為零以繪製最小尺寸的標記（2 像素寬）。</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>廣告</code></th>
+						<td><p>YES 表示此標記代表一個廣告（默認情況下以黃色繪製）。NO 表示這是一個通用標記（默認為白色）。</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>圖片</code></th>
+						<td><p>將代替默認標記指示器繪製的可選圖像。可以設置為零。</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">討論</h4>
+				<p>添加將顯示在滑塊上特定位置的標記。</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">申報在</h4>
+				<p>BCOVPUISlider.h<code class="declared-in-ref"></code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/removeMarkerAtPosition:" title="removeMarkerAtPosition:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/removeMarkerAtPosition:">&ndash;&nbsp; removeMarkerAtPosition:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>刪除指定位置的所有標記。</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration">- (void)removeMarkerAtPosition:(double)<code><em>位置</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">參數</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>位置</code></th>
+						<td><p>要移除的標記在滑塊上的位置（以秒為單位）。</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">討論</h4>
+				<p>刪除指定位置的所有標記。</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">申報在</h4>
+				<p>BCOVPUISlider.h<code class="declared-in-ref"></code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/removeAllMarkers" title="removeAllMarkers"></a>
+	<h3 class="method-title"><code><a href="#//api/name/removeAllMarkers">&ndash;&nbsp;刪除所有標記</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>從滑塊上刪除所有標記。</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration">- (void)removeAllMarkers<code></code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">討論</h4>
+				<p>從滑塊上刪除所有標記。</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">申報在</h4>
+				<p>BCOVPUISlider.h<code class="declared-in-ref"></code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/removeGenericMarkers" title="removeGenericMarkers"></a>
+	<h3 class="method-title"><code><a href="#//api/name/removeGenericMarkers">&ndash;&nbsp;移除通用標記</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>從滑塊中刪除所有通用標記。</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration">- (void)removeGenericMarkers<code></code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">討論</h4>
+				<p>從滑塊中刪除所有通用標記。</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">申報在</h4>
+				<p>BCOVPUISlider.h<code class="declared-in-ref"></code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/removeAdMarkers" title="removeAdMarkers"></a>
+	<h3 class="method-title"><code><a href="#//api/name/removeAdMarkers">&ndash;&nbsp;移除廣告標記</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>從滑塊中刪除所有廣告標記。</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration">- (void)removeAdMarkers<code></code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">討論</h4>
+				<p>從滑塊中刪除所有廣告標記。</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">申報在</h4>
+				<p>BCOVPUISlider.h<code class="declared-in-ref"></code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/setCustomMinimumTrackImage:forState:" title="setCustomMinimumTrackImage:forState:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/setCustomMinimumTrackImage:forState:">&ndash;&nbsp; setCustomMinimumTrackImage:forState:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>設置在正常（非廣告）模式下使用的自定義最小軌道圖像。</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration">- (void)setCustomMinimumTrackImage:(UIImage *)<code><em>圖片</em> forState:(UIControlState)<em>狀態</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">參數</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>圖片</code></th>
+						<td><p>要在軌道的最小端（通常是拇指的左側）上使用的圖像。圖像應該是一個可調整大小的 UIImage，&lsquo;軌道高度&rsquo;像素高。設置自定義圖像後，將不再顯示標記。設置為 nil 以恢復默認軌道圖像。</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>狀態</code></th>
+						<td><p>此圖像將為其激活的 UIControlState。</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">討論</h4>
+				<p>設置在正常（非廣告）模式下使用的自定義最小軌道圖像。</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">申報在</h4>
+				<p>BCOVPUISlider.h<code class="declared-in-ref"></code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/setCustomMaximumTrackImage:forState:" title="setCustomMaximumTrackImage:forState:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/setCustomMaximumTrackImage:forState:">&ndash;&nbsp; setCustomMaximumTrackImage:forState:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>設置要在正常（非廣告）模式下使用的自定義最大軌道圖像。</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration">- (void)setCustomMaximumTrackImage:(UIImage *)<code><em>圖片</em> forState:(UIControlState)<em>狀態</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">參數</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>圖片</code></th>
+						<td><p>要在軌道的最大端（通常是拇指的左側）上使用的圖像。圖像應該是一個可調整大小的 UIImage，&lsquo;軌道高度&rsquo;像素高。設置自定義圖像後，將不再顯示標記。設置為 nil 以恢復默認軌道圖像。</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>狀態</code></th>
+						<td><p>此圖像將為其激活的 UIControlState。</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">討論</h4>
+				<p>設置要在正常（非廣告）模式下使用的自定義最大軌道圖像。</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">申報在</h4>
+				<p>BCOVPUISlider.h<code class="declared-in-ref"></code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div>
+						</div>
+						
+					</div>
+					
+					
+
+                    
+				</main>
+
+				<footer>
+					<div class="footer-copyright">
+						
+						<p class="copyright">版權&copy; 2021 年光明灣。版權所有。更新：2021-07-08</p>
+						
+						
+						<p class="generator">生成者<a href="http://appledoc.gentlebytes.com">蘋果文檔 2.2.1（內部版本 1334）</a> .</p>
+						
+					</div>
+				</footer>
+			</div>
+		</div>
+	</article>
+
+	<script src="../js/script.js"></script>
+</body>
+</html>

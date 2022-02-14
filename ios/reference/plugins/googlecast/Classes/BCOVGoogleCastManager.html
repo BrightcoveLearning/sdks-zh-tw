@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+
+	<title>BCOVGoogleCastManager 類參考</title>
+
+	<link rel="stylesheet" href="../css/style.css">
+	<meta name="viewport" content="initial-scale=1, maximum-scale=1.4">
+	<meta name="generator" content="appledoc 2.2.1 (build 1334)">
+</head>
+<body class="appledoc">
+	<header>
+		<div class="container" class="hide-in-xcode">
+			
+			<h1 id="library-title"><a href="../index.html">適用於 iOS 的 Brightcove 原生播放器</a></h1>
+
+			<p id="developer-home">
+				<a href="../index.html">亮灣</a>
+			</p>
+			
+		</div>
+	</header>
+
+	<aside>
+		<div class="container">
+			<nav>
+				<ul id="header-buttons" role="toolbar">
+					<li><a href="../index.html">指數</a></li>
+<li><a href="../hierarchy.html">等級制度</a></li>
+
+					<li id="on-this-page" role="navigation">
+						<label>
+							在本頁
+
+							<div class="chevron">
+								<div class="chevy chevron-left"></div>
+								<div class="chevy chevron-right"></div>
+							</div>
+
+							<select id="jump-to">
+	<option value="top">跳到…</option>
+	
+
+	
+	
+	<option value="tasks">任務</option>
+	
+	
+
+	
+	
+	<optgroup label="Properties">
+		
+		<option value="//api/name/appConfig">應用配置</option>
+		
+		<option value="//api/name/delegate">代表</option>
+		
+		<option value="//api/name/fallbackPosterImage">後備海報圖片</option>
+		
+		<option value="//api/name/posterImageSize">海報圖片大小</option>
+		
+		<option value="//api/name/useLocalizedVariantForCastMediaMedadata">useLocalizedVariantForCastMediaMedadata</option>
+		
+	</optgroup>
+	
+
+	
+
+	
+	<optgroup label="Instance Methods">
+		
+		<option value="//api/name/initForBrightcoveReceiverApp:">- initForBrightcoveReceiverApp：</option>
+		
+		<option value="//api/name/prepareForReuse">- 準備重用</option>
+		
+	</optgroup>
+	
+	
+</select>
+						</label>
+					</li>
+				</ul>
+			</nav>
+		</div>
+	</aside>
+
+	<article>
+		<div id="overview_contents" class="container">
+			<div id="content">
+				<main role="main">
+					<h1 class="title">BCOVGoogleCastManager 類參考</h1>
+
+					
+					<div class="section section-specification"><table cellspacing="0"><tbody>
+						<tr>
+	<th>繼承自</th>
+	<td>NSObject</td>
+</tr><tr>
+	<th>符合</th>
+	<td>BCOVPlaybackSessionConsumer</td>
+</tr><tr>
+	<th>聲明於</th>
+	<td>BCOVGoogleCastManager.h</td>
+</tr>
+						</tbody></table></div>
+					
+
+                    
+
+					
+					
+					<div class="section section-tasks">
+						<a title="Tasks" name="tasks"></a>
+						
+
+						
+						<h2 class="task-title">其他方法</h2>
+
+						<div class="task-list">
+							<div class="section-method">
+	<a name="//api/name/prepareForReuse" title="prepareForReuse"></a>
+	<h3 class="method-title"><code><a href="#//api/name/prepareForReuse">&ndash;&nbsp;準備重用</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>重置 BCOVGoogleCastManager 實例的狀態</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration">- (void)prepareForReuse<code></code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">討論</h4>
+				<p>如果跨視圖控制器使用共享 BCOVGoogleCastManager 實例，您可以根據需要調用此方法以清除與先前投射的視頻有關的數據。</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">申報在</h4>
+				<p>BCOVGoogleCastManager.h<code class="declared-in-ref"></code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/delegate" title="delegate"></a>
+	<h3 class="method-title"><code><a href="#//api/name/delegate">&nbsp;&nbsp;代表</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>將從管理器接收事件的委託對象</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>@property (nonatomic, weak) id&lt;BCOVGoogleCastManagerDelegate&gt; 委託</code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">討論</h4>
+				<p>將從管理器接收事件的委託對象</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">申報在</h4>
+				<p>BCOVGoogleCastManager.h<code class="declared-in-ref"></code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/fallbackPosterImage" title="fallbackPosterImage"></a>
+	<h3 class="method-title"><code><a href="#//api/name/fallbackPosterImage">&nbsp;&nbsp;後備海報圖片</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>當沒有可用於視頻的海報圖像時將使用的 GCKImage</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration">@property (nonatomic, strong) GCKImage *fallbackPosterImage<code></code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">討論</h4>
+				<p>當沒有可用於視頻的海報圖像時將使用的 GCKImage</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">申報在</h4>
+				<p>BCOVGoogleCastManager.h<code class="declared-in-ref"></code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/posterImageSize" title="posterImageSize"></a>
+	<h3 class="method-title"><code><a href="#//api/name/posterImageSize">&nbsp;&nbsp;海報圖片大小</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>要用於創建的 GCKImage 對像圖像的高度和寬度。默認為 480h x 720w</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>@property (nonatomic,assign) CGSize posterImageSize</code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">討論</h4>
+				<p>要用於創建的 GCKImage 對像圖像的高度和寬度。默認為 480h x 720w</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">申報在</h4>
+				<p>BCOVGoogleCastManager.h<code class="declared-in-ref"></code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/useLocalizedVariantForCastMediaMedadata" title="useLocalizedVariantForCastMediaMedadata"></a>
+	<h3 class="method-title"><code><a href="#//api/name/useLocalizedVariantForCastMediaMedadata">&nbsp;&nbsp; useLocalizedVariantForCastMediaMedadata</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>是否使用帶有 GCKMediaMetadata 的語言變體（如果可用）</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration">@property (nonatomic, assign) BOOL useLocalizedVariantForCastMediaMedadata<code></code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">討論</h4>
+				<p>是否使用帶有 GCKMediaMetadata 的語言變體（如果可用）</p>
+
+<p>默認為是</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">申報在</h4>
+				<p>BCOVGoogleCastManager.h<code class="declared-in-ref"></code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div>
+						</div>
+						
+
+						<a title="BrightcoveCastReceiver Methods" name="task_BrightcoveCastReceiver Methods"></a>
+						<h2 class="task-title">BrightcoveCastReceiver 方法</h2>
+
+						<div class="task-list">
+							<div class="section-method">
+	<a name="//api/name/initForBrightcoveReceiverApp:" title="initForBrightcoveReceiverApp:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/initForBrightcoveReceiverApp:">&ndash;&nbsp; initForBrightcoveReceiverApp：</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Google Cast 接收器應用配置</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration">- (instancetype)initForBrightcoveReceiverApp:(BCOVReceiverAppConfig *)<code><em>應用配置</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">參數</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>應用配置</code></th>
+						<td><p>Google Cast 接收器應用配置</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">返回值</h4>
+				<p>配置為使用 Brightcove Google Cast Receiver 應用程序的 BCOVGoogleCastManager 實例。</p>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">申報在</h4>
+				<p>BCOVReceiverAppConfig.h<code class="declared-in-ref"></code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/appConfig" title="appConfig"></a>
+	<h3 class="method-title"><code><a href="#//api/name/appConfig">&nbsp;&nbsp;應用配置</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+
+			<div class="method-subsection method-declaration">@property (nonatomic, strong, readonly) BCOVReceiverAppConfig *appConfig<code></code></div>
+
+		    
+		</div>
+	</div>
+</div>
+						</div>
+						
+					</div>
+					
+					
+
+                    
+				</main>
+
+				<footer>
+					<div class="footer-copyright">
+						
+						<p class="copyright">版權&copy; 2021 年光明灣。版權所有。更新：2021-07-08</p>
+						
+						
+						<p class="generator">生成者<a href="http://appledoc.gentlebytes.com">蘋果文檔 2.2.1（內部版本 1334）</a> .</p>
+						
+					</div>
+				</footer>
+			</div>
+		</div>
+	</article>
+
+	<script src="../js/script.js"></script>
+</body>
+</html>

@@ -1,0 +1,1160 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+
+	<title>適用於 iOS 的 Brightcove Native Player 參考</title>
+
+	<link rel="stylesheet" href="css/style.css">
+	<meta name="viewport" content="initial-scale=1, maximum-scale=1.4">
+	<meta name="generator" content="appledoc 2.2.1 (build 1334)">
+</head>
+<body class="appledoc">
+	<header>
+		<div class="container" class="hide-in-xcode">
+			
+			<h1 id="library-title"><a href="index.html">適用於 iOS 的 Brightcove 原生播放器</a></h1>
+
+			<p id="developer-home">
+				<a href="index.html">亮灣</a>
+			</p>
+			
+		</div>
+	</header>
+
+	<aside>
+		<div class="container">
+			<nav>
+				<ul id="header-buttons" role="toolbar">
+					<li><a href="hierarchy.html">等級制度</a></li>
+				</ul>
+			</nav>
+		</div>
+	</aside>
+
+	<article>
+		<div id="overview-contents" class="container">
+			<div id="content">
+				<main role="main">
+					<h1 class="title">適用於 iOS 的 Brightcove Native Player 參考</h1>
+
+					
+					<div class="section section-overview index-overview">
+						
+						
+						<h1>適用於 iOS 的 Brightcove Player SDK，版本 6.9.0.1697</h1><h1>目錄</h1>
+
+<ol>
+<li><a href="#Requirements">要求</a></li>
+<li><a href="#SupportedPlatforms">支持的平台</a></li>
+<li><a href="#Noteworthy">值得注意</a></li>
+<li><a href="#FairPlay">公平競爭</a></li>
+<li><a href="#SidecarSubtitles">邊車字幕</a></li>
+<li><a href="#OfflinePlayback">離線播放</a></li>
+<li><a href="#Installation">安裝</a></li>
+<li><a href="#CocoaPods">可可豆</a></li>
+<li><a href="#ManualInstallation">手動安裝</a></li>
+<li><a href="#Imports">進口</a></li>
+<li><a href="#QuickStart">快速開始</a></li>
+<li><a href="#PlayerUI">適用於 iOS 的內置 PlayerUI 控件</a></li>
+<li><a href="#TVPlayer">內置電視播放器控件，用於tvOS</a></li>
+<li><a href="#AirPlay">隔空播放</a></li>
+<li><a href="#Video360">視頻 360</a></li>
+<li><a href="#ArchitecturalOverview">架構概覽</a></li>
+<li><a href="#PlayPauseSeek">播放、暫停和搜索</a></li>
+<li><a href="#PreloadingVideos">預加載視頻</a></li>
+<li><a href="#SourceSelection">源選擇（HLS、MP4、HTTP/HTTPS）</a></li>
+<li><a href="#PreferredBitrate">設置首選比特率</a></li>
+<li><a href="#PlaybackInformation">獲取內容和廣告播放信息</a></li>
+<li><a href="#HandlingNetworkInterruptionsAndSlowdowns">處理網絡中斷和減速</a></li>
+<li><a href="#Subclassing">子類化</a></li>
+<li><a href="#Values">價值觀</a></li>
+<li><a href="#PlaybackService">使用回放服務檢索 Brightcove 資產</a></li>
+<li><a href="#ViewStrategy">查看策略</a></li>
+<li><a href="#BackgroundVideo">在後台播放視頻</a></li>
+<li><a href="#PIP">畫中畫</a></li>
+<li><a href="#ThumbnailSeeking">縮略圖搜索</a></li>
+<li><a href="#TrackingErrors">跟踪錯誤</a></li>
+<li><a href="#CombiningPlugins">組合插件</a></li>
+<li><a href="#BufferOptimization">緩衝區優化</a></li>
+<li><a href="#AVPlayerViewController">使用帶有 BCOVPlaybackController 的 AVPlayerViewController</a></li>
+<li><a href="#PlaybackAuthorizationService">播放授權服務</a></li>
+<li><a href="#VoiceOver">旁白支持</a></li>
+<li><a href="#ChinaDelivery">中國配送</a></li>
+<li><a href="#AVAudioSessionConfig">AVAudioSession 配置</a></li>
+<li><a href="#FAQ">經常問的問題</a></li>
+<li><a href="#Support">支持</a></li>
+</ol>
+
+
+<h1>要求<a name="Requirements"></a></h1>
+
+<ul>
+<li>Xcode 11.0+</li>
+<li>弧</li>
+</ul>
+
+
+<h1>支持的平台<a name="SupportedPlatforms"></a></h1>
+
+<p>Brightcove 在以下 iOS 版本的最新公開發行版上主動支持最新的 iOS SDK：</p>
+
+<ul>
+<li>iOS 12、13 和 14</li>
+<li>tvOS 12、13 和 14</li>
+</ul>
+
+
+<p>Brightcove為以下iOS版本提供被動支持：</p>
+
+<ul>
+<li>iOS 11.4.1</li>
+<li>tvOS 11.4.1</li>
+</ul>
+
+
+<p>Core SDK 已本地化為阿拉伯語 (ar)、英語 (en)、法語 (fr)、德語 (de)、日語 (ja)、韓語 (ko)、西班牙語 (es)、簡體中文 (zh-Hans) 和繁體中文（zh-Hant）。為了獲得本地化的好處，您的應用程序還必須針對相同的語言和區域進行本地化。</p>
+
+<h1>值得注意<a name="Noteworthy"></a></h1>
+
+<p>所有 SDK 組件——核心和插件框架——都以相同的版本號發布。升級任何單個組件時，請將所有組件升級到同一版本。</p>
+
+<p><strong>CocoaPods Podspec 名稱（自 6.8.1 版起）</strong></p>
+
+<p>Brightcove Player SDK 6.8.1 版更新了<code>Brightcove-Player-FreeWheel</code>和<code>Brightcove-Player-Omniture</code> podspecs 安裝動態版本<code>Brightcove播放器SDK</code> .一種<code>-靜止的</code> podspec 現在可用於每個將安裝靜態版本的插件<code>Brightcove播放器SDK</code>以及插件框架本身的靜態版本。如果插件沒有靜態版本，動態版本將與靜態版本一起安裝<code>Brightcove播放器SDK</code> .</p>
+
+<table>
+<thead>
+<tr>
+<th>Podspec 名稱  </th>
+<th>  框架類型  </th>
+<th>  依賴</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Brightcove-玩家核心 </td>
+<td> 動態的 </td>
+<td> --</td>
+</tr>
+<tr>
+<td>Brightcove-Player-Core-static </td>
+<td> 靜止的  </td>
+<td> --</td>
+</tr>
+<tr>
+<td>Brightcove-Player-FreeWheel </td>
+<td> 靜止的 </td>
+<td> 適用於 iOS 的 Brightcove-Player-Core，<br/>tvOS 的 Brightcove-Player-Core</td>
+</tr>
+<tr>
+<td>Brightcove-Player-FreeWheel-static </td>
+<td> 靜止的 </td>
+<td> 適用於 iOS 的 Brightcove-Player-Core-static，<br/>tvOS 的 Brightcove-Player-Core</td>
+</tr>
+<tr>
+<td>Brightcove-Player-GoogleCast </td>
+<td> 靜止的 </td>
+<td> Brightcove-玩家核心</td>
+</tr>
+<tr>
+<td>Brightcove-Player-GoogleCast-static </td>
+<td> 靜止的 </td>
+<td> Brightcove-Player-Core-static</td>
+</tr>
+<tr>
+<td>Brightcove-播放器-IMA </td>
+<td> 動態的 </td>
+<td> Brightcove-玩家核心</td>
+</tr>
+<tr>
+<td>Brightcove-Player-IMA-static </td>
+<td> 動態的 </td>
+<td> Brightcove-Player-Core-static</td>
+</tr>
+<tr>
+<td>Brightcove-Player-Omniture </td>
+<td> 靜止的 </td>
+<td> Brightcove-玩家核心</td>
+</tr>
+<tr>
+<td>Brightcove-Player-Omniture-static </td>
+<td> 靜止的 </td>
+<td> Brightcove-Player-Core-static</td>
+</tr>
+<tr>
+<td>Brightcove-Player-Pulse </td>
+<td> 動態的 </td>
+<td> Brightcove-玩家核心</td>
+</tr>
+<tr>
+<td>Brightcove-Player-Pulse-static </td>
+<td> 動態的 </td>
+<td> Brightcove-Player-Core-static</td>
+</tr>
+<tr>
+<td>Brightcove-Player-SSAI </td>
+<td> 動態的 </td>
+<td> Brightcove-玩家核心</td>
+</tr>
+<tr>
+<td>Brightcove-Player-SSAI-static </td>
+<td> 靜止的 </td>
+<td> Brightcove-Player-Core-static</td>
+</tr>
+</tbody>
+</table>
+
+
+<h2>公平競爭<a name="FairPlay"></a></h2>
+
+<p>支持播放受 FairPlay 保護的視頻已集成到核心中 <em>Brightcove播放器SDK</em> 框架。參考<a href="https://github.com/brightcove/brightcove-player-sdk-ios/blob/master/FairPlay.md">公平遊戲指南</a>有關將 FairPlay 與 Brightcove Native Player SDK 結合使用的完整詳細信息。</p>
+
+<h2>邊車字幕<a name="SidecarSubtitles"></a></h2>
+
+<p>對 Sidecar 字幕的支持已集成到核心中 <em>Brightcove播放器SDK</em> 框架。有關在 Brightcove Native Player SDK 中使用 Sidecar Subtitles 的完整詳細信息，請參閱<a href="https://github.com/brightcove/brightcove-player-sdk-ios/blob/master/SidecarSubtitles.md">Sidecar 字幕指南</a> .</p>
+
+<h2>視頻下載和離線播放<a name="OfflinePlayback"></a></h2>
+
+<p>自 6.0.0 版起，Brightcove Native Player SDK 允許您下載 HLS 視頻，包括受 FairPlay 加密保護的視頻，以便以後在線或離線播放。請參閱應用程序開發人員&rsquo;完整詳細信息的指南：</p>
+
+<p><a href="https://github.com/brightcove/brightcove-player-sdk-ios/blob/master/OfflinePlayback.md">iOS應用開發者&rsquo;使用 FairPlay 下載視頻和離線播放指南</a></p>
+
+<h1>安裝<a name="Installation"></a></h1>
+
+<p>Brightcove Player SDK 為 iOS 提供了兩個安裝包，一個是靜態庫框架，一個是動態框架。iOS 11 及更高版本支持部署。</p>
+
+<p>Brightcove Player SDK 提供了一個動態框架來支持 tvOS 11.0 及更高版本。</p>
+
+<h2>可可豆<a name="CocoaPods"></a></h2>
+
+<p>您可以使用<a href="https://cocoapods.org">可可豆</a>將 Brightcove Player SDK 添加到您的項目。你可以找到最新的<code>Brightcove-玩家核心</code> podspec <a href="https://github.com/brightcove/BrightcoveSpecs/tree/master/Brightcove-Player-Core">這裡</a> .podspec 支持 iOS 和 tvOS。需要 CocoaPods 1.0 或更新版本，建議使用最新版本。</p>
+
+<p>在您的項目中使用 Brightcove CocoaPods 時，添加<code>來源 '</code> https://github.com/brightcove/BrightcoveSpecs.git' <code></code>到 Podfile 的開頭。</p>
+
+<p>指定默認 pod <code> Brightcove-玩家核心</code>將安裝動態庫框架。要安裝靜態框架，請附加<code>-靜止的</code>像這樣：<code> pod 'Brightcove-Player-Core-static'</code> .</p>
+
+<p>動態框架示例：</p>
+
+<pre><code>來源'https://github.com/CocoaPods/Specs' 來源'https://github.com/brightcove/BrightcoveSpecs.git' 平台：ios，'11.0' 使用_框架！目標 'MyVideoPlayer' 做 pod 'Brightcove-Player-Core' 結尾</code></pre>
+
+<p>靜態框架示例：</p>
+
+<pre><code>來源'https://github.com/CocoaPods/Specs' 來源'https://github.com/brightcove/BrightcoveSpecs.git' 平台：ios，'11.0' 使用_框架！目標 'MyVideoPlayer' 做 pod 'Brightcove-Player-Core-static' 結尾</code></pre>
+
+<p>更新安裝時，它&rsquo;刷新 BrightcoveSpecs 存儲庫的本地副本是一個好主意，以便您在本地擁有最新的 podspec，就像更新 CococaPods 主存儲庫一樣。通常，如果您運行<code>豆莢更新</code>在終端中，這將自動發生，或者您可以使用<code>pod 回購更新</code> .</p>
+
+<h2>手動安裝<a name="ManualInstallation"></a></h2>
+
+<p>手動將 Brightcove Player SDK 添加到您的項目：</p>
+
+<ol>
+<li>從我們的下載最新的壓縮版本<a href="https://github.com/brightcove/brightcove-player-sdk-ios/releases">發布頁面</a> .</li>
+<li>添加<code>BrightcovePlayerSDK.framework</code>到您的項目。請務必使用與您的目標、iOS 或 tvOS 對應的版本。</li>
+<li>在&ldquo;構建設置&rdquo;應用程序目標的選項卡，確保&ldquo;框架搜索路徑&rdquo;包括框架的路徑。這應該自動完成，除非框架存儲在與您的項目不同的根目錄下。</li>
+<li><p>在&ldquo;一般的&rdquo;應用程序目標的選項卡，將以下內容添加到&ldquo;框架、庫、嵌入式內容&rdquo;部分：</p>
+
+<ul>
+<li>BrightcovePlayerSDK.framework<code></code></li>
+</ul>
+</li>
+<li>( <strong>動態框架</strong>僅）在&ldquo;一般的&rdquo;應用程序目標的選項卡，添加&lsquo; BrightcovePlayerSDK.framework &rsquo;到&ldquo;嵌入式二進製文件&rdquo;部分。</li>
+<li>( <strong>動態框架</strong>僅）在&ldquo;構建階段&rdquo;選項卡，添加一個&ldquo;運行腳本&rdquo;階段與命令<code>猛擊 $ {BUILT_PRODUCTS_DIR} /$ {FRAMEWORKS_FOLDER_PATH} /BrightcovePlayerSDK.framework/strip-frameworks.sh</code> .查看&ldquo;僅在安裝時運行腳本&rdquo; .這將從構建中刪除不需要的架構，這對於 App Store 提交很重要。</li>
+<li>( <strong>靜態框架</strong>僅）在&ldquo;構建設置&rdquo;應用程序目標的選項卡，添加<code>-ObjC</code>到&ldquo;其他鏈接器標誌&rdquo;構建設置。</li>
+<li>( <strong>靜態框架</strong>僅）找到文件<code>bcovpuiiconfont.ttf</code>內<code>BrightcovePlayerSDK.framework</code> bundle 並將其直接拖到您的項目列表中，以便字體文件成為您應用程序的一部分。拖動文件後，請務必將其添加到您的應用程序中&rsquo; s 提示時構建目標。構建應用程序後，字體文件應位於與應用程序相同級別的應用程序包中&rsquo;■ Info.plist 文件。字體文件提供了一些<code>Brightcove 播放器用戶界面</code>界面元素，但不需要在 plist 本身中列出。</li>
+</ol>
+
+
+<p>作為參考，這裡提供了所有 SDK 組件和相應的 URL，以幫助您找到和下載最新版本：</p>
+
+<table>
+<thead>
+<tr>
+<th>成分  </th>
+<th> 網址</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Brightcove-玩家核心 </td>
+<td> https://github.com/brightcove/brightcove-player-sdk-ios/releases<a href="https://github.com/brightcove/brightcove-player-sdk-ios/releases"></a></td>
+</tr>
+<tr>
+<td>Brightcove-Player-FreeWheel </td>
+<td> https://github.com/brightcove/brightcove-player-sdk-ios-fw/releases<a href="https://github.com/brightcove/brightcove-player-sdk-ios-fw/releases"></a></td>
+</tr>
+<tr>
+<td>Brightcove-播放器-IMA </td>
+<td> https://github.com/brightcove/brightcove-player-sdk-ios-ima/releases<a href="https://github.com/brightcove/brightcove-player-sdk-ios-ima/releases"></a></td>
+</tr>
+<tr>
+<td>Brightcove-Player-Omniture </td>
+<td> https://github.com/brightcove/brightcove-player-sdk-ios-omniture/releases<a href="https://github.com/brightcove/brightcove-player-sdk-ios-omniture/releases"></a></td>
+</tr>
+<tr>
+<td>Brightcove-Player-Pulse </td>
+<td> https://github.com/brightcove/brightcove-player-sdk-ios-pulse/releases<a href="https://github.com/brightcove/brightcove-player-sdk-ios-pulse/releases"></a></td>
+</tr>
+<tr>
+<td>Brightcove-Player-SSAI </td>
+<td> https://github.com/brightcove/brightcove-player-sdk-ios-ssai/releases<a href="https://github.com/brightcove/brightcove-player-sdk-ios-ssai/releases"></a></td>
+</tr>
+</tbody>
+</table>
+
+
+<h2>進口<a name="Imports"></a></h2>
+
+<p>適用於 iOS 的 Brightcove Player SDK 可以通過幾種不同的方式導入代碼：</p>
+
+<pre><code>@import BrightcovePlayerSDK;</code></pre>
+
+<pre><code>#import &lt;BrightcovePlayerSDK/BrightcovePlayerSDK.h&gt;</code></pre>
+
+<pre><code>#import &lt;BrightcovePlayerSDK/[specific-class].h&gt;</code></pre>
+
+<h1>快速開始<a name="QuickStart"></a></h1>
+
+<p>使用適用於 iOS 的 Brightcove Player SDK 播放視頻：</p>
+
+<pre><code>// ** 使用您自己的帳戶信息自定義這些值 ** static NSString * const kViewControllerPlaybackServicePolicyKey = @"...";靜態 NSString * const kViewControllerAccountID = @"...";靜態 NSString * const kViewControllerVideoID = @"..."; BCOVPlayerSDKManager *manager = [BCOVPlayerSDKManager sharedManager]; id&lt;BCOVPlaybackController&gt; controller = [manager createPlaybackController]; self.controller = 控制器； // 將此存儲到一個強屬性 [self.view addSubview:controller.view]; BCOVPlaybackService *service = [[BCOVPlaybackService alloc] initWithAccountId:kAccountId policyKey:kPlaybackServicePolicyKey]; [service findVideoWithVideoID:kViewControllerVideoID parameters:nil completion:^(BCOVVideo *video, NSDictionary *jsonResponse, NSError *error) { [controller setVideos:@[ video ]]; [controller play]; } ];</code></pre>
+
+<p>您需要防止控制器在方法結束時自動釋放。執行此操作的常用方法是在強實例變量中存儲對控制器的引用。</p>
+
+<h1>內置 PlayerUI 控件<a name="PlayerUI"></a></h1>
+
+<p>從 5.1.0 版本開始，Brightcove PlayerUI 完全集成到 Core SDK 框架中。PlayerUI 提供了一套功能齊全的播放和廣告控件，開箱即用。</p>
+
+<p>PlayerUI 可以快速設置，顯示 SSAI、Pulse 和 FreeWheel 的廣告控件，並且可以通過創建自己的佈局進行自定義。</p>
+
+<h2>設置 PlayerUI 控件</h2>
+
+<p>按照以下指南設置 PlayerUI 控件。</p>
+
+<p>在 UIViewController 中創建一個屬性來跟踪<a href="Classes/BCOVPUIPlayerView.html">BCOVPUIPlayerView</a> .這<a href="Classes/BCOVPUIPlayerView.html">BCOVPUIPlayerView</a>將包含兩個播放控制器&rsquo; s 視圖和控件視圖。</p>
+
+<pre><code>// PlayerUI 的播放器視圖 @property (nonatomic) BCOVPUIPlayerView *playerView;</code></pre>
+
+<p>創建<a href="Classes/BCOVPUIBasicControlView.html">BCOVPUIBasicControlView</a>，然後<a href="Classes/BCOVPUIPlayerView.html">BCOVPUIPlayerView</a> .這是我們將播放控制器（以及它播放的所有視頻）與控件關聯的地方。</p>
+
+<pre><code>// 創建和配置控制視圖。BCOVPUIBasicControlView *controlView = [BCOVPUIBasicControlView basicControlViewWithVODLayout]; self.playerView = [[BCOVPUIPlayerView alloc] initWithPlaybackController:self.playbackController options:nil controlsView:controlView]; // 將 BCOPUIPlayerView 添加到您的視頻視圖中。 [self.videoView addSubview:self.playerView];</code></pre>
+
+<p>你&rsquo;需要為播放器視圖設置佈局，您可以使用自動佈局或較舊的 Springs &amp; Struts 方法來完成此操作。</p>
+
+<p><strong>彈簧和支柱：</strong></p>
+
+<p>設置播放器視圖以匹配佈局中的視頻容器 ( <code>視頻視圖</code> ) 調整大小時。</p>
+
+<pre><code>self.playerView.frame = self.videoView.bounds; self.playerView.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;</code></pre>
+
+<p><strong>自動佈局</strong></p>
+
+<p>設置<code>翻譯AutoresizingMaskIntoConstraints</code>在<a href="Classes/BCOVPUIPlayerView.html">BCOVPUIPlayerView</a>到<code>不</code> .</p>
+
+<pre><code>self.playerView.translatesAutoresizingMaskIntoConstraints = NO;</code></pre>
+
+<p>然後為佈局添加約束；設置頂部、右側、左側和底部的錨點<a href="Classes/BCOVPUIPlayerView.html">BCOVPUIPlayerView</a>等於<code>視頻視圖</code></p>
+
+<pre><code>[NSLayoutConstraint activateConstraints:@[ [self.playerView.topAnchor constraintEqualToAnchor:self.videoView.topAnchor], [self.playerView.rightAnchor constraintEqualToAnchor:self.videoView.rightAnchor], [self.playerView.leftAnchor constraintEqualvideoToAnchor.leftAnchor] , [self.playerView.bottomAnchor constraintEqualToAnchor:self.videoView.bottomAnchor], ]];</code></pre>
+
+<p><strong>提醒：</strong>PlayerUI 為各種圖形使用小字體文件。如果你安裝的是靜態框架，而不是使用 CocoaPods，一定要添加文件<code>bcovpuiiconfont.ttf</code>來自<code>BrightcovePlayerSDK.framework</code>直接捆綁到您的項目列表，以便將字體文件複製到應用程序包中</p>
+
+<h2>BCOVPUIPlayerViewOptions<a href="Classes/BCOVPUIPlayerViewOptions.html"></a></h2>
+
+<p>這<a href="Classes/BCOVPUIPlayerViewOptions.html"><code>BCOVPUIPlayerViewOptions</code></a>類允許您在初始化時自定義一些 BCOVPlayerUI 行為。您可以自定義以下內容：</p>
+
+<ul>
+<li><code>回跳間隔</code>按下跳回按鈕時玩家將返回的時間（以秒為單位）。</li>
+<li><code>隱藏控件間隔</code>上次觸摸事件後、隱藏控件之前的時間（以秒為單位）。</li>
+<li><code>隱藏控件動畫持續時間</code>控件動畫到隱藏所需的時間（以秒為單位）。</li>
+<li><code>showControlsAnimationDuration</code>控件動畫到可見所需的時間（以秒為單位）。</li>
+<li><code>學習更多按鈕瀏覽器樣式</code>確定是否點擊的設置&ldquo;了解更多&rdquo;廣告上的按鈕將在外部瀏覽器（默認設置）或內部瀏覽器中顯示點擊鏈接。</li>
+<li><code>呈現視圖控制器</code>用於呈現其他視圖控制器（如隱藏式字幕選擇視圖控制器）的 UIViewController 子類。</li>
+<li><code>自動控制類型選擇</code>無論你是否想要<code>BCOVPUIPlayerView</code>選擇一個<code>BCOVPUIBasicControlView</code>根據視頻類型自動鍵入。如果視頻是 VOD 則<code>basicControlViewWithVODLayout</code>將用於直播<code>basicControlViewWithLiveLayout</code>和直播 DVR <code> basicControlViewWithLiveDVRLayout</code> .當這個值設置為<code>是的</code>這<code>BCOVPUIBasicControlView</code>財產轉入<code>BCOVPUIPlayerView</code>初始化程序將被忽略。</li>
+</ul>
+
+
+<p>可以使用以下方法設置選項：</p>
+
+<pre><code>BCOVPlayerSDKManager *manager = [BCOVPlayerSDKManager sharedManager]; id&lt;BCOVPlaybackController&gt; controller = [manager createPlaybackController]; BCOVPUIPlayerViewOptions *options = [[BCOVPUIPlayerViewOptions alloc] init]; options.jumpBackInterval = 5; BCOVPUIPlayerView *playerView = [[BCOVPUIPlayerView alloc] initWithPlaybackController:playbackController options:options];</code></pre>
+
+<h2>提供的佈局</h2>
+
+<p>提供了三種佈局來支持不同類型的視頻：</p>
+
+<ul>
+<li><p><code></code> BCOVPUI控件佈局<code>基本點播控件佈局</code>是一般點播視頻流的基本佈局。</p></li>
+<li><p><code></code> BCOVPUI控件佈局<code>基本實時控件佈局</code>是實時視頻的佈局。</p></li>
+<li><p><code></code> BCOVPUI控件佈局<code>基本LiveDVR控件佈局</code>是帶有 DVR 控件的實時視頻流佈局。</p></li>
+</ul>
+
+
+<p>你通常在你之後立即設置一個新的佈局<a href="Classes/BCOVPUIPlayerView.html"><code>BCOVPUIPlayerView</code></a>已創建，但您也可以隨時設置新佈局。例如，您可以像這樣設置新的 VOD 佈局：</p>
+
+<pre><code>playerView.controlsView.layout = [BCOVPUIControlLayout basicVODControlLayout]</code></pre>
+
+<h2>自定義佈局</h2>
+
+<p>除了默認佈局之外，您還可以通過實例化一個新的佈局來創建您自己的高度自定義的佈局。<a href="Classes/BCOVPUIControlLayout.html"><code> BCOVPUI控件佈局</code></a>用你自己的設計。</p>
+
+<ol>
+<li><p>首先，使用創建將進入您的佈局的控件<a href="Classes/BCOVPUIBasicControlView.html"><code>BCOVPUIBasicControlView</code></a> layoutViewWithControlFromTag:width:elasticity: <code> .每個控件都封裝在一個</code><a href="Classes/BCOVPUILayoutView.html"><code>BCOVPUI佈局視圖</code></a>這決定了控制間距。</p></li>
+<li><p>您可以設置<code>寬度</code>每個佈局視圖的默認寬度（這是基於控件的類型），或者您可以指定自己的寬度。</p></li>
+<li><p>使用<code>彈性</code>參數來確定包含控件的佈局視圖調整其寬度以填充控制欄的程度。</p>
+
+<ul>
+<li>彈性為零意味著佈局視圖的大小將是固定的。</li>
+<li>大於零的彈性值決定了佈局視圖相對於該控制欄中的所有其他彈性視圖將增長多少來填充可用空間。彈性值為 2.0 的佈局視圖的增長速度是彈性值為 1.0 的佈局視圖的兩倍。通常，一行佈局視圖將具有至少一個彈性大於零的控件。</li>
+</ul>
+</li>
+</ol>
+
+
+<p>以下是創建各種基本控件的示例。</p>
+
+<pre><code>// 創建各種標準佈局視圖 // 標準播放/暫停按鈕 BCOVPUILayoutView *playbackLayoutView = [BCOVPUIBasicControlView layoutViewWithControlFromTag:BCOVPUIViewTagButtonPlayback width:kBCOVPUILayoutUseDefaultValue elastic:0.0]; // 標準跳回按鈕 BCOVPUILayoutView *jumpBackButtonLayoutView = [BCOVPUIBasicControlView layoutViewWithControlFromTag:BCOVPUIViewTagButtonJumpBack width:kBCOVPUILayoutUseDefaultValue elastic:0.0]; // 當前時間指示器 BCOVPUILayoutView *currentTimeLayoutView = [BCOVPUIBasicControlView layoutViewWithControlFromTag:BCOVPUIViewTagLabelCurrentTime width:kBCOVPUILayoutUseDefaultValue elastic:0.0]; // 時間分隔符 - 通常是 '/' 字符 BCOVPUILayoutView *timeSeparatorLayoutView = [BCOVPUIBasicControlView layoutViewWithControlFromTag:BCOVPUIViewTagLabelTimeSeparator width:kBCOVPUILayoutUseDefaultValue elastic:0.0]; // 視頻時長標籤 BCOVPUILayoutView *durationLayoutView = [BCOVPUIBasicControlView layoutViewWithControlFromTag:BCOVPUIViewTagLabelDuration width:kBCOVPUILayoutUseDefaultValue elastic:0.0]; // 用於瀏覽視頻的滑塊 // 彈性設置為 1，以便它可以調整大小以填充可用空間 BCOVPUILayoutView *progressLayoutView = [BCOVPUIBasicControlView layoutViewWithControlFromTag:BCOVPUIViewTagSliderProgress width:kBCOVPUILayoutUseDefaultValue elastic:1.0]; // 隱藏式字幕按鈕 // 此按鈕最初是隱藏的（“已移除”）， // 如果隱藏式字幕或音軌可用，則將顯示。BCOVPUILayoutView *closedCaptionLayoutView = [BCOVPUIBasicControlView layoutViewWithControlFromTag:BCOVPUIViewTagButtonClosedCaption width:kBCOVPUILayoutUseDefaultValue elastic:0.0]; closedCaptionLayoutView.removed = YES; // 全屏按鈕 BCOVPUILayoutView *screenModeLayoutView = [BCOVPUIBasicControlView layoutViewWithControlFromTag:BCOVPUIViewTagButtonScreenMode width:kBCOVPUILayoutUseDefaultValue elastic:0.0]; // AirPlay 按鈕 // 此按鈕最初是隱藏的（“已刪除”）， // 如果 AirPlay 設備可用，它將顯示 //。BCOVPUILayoutView *externalRouteLayoutView = [BCOVPUIBasicControlView layoutViewWithControlFromTag:BCOVPUIViewTagViewExternalRoute width:kBCOVPUILayoutUseDefaultValue elastic:0.0]; externalRouteLayoutView.removed = YES; // 空視圖 - 用作間隔 BCOVPUILayoutView *spacerLayoutView1 = [BCOVPUIBasicControlView layoutViewWithControlFromTag:BCOVPUIViewTagViewEmpty width:1.0 elastic:1.0]; // 空視圖 - 用作間隔 BCOVPUILayoutView *spacerLayoutView2 = [BCOVPUIBasicControlView layoutViewWithControlFromTag:BCOVPUIViewTagViewEmpty width:1.0 elastic:1.0]; // 空視圖 - 將自定義 UIImageView 添加為子視圖 BCOVPUILayoutView *logoLayoutView1 = [BCOVPUIBasicControlView layoutViewWithControlFromTag:BCOVPUIViewTagViewEmpty width:80.0 elastic:1.0]; // 空視圖 - 將自定義 UIImageView 添加為子視圖 BCOVPUILayoutView *logoLayoutView2 = [BCOVPUIBasicControlView layoutViewWithControlFromTag:BCOVPUIViewTagViewEmpty width:36.0 elastic:0.0];</code></pre>
+
+<p>請注意，您還可以創建一個空的佈局視圖，您可以在其中放置您自己的視圖（徽標、控件、無等）。此代碼顯示瞭如何放置<code>用戶界面圖像</code>我們在上面創建的 logoLayoutView1 中的 logo。</p>
+
+<pre><code>// 在圖像視圖中創建徽標圖像以在控制欄中顯示。UIImage *logoImage1 = [UIImage imageNamed:@"myLogo"]; UIImageView *logoImageView1 = [[UIImageView alloc] initWithImage:logoImage1]; logoImageView1.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight; logoImageView1.contentMode = UIViewContentModeScaleAspectFit; logoImageView1.frame = logoLayoutView1.frame; // 將圖像視圖添加到我們的空佈局視圖中。 [logoLayoutView1 addSubview:logoImageView1];</code></pre>
+
+<p>現在佈局視圖中封裝了各種控件，它們被排列成數組，每個數組代表一行控件，即一個控件欄。請注意，您可以為縱向和橫向使用不同的佈局，因此您通常會設置兩個不同的控制欄陣列。</p>
+
+<p>在橫向的標準佈局中，控件排列在一個數組中，然後該數組存儲在另一個表示整個控件集的數組中。</p>
+
+<pre><code>NSArray *standardLayoutLine1 = @[playbackLayoutView、jumpBackButtonLayoutView、currentTimeLayoutView、timeSeparatorLayoutView、durationLayoutView、progressLayoutView、spacerLayoutView1、logoLayoutView1、spacerLayoutView2、closedCaptionLayoutView、screenModeLayoutView、externalRouteLayoutView]； NSArray *standardLayoutLines = @[standardLayoutLine1];</code></pre>
+
+<p>在縱向的緊湊佈局中，創建了兩個控件數組，每行一個。這些數組被打包成另一個代表緊湊佈局的數組。</p>
+
+<p>請注意，每個佈局中的大多數控件都使用完全相同的對象。完成後，您在縱向和橫向之間切換，對象將使用平滑動畫移動到新位置。</p>
+
+<pre><code>NSArray *compactLayoutLine1 = @[ currentTimeLayoutView, progressLayoutView, durationLayoutView ]; NSArray *compactLayoutLine2 = @[playbackLayoutView, jumpBackButtonLayoutView, separatorLayoutView1, closedCaptionLayoutView, screenModeLayoutView, externalRouteLayoutView, logoLayoutView2 ]; NSArray *compactLayoutLines = @[ compactLayoutLine1, compactLayoutLine2 ];</code></pre>
+
+<p>最後，現在有兩種佈局配置（一種用於全寬，一種用於緊湊寬度），您可以創建一個新的<a href="Classes/BCOVPUIControlLayout.html"><code>BCOVPUI控件佈局</code></a>對象，並將其設置在播放器中&rsquo; s 控制視圖。</p>
+
+<pre><code>BCOVPUIControlLayout *customLayout = [[BCOVPUIControlLayout alloc] initWithStandardControls:standardLayoutLines compactControls:compactLayoutLines]; playerView.controlsView.layout = customLayout;</code></pre>
+
+<p>如果您有需要頻繁顯示或隱藏的控件，您可以設置<code>移除</code>該控件上的屬性&rsquo; s 佈局視圖。更改控件後，請調用<code>設置需要佈局</code>在播放器視圖上&rsquo;控制視圖：</p>
+
+<pre><code>logoLayoutView1.removed = YES; [playerView.controlsView setNeedsLayout];</code></pre>
+
+<p>您還可以自定義幾個通用<a href="Classes/BCOVPUIControlLayout.html"><code>BCOVPUI控件佈局</code></a>特性：</p>
+
+<ul>
+<li><code>控制條高度</code>設置每行控件的大小。</li>
+<li><code>水平項間距</code>設置每個之間的間距<a href="Classes/BCOVPUILayoutView.html"><code>BCOVPUI佈局視圖</code></a>在每個控制欄中。</li>
+<li><code>緊湊佈局最大寬度</code>確定使用哪組控件。如果控制視圖小於<code>緊湊佈局最大寬度</code>，將使用緊湊控件集，否則將使用標準控件。</li>
+</ul>
+
+
+<p>要更改顯示的控件集，您必須創建並安裝一個新的<a href="Classes/BCOVPUIControlLayout.html"><code>BCOVPUI控件佈局</code></a> .可以隨時安裝新控件。</p>
+
+<h2>更多定制示例</h2>
+
+<p>更多關於 PlayerUI 自定義的例子，可以查看 BrightcoveOS GitHub 倉庫的 PlayerUI 文件夾中的示例代碼：</p>
+
+<p>[https://github.com/BrightcoveOS/ios-player-samples](https://github.com/BrightcoveOS/ios-player-samples)<a href="https://github.com/BrightcoveOS/ios-player-samples"></a></p>
+
+<h1>tvOS 的內置電視播放器控件<a name="TVPlayer"></a></h1>
+
+<p>Brightcove Native Player SDK 包括用於在 Apple TV 上的 tvOS 中播放的內置控件。有關將內置 TV Player UI 與 Brightcove Native Player SDK 結合使用的完整詳細信息，請參閱我們的<a href="https://github.com/brightcove/brightcove-player-sdk-ios/blob/master/TVPlayer.md">電視播放器指南</a> .</p>
+
+<h1>隔空播放<a name="AirPlay"></a></h1>
+
+<p>通過設置啟用 AirPlay 功能<code>設置允許外部播放</code>你的財產<a href="Protocols/BCOVPlaybackController.html"><code>BCOVPlaybackController</code></a>到<code>真的</code> .如果在您的網絡上找到 AirPlay 設備，AirPlay 按鈕將顯示在播放控件中。</p>
+
+<p>目前，IMA 是唯一支持 AirPlay 且僅在使用前貼片廣告和/或後貼片廣告時的廣告插件。將 AirPlay 與 Pulse、SSAI 或 FreeWheel 廣告插件一起使用可能會導致意外行為。</p>
+
+<p>如果您還想支持 AirPlay 2 並允許為音頻輸出選擇多個設備，您將不得不做一些額外的事情。首先你&rsquo;需要配置 AVAudioSession 以便您可以設置<code>路由共享策略</code> .例如：</p>
+
+<pre><code>[AVAudioSession.sharedInstance setCategory:AVAudioSessionCategoryPlayback mode:AVAudioSessionModeMoviePlayback routeSharingPolicy:AVAudioSessionRouteSharingPolicyLongForm options:0 error:nil];</code></pre>
+
+<p>您還需要通過以下方式配置至少一個播放命令<code>MP遠程指揮中心</code> .最起碼你&rsquo;我想同時配置<code>暫停命令</code>和<code>播放命令</code> .例如：</p>
+
+<pre><code>MPRemoteCommandCenter *center = MPRemoteCommandCenter.sharedCommandCenter; [center.pauseCommand addTargetWithHandler:^MPRemoteCommandHandlerStatus(MPRemoteCommandEvent * _Nonnull 事件) { [self.playbackController pause]; return MPRemoteCommandHandlerStatusSuccess; } ]; [center.playCommand addTargetWithHandler:^MPRemoteCommandHandlerStatus(MPRemoteCommandEvent * _Nonnull 事件) { [self.playbackController play]; return MPRemoteCommandHandlerStatusSuccess; } ];</code></pre>
+
+<p>運行 iOS 11 或更高版本的設備將利用<code>AVRoutePickerView</code>它有兩個委託方法。這些委託方法被傳遞給<a href="Protocols/BCOVPUIPlayerViewDelegate.html"><code>BCOVPUIPlayerViewDelegate</code></a> .方法是：</p>
+
+<pre><code>- (void)routePickerViewWillBeginPresentingRoutes:(AVRoutePickerView *)routePickerView; - (void)routePickerViewDidEndPresentingRoutes:(AVRoutePickerView *)routePickerView;</code></pre>
+
+<p>這<code>AVRoute檢測器</code>用於發現 AirPlay 路線的<a href="Classes/BCOVPUIBasicControlView.html"><code>BCOVPUIBasicControlView</code></a>對象，以便您可以啟用或禁用其<code>啟用路由檢測</code>根據需要的財產。</p>
+
+<p>每蘋果&rsquo; s 文檔：&ldquo;<em>路由檢測顯著增加功耗，必須關閉&rsquo;不再需要。</em>&rdquo;</p>
+
+<pre><code>// Objective-C self.playerView.controlsView.routeDetector.routeDetectionEnabled = NO; // Swift playerView?.controlsView.routeDetector.isRouteDetectionEnabled = false</code></pre>
+
+<p>有關將 AirPlay 2 整合到您的應用程序中的更多信息，請參閱<a href="https://developer.apple.com/documentation/avfoundation/media_playback_and_selection/getting_airplay_2_into_your_app?language=objc">將 Airplay 2 引入您的應用程序</a>文檔。</p>
+
+<p><strong>重要的提示：AirPlay 2 僅在運行 iOS 11.4 或更高版本的設備上受支持。</strong></p>
+
+<h1>視頻 360 <a name="Video360"></a></h1>
+
+<p>Native Player SDK 支持交互式顯示 360 度球形視頻。360 度視頻應標記為&ldquo;投影&rdquo;包含值的字段屬性&ldquo;等距長方形&rdquo; .這些視頻將以與其他視頻相同的方式加載和播放，但它們將顯示在 OpenGL ES 層而不是 AVPlayerLayer 中。</p>
+
+<p>筆記：&ldquo;等距長方形&rdquo;是目前唯一支持 360 源視頻的投影格式。</p>
+
+<p>PlayerUI 還內置了對 Video 360 的支持，提供了默認的平移手勢、視圖的陀螺儀運動檢測以及在播放 Video 360 資產時出現的新 Video 360 按鈕。此按鈕僅出現在 iPhone 上，可讓您在普通視圖和&ldquo;虛擬現實護目鏡&rdquo;視圖，其中屏幕被分成兩部分，為每隻眼睛呈現相同的場景，以便設備可以在頭戴式配置中使用。在 iPad 上不需要 Video 360 按鈕，因為只有一種操作模式：支持平移手勢的運動檢測。</p>
+
+<p>支持 Video 360 就像播放視頻一樣簡單。當。。。的時候&ldquo;投影&rdquo; field 屬性被檢測到，Native Player SDK 將自動處理在 OpenGL ES 中設置和顯示視頻，並在適當的時候安裝 Video 360 按鈕。</p>
+
+<p>如果您在 Video Cloud 之外播放 360 度全景視頻，請務必添加&ldquo;投影&rdquo;財產給<a href="Classes/BCOVVideo.html"><code>BCOV視頻</code></a>具有值的對象&ldquo;等距長方形&rdquo; .</p>
+
+<p>為了通過 VR Goggles 模式提供最佳用戶體驗，您應該使用<a href="Protocols/BCOVPUIPlayerViewDelegate.html"><code>BCOVPUIPlayerViewDelegate</code></a>檢測何時啟用此模式的方法。這允許您強制設備進入橫向（因為這是對 VR Goggles 視圖有意義的唯一方向）。</p>
+
+<p>以下代碼顯示了在普通 360 度視圖和 VR 護目鏡模式之間來回切換時如何處理強制方向更改。</p>
+
+<pre><code>// 顯示 VR 護目鏡視頻時將此設置為 YES @property (nonatomic) BOOL LandscapeOnly; // UIViewController override: // 讓我們控制設備的方向 - (UIInterfaceOrientationMask)supportedInterfaceOrientations { if (self.landscapeOnly) { return UIInterfaceOrientationMaskLandscape; }返回 UIInterfaceOrientationMaskAll; } // BCOVPUIPlayerViewDelegate 方法 - (void)didSetVideo360NavigationMethod:(BCOVPUIVideo360NavigationMethod)navigationMethod projectionStyle:(BCOVVideo360ProjectionStyle)projectionStyle { switch (projectionStyle) { case BCOVVideo360ProjectionStyleNormal: NSLog(@"BCOVVideo360ProjectionStyleNormal"); self.landscapeOnly = NO; break; case BCOVVideo360ProjectionStyleVRGoggles: NSLog(@"BCOVPUIVideo360NavigationDeviceMotionTracking"); self.landscapeOnly = YES; { UIDeviceOrientation currentDeviceOrientation = [UIDevice currentDevice].orientation; switch (currentDeviceOrientation) { case UIDeviceOrientationLandscapeLeft: case UIDeviceOrientationLandscapeRight: // all good break; default: { // switch orientation NSNumber *value = [NSNumber numberWithInt:UIInterfaceOrientationLandscapeLeft]; [[UIDevice currentDevice] setValue:value forKey:@"orientation"]; break; } } } 休息; [UIViewController 嘗試RotationToDeviceOrientation]; }</code></pre>
+
+<p>PlayerUI 將安裝手勢來處理圍繞 360 度視頻的導航，但如果您使用自己的控件，則可以自己設置虛擬攝像機的視圖參數。這<a href="Protocols/BCOVPlaybackController.html"><code>BCOVPlaybackController</code></a>協議&rsquo;秒<code>視圖投影</code>屬性允許您設置這些參數。該物業是一個<a href="Classes/BCOVVideo360ViewProjection.html"><code>BCOVVideo360ViewProjection</code></a>具有基本虛擬相機設置的類，例如<code>平底鍋</code> , <code>傾斜</code>， 和<code>飛漲</code> .要更改設置，請複制當前實例，更改新實例上的設置，然後將其分配回<code>視圖投影</code>財產。</p>
+
+<h2>架構概覽<a name="ArchitecturalOverview"></a></h2>
+
+<p><img src="architecture01.png" alt="Architectural Overview 1" /></p>
+
+<p>適用於 iOS 的 Brightcove Player SDK 的入口點是<a href="https://github.com/brightcove/brightcove-player-sdk-ios/blob/master/ios/dynamic/BrightcovePlayerSDK.framework/Headers/BCOVPlayerSDKManager.h">[ <code> BCOVPlayerSDKManager</code> ](類/BCOVPlayerSDKManager.html)</a>單例對象。這個管理器處理插件組件的註冊和其他一些內務管理任務，但它主要用作對象工廠。你的應用&rsquo; s 視圖控制器獲取對 Manager 的引用，並使用它來創建一個<a href="https://github.com/brightcove/brightcove-player-sdk-ios/blob/master/ios/dynamic/BrightcovePlayerSDK.framework/Headers/BCOVPlaybackController.h">[ <code> BCOVPlaybackController</code> ](協議/BCOVPlaybackController.html)</a> .播放控制器&rsquo;秒<code>看法</code>屬性公開一個 UIView，其中包含最終在屏幕上呈現您的視頻內容的 AVPlayerLayer 對象。播放控制器還接受一個<a href="https://github.com/brightcove/brightcove-player-sdk-ios/blob/fd5e766693e533854f202f270d3d62e32ceaae04/ios/dynamic/BrightcovePlayerSDK.framework/Headers/BCOVPlaybackController.h#L667-L793">[ <code> BCOVPlaybackControllerDelegate</code> ]（協議/BCOVPlaybackControllerDelegate.html）</a>，您可以實現它來響應各種視頻播放事件。</p>
+
+<p>播放控制器提供影響當前視頻播放的方法和屬性。然而，在內部，播放控制器委託給一個<a href="https://github.com/brightcove/brightcove-player-sdk-ios/blob/master/ios/dynamic/BrightcovePlayerSDK.framework/Headers/BCOVPlaybackSession.h">[ <code> BCOVPlaybackSession</code> ](協議/BCOVPlaybackSession.html)</a>目的。播放會話執行準備和播放視頻內容的實際工作，並包含視頻&rsquo;元數據和<code>影音播放器</code> .播放控制器具有從當前播放會話前進到下一個播放會話的機制，可以在視頻結束時自動進行，也可以通過方法調用手動進行。一旦播放控制器前進到新會話，先前的會話將被丟棄並且不能再次使用。</p>
+
+<p>播放控制器還有另外兩個元素：<a href="https://github.com/brightcove/brightcove-player-sdk-ios/blob/master/ios/dynamic/BrightcovePlayerSDK.framework/Headers/BCOVPlaybackSessionProvider.h"> [ <code> BCOVPlaybackSessionProvider</code> ]（協議/BCOVPlaybackSessionProvider.html）</a>，以及一個列表<a href="https://github.com/brightcove/brightcove-player-sdk-ios/blob/fd5e766693e533854f202f270d3d62e32ceaae04/ios/dynamic/BrightcovePlayerSDK.framework/Headers/BCOVPlaybackController.h#L538-L655">[ <code> BCOVPlaybackSessionConsumer</code> ]（協議/BCOVPlaybackSessionConsumer.html）</a> s。顧名思義，播放會話提供者負責創建播放會話並將它們傳送到播放控制器。然後播放控制器將會話傳送給列表中的每個播放會話消費者。會話提供者和會話消費者 API 都是為插件開發人員設計的，本文檔中沒有詳細說明。</p>
+
+<p>除了上述類提供的播放功能之外，還有一些值類。這些用於保存特定於適用於 iOS 的 Player SDK 的數據。這些中的每一個都在下面自己的部分中進行了更詳細的描述。</p>
+
+<h2>播放、暫停和搜索<a name="PlayPauseSeek"></a></h2>
+
+<p>適用於 iOS 的 Brightcove Player SDK 在<a href="Protocols/BCOVPlaybackController.html"><code>BCOVPlaybackController</code></a> .<strong>使用這些方法而不是使用 AVPlayer 等效方法很重要。</strong>在它們的默認實現中，這些對象將調用直接轉發到 AVPlayer 上的相應方法。但是，如果您使用插件，它們可能會覆蓋默認行為以添加功能。例如，如果使用廣告插件，調用<a href="Protocols/BCOVPlaybackController.html#//api/name/play"><code>【BCOVPlaybackController 播放】</code></a>第一次可能會導致在開始內容之前播放前貼片。要了解有關插件如何覆蓋默認行為的更多信息，請參閱每個插件 README.md 或通過檢查類別擴展名<a href="Classes/BCOVSessionProviderExtension.html"><code>BCOVSessionProviderExtension</code></a>插件可能會添加。</p>
+
+<p><em>直接在 AVPlayer 上調用 play、pause 或 seek 可能會導致未定義的行為。</em></p>
+
+<h2>預加載視頻<a name="PreloadingVideos"></a></h2>
+
+<p>如果需要，您可以選擇在播放列表中預加載即將播放的視頻。一種可能的方法是使用兩個播放控制器對視頻列表進行雙緩衝，例如：</p>
+
+<ol>
+<li>初始化兩個播放控制器</li>
+<li>設置您的播放器視圖並將兩個播放控制器之一分配給 playerView &rsquo; s 播放控制器屬性（現在是您的活動播放控制器）</li>
+<li>一旦您的播放列表準備好將播放列表（或只是視頻數組屬性）分配給一個屬性，因為我們&rsquo;需要分別訪問每個視頻</li>
+<li>獲取視頻數組中的第一個視頻並將其提供給活動播放控制器（<code> [self.playbackController1 setVideos:@[self.videos.firstObject]]</code> )</li>
+<li>利用<code>播放控制器：didProgressTo：</code>播放控制器的委託方法確定當前視頻是否已經進展到您想要開始預加載下一個視頻的位置</li>
+<li>一旦確定&rsquo;預加載時間獲取視頻數組中的下一個視頻並將其設置在備用播放控制器上</li>
+<li>當前視頻完成後，將 playerView 上的播放控制器設置為備用播放控制器</li>
+<li>沖洗並重複步驟 5-7</li>
+</ol>
+
+
+<p>對於一個工作示例，您可以下載我們的<a href="https://github.com/BrightcoveOS/ios-player-samples/tree/master/Player/VideoPreloading">視頻預加載</a>我們的示例應用程序<a href="https://github.com/BrightcoveOS/ios-player-samples">球員樣本</a>存儲庫。</p>
+
+<p><strong>筆記：您可能需要考慮客戶端上可用的內存量&rsquo; s 設備及其連接速度。如果他們不在 Wifi 上，預加載視頻可能會影響當前視頻&rsquo; l 網絡資源。</strong></p>
+
+<h2>源選擇（HLS、MP4、HTTP/HTTPS）<a name="SourceSelection"></a></h2>
+
+<p>適用於 iOS 的 Brightcove Player SDK 為客戶端提供附加多個 url 和交付類型（<a href="Classes/BCOVSource.html"><code> BCOV源</code></a> ) 到單個視頻 ( <a href="Classes/BCOVVideo.html"><code> BCOV視頻</code></a>）。例如，如果播放服務正在檢索您的視頻，則單個視頻可能會混合使用 HLS 或 MP4 格式，以及 HTTP 和 HTTPS 版本。選擇這些源中的哪一個由源選擇策略塊確定。默認源選擇策略將選擇第一個 HLS <a href="Classes/BCOVSource.html"><code> BCOV源</code></a>在各個<a href="Classes/BCOVVideo.html"><code>BCOV視頻</code></a>，HTTPS 源優先於 HTTP。</p>
+
+<p>源選擇可以通過創建一個<a href="Classes/BCOVBasicSessionProviderOptions.html"><code>BCOVBasicSessionProviderOptions</code></a>並使用它來創建一個<a href="Classes/BCOVBasicSessionProvider.html"><code>BCOVBasicSessionProvider</code></a> .例如：</p>
+
+<pre><code>BCOVPlayerSDKManager *sdkManager = [BCOVPlayerSDKManager sharedManager]; BCOVBasicSessionProviderOptions *options = [[BCOVBasicSessionProviderOptions alloc] init]; options.sourceSelectionPolicy = &lt;policy&gt; id&lt;BCOVPlaybackSessionProvider&gt; provider = [sdkManager createBasicSessionProviderWithOptions:options]; idBCOVPlaybackController 播放控制器 = [sdkManager createPlaybackControllerWithSessionProvider:provider viewStrategy:nil];</code></pre>
+
+<p>如果此默認選擇策略對您不起作用，則有幾種選擇來源的替代方法：</p>
+
+<ul>
+<li><p>如果通過播放服務從 Video Cloud 檢索視頻，則在調用之前<code>[BCOVPlaybackController setVideos:]</code> , 使用更新方法<code>BCOV視頻</code>只包含您想要的來源（請參閱&ldquo;價值觀&rdquo;部分了解更多信息）。</p></li>
+<li><p>您可以使用輔助方法<code>[BCOVBasicSourceSelectionPolicy sourceSelectionHLSWithScheme:scheme]</code>創建偏好特定方案的策略。這是用於創建首選 HTTPS 的默認源選擇策略的方法。</p></li>
+<li><p>與更新視頻對像類似，您也可以實現自己的源選擇塊。</p>
+
+<pre><code>options.sourceSelectionPolicy = ^ BCOVSource *(BCOVVideo *video) { &lt;Check video.sources for source&gt; &lt;Return source&gt; } ;</code></pre></li>
+</ul>
+
+
+<p>請注意，App Store 對 MP4 視頻的使用存在限制。有關詳細信息，請查看最新的 Apple Developer 信息。</p>
+
+<h2>設置首選比特率<a name="PreferredBitrate"></a></h2>
+
+<p>適用於 iOS 的 Brightcove Player SDK 提供了一種設置視頻首選比特率的方法。您可以創建一個<a href="Classes/BCOVPreferredBitrateConfig.html">BCOVPreferredBitrateConfig</a>包含所需比特率選項的對象，以及為顯示選項而創建的視圖控制器的一些配置。</p>
+
+<p>菜單的標題是可選的。比特率選項是一組 NSDictionary &rsquo; s 每個字典都有一個鍵：值對。鍵將用作選項名稱，值是一個 NSNumber，該選項的比特率以 bps（每秒比特數）為單位。您輸入的比特率是可以映射到視頻資產再現比特率的值。您可以在<a href="https://studio.support.brightcove.com/admin/ingest-profiles-best-practices.html">攝取配置文件最佳實踐</a> .</p>
+
+<p>這是一個例子：</p>
+
+<pre><code>BCOVPUIPlayerViewOptions *options = [[BCOVPUIPlayerViewOptions alloc] init]; options.preferredBitrateConfig = [BCOVPreferredBitrateConfig configWithMenuTitle:@"選擇一個選項" andBitrateOptions:@[@ {@"Auto":@(0)} , @ {@"Setting 1":@(aBitrateValue)} , @ {@"Setting 2":@(aBitrateValue)} ]];</code></pre>
+
+<p>當最終用戶選擇其中一個選項時，<a href="https://developer.apple.com/documentation/avfoundation/avplayeritem/1388541-preferredpeakbitrate">首選峰值比特率</a>當前 AVPlayerItem 的屬性將設置為選項&rsquo; s 值。如果視頻在播放列表中，下一個播放的視頻也將設置 preferredPeakBitRate 值。</p>
+
+<p>設置非零值後<a href="https://developer.apple.com/documentation/avfoundation/avplayeritem/1388541-preferredpeakbitrate">首選峰值比特率</a>在 AVPlayer 達到其當前緩衝緩存的末尾之前，您可能不會注意到質量上的差異。</p>
+
+<p>您還可以使用<code>configWithMenuTitle:bitrateOptions:andIndexofInitialSelection:</code>初始化程序，提供設置首選初始值的索引的能力。該指數應與所需選項的指數相關聯<code>比特率選項</code>大批。</p>
+
+<p>您還可以使用<code>設置首選峰值比特率：</code>你的方法<a href="Protocols/BCOVPlaybackController.html"><code>BCOVPlaybackController</code></a>對像以編程方式設置當前和未來會話的首選比特率。</p>
+
+<p>筆記：必須為最終用戶提供返回默認值 (0) 的方法<a href="https://developer.apple.com/documentation/avfoundation/avplayeritem/1388541-preferredpeakbitrate">首選峰值比特率</a> .您可以通過提供比特率值為 0 的選項來實現此目的。如果您不提供 0 的比特率選項，則&ldquo;自動的&rdquo;選項將附加到最終用戶的選項列表中。</p>
+
+<p>請看蘋果&rsquo; s 文檔<a href="https://developer.apple.com/documentation/avfoundation/avplayeritem/1388541-preferredpeakbitrate">首選峰值比特率</a>想要查詢更多的信息。</p>
+
+<h2>獲取內容和廣告播放信息<a name="PlaybackInformation"></a></h2>
+
+<p>適用於 iOS 的 Brightcove Player SDK 提供了兩種獲取播放信息的機制。播放控制器提供了一個委託屬性來實現<a href="https://github.com/brightcove/brightcove-player-sdk-ios/blob/fd5e766693e533854f202f270d3d62e32ceaae04/ios/dynamic/BrightcovePlayerSDK.framework/Headers/BCOVPlaybackController.h#L667-L793">[ <code> BCOVPlaybackControllerDelegate</code> ]（協議/BCOVPlaybackControllerDelegate.html）</a> .委託可以實現這些可選方法以獲取有關播放元數據（如進度、持續時間更改和其他事件）的通知。如果安裝了廣告插件，它還可以使用此委託來提供有關<a href="https://github.com/brightcove/brightcove-player-sdk-ios/blob/fd5e766693e533854f202f270d3d62e32ceaae04/ios/dynamic/BrightcovePlayerSDK.framework/Headers/BCOVAdvertising.h#L120-L192">廣告播放</a> .這<a href="https://github.com/brightcove/brightcove-player-sdk-ios/blob/fd5e766693e533854f202f270d3d62e32ceaae04/ios/dynamic/BrightcovePlayerSDK.framework/Headers/BCOVPlaybackController.h#L630-L641">生命週期事件</a>委託方法提供事件來指示播放狀態的變化。例如，當播放器從暫停狀態進入播放狀態時，生命週期事件委託方法將被調用<code>kBCOVPlaybackSessionLifecycleEventPlay</code>事件。默認的生命週期事件在<a href="https://github.com/brightcove/brightcove-player-sdk-ios/blob/master/ios/dynamic/BrightcovePlayerSDK.framework/Headers/BCOVPlaybackSession.h">[ <code> BCOVPlaybackSession</code> ](協議/BCOVPlaybackSession.html)</a> .Brightcove 提供的插件添加了在每個插件中定義的額外生命週期事件。</p>
+
+<p>播放控制器允許單個委託。在許多情況下，這足以檢索信息；委託實現可以根據需要將值和事件傳播到應用程序的不同部分。在需要多個委託的情況下，如開發插件時的情況，<a href="https://github.com/brightcove/brightcove-player-sdk-ios/blob/fd5e766693e533854f202f270d3d62e32ceaae04/ios/dynamic/BrightcovePlayerSDK.framework/Headers/BCOVPlaybackController.h#L538-L655"> [ <code> BCOVPlaybackSessionConsumer</code> ]（協議/BCOVPlaybackSessionConsumer.html）</a>代表提供等效的功能<a href="https://github.com/brightcove/brightcove-player-sdk-ios/blob/fd5e766693e533854f202f270d3d62e32ceaae04/ios/dynamic/BrightcovePlayerSDK.framework/Headers/BCOVPlaybackController.h#L667-L793">[ <code> BCOVPlaybackControllerDelegate</code> ]（協議/BCOVPlaybackControllerDelegate.html）</a>方法，包括<a href="https://github.com/brightcove/brightcove-player-sdk-ios/blob/fd5e766693e533854f202f270d3d62e32ceaae04/ios/dynamic/BrightcovePlayerSDK.framework/Headers/BCOVAdvertising.h#L195-L259">廣告數據</a> .</p>
+
+<p>這是一個如何使用的示例<a href="Protocols/BCOVPlaybackSessionConsumer.html"><code>BCOVPlaybackSessionConsumer</code></a>創建分析插件：</p>
+
+<pre><code>@接口 XYZAnalytics ：NSObject BCOVPlaybackSessionConsumer @end @implementation XYZAnalytics - (void)playbackSession:(idBCOVPlaybackSession)session didProgressTo:(NSTimeInterval)progress { //react to progress event } @結尾</code></pre>
+
+<p>要使用插件：</p>
+
+<pre><code>BCOVPlayerSDKManager *sdkManager = [BCOVPlayerSDKManager sharedManager]; id&lt;BCOVPlaybackController&gt; 控制器 = [sdkManager createPlaybackController]; XYZAnalytics *analytics = [[XYZAnalytics alloc] init]; [控制器 addSessionConsumer:analytics];</code></pre>
+
+<h2>處理網絡中斷和減速<a name="HandlingNetworkInterruptionsAndSlowdowns"></a></h2>
+
+<p>當應用程序遇到網絡中斷時，<code>影音播放器</code>使用的<a href="Protocols/BCOVPlaybackController.html"><code>BCOVPlaybackController</code></a>如果中斷持續時間過長，則可能會停止嘗試恢復。如果發生這種情況，生命週期委託方法將被調用<code>kBCOVPlaybackSessionLifecycleEventFailedToPlayToEndTime</code>事件。當這個事件發生時，回放<strong>將不會</strong>自動恢復。為了從此事件中恢復，您需要在客戶端代碼中檢測網絡何時恢復。</p>
+
+<p>一旦確定網絡已恢復，您就可以使用<code>- [</code> [BCOVPlaybackController resumeVideoAtTime:withAutoPlay:] <code> ](Protocols/BCOVPlaybackController.html#//api/name/resumeVideoAtTime:withAutoPlay:)</code>重新初始化播放器。您將需要跟踪要恢復到的位置。播放器將盡最大努力抑制生命週期事件和進度事件，以防止廣告重播或分析受到干擾。</p>
+
+<p>通話時<code>- [</code> [BCOVPlaybackController resumeVideoAtTime:withAutoPlay:] <code> ](Protocols/BCOVPlaybackController.html#//api/name/resumeVideoAtTime:withAutoPlay:)</code>，播放器將發送類型為的生命週期事件<code>kBCOVPlaybackSessionLifecycleEventResumeBegin</code> . <code> kBCOVPlaybackSessionLifecycleEventResumeComplete</code>如果此操作成功，將發送，否則<code>kBCOVPlaybackSessionLifecycleEventResumeFail</code>將被發送。</p>
+
+<p>你必須等待才能打電話<code>- [</code> [BCOVPlaybackController resumeVideoAtTime:withAutoPlay:] <code> ](Protocols/BCOVPlaybackController.html#//api/name/resumeVideoAtTime:withAutoPlay:)</code>第二次，直到您收到<code>kBCOVPlaybackSessionLifecycleEventResumeComplete</code>或者<code>kBCOVPlaybackSessionLifecycleEventResumeFail</code>從之前的電話。您可能希望施加重試限制，然後再向用戶顯示其網絡太不穩定的消息。</p>
+
+<p>當。。。的時候<code>影音播放器</code>仍然可以訪問網絡，但是由於網絡太慢導致視頻卡頓，生命週期委託方法將被調用<code>kBCOVPlaybackSessionLifecycleEventPlaybackStalled</code>事件。當播放能夠恢復時，生命週期委託方法將被調用<code>kBCOVPlaybackSessionLifecycleEventPlaybackRecovered</code>事件。這些事件僅涵蓋正常播放停止的情況，不涵蓋搜索或初始加載視頻期間發生的緩衝。</p>
+
+<p>當視頻最初加載時，當發生搜索時，或者由於網絡緩慢而導致播放停止時，生命週期委託方法將被調用<code>kBCOVPlaybackSessionLifecycleEventPlaybackBufferEmpty</code>事件。當播放能夠恢復時，生命週期委託方法將被調用<code>kBCOVPlaybackSessionLifecycleEventPlaybackLikelyToKeepUp</code>事件。</p>
+
+<h2>子類化<a name="Subclassing"></a></h2>
+
+<p>除非另有明確說明，否則適用於 iOS 的 Player SDK 中的任何類都不會被設計為子類化。創建未明確設計為子類化的任何 SDK 類的子類，尤其是任何值類，都可能導致不可預測的行為。</p>
+
+<h2>價值觀<a name="Values"></a></h2>
+
+<p>也稱為&ldquo;模型對象&rdquo;，這些類（<a href="Classes/BCOVPlaylist.html"><code> BCOV播放列表</code></a> , <a href="Classes/BCOVVideo.html"><code> BCOV視頻</code></a> , <a href="Classes/BCOVSource.html"><code> BCOV源</code></a> , <a href="Classes/BCOVCuePoint.html"><code> BCOVCuePoint</code></a> , <a href="Classes/BCOVCuePointCollection.html"><code> BCOVCuePoint集合</code></a> ) 用於表示適用於 iOS 的 Player SDK 中的數據。理解這些數據類型被視為是至關重要的 <em>價值觀</em>， 而不是 <em>身份</em>.在這裡，我們的意思是，如果您有一個值類的兩個實例，它們具有完全相同的數據，則它們代表相同的想法或值，即使它們在技術上是位於不同內存地址的兩個不同對象。換句話說，無論是 SDK 代碼還是您的客戶端代碼都不應使用身份比較（&ldquo;指針相等&rdquo; ) 與值對象。相反，每個值類實現<code>-是平等的：</code>並提供特定於類的相等方法重載，應改用其中任何一個。</p>
+
+<p>這不好：</p>
+
+<pre><code>if (myVideo == session.video) // 可能導致錯誤！</code></pre>
+
+<p>這些都很好（並且在功能上等效）：</p>
+
+<pre><code>if ([myVideo isEqualToVideo:session.video]) if ([myVideo isEqual:session.video])</code></pre>
+
+<p>適用於 iOS 的 Player SDK 的內部可能會執行諸如記憶值或製作防禦性副本之類的事情，因此依賴指針地址來檢查相等性最終會給您帶來痛苦。</p>
+
+<p>適用於 iOS 的 Player SDK 中值類的另一個質量是它們是 <em>不可變的</em>.一旦你有了一個值的實例，你就不應該試圖以任何方式破壞這種不變性，因為它可能會導致不可預測的行為。如果在您的代碼中您希望&ldquo;調整&rdquo;某種方式的價值，你唯一的辦法就是創造一個新的價值。為方便客戶獲取&ldquo;修改的&rdquo;值，每個值類提供一個<code>-更新：</code>方法採用一個塊，允許您對原始值的可變副本進行操作。</p>
+
+<p>這是使用此方法創建一個示例&ldquo;修改的&rdquo;現有視頻對象的版本，但具有不同的屬性：</p>
+
+<pre><code>BCOVVideo *video1; //（屬性包括一個鍵“foo”，其值為“bar”）BCOVVideo *video2 = [video1 update:^(idBCOVMutableVideo mutable) { mutable.properties = @{ @"foo": @"bar" } ; }]; NSLog(@"foo 是 %@", video1.properties[@"foo"]); // 打印 "foo is bar" NSLog(@"foo is %@", video2.properties[@"foo"]); // 打印 "foo is quux" // video1 和 video2 仍然是不可變對象： video1.properties = otherDictionary; // 導致編譯器錯誤 video2.properties = otherDictionary; // 導致編譯錯誤</code></pre>
+
+<p>正如您在示例中看到的那樣，<code>視頻1</code>沒有被改變<code>-更新</code>方法調用。相反，此方法返回的副本<code>視頻1</code>，除非在塊的主體中進行了修改。您永遠不應該允許可變副本轉義塊（例如通過將其分配給<code>__堵塞</code>變量），而是使用返回的不可變對象<code>-更新</code>修改後的方法。</p>
+
+<h2>使用回放服務檢索 Brightcove 資產<a name="PlaybackService"></a></h2>
+
+<p>播放服務類，<a href="Classes/BCOVPlaybackService.html"><code> BCOVPlaybackService</code></a> , 提供通過以下方式檢索 Brightcove 視頻資產和播放列表的功能<a href="https://apis.support.brightcove.com/playback/getting-started/overview-playback-api.html">Brightcove 播放 API</a>，包括豐富的元數據，如文本軌道、預覽和縮略圖。以下示例顯示如何檢索具有視頻 ID 的視頻。使用該視頻檢索視頻或播放列表的方法&rsquo; s 參考 ID 也可用。</p>
+
+<pre><code>[1] NSString *policyKey = &lt;your-policy-key&gt;; NSString *accountId = &lt;your-account-id&gt;; NSString *videoID = &lt;your-video-id&gt;; BCOVPlayerSDKManager *manager = [BCOVPlayerSDKManager sharedManager]; id&lt;BCOVPlaybackController&gt; controller = [manager createPlaybackControllerWithViewStrategy:nil]; [self.view addSubview:controller.view]; BCOVPlaybackService *playbackService = [[BCOVPlaybackService alloc] initWithAccountId:accoundId policyKey:policyKey]; [playbackService findVideoWithVideoID:videoID parameters:nil completion:^(BCOVVideo *video, NSDictionary *jsonResponse, NSError *error) { [controller setVideos:@[ video ]]; [controller play]; } ];</code></pre>
+
+<ol>
+<li>播放服務請求<strong>策略鍵</strong>用於身份驗證。要了解有關策略密鑰以及如何獲取的更多信息，請參閱<a href="https://apis.support.brightcove.com/policy/getting-started/policy-keys.html">政策關鍵文件</a> .</li>
+</ol>
+
+
+<p>**筆記：如果您正在使用播放授權服務，請查看<a href="#PlaybackAuthorizationService">部分</a>與該功能相關的自述文件。</p>
+
+<p><strong>播放列表分頁</strong></p>
+
+<p>為了<code></code> BCOVPlaybackService` 方法返回播放列表，您可以請求部分播放列表，或&ldquo;頁&rdquo;通過在參數字典中指定限制和偏移參數從播放列表。限制指定將返回的最大視頻數，偏移指定將返回視頻的播放列表索引。</p>
+
+<p>例如，如果您有一個包含 100 個視頻的播放列表，您只能請求從視頻編號 10 開始的 6 個視頻，如下所示：</p>
+
+<pre><code>NSDictionary *參數 = @ { @"limit": @6, @"offset": @10 } ; [playbackService findPlaylistWithPlaylistID:playlistID 參數：參數補全：^(BCOVPlaylist *playlist, NSDictionary *jsonResponse, NSError *error) { [controller setVideos: playlist]; [controller play]; } ];</code></pre>
+
+<h2>查看策略<a name="ViewStrategy"></a></h2>
+
+<p>這<a href="Protocols/BCOVPlaybackController.html"><code>BCOVPlaybackController</code></a>對像是使用視圖策略構造的，它允許您作為 SDK 的客戶端定義從播放控制器返回的確切 UIView 對象&rsquo; s 視圖屬性。這在使用影響播放控制器的插件時很重要&rsquo; s 視圖，例如用廣告視圖覆蓋視頻視圖的廣告插件。許多應用程序將無需創建視圖策略，只需通過<code>零</code>創建新的播放控制器時。這將在播放控制器中創建一個標準的視頻視圖。</p>
+
+<p>這<a href="Blocks/BCOVPlaybackControllerViewStrategy.html"><code>BCOVPlaybackControllerViewStrategy</code></a> typedef 別名（和文檔）這個更複雜的塊簽名：</p>
+
+<p><code>objc UIView *(^)(UIView *videoView, idBCOVPlaybackController 播放控制器);</code></p>
+
+<p>此簽名描述了一個返回 UIView 並採用兩個參數的 Objective-C 塊：一個 UIView 和一個播放控制器。返回值是播放控制器的 UIView 對象&rsquo; s 視圖屬性將指向。第一個參數是包含視頻層的 UIView，UIView 將顯示視頻。第二個參數是已賦予視圖策略的播放控制器對象，播放控制器可用於添加必要的會話消費者，例如視頻控件或廣告控件。</p>
+
+<p>視圖策略實現示例：</p>
+
+<p>```objc BCOVPlaybackControllerViewStrategy viewStrategy = ^(UIView *videoView, id<BCOVPlaybackController> 播放控制器) {</p>
+
+<pre><code>// 為視頻視圖創建一些自定義控件， // 並將它們組合成一個容器視圖。 [1] UIView&lt;BCOVPlaybackSessionConsumer&gt; *myControlsView = [[MyControlsView alloc] init]; [2] UIView *controlsAndVideoView = [[UIView alloc] init]; [3] [controlsAndVideoView addSubview:videoView]; [controlsAndVideoView addSubview:myControlsView]; // 將帶有廣告視圖的容器組合到另一個容器視圖中。 [4] UIView&lt;BCOVPlaybackSessionConsumer&gt; *adView = [[SomeAdPluginView alloc] init]; [5] UIView *adAndVideoView = [[UIView alloc] init]; [6] [adAndVideoView addSubview:controlsAndVideoView]; [adAndVideoView addSubview:adView]; [7] [playbackController addSessionConsumer:myControlsView]; [playbackController addSessionConsumer:adView]; // 這個容器視圖將成為`playbackController.view`。返回 adAndVideoView；</code></pre>
+
+<p>}; <code> `` 將代碼分解為幾個步驟： [1] 創建一個符合</code> BCOVPlaybackSessionConsumer <code>協議。</code> BCOVPlaybackSessionConsumer <code>除了廣告之外，協議還允許接收每個視頻的基本播放信息。 [2] 為視頻視圖和自定義控件創建容器視圖。 [3] 添加視頻容器和自定義控件作為子視圖。層次結構的組成順序與添加視圖的順序相同。 [4] 創建一個符合</code> BCOVPlaybackSessionConsumer` 協議。 [5] 為視頻視圖和控件以及廣告視圖創建容器視圖。 [6] 添加視頻容器和廣告控件視圖作為子視圖。 [7] 使用塊返回的播放控制器對象將自定義控件視圖和廣告控件視圖註冊為會話使用者。</p>
+
+<p>使用視圖策略有一個警告：您不能訪問播放控制器&rsquo;秒<code>看法</code>視圖策略塊中的屬性。由於塊被調用 <em>因為</em> 播放控制器&rsquo;秒<code>看法</code>第一次訪問屬性，訪問<code>看法</code>再次財產 <em>之內</em> 視圖策略塊將導致您的程序崩潰。</p>
+
+<h2>在後台播放視頻<a name="BackgroundVideo"></a></h2>
+
+<p>默認情況下，當 iOS 應用程序被發送到後台或設備被鎖定時，iOS 將暫停任何正在播放的視頻。要更改此行為，請設置<code>允許背景音頻播放</code>的財產<a href="Protocols/BCOVPlaybackController.html"><code>BCOVPlaybackController</code></a>反對<code>是的</code> .（默認值為<code>不</code> , 表示播放將在後台暫停。）</p>
+
+<p>您還應該遵循 Apple 在<a href="https://developer.apple.com/library/ios/qa/qa1668">技術問答 QA1668</a>為您的應用程序設置適當的後台模式和音頻會話類別。</p>
+
+<p>它&rsquo;重要的是<code>AVPlayer層</code>脫離<code>影音播放器</code>在應用程序切換到後台之前（並在應用程序返回前台時重新附加）。Brightcove Player SDK 將在以下情況下為您處理此問題<code>允許背景音頻播放</code>被設定為<code>是的</code> .</p>
+
+<p>最後，在播放背景視頻時（尤其是在使用播放列表時），您應該使用 iOS <code> MP遠程指揮中心</code>用於在鎖定屏幕和控制中心為用戶提供播放控制的 API。</p>
+
+<h2>畫中畫<a name="PIP"></a></h2>
+
+<p>要在您的應用程序中啟用畫中畫，請設置<code>顯示畫中畫按鈕</code>的財產<a href="Classes/BCOVPUIPlayerViewOptions.html"><code>BCOVPUIPlayerViewOptions</code></a>反對<code>是的</code>當實例化你的<a href="Classes/BCOVPUIPlayerView.html"><code>BCOVPUIPlayerView</code></a>目的。然後，畫中畫按鈕將顯示在任何支持它的設備的控制欄中。</p>
+
+<p>為了使畫中畫正常工作，您需要確保<code>音頻、AirPlay 和畫中畫</code>模式在<code>背景模式</code>項目的目標功能選項卡的部分。您還應該遵循 Apple 在<a href="https://developer.apple.com/library/ios/qa/qa1668">技術問答 QA1668</a>為您的應用程序設置適當的後台模式和音頻會話類別。</p>
+
+<p>這<code>AVPictureInPictureControllerDelegate</code>方法通過<a href="Protocols/BCOVPUIPlayerViewDelegate.html"><code>BCOVPUIPlayerViewDelegate</code></a> .這些方法是：</p>
+
+<pre><code>- (void)pictureInPictureControllerDidStartPictureInPicture:(AVPictureInPictureController *)pictureInPictureController; - (void)pictureInPictureControllerDidStopPictureInPicture:(AVPictureInPictureController *)pictureInPictureController; - (void)pictureInPictureControllerWillStartPictureInPicture:(AVPictureInPictureController *)pictureInPictureController; - (void)pictureInPictureControllerWillStopPictureInPicture:(AVPictureInPictureController *)pictureInPictureController; - (void)pictureInPictureController:(AVPictureInPictureController *)pictureInPictureController failedToStartPictureInPictureWithError:(NSError *)error - (void)pictureInPictureController:(AVPictureInPictureController *)pictureInPictureController restoreUserInterfaceForPictureInPictureStopWithCompletion)(BO^Handler)(BO^Handler)</code></pre>
+
+<p>見蘋果&rsquo;秒<a href="https://developer.apple.com/documentation/avkit/avpictureinpicturecontrollerdelegate">AVPictureInPictureControllerDelegate</a>文檔以獲取更多信息。</p>
+
+<p>要實現您自己的畫中畫行為，請保持<code>畫中畫活動</code>的財產<a href="Protocols/BCOVPlaybackController.html"><code>BCOVPlaybackController</code></a>更新為畫中畫狀態。如果您使用的是<code>AVPictureInPictureController</code>，您可以使用<code>pictureInPictureControllerDidStartPictureInPicture：</code>和<code>pictureInPictureControllerDidStopPictureInPicture：</code>委託方法來更新此屬性。</p>
+
+<p>您可以閱讀有關在 Apple 中實現畫中畫的更多信息&rsquo;秒<a href="https://developer.apple.com/documentation/avkit/adopting_picture_in_picture_in_a_custom_player">在自定義播放器中採用畫中畫</a>文檔。</p>
+
+<p>使用帶有畫中畫的混合格式視頻播放列表將導致畫中畫窗口在每個視頻之間關閉。</p>
+
+<p>iOS 和 iPadOS 14 引入了自動畫中畫行為，可以在<code>設置 &gt; 通用 &gt; 畫中畫</code> .為了使此功能按預期工作，播放器視圖必須等於屏幕的寬度，並且高度與寬度的比率必須至少為 0.57（16:9 或更大）。如果您的播放器視圖的寬度或高度小於這些值，則當應用程序進入後台時，可能不會自動觸發畫中畫。</p>
+
+<p><strong>重要的：Brightcove 原生播放器 SDK &rsquo;■ 畫中畫功能不支持帶有廣告播放功能的視頻。嘗試使用帶有畫中畫功能的廣告的視頻會導致意外行為。</strong></p>
+
+<h2>縮略圖搜索<a name="ThumbnailSeeking"></a></h2>
+
+<p>縮略圖搜索允許用戶沿著時間線拖動播放頭並查看縮略圖作為相關內容的預覽。這使用戶能夠快速瀏覽視頻文件並找到他們感興趣的內容。</p>
+
+<p>此功能也被 Apple 稱為 Trick Play，並在他們的<a href="https://developer.apple.com/documentation/http_live_streaming/hls_authoring_specification_for_apple_devices?language=objc">HLS 創作規範</a> .</p>
+
+<p>默認情況下啟用此功能。如果您想禁用縮略圖搜索，您可以通過設置<code>縮略圖搜索已啟用</code>你的財產<a href="Protocols/BCOVPlaybackController.html"><code>BCOVPlaybackController</code></a>到<code>不</code> .</p>
+
+<pre><code>self.playbackController.thumbnailSeekingEnabled = NO;</code></pre>
+
+<p>您可以通過使用委託方法來自定義縮略圖預覽的佈局<a href="Classes/BCOVPUIPlayerView.html"><code>BCOVPUIPlayerView</code></a>或者<a href="Classes/BCOVTVPlayerView.html"><code>BCOVTVP 播放器視圖</code></a> .</p>
+
+<p>在 iOS 上，您可以調整高度、寬度和垂直偏移：</p>
+
+<pre><code>- (void)setupPlayerView { BCOVPUIPlayerView *playerView = [[BCOVPUIPlayerView alloc] initWithPlaybackController:nil]; playerView.delegate = self; ... } #pragma mark - BCOVPUIPlayerViewDelegate - (CGRect)playerViewShouldDisplayThumbnailPreviewWithRect:(BCOVPUIPlayerView *)playerView { CGFloat width = 100; CGFloat height = 56; CGFloat verticalOffset = -60; CGFloat modifier = 1; if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) { modifier = 2; }返回 CGRectMake(0, verticalOffset * 修飾符, 寬度 * 修飾符, 高度 * 修飾符); }</code></pre>
+
+<p>在 tvOS 上，您可以調整高度和寬度：</p>
+
+<pre><code>- (void)setupPlayerView { self.playerView = [[BCOVTVPlayerView alloc] initWithOptions:nil]; self.playerView.delegate = self; ... } #pragma mark - BCOVTVPlayerViewDelegate - (CGSize)playerViewShouldDisplayThumbnailPreviewWithSize:(BCOVTVPlayerView *)playerView { CGSize size = self.view.frame.size; size.width = size.width / 6; size.height = size.height / 6; return size; }</code></pre>
+
+<p>如果手動構建一個<a href="Classes/BCOVVideo.html"><code>BCOV視頻</code></a>您可以設置用於 I-FRAME 源的 URL：</p>
+
+<pre><code>BCOVVideo *video = [BCOVVideo videoWithURL:[NSURL URLWithString:@"https://mydomain.com/master.m3u8"]];視頻 = [視頻更新：^(id&lt;BCOVMutableVideo&gt; mutableVideo) { mutableVideo.iFramePlaylistURL = [NSURL URLWithString:@"https://mydomain.com/iframe.m3u8"]; } ];</code></pre>
+
+<p>縮略圖擦洗僅適用於在線視頻；下載/離線視頻不支持此功能。</p>
+
+<h2>跟踪錯誤<a name="TrackingErrors"></a></h2>
+
+<p>通常通過來自播放控制器的視頻播放事件來處理和報告播放錯誤。如果您需要深入挖掘並跟踪特定視頻或應用程序會話的問題，您可以利用 Brightcove Player SDK &rsquo;秒 <em>會話標識</em>.會話 ID 是<a href="Classes/BCOVPlayerSDKManager.html"><code>BCOVPlayerSDKManager</code></a>您可以像這樣檢索：</p>
+
+<pre><code>NSString *sdkSessionID = BCOVPlayerSDKManager.sharedManager.sessionID;</code></pre>
+
+<p>會話 ID 是一個唯一的字符串，在應用程序生命週期中不會更改。此字符串與各種其他分析數據一起報告給 Brightcove 指標服務器。如果您在使用特定應用程序實例或視頻時遇到問題，您可以記錄會話 ID 並將其發送回您自己的公司服務器。然後，您可以將會話 ID、視頻 ID 和任何其他相關數據發送給 Brightcove 服務工程師，以幫助診斷任何問題。</p>
+
+<h2>組合插件<a name="CombiningPlugins"></a></h2>
+
+<p>如果您需要結合 Player SDK 插件，例如為播放由 Google IMA 管理的廣告的受 DRM 保護的視頻添加字幕，<code> BCOVSessionProviders</code>從每個插件創建並鏈接在一起，鏈用於構建<a href="Protocols/BCOVPlaybackController.html"><code>BCOVPlaybackController</code></a> .</p>
+
+<pre><code>BCOVPlayerSDKManager *sdkManager = [BCOVPlayerSDKManager sharedManager]; IMASettings *imaSettings = [[IMASettings alloc] init]; imaSettings.ppid = kViewControllerIMAPublisherID; imaSettings.language = kViewControllerIMALanguage; imaSettings.enableBackgroundPlayback = self.allowBackgroundAudioPlayback; IMAAdsRenderingSettings *renderSettings = [[IMAAdsRenderingSettings alloc] init]; renderSettings.webOpenerPresentingController = self; BCOVIMAAdsRequestPolicy *adsRequestPolicy = [BCOVIMAAdsRequestPolicy videoPropertiesVMAPAdTagUrlAdsRequestPolicy]; // 創建邊車字幕會話提供程序。它沒有上游會話提供程序。 id&lt;BCOVPlaybackSessionProvider&gt; *sidecarSessionProvider = [sdkManager createSidecarSubtitlesSessionProviderWithUpstreamSessionProvider:nil]; // 使用上游邊車字幕會話提供程序創建 IMA 會話提供程序。 id&lt;BCOVPlaybackSessionProvider&gt; *imaSessionProvider = [sdkManager createIMASessionProviderWithSettings:imaSettings adsRenderingSettings:renderSettings adsRequestPolicy:adsRequestPolicy adContainer:self.playerView.contentOverlayView partnerSlots:nil upstreamSessionProvider:sidecarSessionProvider]; // 使用會話提供者鏈創建播放控制器。 id&lt;BCOVPlaybackController&gt; *playbackController = [sdkManager createPlaybackControllerWithSessionProvider:imaSessionProvider viewStrategy:nil];</code></pre>
+
+<h1>緩衝區優化<a name="BufferOptimization"></a></h1>
+
+<h2>概述</h2>
+
+<p>開發人員可以控制前向播放緩衝區的大小<code>影音播放器</code> .這是通過設置<code>首選ForwardBufferDuration</code>財產在<code>AVPlayerItem</code>班級。</p>
+
+<p>默認情況下，Brightcove Native Player SDK 設置<code>首選ForwardBufferDuration</code>在不犧牲播放質量的情況下優化整體帶寬的方式。此行為可以用您自己的值覆蓋。</p>
+
+<h2>默認行為</h2>
+
+<p>每個人都為帶寬付費，所以它&rsquo;在不影響播放質量的情況下減少帶寬消耗很重要。Brightcove Native Player SDK 是 5.2.0 版的新功能，可在視頻播放時為您動態管理緩衝區大小。</p>
+
+<p>在 iOS 10 之前，<code>影音播放器</code>緩衝盡可能多的視頻數據，最多可達 50 兆字節。這對於用戶選擇視頻然後觀看直到最後的視頻觀看模型來說很好，但是現在許多現代應用程序&ldquo;逗&rdquo;具有自動播放功能的視頻，希望在幾秒鐘後確保參與。許多用戶只是轉向不同的視頻。通過積極緩衝，您最終可能會得到幾分鐘的緩衝視頻，這些視頻會隨著每次視頻展示而被丟棄。</p>
+
+<p>Brightcove Native Player SDK 通過使用較小的基線緩衝區啟動視頻，然後隨著用戶觀看更多視頻而增加它來解決此問題。在某個點之後，緩衝區大小將被限制，因為將其設置得太大是不切實際或有幫助的。</p>
+
+<h2>修改默認行為</h2>
+
+<p>如果您想保留 Brightcove Native Player SDK 的默認行為，但修改用於緩衝區大小的最小值和最大值，則可以在設置<a href="Protocols/BCOVPlaybackController.html"><code>BCOVPlaybackController</code></a>：</p>
+
+<pre><code>// 創建可變字典來保存新值 NSMutableDictionary *options = self.playbackController.options.mutableCopy; // 在字典中設置新值 options[kBCOVBufferOptimizerMethodKey] = @(BCOVBufferOptimizerMethodDefault);選項[kBCOVBufferOptimizerMinimumDurationKey] = @(min);選項[kBCOVBufferOptimizerMaximumDurationKey] = @(max); // 在你的播放控制器中設置新字典 self.playbackController.options = options;</code></pre>
+
+<p>這些選項應該在調用之前設置<code>-BCOVPlaybackController setVideos：</code> .</p>
+
+<p><code>分鐘</code>和<code>最大限度</code>價值觀：</p>
+
+<ul>
+<li>這些是您可以設置為新的最小和最大緩衝持續時間的浮點值。</li>
+<li>如果這些值設置得太小，在不穩定的網絡條件下播放可能會停止。</li>
+<li>如果設置的值太大，<code>影音播放器</code>可能會緩衝從未查看過的數據。</li>
+<li>根據您的預期用例進行測試很重要。</li>
+<li>值以秒為單位指定，並且必須大於或等於 1.0。（零是一個特殊的值<code>AVPlayerItem</code>這告訴<code>影音播放器</code>確定自己的緩衝區大小。</li>
+</ul>
+
+
+<h2>關閉緩衝區優化</h2>
+
+<p>如果您不希望在當前播放會話中激活任何緩衝區優化，您可以使用相同的技術，但將優化方法設置為&ldquo;沒有任何&rdquo;如下：</p>
+
+<pre><code>// 創建可變字典來保存新值 NSMutableDictionary *options = self.playbackController.options.mutableCopy; // 在字典中設置新值 options[kBCOVBufferOptimizerMethodKey] = @(BCOVBufferOptimizerMethodNone); // 在你的播放控制器中設置新字典 self.playbackController.options = options;</code></pre>
+
+<p>將方法設置為“無”，iOS 將保持對前向緩衝區大小的完全控制。</p>
+
+<h2>實現您自己的緩衝區優化方法</h2>
+
+<p>如果您想為播放設置自己的緩衝區大小，請先關閉上一節中所述的緩衝區優化。然後，您可以執行以下操作<a href="Protocols/BCOVPlaybackController.html"><code>BCOVPlaybackController</code></a>委託方法：</p>
+
+<pre><code>- (void)playbackController:(id&lt;BCOVPlaybackController&gt;)controller didAdvanceToPlaybackSession:(id&lt;BCOVPlaybackSession&gt;)session { // Make sure the property exists on the current AVPlayerItem. if ([session.player.currentItem respondsToSelector:NSSelectorFromString(@"preferredForwardBufferDuration")]) { // Set your preferredForwardBufferDuration value here. session.player.currentItem.preferredForwardBufferDuration = newPreferredForwardBufferDurationValue; } }</code></pre>
+
+<p>如果要隨時間動態更改緩衝區大小，可以設置<code>session.player.currentItem.preferredForwardBufferDuration</code>在裡面<a href="Protocols/BCOVPlaybackController.html"><code>BCOVPlaybackController</code></a>&rsquo; s 進度委託方法以類似的方式：</p>
+
+<pre><code>- (void)playbackController:(id&lt;BCOVPlaybackController&gt;)controller playbackSession:(id&lt;BCOVPlaybackSession&gt;)session didProgressTo:(NSTimeInterval)progress { // Make sure the property exists on the current AVPlayerItem. if ([session.player.currentItem respondsToSelector:NSSelectorFromString(@"preferredForwardBufferDuration")]) { // Set preferredForwardBufferDuration based on your own logic here session.player.currentItem.preferredForwardBufferDuration = newPreferredForwardBufferDurationValue; } }</code></pre>
+
+<p>筆記：蘋果特地放&ldquo;首選&rdquo;在<code>首選ForwardBufferDuration</code>因為你可以設置任何你想要的值，但一般來說<code>影音播放器</code>玩家將僅將其用作指南。還請記住，將其設置為零會將緩衝區大小的完全控制返回給<code>影音播放器</code> .</p>
+
+<h1>將 AVPlayerViewController 與<a href="Protocols/BCOVPlaybackController.html">BCOVPlaybackController </a><a name="AVPlayerViewController"></a></h1>
+
+<h2>概述</h2>
+
+<p>您可以使用 AVPlayerViewController 而不是 AVPlayerLayer 使用的<a href="Protocols/BCOVPlaybackSession.html">BCOVPlaybackSession</a>班級。使用 AVPlayerViewController 允許播放器使用原生 iOS 和 tvOS 播放器控件，但這種方法存在局限性（見下文）。</p>
+
+<p>要使用 AVPlayerViewController，您可以設置一個<a href="Protocols/BCOVPlaybackController.html">BCOVPlaybackController</a>字典屬性調用<code>kBCOVAVPlayerViewControllerCompatibilityKey</code>：</p>
+
+<pre><code>BCOVPlayerSDKManager *sdkManager = [BCOVPlayerSDKManager sharedManager]; idBCOVPlaybackController 播放控制器； NSMutableDictionary *mutableOptions = self.playbackController.options.mutableCopy; // 使用 AVPlayerViewController mutableOptions[kBCOVAVPlayerViewControllerCompatibilityKey] = @YES; // 使用 BCOVPlaybackSession 的 AVPlayerLayer // mutableOptions[kBCOVAVPlayerViewControllerCompatibilityKey] = @NO; self.playbackController.options = mutableOptions;</code></pre>
+
+<p>kBCOVAVPlayerViewControllerCompatibilityKey 的默認值是@NO，這意味著一個<a href="Protocols/BCOVPlaybackController.html">BCOVPlaybackController</a>在沒有顯式設置此字典屬性的情況下創建的將使用 BCOVPlaybackSession &rsquo; s AVPlayerLayer 默認情況下。</p>
+
+<h2>示例項目</h2>
+
+<p>我們有示例項目演示了 AVPlayerViewController 與 Brightcove iOS SDK 的使用。你可以找到<a href="https://github.com/BrightcoveOS/ios-player-samples/tree/master/Player/NativeControls">iOS示例項目在這裡</a>和<a href="https://github.com/BrightcoveOS/ios-player-samples/tree/master/IMA/NativeControlsIMAPlayer_tvOS">tvOS 示例項目在這裡</a> .</p>
+
+<h2>使用 AVPlayerViewController 的限制</h2>
+
+<p><strong>廣告：</strong></p>
+
+<p>Brightcove IMA 和 FreeWheel 廣告插件在使用 AVPlayerViewController 時兼容。您可以使用 AVPlayerViewController &rsquo;秒<code>內容疊加視圖</code>用於展示廣告的視圖。</p>
+
+<p>您可能希望隱藏/顯示 AVPlayerViewController &rsquo; s 廣告播放前後的播放控制：</p>
+
+<pre><code>- (void)playbackController:(id&lt;BCOVPlaybackController&gt;)controller playbackSession:(id&lt;BCOVPlaybackSession&gt;)session didEnterAdSequence:(BCOVAdSequence *)adSequence { self.avpvc.showsPlaybackControls = NO; } - (void)playbackController:(id&lt;BCOVPlaybackController&gt;)controller playbackSession:(id&lt;BCOVPlaybackSession&gt;)session didExitAdSequence:(BCOVAdSequence *)adSequence { self.avpvc.showsPlaybackControls = YES; }</code></pre>
+
+<p>Brightcove SSAI 和 Pulse 廣告插件當前與 AVPlayerViewController 不兼容。</p>
+
+<p><strong>分析：</strong></p>
+
+<p>使用 AVPlayerViewController 時，發送到 Brightcove Analytics 服務器的 video_engagement 事件將為 player_width 和 player_height 報告 0。</p>
+
+<h1>播放授權服務<a name="PlaybackAuthorizationService"></a></h1>
+
+<p>如果您使用播放授權服務，您將需要使用允許您傳入授權令牌的播放服務方法。</p>
+
+<pre><code>- (void)findPlaylistWithPlaylistID:(NSString *)playlistID authToken:(NSString *)authToken 參數：(NSDictionary *)parameters completion:(void (^)(BCOVPlaylist *playlist, NSDictionary *jsonResponse, NSError *error))completionHandler; - (void)findPlaylistWithReferenceID:(NSString *)referenceID authToken:(NSString *)authToken parameters:(NSDictionary *)parameters completion:(void (^)(BCOVPlaylist *playlist, NSDictionary *jsonResponse, NSError *error))completionHandler; - (void)findVideoWithVideoID:(NSString *)videoID authToken:(NSString *)authToken parameters:(NSDictionary *)parameters completion:(void (^)(BCOVVideo *video, NSDictionary *jsonResponse, NSError *error))completionHandler; - (void)findVideoWithReferenceID:(NSString *)referenceID authToken:(NSString *)authToken parameters:(NSDictionary *)parameters completion:(void (^)(BCOVVideo *video, NSDictionary *jsonResponse, NSError *error))completionHandler;</code></pre>
+
+<p><strong>筆記：對於播放列表，播放列表中的所有視頻必須使用相同的標記。在後續版本中，可以為播放列表中的每個視頻分配不同的令牌。您將負責維護視頻 ID 和令牌之間的映射。</strong></p>
+
+<h1>旁白支持<a name="VoiceOver"></a></h1>
+
+<p>VoiceOver 支持開箱即用的播放控件。默認情況下，如果啟用 VoiceOver，BCOVPlayerUI 控件視圖將不會自動隱藏。在播放控制器上使用雙擊 VoiceOver 激活手勢&rsquo; s 視圖將切換控制視圖的可見性。有一個關聯<code>可訪問性提示</code>在播放控制器上設置&rsquo; s 視圖。這<code>可訪問性標籤</code>每個 BCOVPlayerUI 控件的設置都可以在您的應用程序中進行自定義。</p>
+
+<p>要更改<code>可訪問性標籤</code>控制視圖中任何按鈕的值，您必須將對象設置為<a href="Protocols/BCOVPUIButtonAccessibilityDelegate.html"><code>BCOVPUIButtonAccessibilityDelegate</code></a>像這樣：</p>
+
+<pre><code>[self.playerView.controlsView setButtonsAccessibilityDelegate:self];</code></pre>
+
+<p>然後，您必須讓該對象符合<a href="Protocols/BCOVPUIButtonAccessibilityDelegate.html"><code>BCOVPUIButtonAccessibilityDelegate</code></a>協議通過實施<code>- (NSString *)accessibilityLabelForButton:(</code> BCOVPUI按鈕<code>*) 按鈕 isPrimaryState:(BOOL)isPrimaryState</code>與此類似的方法：</p>
+
+<pre><code>- (NSString *)accessibilityLabelForButton:(BCOVPUIButton *)button isPrimaryState:(BOOL)isPrimaryState { switch (button.tag) { case BCOVPUIViewTagButtonPlayback: return isPrimaryState ? NSLocalizedString(@"Start Playback", nil) : NSLocalizedString(@"Stop PLayback", nil); case BCOVPUIViewTagButtonScreenMode: return isPrimaryState ? NSLocalizedString(@"Enter Fullscreen", nil) : NSLocalizedString(@"Exit Fullscreen", nil); case BCOVPUIViewTagButtonJumpBack: return nil; case BCOVPUIViewTagButtonClosedCaption: return nil; case BCOVPUIViewTagButtonVideo360: return nil; case BCOVPUIViewTagButtonPreferredBitrate: return nil; default: return nil; } }</code></pre>
+
+<p>如果一個<code>零</code>返回值將使用默認值。</p>
+
+<p>設置<code>可訪問性提示</code>在播放控制器上可以這樣做：</p>
+
+<pre><code>self.playbackController.view.accessibilityHint = @"雙擊顯示或隱藏控件";</code></pre>
+
+<p>同樣，您可以設置<code>可訪問性標籤</code>在當前時間和持續時間標籤上，以及進度滑塊，如下所示：</p>
+
+<pre><code>self.playerView.controlsView.durationLabel.accessibilityLabelPrefix = @"總時間"; self.playerView.controlsView.currentTimeLabel.accessibilityLabelPrefix = @"當前時間"; self.playerView.controlsView.progressSlider.accessibilityLabel = @"Timeline";</code></pre>
+
+<h1>中國配送<a name="ChinaDelivery"></a></h1>
+
+<p>要為中國的播放服務、指標和分析服務器定義代理域，請設置<code>中國代理域名</code>的財產<a href="Classes/BCOVGlobalConfiguration.html"><code>BCOV全局配置</code></a>單例到完全限定的域名。例如：</p>
+
+<pre><code>BCOVGlobalConfiguration.sharedConfig.chinaProxyDomain = @"host.mydomain.com";</code></pre>
+
+<p>使用 Native Player SDK 的其他服務前請務必設置代理域名。參考<a href="https://docs.brightcove.com/ios-sdk/Classes/BCOVGlobalConfiguration.html#//api/name/chinaProxyDomain"><em>BCOVGlobalConfiguration 類參考</em></a>詳情。</p>
+
+<h1>AVAudioSession 配置<a name="AVAudioSessionConfig"></a></h1>
+
+<p>根據您在音頻播放方面需要應用程序執行的方式，您可以配置 AVAudioSession 以滿足您的特定需求。例如，如果您想支持 AirPlay 2 和多個音頻路由，請參閱<a href="#AirPlay">隔空播放</a>本自述文件的部分。</p>
+
+<p>一個基本的 AVAudioSession 可以這樣配置：</p>
+
+<pre><code>// Obj-C NSError *categoryError = nil; // 參見 https://developer.apple.com/documentation/avfoundation/avaudiosessioncategoryplayback BOOL success = [[AVAudioSession sharedInstance] setCategory:AVAudioSessionCategoryPlayback error:&amp;categoryError];如果（！成功）{ // Handle error }</code></pre>
+
+<pre><code>// Swift var categoryError :NSError?成功：布爾做{ // see https://developer.apple.com/documentation/avfoundation/avaudiosessioncategoryplayback try AVAudioSession.sharedInstance().setCategory(.playback) success = true }將錯誤捕獲為 NSError { categoryError = error success = false }如果！成功{ // Handle error }</code></pre>
+
+<p>此配置通常可以在您的 AppDelegate 中完成&rsquo;秒<code>應用程序：didFinishLaunchingWithOptions：</code>方法。在某些情況下，您可能需要更複雜的 AVAudioSession 配置，例如，如果您希望在您的應用程序中的音頻靜音時允許聽到來自其他應用程序的音頻。在這種情況下，您可以在有權訪問當前 AVPlayer 的視圖控制器中配置 AVAudioSession。例如：</p>
+
+<pre><code>// Swift func setUpAudioSession() { var categoryError :NSError? var success: Bool do { if let currentPlayer = currentPlayer { // If the player is muted, then allow mixing. // Ensure other apps can have their background audio // active when this app is in foreground if currentPlayer.isMuted { try AVAudioSession.sharedInstance().setCategory(.playback, options: .mixWithOthers) }別的{ try AVAudioSession.sharedInstance().setCategory(.playback, options: AVAudioSession.CategoryOptions(rawValue: 0)) } } 別的{ try AVAudioSession.sharedInstance().setCategory(.playback, options: AVAudioSession.CategoryOptions(rawValue: 0)) } success = true } catch let error as NSError { categoryError = error success = false }如果！成功{ print("AppDelegate Debug - Error setting AVAudioSession category. Because of this, there may be no sound. \(categoryError!)") } }</code></pre>
+
+<pre><code>// Objc-C - (void)setUpAudioSession { NSError *categoryError = nil; BOOL success; // If the player is muted, then allow mixing. // Ensure other apps can have their background audio // active when this app is in foreground if (self.currentPlayer.isMuted) { success = [[AVAudioSession sharedInstance] setCategory:AVAudioSessionCategoryPlayback withOptions:AVAudioSessionCategoryOptionMixWithOthers error:&amp;categoryError]; }別的{ success = [[AVAudioSession sharedInstance] setCategory:AVAudioSessionCategoryPlayback withOptions:0 error:&amp;categoryError]; }如果（！成功）{ NSLog(@"AppDelegate Debug - Error setting AVAudioSession category. Because of this, there may be no sound. `%@`", categoryError); } }</code></pre>
+
+<p>示例代碼可以在我們的<a href="https://github.com/BrightcoveOS/ios-player-samples/tree/master/Player/VideoCloudBasicPlayer">視頻雲基礎播放器</a>示例項目。</p>
+
+<p>您可以閱讀有關 AVAudioSession 的更多信息<a href="https://developer.apple.com/documentation/avfoundation/avaudiosession">這裡</a> .</p>
+
+<h1>經常問的問題<a name="FAQ"></a></h1>
+
+<p><strong>我的內容贏了&rsquo;負載。有沒有一種簡單的方法來測試 URL 是否指向有效的視頻？</strong></p>
+
+<p>如果內容打包為 MP4，您可以將 URL 直接粘貼到大多數 Web 瀏覽器中，視頻就會播放（或下載到您的文件系統，您可以在其中本地播放）。如果內容打包為HLS，可以使用QuickTime Player進行測試：選擇<code>文件 -&gt; 打開位置...</code>並粘貼在<code>.m3u8</code>播放列表 URL，視頻應該播放。</p>
+
+<p><strong>我可以聽到播放的音軌，但視頻偶爾會凍結幾秒鐘。什麼&rsquo;發生了？</strong></p>
+
+<p>這是從非主線程調用僅主線程的 UIKit 或 AVFoundation 方法的常見症狀。委託方法<a href="Protocols/BCOVPlaybackControllerDelegate.html"><code>BCOVPlaybackControllerDelegate</code></a>總是在主線程上調用。</p>
+
+<p><strong>為什麼我會在日誌中看到一條消息，指出未找到源？</strong></p>
+
+<p>此消息表明默認源選擇策略可以&rsquo; t 確定選擇哪個來源。默認策略選擇第一個源<code>運輸方式</code>是<code>kBCOVSourceDeliveryHLS</code> ( &ldquo; HLS &rdquo;）。如果沒有找到 HLS 源，它的回退行為將選擇第一個源<code>運輸方式</code>是<code>kBCOVSourceDeliveryMP4</code> ( &ldquo; MP4 &rdquo;）。如果沒有源<code>運輸方式</code>的&ldquo; HLS &rdquo;或者&ldquo; MP4 &rdquo;存在於視頻中，策略將選擇視頻&rsquo;第一個來源（無論<code>運輸方式</code>）。如果你是&rsquo;不滿意它的選擇，你可以使用<a href="Classes/BCOVPlayerSDKManager.html#//api/name/createBasicSessionProviderWithOptions:"><code>[BCOVPlayerSDKManager createBasicSessionProviderWithOptions:]</code></a>並傳入一個實例<a href="Classes/BCOVBasicSessionProviderOptions.html"><code>BCOVBasicSessionProviderOptions</code></a>有習俗<code>源選擇策略</code>屬性集。手動創建視頻和源時，請確保使用適當的源創建源<code>運輸方式</code> .</p>
+
+<p><strong><a href="https://developer.apple.com/Library/ios/documentation/Audio/Conceptual/AudioSessionProgrammingGuide/AudioGuidelinesByAppType/AudioGuidelinesByAppType.html">蘋果推薦</a>即使設備靜音，播放視頻的應用程序仍應播放音頻。為什麼不&rsquo; t 適用於 iOS 的 Brightcove Player SDK 是否遵守這些準則？</strong></p>
+
+<p>控制應用程序是否在 iOS 應用程序中發出音頻的 API 是<a href="https://developer.apple.com/Library/ios/documentation/Audio/Conceptual/AudioSessionProgrammingGuide/Introduction/Introduction.html#//apple_ref/doc/uid/TP40007875-CH1-SW1">AVAudioSession API</a> .音頻會話對於應用程序來說是全局的，這意味著它的配置會影響由 Player SDK 創建的 AVPlayer 發出的聲音，以及應用程序可能產生的其他聲音。由於播放器 SDK 無法知道應用程序希望如何為其他聲音配置音頻會話，因此它不會&rsquo;根本不會影響音頻會話。這意味著除非您明確配置您的應用程序&rsquo; s 音頻會話，否則，您將繼承在設備靜音時抑制任何和所有音頻的默認行為，包括由 AVPlayer 發出的音頻。符合蘋果&rsquo;關於音頻播放的建議，您（應用程序開發人員）必鬚根據您的應用程序配置音頻會話&rsquo; s 的特定需求。</p>
+
+<p>查看我們的<a href="#AVAudioSessionConfig">AVAudioSession 配置</a>本 README 中的部分以獲取更多信息。</p>
+
+<h1>支持<a name="Support"></a></h1>
+
+<p>如果您有問題、需要幫助或想提供反饋，請使用<a href="https://supportportal.brightcove.com/s/login/">支持門戶</a>或聯繫您的客戶經理。要接收新 SDK 軟件發布的通知，請訂閱 Brightcove Native Player SDK <a href="https://groups.google.com/g/brightcove-native-player-sdks">谷歌集團</a> .</p>
+						
+						
+					</div>
+					
+
+					<div class="index-container">
+						
+
+						
+						<div class="index-column">
+							<h2 class="index-title">類引用</h2>
+							<ul>
+								
+								<li>BCOVAd<a href="Classes/BCOVAd.html"></a></li>
+								
+								<li>BCOVAdSequence<a href="Classes/BCOVAdSequence.html"></a></li>
+								
+								<li>BCOVBasicSessionProvider<a href="Classes/BCOVBasicSessionProvider.html"></a></li>
+								
+								<li>BCOVBasicSessionProviderOptions<a href="Classes/BCOVBasicSessionProviderOptions.html"></a></li>
+								
+								<li>BCOVBasicSourceSelectionPolicy<a href="Classes/BCOVBasicSourceSelectionPolicy.html"></a></li>
+								
+								<li>BCOVCuePoint<a href="Classes/BCOVCuePoint.html"></a></li>
+								
+								<li><a href="Classes/BCOVCuePointCollection.html">BCOVCuePoint集合</a></li>
+								
+								<li>BCOVCuePointProgressPolicy<a href="Classes/BCOVCuePointProgressPolicy.html"></a></li>
+								
+								<li>BCOVCuePointProgressPolicyResult<a href="Classes/BCOVCuePointProgressPolicyResult.html"></a></li>
+								
+								<li>BCOVFPSBrightcoveAuthProxy<a href="Classes/BCOVFPSBrightcoveAuthProxy.html"></a></li>
+								
+								<li>BCOVFairPlayManager<a href="Classes/BCOVFairPlayManager.html"></a></li>
+								
+								<li><a href="Classes/BCOVGlobalConfiguration.html">BCOV全局配置</a></li>
+								
+								<li><a href="Classes/BCOVOfflineVideoManager.html">BCOV離線視頻管理器</a></li>
+								
+								<li><a href="Classes/BCOVOfflineVideoStatus.html">BCOV離線視頻狀態</a></li>
+								
+								<li>BCOVPUIAdControlView<a href="Classes/BCOVPUIAdControlView.html"></a></li>
+								
+								<li>BCOVPUIBasicControlView<a href="Classes/BCOVPUIBasicControlView.html"></a></li>
+								
+								<li><a href="Classes/BCOVPUIButton.html">BCOVPUI按鈕</a></li>
+								
+								<li>BCOVPUICommon<a href="Classes/BCOVPUICommon.html"></a></li>
+								
+								<li><a href="Classes/BCOVPUIControlLayout.html">BCOVPUI控件佈局</a></li>
+								
+								<li><a href="Classes/BCOVPUILayoutView.html">BCOVPUI佈局視圖</a></li>
+								
+								<li>BCOVPUIPlayerView<a href="Classes/BCOVPUIPlayerView.html"></a></li>
+								
+								<li>BCOVPUIPlayerViewOptions<a href="Classes/BCOVPUIPlayerViewOptions.html"></a></li>
+								
+								<li><a href="Classes/BCOVPUISlider.html">BCOVPUIS滑塊</a></li>
+								
+								<li>BCOVPlaybackService<a href="Classes/BCOVPlaybackService.html"></a></li>
+								
+								<li>BCOVPlaybackServiceRequestFactory<a href="Classes/BCOVPlaybackServiceRequestFactory.html"></a></li>
+								
+								<li>BCOVPlaybackSessionLifecycleEvent<a href="Classes/BCOVPlaybackSessionLifecycleEvent.html"></a></li>
+								
+								<li>BCOVPlayerSDKManager<a href="Classes/BCOVPlayerSDKManager.html"></a></li>
+								
+								<li><a href="Classes/BCOVPlaylist.html">BCOV播放列表</a></li>
+								
+								<li>BCOVPreferredBitrateConfig<a href="Classes/BCOVPreferredBitrateConfig.html"></a></li>
+								
+								<li>BCOVSessionProviderExtension<a href="Classes/BCOVSessionProviderExtension.html"></a></li>
+								
+								<li><a href="Classes/BCOVSource.html">BCOV源</a></li>
+								
+								<li>BCOVTVAudioTabBarItemView<a href="Classes/BCOVTVAudioTabBarItemView.html"></a></li>
+								
+								<li>BCOVTVCommon<a href="Classes/BCOVTVCommon.html"></a></li>
+								
+								<li>BCOVTVControlsView<a href="Classes/BCOVTVControlsView.html"></a></li>
+								
+								<li>BCOVTVInfoTabBarItemView<a href="Classes/BCOVTVInfoTabBarItemView.html"></a></li>
+								
+								<li><a href="Classes/BCOVTVPlayerView.html">BCOVTVP 播放器視圖</a></li>
+								
+								<li>BCOVTVPlayerViewOptions<a href="Classes/BCOVTVPlayerViewOptions.html"></a></li>
+								
+								<li>BCOVTVProgressView<a href="Classes/BCOVTVProgressView.html"></a></li>
+								
+								<li>BCOVTVSettingsView<a href="Classes/BCOVTVSettingsView.html"></a></li>
+								
+								<li>BCOVTVSubtitlesTabBarItemView<a href="Classes/BCOVTVSubtitlesTabBarItemView.html"></a></li>
+								
+								<li>BCOVTVTabBarItemView<a href="Classes/BCOVTVTabBarItemView.html"></a></li>
+								
+								<li><a href="Classes/BCOVUILabel.html">BCOVUI標籤</a></li>
+								
+								<li><a href="Classes/BCOVVideo.html">BCOV視頻</a></li>
+								
+								<li>BCOVVideo360ViewProjection<a href="Classes/BCOVVideo360ViewProjection.html"></a></li>
+								
+							</ul>
+						</div>
+						
+
+						
+						<div class="index-column">
+							
+							<h2 class="index-title">協議參考</h2>
+							<ul>
+								
+								<li><a href="Protocols/BCOVComponent.html">BCOV組件</a></li>
+								
+								<li>BCOVComponentIdentity<a href="Protocols/BCOVComponentIdentity.html"></a></li>
+								
+								<li>BCOVCuePoint<a href="Protocols/BCOVCuePoint.html"></a></li>
+								
+								<li>BCOVFPSAuthorizationProxy<a href="Protocols/BCOVFPSAuthorizationProxy.html"></a></li>
+								
+								<li>BCOVMutableAnalytics<a href="Protocols/BCOVMutableAnalytics.html"></a></li>
+								
+								<li>BCOVMutableCuePoint<a href="Protocols/BCOVMutableCuePoint.html"></a></li>
+								
+								<li><a href="Protocols/BCOVMutablePlaylist.html">BCOVM 可變播放列表</a></li>
+								
+								<li><a href="Protocols/BCOVMutableSource.html">BCOVM 可變源</a></li>
+								
+								<li><a href="Protocols/BCOVMutableVideo.html">BCOVM可變視頻</a></li>
+								
+								<li>BCOVOfflineVideoManagerDelegate<a href="Protocols/BCOVOfflineVideoManagerDelegate.html"></a></li>
+								
+								<li>BCOVPUIButtonAccessibilityDelegate<a href="Protocols/BCOVPUIButtonAccessibilityDelegate.html"></a></li>
+								
+								<li>BCOVPUIPlayerViewDelegate<a href="Protocols/BCOVPUIPlayerViewDelegate.html"></a></li>
+								
+								<li>BCOVPlaybackController<a href="Protocols/BCOVPlaybackController.html"></a></li>
+								
+								<li>BCOVPlaybackControllerAdsDelegate<a href="Protocols/BCOVPlaybackControllerAdsDelegate.html"></a></li>
+								
+								<li>BCOVPlaybackControllerBasicDelegate<a href="Protocols/BCOVPlaybackControllerBasicDelegate.html"></a></li>
+								
+								<li>BCOVPlaybackControllerDelegate<a href="Protocols/BCOVPlaybackControllerDelegate.html"></a></li>
+								
+								<li>BCOVPlaybackSession<a href="Protocols/BCOVPlaybackSession.html"></a></li>
+								
+								<li>BCOVPlaybackSessionAdsConsumer<a href="Protocols/BCOVPlaybackSessionAdsConsumer.html"></a></li>
+								
+								<li>BCOVPlaybackSessionBasicConsumer<a href="Protocols/BCOVPlaybackSessionBasicConsumer.html"></a></li>
+								
+								<li>BCOVPlaybackSessionConsumer<a href="Protocols/BCOVPlaybackSessionConsumer.html"></a></li>
+								
+								<li>BCOVPlaybackSessionProvider<a href="Protocols/BCOVPlaybackSessionProvider.html"></a></li>
+								
+								<li><a href="Protocols/BCOVPlaylist.html">BCOV播放列表</a></li>
+								
+								<li><a href="Protocols/BCOVSource.html">BCOV源</a></li>
+								
+								<li>BCOVTVPlayerViewDelegate<a href="Protocols/BCOVTVPlayerViewDelegate.html"></a></li>
+								
+								<li><a href="Protocols/BCOVVideo.html">BCOV視頻</a></li>
+								
+							</ul>
+							
+
+							
+							<h2 class="index-title">常量引用</h2>
+							<ul>
+								
+									<li>BCOVBufferOptimizerMethod<a href="Constants/BCOVBufferOptimizerMethod.html"></a></li>
+								
+									<li><a href="Constants/BCOVEconomics.html">BCOVE經濟</a></li>
+								
+									<li><a href="Constants/BCOVOfflineVideoDownloadState.html">BCOV離線視頻下載狀態</a></li>
+								
+									<li><a href="Constants/BCOVPUIButtonIcon.html">BCOVPUI按鈕圖標</a></li>
+								
+									<li>BCOVPUILearnMoreButtonBrowserStyle<a href="Constants/BCOVPUILearnMoreButtonBrowserStyle.html"></a></li>
+								
+									<li>BCOVPUIScreenMode<a href="Constants/BCOVPUIScreenMode.html"></a></li>
+								
+									<li>BCOVPUIVideo360NavigationMethod<a href="Constants/BCOVPUIVideo360NavigationMethod.html"></a></li>
+								
+									<li><a href="Constants/BCOVPUIViewTag.html">BCOVPUI視圖標籤</a></li>
+								
+									<li>BCOVPlaybackServiceErrorCode<a href="Constants/BCOVPlaybackServiceErrorCode.html"></a></li>
+								
+									<li>BCOVProgressPolicyCuePointsToProcess<a href="Constants/BCOVProgressPolicyCuePointsToProcess.html"></a></li>
+								
+									<li>BCOVProgressPolicyResumePosition<a href="Constants/BCOVProgressPolicyResumePosition.html"></a></li>
+								
+									<li><a href="Constants/BCOVTVIconType.html">BCOVTVI 圖標類型</a></li>
+								
+									<li><a href="Constants/BCOVTVPlayerType.html">BCOVTVP 播放器類型</a></li>
+								
+									<li>BCOVTVShowViewType<a href="Constants/BCOVTVShowViewType.html"></a></li>
+								
+									<li>BCOVVideo360ProjectionStyle<a href="Constants/BCOVVideo360ProjectionStyle.html"></a></li>
+								
+									<li>BCOVVideo360SourceFormat<a href="Constants/BCOVVideo360SourceFormat.html"></a></li>
+								
+									<li><a href="Constants/BCOVVideoType.html">BCOV視頻類型</a></li>
+								
+							</ul>
+							
+
+							
+							<h2 class="index-title">類別參考</h2>
+							<ul>
+								
+								<li>NSDictionary(BCOVURLSupport)<a href="Categories/NSDictionary-BCOVURLSupport.html"></a></li>
+								
+							</ul>
+							
+						</div>
+						
+					</div>
+
+					<footer>
+						<div class="footer-copyright">
+							
+							<p class="copyright">版權&copy; 2021 年光明灣。版權所有。更新：2021-07-08</p>
+							
+							
+							<p class="generator">生成者<a href="http://appledoc.gentlebytes.com">蘋果文檔 2.2.1（內部版本 1334）</a> .</p>
+							
+						</div>
+					</footer>
+				</main>
+			</div>
+		</div>
+	</article>
+
+	<script src="js/script.js"></script>
+</body>
+</html>

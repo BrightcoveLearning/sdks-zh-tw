@@ -1,0 +1,1424 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+
+	<title>BCOVPUIBasicControlView 類參考</title>
+
+	<link rel="stylesheet" href="../css/style.css">
+	<meta name="viewport" content="initial-scale=1, maximum-scale=1.4">
+	<meta name="generator" content="appledoc 2.2.1 (build 1334)">
+</head>
+<body class="appledoc">
+	<header>
+		<div class="container" class="hide-in-xcode">
+			
+			<h1 id="library-title"><a href="../index.html">BCOVPlayerUI</a></h1>
+
+			<p id="developer-home">
+				<a href="../index.html">亮灣</a>
+			</p>
+			
+		</div>
+	</header>
+
+	<aside>
+		<div class="container">
+			<nav>
+				<ul id="header-buttons" role="toolbar">
+					<li><a href="../index.html">指數</a></li>
+<li><a href="../hierarchy.html">等級制度</a></li>
+
+					<li id="on-this-page" role="navigation">
+						<label>
+							在本頁
+
+							<div class="chevron">
+								<div class="chevy chevron-left"></div>
+								<div class="chevy chevron-right"></div>
+							</div>
+
+							<select id="jump-to">
+	<option value="top">跳到…</option>
+	
+	<option value="overview">概述</option>
+	
+
+	
+	
+	<option value="tasks">任務</option>
+	
+	
+
+	
+	
+	<optgroup label="Properties">
+		
+		<option value="//api/name/backgroundView">背景視圖</option>
+		
+		<option value="//api/name/closedCaptionButton">關閉字幕按鈕</option>
+		
+		<option value="//api/name/closedCaptionEnabled">關閉字幕已啟用</option>
+		
+		<option value="//api/name/currentTimeLabel">當前時間標籤</option>
+		
+		<option value="//api/name/durationLabel">持續時間標籤</option>
+		
+		<option value="//api/name/externalRouteEnabled">啟用外部路由</option>
+		
+		<option value="//api/name/externalRouteView">外部路由視圖</option>
+		
+		<option value="//api/name/jumpBackButton">跳轉返回按鈕</option>
+		
+		<option value="//api/name/layout">佈局</option>
+		
+		<option value="//api/name/liveButton">活按鈕</option>
+		
+		<option value="//api/name/playbackButton">播放按鈕</option>
+		
+		<option value="//api/name/progressSlider">進度條</option>
+		
+		<option value="//api/name/screenModeButton">屏幕模式按鈕</option>
+		
+		<option value="//api/name/timeSeparatorLabel">時間分隔符標籤</option>
+		
+	</optgroup>
+	
+
+	
+	<optgroup label="Class Methods">
+		
+		<option value="//api/name/basicControlViewWithLiveDVRLayout">+ basicControlViewWithLiveDVRLayout</option>
+		
+		<option value="//api/name/basicControlViewWithLiveLayout">+ basicControlViewWithLiveLayout</option>
+		
+		<option value="//api/name/basicControlViewWithVODLayout">+ basicControlViewWithVODLayout</option>
+		
+		<option value="//api/name/createPUIControlItemWithViewTag:">+ createPUIControlItemWithViewTag：</option>
+		
+		<option value="//api/name/layoutViewWithControlFromTag:width:elasticity:">+ layoutViewWithControlFromTag:width:elasticity:</option>
+		
+	</optgroup>
+	
+
+	
+	<optgroup label="Instance Methods">
+		
+		<option value="//api/name/enableControls:">- 啟用控件：</option>
+		
+		<option value="//api/name/setFontSizeForButtons:">- setFontSizeForButtons：</option>
+		
+		<option value="//api/name/setFontSizeForLabels:">- setFontSizeForLabels：</option>
+		
+		<option value="//api/name/setTextColorForLabels:">- setTextColorForLabels：</option>
+		
+		<option value="//api/name/setTitleColorForButtons:forState:">- setTitleColorForButtons:forState:</option>
+		
+	</optgroup>
+	
+	
+</select>
+						</label>
+					</li>
+				</ul>
+			</nav>
+		</div>
+	</aside>
+
+	<article>
+		<div id="overview_contents" class="container">
+			<div id="content">
+				<main role="main">
+					<h1 class="title">BCOVPUIBasicControlView 類參考</h1>
+
+					
+					<div class="section section-specification"><table cellspacing="0"><tbody>
+						<tr>
+	<th>繼承自</th>
+	<td>界面視圖</td>
+</tr><tr>
+	<th>聲明於</th>
+	<td>BCOVPUIBasicControlView.h</td>
+</tr>
+						</tbody></table></div>
+					
+
+                    
+					
+					<div class="section section-overview">
+						<a title="Overview" name="overview"></a>
+						<h2 class="subtitle subtitle-overview">概述</h2>
+						<p>基本控件視圖。</p>
+					</div>
+					
+					
+
+					
+					
+					<div class="section section-tasks">
+						<a title="Tasks" name="tasks"></a>
+						
+
+						
+						
+
+						<div class="task-list">
+							<div class="section-method">
+	<a name="//api/name/backgroundView" title="backgroundView"></a>
+	<h3 class="method-title"><code><a href="#//api/name/backgroundView">&nbsp;&nbsp;背景視圖</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>控件的背景視圖。在 iOS 8 上，這是一個帶有暗模糊視圖的 UIVisualEffectView。在 iOS 7 上，它只是一個帶有輕微不透明度的黑色視圖。</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration">@property (nonatomic, weak, readonly) UIView *backgroundView<code></code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">討論</h4>
+				<p>控件的背景視圖。在 iOS 8 上，這是一個帶有暗模糊視圖的 UIVisualEffectView。在 iOS 7 上，它只是一個帶有輕微不透明度的黑色視圖。</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">申報在</h4>
+				<p>BCOVPUIBasicControlView.h<code class="declared-in-ref"></code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/layout" title="layout"></a>
+	<h3 class="method-title"><code><a href="#//api/name/layout">&nbsp;&nbsp;佈局</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>使用的佈局組織控件。</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration">@property (nonatomic, copy) BCOVPUIControlLayout *layout<code></code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">討論</h4>
+				<p>使用的佈局組織控件。</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">申報在</h4>
+				<p>BCOVPUIBasicControlView.h<code class="declared-in-ref"></code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/playbackButton" title="playbackButton"></a>
+	<h3 class="method-title"><code><a href="#//api/name/playbackButton">&nbsp;&nbsp;播放按鈕</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>播放按鈕</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration">@property (nonatomic, weak, readonly) BCOVPUIButton *playbackButton<code></code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">討論</h4>
+				<p>播放按鈕</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">申報在</h4>
+				<p>BCOVPUIBasicControlView.h<code class="declared-in-ref"></code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/jumpBackButton" title="jumpBackButton"></a>
+	<h3 class="method-title"><code><a href="#//api/name/jumpBackButton">&nbsp;&nbsp;跳轉返回按鈕</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>跳回按鈕</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration">@property (nonatomic, weak, readonly) BCOVPUIButton *jumpBackButton<code></code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">討論</h4>
+				<p>跳回按鈕</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">申報在</h4>
+				<p>BCOVPUIBasicControlView.h<code class="declared-in-ref"></code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/currentTimeLabel" title="currentTimeLabel"></a>
+	<h3 class="method-title"><code><a href="#//api/name/currentTimeLabel">&nbsp;&nbsp;當前時間標籤</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>當前時間（已用）標籤</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration">@property (nonatomic, weak, readonly) UILabel *currentTimeLabel<code></code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">討論</h4>
+				<p>當前時間（已用）標籤</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">申報在</h4>
+				<p>BCOVPUIBasicControlView.h<code class="declared-in-ref"></code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/timeSeparatorLabel" title="timeSeparatorLabel"></a>
+	<h3 class="method-title"><code><a href="#//api/name/timeSeparatorLabel">&nbsp;&nbsp;時間分隔符標籤</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>時間分隔符標籤</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration">@property (nonatomic, weak, readonly) UILabel *timeSeparatorLabel<code></code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">討論</h4>
+				<p>時間分隔符標籤</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">申報在</h4>
+				<p>BCOVPUIBasicControlView.h<code class="declared-in-ref"></code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/durationLabel" title="durationLabel"></a>
+	<h3 class="method-title"><code><a href="#//api/name/durationLabel">&nbsp;&nbsp;持續時間標籤</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>持續時間標籤</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration">@property (nonatomic, weak, readonly) UILabel *durationLabel<code></code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">討論</h4>
+				<p>持續時間標籤</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">申報在</h4>
+				<p>BCOVPUIBasicControlView.h<code class="declared-in-ref"></code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/progressSlider" title="progressSlider"></a>
+	<h3 class="method-title"><code><a href="#//api/name/progressSlider">&nbsp;&nbsp;進度條</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>進度滑塊</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>@property（非原子、弱、只讀）BCOVPUISlider *progressSlider</code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">討論</h4>
+				<p>進度滑塊</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">申報在</h4>
+				<p>BCOVPUIBasicControlView.h<code class="declared-in-ref"></code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/closedCaptionButton" title="closedCaptionButton"></a>
+	<h3 class="method-title"><code><a href="#//api/name/closedCaptionButton">&nbsp;&nbsp;關閉字幕按鈕</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>隱藏式字幕按鈕</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration">@property (nonatomic, weak, readonly) UIButton *closedCaptionButton<code></code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">討論</h4>
+				<p>隱藏式字幕按鈕</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">申報在</h4>
+				<p>BCOVPUIBasicControlView.h<code class="declared-in-ref"></code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/screenModeButton" title="screenModeButton"></a>
+	<h3 class="method-title"><code><a href="#//api/name/screenModeButton">&nbsp;&nbsp;屏幕模式按鈕</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>屏幕模式（全屏）按鈕</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration">@property (nonatomic, weak, readonly) BCOVPUIButton *screenModeButton<code></code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">討論</h4>
+				<p>屏幕模式（全屏）按鈕</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">申報在</h4>
+				<p>BCOVPUIBasicControlView.h<code class="declared-in-ref"></code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/externalRouteView" title="externalRouteView"></a>
+	<h3 class="method-title"><code><a href="#//api/name/externalRouteView">&nbsp;&nbsp;外部路由視圖</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>外部路由（airplay）按鈕</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration">@property (nonatomic, weak, readonly) MPVolumeView *externalRouteView<code></code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">討論</h4>
+				<p>外部路由（airplay）按鈕</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">申報在</h4>
+				<p>BCOVPUIBasicControlView.h<code class="declared-in-ref"></code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/liveButton" title="liveButton"></a>
+	<h3 class="method-title"><code><a href="#//api/name/liveButton">&nbsp;&nbsp;活按鈕</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>這&ldquo;去住&rdquo;按鈕</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration">@property (nonatomic, weak, readonly) BCOVPUIButton *liveButton<code></code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">討論</h4>
+				<p>這&ldquo;去住&rdquo;按鈕</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">申報在</h4>
+				<p>BCOVPUIBasicControlView.h<code class="declared-in-ref"></code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/closedCaptionEnabled" title="closedCaptionEnabled"></a>
+	<h3 class="method-title"><code><a href="#//api/name/closedCaptionEnabled">&nbsp;&nbsp;關閉字幕已啟用</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>是的，如果<a href="#//api/name/closedCaptionButton">關閉字幕按鈕</a>是可見的。不，如果不可見。</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration">@property (nonatomic, readonly, getter=isClosedCaptionEnabled) BOOL closedCaptionEnabled<code></code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">討論</h4>
+				<p>是的，如果<a href="#//api/name/closedCaptionButton">關閉字幕按鈕</a>是可見的。不，如果不可見。</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">申報在</h4>
+				<p>BCOVPUIBasicControlView.h<code class="declared-in-ref"></code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/externalRouteEnabled" title="externalRouteEnabled"></a>
+	<h3 class="method-title"><code><a href="#//api/name/externalRouteEnabled">&nbsp;&nbsp;啟用外部路由</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>是的，如果<a href="#//api/name/externalRouteView">外部路由視圖</a>是可見的。不，如果不可見。</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration">@property (nonatomic, assign, readonly, getter=isExternalRouteEnabled) BOOL externalRouteEnabled<code></code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">討論</h4>
+				<p>是的，如果<a href="#//api/name/externalRouteView">外部路由視圖</a>是可見的。不，如果不可見。</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">申報在</h4>
+				<p>BCOVPUIBasicControlView.h<code class="declared-in-ref"></code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/layoutViewWithControlFromTag:width:elasticity:" title="layoutViewWithControlFromTag:width:elasticity:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/layoutViewWithControlFromTag:width:elasticity:">+ &nbsp; layoutViewWithControlFromTag:width:elasticity:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>方便工廠方法來創建一個<a href="#//api/name/layout">佈局</a>帶有由指定標籤確定的子視圖的視圖。佈局視圖被捆綁到數組中並用於創建一個<a href="../Classes/BCOVPUIControlLayout.html">BCOVPUI控件佈局</a>實例。</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration">+ (BCOVPUILayoutView *)layoutViewWithControlFromTag:(BCOVPUIViewTag)<code><em>標籤</em> 寬度：（CGFloat）<em>寬度</em> 彈性：（CGFloat）<em>彈性</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">參數</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>標籤</code></th>
+						<td><p>指示所需控件或空的標記值<a href="#//api/name/layout">佈局</a>看法。</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>寬度</code></th>
+						<td><p>新的最小寬度<a href="#//api/name/layout">佈局</a>看法。傳遞 kBCOVPUILayoutUseDefaultValue 以使用特定控件的默認寬度。</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>彈性</code></th>
+						<td><p>a的相對數量<a href="#//api/name/layout">佈局</a>視圖可以擴展以填充空間。彈性是相對於其他<a href="#//api/name/layout">佈局</a>意見。</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">返回值</h4>
+				<p>一種<a href="../Classes/BCOVPUILayoutView.html">BCOVPUI佈局視圖</a>使用由標籤、寬度和彈性指定的子視圖初始化的實例。</p>
+			</div>
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">討論</h4>
+				<p>方便工廠方法來創建一個<a href="#//api/name/layout">佈局</a>帶有由指定標籤確定的子視圖的視圖。佈局視圖被捆綁到數組中並用於創建一個<a href="../Classes/BCOVPUIControlLayout.html">BCOVPUI控件佈局</a>實例。</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">申報在</h4>
+				<p>BCOVPUIBasicControlView.h<code class="declared-in-ref"></code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/basicControlViewWithVODLayout" title="basicControlViewWithVODLayout"></a>
+	<h3 class="method-title"><code><a href="#//api/name/basicControlViewWithVODLayout">+ &nbsp; basicControlViewWithVODLayout</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>使用控件創建控件視圖的便利工廠方法<a href="#//api/name/layout">佈局</a>用於視頻點播流。</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration">+ (instancetype)basicControlViewWithVODLayout<code></code></div>
+
+		    
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">返回值</h4>
+				<p>使用控件初始化的 BCOVPUIBasicControlView 實例<a href="#//api/name/layout">佈局</a>用於視頻點播流。</p>
+			</div>
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">討論</h4>
+				<p>使用控件創建控件視圖的便利工廠方法<a href="#//api/name/layout">佈局</a>用於視頻點播流。</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">申報在</h4>
+				<p>BCOVPUIBasicControlView.h<code class="declared-in-ref"></code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/basicControlViewWithLiveLayout" title="basicControlViewWithLiveLayout"></a>
+	<h3 class="method-title"><code><a href="#//api/name/basicControlViewWithLiveLayout">+ &nbsp; basicControlViewWithLiveLayout</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>使用控件創建控件視圖的便利工廠方法<a href="#//api/name/layout">佈局</a>用於實時視頻流。</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration">+ (instancetype)basicControlViewWithLiveLayout<code></code></div>
+
+		    
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">返回值</h4>
+				<p>使用控件初始化的 BCOVPUIBasicControlView 實例<a href="#//api/name/layout">佈局</a>用於實時視頻流。</p>
+			</div>
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">討論</h4>
+				<p>使用控件創建控件視圖的便利工廠方法<a href="#//api/name/layout">佈局</a>用於實時視頻流。</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">申報在</h4>
+				<p>BCOVPUIBasicControlView.h<code class="declared-in-ref"></code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/basicControlViewWithLiveDVRLayout" title="basicControlViewWithLiveDVRLayout"></a>
+	<h3 class="method-title"><code><a href="#//api/name/basicControlViewWithLiveDVRLayout">+ &nbsp; basicControlViewWithLiveDVRLayout</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>使用控件創建控件視圖的便利工廠方法<a href="#//api/name/layout">佈局</a>用於實時 DVR 視頻流。</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration">+ (instancetype)basicControlViewWithLiveDVRLayout<code></code></div>
+
+		    
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">返回值</h4>
+				<p>使用控件初始化的 BCOVPUIBasicControlView 實例<a href="#//api/name/layout">佈局</a>用於實時 DVR 視頻流。</p>
+			</div>
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">討論</h4>
+				<p>使用控件創建控件視圖的便利工廠方法<a href="#//api/name/layout">佈局</a>用於實時 DVR 視頻流。</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">申報在</h4>
+				<p>BCOVPUIBasicControlView.h<code class="declared-in-ref"></code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/enableControls:" title="enableControls:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/enableControls:">&ndash;&nbsp;啟用控件：</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>啟用或禁用所有標準控件</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration">- (void)enableControls:(BOOL)<code><em>啟用</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">參數</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>啟用</code></th>
+						<td><p>YES 啟用；否禁用。</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">討論</h4>
+				<p>啟用或禁用所有標準控件</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">申報在</h4>
+				<p>BCOVPUIBasicControlView.h<code class="declared-in-ref"></code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/setFontSizeForLabels:" title="setFontSizeForLabels:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/setFontSizeForLabels:">&ndash;&nbsp; setFontSizeForLabels：</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>使用指定的字體大小更新所有標籤組件。</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration">- (void)setFontSizeForLabels:(CGFloat)<code><em>字體大小</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">參數</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>字體大小</code></th>
+						<td><p>用於更新組件的字體大小。</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">討論</h4>
+				<p>使用指定的字體大小更新所有標籤組件。</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">申報在</h4>
+				<p>BCOVPUIBasicControlView.h<code class="declared-in-ref"></code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/setFontSizeForButtons:" title="setFontSizeForButtons:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/setFontSizeForButtons:">&ndash;&nbsp; setFontSizeForButtons：</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>使用指定的字體大小更新所有按鈕組件。</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration">- (void)setFontSizeForButtons:(CGFloat)<code><em>字體大小</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">參數</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>字體大小</code></th>
+						<td><p>用於更新組件的字體大小。</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">討論</h4>
+				<p>使用指定的字體大小更新所有按鈕組件。</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">申報在</h4>
+				<p>BCOVPUIBasicControlView.h<code class="declared-in-ref"></code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/setTextColorForLabels:" title="setTextColorForLabels:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/setTextColorForLabels:">&ndash;&nbsp; setTextColorForLabels：</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>使用指定的字體顏色更新所有標籤組件。</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration">- (void)setTextColorForLabels:(UIColor *)<code><em>文字顏色</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">參數</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>文字顏色</code></th>
+						<td><p>用於更新組件的字體大小。</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">討論</h4>
+				<p>使用指定的字體顏色更新所有標籤組件。</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">申報在</h4>
+				<p>BCOVPUIBasicControlView.h<code class="declared-in-ref"></code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/setTitleColorForButtons:forState:" title="setTitleColorForButtons:forState:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/setTitleColorForButtons:forState:">&ndash;&nbsp; setTitleColorForButtons:forState:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>使用指定的狀態顏色更新所有按鈕組件。</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration">- (void)setTitleColorForButtons:(UIColor *)<code><em>標題顏色</em> forState:(UIControlState)<em>狀態</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">參數</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>標題顏色</code></th>
+						<td><p>要設置的標題顏色。</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>狀態</code></th>
+						<td><p>控制要設置的狀態。</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">討論</h4>
+				<p>使用指定的狀態顏色更新所有按鈕組件。</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">申報在</h4>
+				<p>BCOVPUIBasicControlView.h<code class="declared-in-ref"></code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/createPUIControlItemWithViewTag:" title="createPUIControlItemWithViewTag:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/createPUIControlItemWithViewTag:">+ &nbsp; createPUIControlItemWithViewTag：</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>構造具有指定標籤的 UI 控件項。返回的對象可能是<a href="../Classes/BCOVPUIButton.html">BCOVPUI按鈕</a> , <a href="../Classes/BCOVPUISlider.html"> BCOVPUIS滑塊</a>、 UILabel 或 MPVolumeView 取決於指定的標籤。這種方法通常只用於<a href="#//api/name/layoutViewWithControlFromTag:width:elasticity:">layoutViewWithControlFromTag:width:elasticity:</a>創建放置在一個控件中的控件<a href="../Classes/BCOVPUILayoutView.html">BCOVPUI佈局視圖</a> .將應用默認樣式。</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration">+ (UIView *)createPUIControlItemWithViewTag:(BCOVPUIViewTag)<code><em>標籤</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">參數</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>標籤</code></th>
+						<td><p>要構造的標籤。</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">返回值</h4>
+				<p>初始化的 UI 組件。</p>
+			</div>
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">討論</h4>
+				<p>構造具有指定標籤的 UI 控件項。返回的對象可能是<a href="../Classes/BCOVPUIButton.html">BCOVPUI按鈕</a> , <a href="../Classes/BCOVPUISlider.html"> BCOVPUIS滑塊</a>、 UILabel 或 MPVolumeView 取決於指定的標籤。這種方法通常只用於<a href="#//api/name/layoutViewWithControlFromTag:width:elasticity:">layoutViewWithControlFromTag:width:elasticity:</a>創建放置在一個控件中的控件<a href="../Classes/BCOVPUILayoutView.html">BCOVPUI佈局視圖</a> .將應用默認樣式。</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">申報在</h4>
+				<p>BCOVPUIBasicControlView.h<code class="declared-in-ref"></code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div>
+						</div>
+						
+					</div>
+					
+					
+
+                    
+                    
+          
+				</main>
+
+				<footer>
+					<div class="footer-copyright">
+						
+						<p class="copyright">版權&copy; 2016 年光明灣。版權所有。更新：2016-06-09</p>
+						
+						
+						<p class="generator">生成者<a href="http://appledoc.gentlebytes.com">蘋果文檔 2.2.1（內部版本 1334）</a> .</p>
+						
+					</div>
+				</footer>
+			</div>
+		</div>
+	</article>
+
+	<script src="../js/script.js"></script>
+<script src="https://learning-services-media.brightcove.com/doc-assets/js/https-fix.js"></script>
+<script src="https://learning-services-media.brightcove.com/doc-assets/js/support-feedback.js"></script><script src="https://support.brightcove.com/site-assets/js/site/feedback-docs.js"></script>
+</body>
+</html>

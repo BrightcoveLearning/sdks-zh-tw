@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+
+	<title>適用於 iOS 的 Brightcove Native Player 參考</title>
+
+	<link rel="stylesheet" href="css/style.css">
+	<meta name="viewport" content="initial-scale=1, maximum-scale=1.4">
+	<meta name="generator" content="appledoc 2.2.1 (build 1334)">
+</head>
+<body class="appledoc">
+	<header>
+		<div class="container" class="hide-in-xcode">
+			
+			<h1 id="library-title"><a href="index.html">適用於 iOS 的 Brightcove 原生播放器</a></h1>
+
+			<p id="developer-home">
+				<a href="index.html">亮灣</a>
+			</p>
+			
+		</div>
+	</header>
+
+	<aside>
+		<div class="container">
+			<nav>
+				<ul id="header-buttons" role="toolbar">
+					<li><a href="hierarchy.html">等級制度</a></li>
+				</ul>
+			</nav>
+		</div>
+	</aside>
+
+	<article>
+		<div id="overview-contents" class="container">
+			<div id="content">
+				<main role="main">
+					<h1 class="title">適用於 iOS 的 Brightcove Native Player 參考</h1>
+
+					
+					<div class="section section-overview index-overview">
+						
+						
+						<h1>適用於 iOS 版 Brightcove Player SDK 的 Google Cast 插件，版本 6.9.0.1697</h1><h1>要求</h1>
+
+<ul>
+<li>Xcode 11.0+</li>
+<li>弧</li>
+</ul>
+
+
+<h1>支持的平台</h1>
+
+<p>iOS 11.0 及更高版本。</p>
+
+<h1>安裝</h1>
+
+<p>Brightcove Player SDK 的 Google Cast 插件提供了一個用於安裝的靜態庫框架。</p>
+
+<p>Google Cast 插件支持適用於 iOS 的 Google Cast SDK 4.5.0 版。可以找到 Google Cast 發行說明<a href="https://developers.google.com/cast/docs/release-notes">這裡</a> .</p>
+
+<h2>可可豆</h2>
+
+<p>您可以使用<a href="http://cocoapods.org">可可豆</a>將適用於 Brightcove Player SDK 的 Google Cast 插件添加到您的項目中。您可以找到最新的 Brightcove-Player-GoogleCast podspecs <a href="https://github.com/brightcove/BrightcoveSpecs/tree/master/Brightcove-Player-GoogleCast">這裡</a> .Pod 將自動包含正確版本的 GoogleCast。需要 CocoaPods 1.0 或更新版本。</p>
+
+<p>CocoaPod Podfile 示例：</p>
+
+<p>```bash源碼&lsquo;<a href="https://github.com/CocoaPods/Specs" title="">https://github.com/CocoaPods/Specs'</a>來源&rsquo;<a href="https://github.com/brightcove/BrightcoveSpecs.git" title="">https://github.com/brightcove/BrightcoveSpecs.git'</a></p>
+
+<p>平台：ios，&lsquo; 11.0 &rsquo;</p>
+
+<p>使用_框架！</p>
+
+<p>目標&lsquo;示例應用程序&rsquo;做豆莢&lsquo; Brightcove-播放器-GoogleCast &rsquo;結束```</p>
+
+<p>安裝 Brightcove-Player-GoogleCast 會自動安裝依賴項 Brightcove-Player-Core。根據您的需要，您可以選擇包含動態 Brightcove-Player-Core 框架或靜態框架。默認情況下，安裝動態 Core 框架。要選擇靜態 Core 框架，您的 Podfile 將如下所示：</p>
+
+<p>```bash源碼&lsquo; https://github.com/CocoaPods/Specs &rsquo;來源&lsquo; https://github.com/brightcove/BrightcoveSpecs.git &rsquo;</p>
+
+<p>平台：ios，&lsquo; 11.0 &rsquo;</p>
+
+<p>使用_框架！</p>
+
+<p>目標&lsquo;示例應用程序&rsquo;做豆莢&lsquo; Brightcove-Player-GoogleCast-static &rsquo;結束```</p>
+
+<p>更新安裝時，它&rsquo;刷新 BrightcoveSpecs 存儲庫的本地副本是一個好主意，以確保您在本地擁有最新的 podspec，就像更新 CococaPods 主存儲庫一樣。用<code>pod 回購更新</code>這樣做。</p>
+
+<h2>手動的</h2>
+
+<p>手動將適用於 Brightcove Player SDK 的 Google Cast 插件添加到您的項目中：</p>
+
+<ol>
+<li>跟著<a href="https://developers.google.com/cast/docs/ios_sender/#manual_setup">Google Cast SDK 手動設置</a>指導。</li>
+<li>跟著<a href="https://github.com/brightcove/brightcove-player-sdk-ios#ManualInstallation">Brightcove Player SDK 手動安裝</a>指導。</li>
+<li>下載<a href="https://github.com/brightcove/brightcove-player-sdk-ios-googlecast">適用於 Brightcove Player SDK 的 Google Cast 插件</a>框架。</li>
+<li>在&ldquo;一般的&rdquo;應用程序目標的選項卡，將 BrightcoveGoogleCast.framework 從 Google Cast Plugin for Brightcove Player SDK 下載添加到列表<strong>框架、庫、嵌入式內容</strong> .</li>
+<li>在&ldquo;構建設置&rdquo;應用程序目標的選項卡，確保&ldquo;框架搜索路徑&rdquo;包括框架的路徑。這應該自動完成，除非框架存儲在與您的項目不同的根目錄下。</li>
+</ol>
+
+
+<h2>進口</h2>
+
+<p>Brightcove Player SDK 的 Google Cast 插件可以通過幾種不同的方式導入到代碼中；<code> @import BrightcoveGoogleCast;</code> , <code> #import &lt;BrightcoveGoogleCast/BrightcoveGoogleCast.h&gt;</code>或者<code>#import &lt;BrightcoveGoogleCast/[特定類].h&gt;</code> .您可以導入<code>谷歌廣播</code>和<code>Brightcove播放器SDK</code>模塊以類似的方式。</p>
+
+<h1>在你開始之前</h1>
+
+<p>在嘗試使用此插件之前，您應該已經熟悉以下內容：</p>
+
+<ul>
+<li><a href="https://developers.google.com/cast/docs/registration">註冊您的應用程序</a> .這將引導您創建接收者應用程序並授予您一個應用程序 ID。一開始，您可以使用演示應用程序 ID &lsquo; 4F8B3483 &rsquo; .</li>
+<li><a href="https://developers.google.com/cast/docs/ios_sender">使用適用於 iOS 的 Cast 應用程序框架 (CAF) 進行開發的設置</a> .這將引導您為您的應用程序設置必要的權利。</li>
+<li><a href="https://developers.google.com/cast/docs/ios_sender/integrate#initialize_the_cast_context">初始化 Cast 上下文</a> .這將引導您使用接收器應用程序 ID 初始化 Cast Context。</li>
+<li><a href="https://developers.google.com/cast/docs/ios_sender/integrate#add_mini_controllers">添加迷你控制器</a> .這將引導您了解如何利用 Google Cast SDK &rsquo; s 迷你媒體控件。</li>
+</ul>
+
+
+<h1>快速開始</h1>
+
+<p>BrightcoveGoogleCast 插件是兩者之間的橋樑<a href="https://developers.google.com/cast/docs/ios_sender/">Google Cast iOS SDK</a>和<a href="https://github.com/brightcove/brightcove-player-sdk-ios">適用於 iOS 的 Brightcove Player SDK</a> .</p>
+
+<p>這個片段展示了它的基本用法。</p>
+
+<pre><code>[1] self.googleCastManager = [BCOVGoogleCastManager new]; [2] id&lt;BCOVPlaybackController&gt;playbackController = [BCOVPlayerSDKManager.sharedManager createPlaybackController]; [3] [playbackController addSessionConsumer:self.googleCastManager];</code></pre>
+
+<p>將代碼分解為幾個步驟：</p>
+
+<ol>
+<li>創建一個引用<a href="Classes/BCOVGoogleCastManager.html">BCOVGoogleCastManager</a>單身。</li>
+<li>創建要使用的 BCOVPlaybackController 實例。</li>
+<li>添加您的<a href="Classes/BCOVGoogleCastManager.html">BCOVGoogleCastManager</a>作為會話使用者引用您的 BCOVPlaybackController 實例。</li>
+</ol>
+
+
+<h1>Brightcove CAF 接收器</h1>
+
+<p>Brightcove CAF 接收器的應用程序 ID 是<code>341387A3</code>並分配給常數<code>kBCOVCAFReceiverApplicationID</code> .您可以通過檢查應用程序 ID <a href="https://players.brightcove.net/videojs-chromecast-receiver/2/config.json"> CAF 接收器 config.json</a> .</p>
+
+<p>如果您使用的是 Brightcove CAF 接收器，您&rsquo;需要像這樣初始化這些變量：</p>
+
+<pre><code>[1] BCOVReceiverAppConfig *receiverAppConfig = [BCOVReceiverAppConfig new]; receiverAppConfig.accountId = kAccountID; receiverAppConfig.policyKey = kServicePolicyKey; [2] self.googleCastManager = [[BCOVGoogleCastManager alloc] initForBrightcoveReceiverApp:receiverAppConfig];</code></pre>
+
+<p>以下屬性也可用於設置<a href="Classes/BCOVReceiverAppConfig.html"><code>BCOVReceiverAppConfig</code></a>如所須：</p>
+
+<ul>
+<li>splashScreen（用於自定義啟動畫面圖像）</li>
+<li>playerUrl（用於使用自定義播放器）</li>
+<li>authToken（用於 PAS/EPA）</li>
+<li>watermarkingToken（用於法醫制水）</li>
+<li>adConfigId（用於 SSAI）</li>
+<li>userId（用於分析跟踪）</li>
+<li>applicationId（用於分析跟踪）</li>
+</ul>
+
+
+<h1>委託方法</h1>
+
+<p><a href="Protocols/BCOVGoogleCastManagerDelegate.html">BCOVGoogleCastManagerDelegate</a>具有委託方法，您可以使用它在與演員相關的主要事件發生或即將發生時收到通知，例如</p>
+
+<ul>
+<li>- (void)switchedToLocalPlayback:(NSTimeInterval)lastKnownStreamPosition;<code></code></li>
+<li>- (void)switchedToRemotePlayback;<code></code></li>
+<li>- (void)currentCastedVideoDidComplete;<code></code></li>
+<li>- (void)castedVideoFailedToPlay;<code></code></li>
+<li>- (void)suitableSourceNotFound;<code></code></li>
+<li>- (void)willBuildMediaInformationBuilder:(GCKMediaInformationBuilder *_Nonnull);<code></code></li>
+<li>- (void)willSendMediaLoadOptions:(GCKMediaLoadOptions *_Nonnull);<code></code></li>
+</ul>
+
+
+<p>有關包含說明的完整列表，請參閱<a href="https://docs.brightcove.com/ios-plugins/googlecast/Protocols/BCOVGoogleCastManagerDelegate.html">BCOVGoogeCastManagerDelegate 協議參考</a> .</p>
+
+<p>要利用這些事件，請在<a href="Classes/BCOVGoogleCastManager.html">BCOVGoogleCastManager</a>單身。</p>
+
+<pre><code>self.googleCastManager.delegate = self;</code></pre>
+
+<h1>源選擇</h1>
+
+<p>這<a href="Classes/BCOVGoogleCastManager.html">BCOVGoogleCastManager</a>將嘗試找到合適的來源來使用。它將按以下順序查找來源：</p>
+
+<ol>
+<li>HTTPS HLS v3</li>
+<li>HTTPS DASH</li>
+<li>HTTPS MP4</li>
+<li>HTTP HLS v3</li>
+<li>HTTP DASH</li>
+<li>HTTP MP4</li>
+</ol>
+
+
+<p>如果這些都沒有找到，則委託方法<code>未找到合適的來源</code>將被調用。</p>
+
+<p>您的 Video Cloud 帳戶需要設置為支持 HLS v3，確保啟用 DASH 或為每個視頻提供可用的 MP4 源。</p>
+
+<h1>定制</h1>
+
+<p>除了委託屬性之外，還有兩個屬性可以在<a href="Classes/BCOVGoogleCastManager.html">BCOVGoogleCastManager</a>班級。這些是：</p>
+
+<ul>
+<li><code>GCKImage *fallbackPosterImage</code>：當沒有可用於視頻的海報圖像時將使用的 GCKImage。</li>
+<li><code>CGSize 海報ImageSize</code>：要用於創建的 GCKImage 對像圖像的高度和寬度。默認為 480h x 720w。</li>
+</ul>
+
+
+<h1>已知問題/限制</h1>
+
+<h2>當使用默認的、未修改的接收器（包括演示接收器）時，以下限制適用：</h2>
+
+<ul>
+<li>不支持 DRM。</li>
+<li>不支持多個音軌。</li>
+<li>不支持客戶端和服務器端廣告。</li>
+<li>不支持直播和直播 DVR 流。</li>
+</ul>
+
+
+<h2>使用 Brightcove CAF 接收器時，以下限制適用：</h2>
+
+<ul>
+<li>不支持客戶端廣告。</li>
+</ul>
+
+
+<h1>支持</h1>
+
+<p>如果您有問題、需要幫助或想提供反饋，請使用<a href="https://supportportal.brightcove.com/s/login/">支持門戶</a>或聯繫您的客戶經理。要接收新 SDK 軟件發布的通知，請訂閱 Brightcove Native Player SDK <a href="https://groups.google.com/g/brightcove-native-player-sdks">谷歌集團</a> .</p>
+						
+						
+					</div>
+					
+
+					<div class="index-container">
+						
+
+						
+						<div class="index-column">
+							<h2 class="index-title">類引用</h2>
+							<ul>
+								
+								<li>BCOVGoogleCastManager<a href="Classes/BCOVGoogleCastManager.html"></a></li>
+								
+								<li>BCOVReceiverAppConfig<a href="Classes/BCOVReceiverAppConfig.html"></a></li>
+								
+							</ul>
+						</div>
+						
+
+						
+						<div class="index-column">
+							
+							<h2 class="index-title">協議參考</h2>
+							<ul>
+								
+								<li>BCOVGoogleCastManagerDelegate<a href="Protocols/BCOVGoogleCastManagerDelegate.html"></a></li>
+								
+							</ul>
+							
+
+							
+
+							
+						</div>
+						
+					</div>
+
+					<footer>
+						<div class="footer-copyright">
+							
+							<p class="copyright">版權&copy; 2021 年光明灣。版權所有。更新：2021-07-08</p>
+							
+							
+							<p class="generator">生成者<a href="http://appledoc.gentlebytes.com">蘋果文檔 2.2.1（內部版本 1334）</a> .</p>
+							
+						</div>
+					</footer>
+				</main>
+			</div>
+		</div>
+	</article>
+
+	<script src="js/script.js"></script>
+</body>
+</html>

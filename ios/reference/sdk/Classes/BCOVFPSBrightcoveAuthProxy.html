@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+
+	<title>BCOVFPSBrightcoveAuthProxy 類參考</title>
+
+	<link rel="stylesheet" href="../css/style.css">
+	<meta name="viewport" content="initial-scale=1, maximum-scale=1.4">
+	<meta name="generator" content="appledoc 2.2.1 (build 1334)">
+</head>
+<body class="appledoc">
+	<header>
+		<div class="container" class="hide-in-xcode">
+			
+			<h1 id="library-title"><a href="../index.html">適用於 iOS 的 Brightcove 原生播放器</a></h1>
+
+			<p id="developer-home">
+				<a href="../index.html">亮灣</a>
+			</p>
+			
+		</div>
+	</header>
+
+	<aside>
+		<div class="container">
+			<nav>
+				<ul id="header-buttons" role="toolbar">
+					<li><a href="../index.html">指數</a></li>
+<li><a href="../hierarchy.html">等級制度</a></li>
+
+					<li id="on-this-page" role="navigation">
+						<label>
+							在本頁
+
+							<div class="chevron">
+								<div class="chevy chevron-left"></div>
+								<div class="chevy chevron-right"></div>
+							</div>
+
+							<select id="jump-to">
+	<option value="top">跳到…</option>
+	
+	<option value="overview">概述</option>
+	
+
+	
+	
+	<option value="tasks">任務</option>
+	
+	
+
+	
+	
+	<optgroup label="Properties">
+		
+		<option value="//api/name/fpsBaseURL">fpsBaseURL</option>
+		
+		<option value="//api/name/keyRequestURL">密鑰請求URL</option>
+		
+		<option value="//api/name/sharedURLSession">共享URL會話</option>
+		
+	</optgroup>
+	
+
+	
+
+	
+	<optgroup label="Instance Methods">
+		
+		<option value="//api/name/initWithPublisherId:applicationId:">- initWithPublisherId:applicationId:</option>
+		
+		<option value="//api/name/retrieveApplicationCertificate:">- 檢索應用程序證書：</option>
+		
+	</optgroup>
+	
+	
+</select>
+						</label>
+					</li>
+				</ul>
+			</nav>
+		</div>
+	</aside>
+
+	<article>
+		<div id="overview_contents" class="container">
+			<div id="content">
+				<main role="main">
+					<h1 class="title">BCOVFPSBrightcoveAuthProxy 類參考</h1>
+
+					
+					<div class="section section-specification"><table cellspacing="0"><tbody>
+						<tr>
+	<th>繼承自</th>
+	<td>NSObject</td>
+</tr><tr>
+	<th>符合</th>
+	<td>BCOVFPSAuthorizationProxy<a href="../Protocols/BCOVFPSAuthorizationProxy.html"></a></td>
+</tr><tr>
+	<th>聲明於</th>
+	<td>BCOVFPSBrightcoveAuthProxy.h</td>
+</tr>
+						</tbody></table></div>
+					
+
+                    
+					
+					<div class="section section-overview">
+						<a title="Overview" name="overview"></a>
+						<h2 class="subtitle subtitle-overview">概述</h2>
+						<p>負責與 Brightcove FairPlay 服務交互的類。</p>
+					</div>
+					
+					
+
+					
+					
+					<div class="section section-tasks">
+						<a title="Tasks" name="tasks"></a>
+						
+
+						
+						
+
+						<div class="task-list">
+							<div class="section-method">
+	<a name="//api/name/fpsBaseURL" title="fpsBaseURL"></a>
+	<h3 class="method-title"><code><a href="#//api/name/fpsBaseURL">&nbsp;&nbsp; fpsBaseURL</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>FairPlay 相關許可請求的基本 URL。默認 URL 指向 fps.brightcove.com。如果設置為 nil，將重新創建指向 fps.brightcove.com 的默認 NSURL。</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration">@property (nonatomic, strong, null_resettable) NSURL *fpsBaseURL<code></code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">討論</h4>
+				<p>FairPlay 相關許可請求的基本 URL。默認 URL 指向 fps.brightcove.com。如果設置為 nil，將重新創建指向 fps.brightcove.com 的默認 NSURL。</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">申報在</h4>
+				<p>BCOVFPSBrightcoveAuthProxy.h<code class="declared-in-ref"></code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/keyRequestURL" title="keyRequestURL"></a>
+	<h3 class="method-title"><code><a href="#//api/name/keyRequestURL">&nbsp;&nbsp;密鑰請求URL</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>FairPlay 相關密鑰請求的密鑰請求 URL。通常設置為 nil，在這種情況下，將從 Video Cloud Playback API 響應中檢索密鑰請求 URL。</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration">@property (nonatomic, strong, nullable) NSURL *keyRequestURL<code></code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">討論</h4>
+				<p>FairPlay 相關密鑰請求的密鑰請求 URL。通常設置為 nil，在這種情況下，將從 Video Cloud Playback API 響應中檢索密鑰請求 URL。</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">申報在</h4>
+				<p>BCOVFPSBrightcoveAuthProxy.h<code class="declared-in-ref"></code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/sharedURLSession" title="sharedURLSession"></a>
+	<h3 class="method-title"><code><a href="#//api/name/sharedURLSession">&nbsp;&nbsp;共享URL會話</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>NSURLSession 在對 BCOVFPSBrightcoveAuthProxy 的所有網絡調用之間共享。該對像是在初始化播放服務時創建的。如果你想使用你自己的 NSURLSession 你可以在這裡設置它。如果設置為 nil，將重新創建默認的 NSURLSession。</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration">@property (nonatomic, strong, null_resettable) NSURLSession *sharedURLSession<code></code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">討論</h4>
+				<p>NSURLSession 在對 BCOVFPSBrightcoveAuthProxy 的所有網絡調用之間共享。該對像是在初始化播放服務時創建的。如果你想使用你自己的 NSURLSession 你可以在這裡設置它。如果設置為 nil，將重新創建默認的 NSURLSession。</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">申報在</h4>
+				<p>BCOVFPSBrightcoveAuthProxy.h<code class="declared-in-ref"></code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/initWithPublisherId:applicationId:" title="initWithPublisherId:applicationId:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/initWithPublisherId:applicationId:">&ndash;&nbsp; initWithPublisherId:applicationId:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>創建一個<a href="../Protocols/BCOVFPSAuthorizationProxy.html">BCOVFPSAuthorizationProxy</a>與 fps.brightcove.com 互動。</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration">- (nullable instancetype)initWithPublisherId:(nullable NSString *)<code><em>公眾號</em> applicationId:(可為空的 NSString *)<em>應用程序ID</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">參數</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>公眾號</code></th>
+						<td><p>發布者 ID。不得為零。</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>應用程序ID</code></th>
+						<td><p>在 fps.brightcove.com 註冊的應用程序 ID。如果不使用 fps.brightcove.com，則可能為零。</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">返回值</h4>
+				<p>一個初始化的代理。</p>
+			</div>
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">討論</h4>
+				<p>創建一個<a href="../Protocols/BCOVFPSAuthorizationProxy.html">BCOVFPSAuthorizationProxy</a>與 fps.brightcove.com 互動。</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">申報在</h4>
+				<p>BCOVFPSBrightcoveAuthProxy.h<code class="declared-in-ref"></code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/retrieveApplicationCertificate:" title="retrieveApplicationCertificate:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/retrieveApplicationCertificate:">&ndash;&nbsp;檢索應用程序證書：</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>檢索應用程序證書。這應該盡快完成，並且緩存時間不應超過 6 小時。</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration">- (void)retrieveApplicationCertificate:(void ( ^ ) ( NSData *__nullable applicationCetificate , NSError *__nullable error ))<code><em>完成處理程序</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">參數</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>完成處理程序</code></th>
+						<td><p>在請求完成時執行。如果 applicationCetificate 為零，則會填充錯誤。該塊將在主線程上執行。</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">討論</h4>
+				<p>檢索應用程序證書。這應該盡快完成，並且緩存時間不應超過 6 小時。</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">申報在</h4>
+				<p>BCOVFPSBrightcoveAuthProxy.h<code class="declared-in-ref"></code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div>
+						</div>
+						
+					</div>
+					
+					
+
+                    
+				</main>
+
+				<footer>
+					<div class="footer-copyright">
+						
+						<p class="copyright">版權&copy; 2021 年光明灣。版權所有。更新：2021-07-08</p>
+						
+						
+						<p class="generator">生成者<a href="http://appledoc.gentlebytes.com">蘋果文檔 2.2.1（內部版本 1334）</a> .</p>
+						
+					</div>
+				</footer>
+			</div>
+		</div>
+	</article>
+
+	<script src="../js/script.js"></script>
+</body>
+</html>

@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+
+	<title>BCOVPlaylist 協議參考</title>
+
+	<link rel="stylesheet" href="../css/style.css">
+	<meta name="viewport" content="initial-scale=1, maximum-scale=1.4">
+	<meta name="generator" content="appledoc 2.2.1 (build 1334)">
+</head>
+<body class="appledoc">
+	<header>
+		<div class="container" class="hide-in-xcode">
+			
+			<h1 id="library-title"><a href="../index.html">適用於 iOS 的 Brightcove 原生播放器</a></h1>
+
+			<p id="developer-home">
+				<a href="../index.html">亮灣</a>
+			</p>
+			
+		</div>
+	</header>
+
+	<aside>
+		<div class="container">
+			<nav>
+				<ul id="header-buttons" role="toolbar">
+					<li><a href="../index.html">指數</a></li>
+<li><a href="../hierarchy.html">等級制度</a></li>
+
+					<li id="on-this-page" role="navigation">
+						<label>
+							在本頁
+
+							<div class="chevron">
+								<div class="chevy chevron-left"></div>
+								<div class="chevy chevron-right"></div>
+							</div>
+
+							<select id="jump-to">
+	<option value="top">跳到…</option>
+	
+	<option value="overview">概述</option>
+	
+
+	
+	
+	<option value="tasks">任務</option>
+	
+	
+
+	
+	
+	<optgroup label="Properties">
+		
+		<option value="//api/name/allFailedVideos">所有失敗的視頻</option>
+		
+		<option value="//api/name/allPlayableVideos">所有可播放視頻</option>
+		
+		<option value="//api/name/properties">特性</option>
+		
+		<option value="//api/name/videos">視頻</option>
+		
+	</optgroup>
+	
+
+	
+	<optgroup label="Class Methods">
+		
+		<option value="//api/name/allFailedVideosFrom:">+ 所有失敗的視頻來自：</option>
+		
+		<option value="//api/name/allPlayableVideosFrom:">+ allPlayableVideosFrom:</option>
+		
+	</optgroup>
+	
+
+	
+	<optgroup label="Instance Methods">
+		
+		<option value="//api/name/update:">- 更新：</option>
+		
+	</optgroup>
+	
+	
+</select>
+						</label>
+					</li>
+				</ul>
+			</nav>
+		</div>
+	</aside>
+
+	<article>
+		<div id="overview_contents" class="container">
+			<div id="content">
+				<main role="main">
+					<h1 class="title">BCOVPlaylist 協議參考</h1>
+
+					
+					<div class="section section-specification"><table cellspacing="0"><tbody>
+						<tr>
+	<th>符合</th>
+	<td>NSFast枚舉<br />NSObject</td>
+</tr><tr>
+	<th>聲明於</th>
+	<td>BCOV播放列表.h</td>
+</tr>
+						</tbody></table></div>
+					
+
+                    
+					
+					<div class="section section-overview">
+						<a title="Overview" name="overview"></a>
+						<h2 class="subtitle subtitle-overview">概述</h2>
+						<p>表示 Brightcove Player SDK 生態系統中播放列表的值類。播放列表是有序的集合<a href="#//api/name/videos">視頻</a>，以及關於集合的其他可選元數據，形式為<a href="#//api/name/properties">特性</a> .注意，因為 BCOVPlaylist 實現了 NSFastEnumeration，所以它可以用在帶 NSFastEnumeration 參數的方法中（比如<a href="../Protocols/BCOVPlaybackController.html#//api/name/setVideos:"><code>[BCOVPlaybackController setVideos:]</code></a>）。</p>
+					</div>
+					
+					
+
+					
+					
+					<div class="section section-tasks">
+						<a title="Tasks" name="tasks"></a>
+						
+
+						
+						
+
+						<div class="task-list">
+							<div class="section-method">
+	<a name="//api/name/videos" title="videos"></a>
+	<h3 class="method-title"><code><a href="#//api/name/videos">&nbsp;&nbsp;視頻</a></code><span class="task-item-suffix">所需方法</span></h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>這<a href="../Classes/BCOVVideo.html">BCOV視頻</a>包含此播放列表的實例。</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration">@property (nonatomic, readonly, copy) NSArray *videos<code></code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">討論</h4>
+				<p>這<a href="../Classes/BCOVVideo.html">BCOV視頻</a>包含此播放列表的實例。</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">申報在</h4>
+				<p><code class="declared-in-ref">BCOV播放列表.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/properties" title="properties"></a>
+	<h3 class="method-title"><code><a href="#//api/name/properties">&nbsp;&nbsp;特性</a></code><span class="task-item-suffix">所需方法</span></h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>與此播放列表相關的其他屬性或元數據。</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration">@property (nonatomic, readonly, copy) NSDictionary *properties<code></code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">討論</h4>
+				<p>與此播放列表相關的其他屬性或元數據。</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">申報在</h4>
+				<p><code class="declared-in-ref">BCOV播放列表.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/allPlayableVideos" title="allPlayableVideos"></a>
+	<h3 class="method-title"><code><a href="#//api/name/allPlayableVideos">&nbsp;&nbsp;所有可播放視頻</a></code><span class="task-item-suffix">所需方法</span></h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>返回一個無錯誤的數組<a href="../Classes/BCOVVideo.html">BCOV視頻</a>對象，去掉任何<a href="../Classes/BCOVVideo.html">BCOV視頻</a>包含錯誤的對象。</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration">@property (nonatomic, readonly) NSArray&lt;BCOVVideo*&gt; *allPlayableVideos<code></code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">討論</h4>
+				<p>返回一個無錯誤的數組<a href="../Classes/BCOVVideo.html">BCOV視頻</a>對象，去掉任何<a href="../Classes/BCOVVideo.html">BCOV視頻</a>包含錯誤的對象。</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">申報在</h4>
+				<p><code class="declared-in-ref">BCOV播放列表.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/allFailedVideos" title="allFailedVideos"></a>
+	<h3 class="method-title"><code><a href="#//api/name/allFailedVideos">&nbsp;&nbsp;所有失敗的視頻</a></code><span class="task-item-suffix">所需方法</span></h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>返回一個無錯誤的數組<a href="../Classes/BCOVVideo.html">BCOV視頻</a>對象，去掉任何<a href="../Classes/BCOVVideo.html">BCOV視頻</a>包含錯誤的對象。</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration">@property (nonatomic, readonly) NSArray&lt;BCOVVideo*&gt; *allFailedVideos<code></code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">討論</h4>
+				<p>返回一個無錯誤的數組<a href="../Classes/BCOVVideo.html">BCOV視頻</a>對象，去掉任何<a href="../Classes/BCOVVideo.html">BCOV視頻</a>包含錯誤的對象。</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">申報在</h4>
+				<p><code class="declared-in-ref">BCOV播放列表.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/update:" title="update:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/update:">&ndash;&nbsp;更新：</a></code><span class="task-item-suffix">所需方法</span></h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>返回此播放列表的修改版本。由於 BCOVPlaylist 對像是不可變的，因此即使只需要進行一次更改，也必須創建一個全新的 BCOVPlaylist。因此，此方法提供了一種方便的方法來獲取此實例的臨時可變副本並對其進行修改（在<code>更新塊</code>）。</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (instancetype)update:(void (^) (id&lt;BCOVMutablePlaylist&gt; mutablePlaylist))<em>更新塊</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">參數</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>更新塊</code></th>
+						<td><p>傳遞此播放列表的可變副本的塊。</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">返回值</h4>
+				<p>此提示點的副本由<code>更新塊</code> .</p>
+			</div>
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">討論</h4>
+				<p>返回此播放列表的修改版本。由於 BCOVPlaylist 對像是不可變的，因此即使只需要進行一次更改，也必須創建一個全新的 BCOVPlaylist。因此，此方法提供了一種方便的方法來獲取此實例的臨時可變副本並對其進行修改（在<code>更新塊</code>）。</p>
+
+<p>不要嘗試保存對傳遞給的可變播放列表的引用<code>更新塊</code>，因為這樣做的行為是未定義的。相反，在塊中進行任何必要的修改，然後捕獲從此方法返回的播放列表對象。</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">申報在</h4>
+				<p><code class="declared-in-ref">BCOV播放列表.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/allPlayableVideosFrom:" title="allPlayableVideosFrom:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/allPlayableVideosFrom:">+ &nbsp;所有可播放的視頻來自：</a></code><span class="task-item-suffix">所需方法</span></h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>返回一個無錯誤的數組<a href="../Classes/BCOVVideo.html">BCOV視頻</a>對象，去掉任何<a href="../Classes/BCOVVideo.html">BCOV視頻</a>包含錯誤的對象。</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration">+ (NSArray&lt;BCOVVideo*&gt; *)allPlayableVideosFrom:(id&lt;NSFastEnumeration&gt;)<code><em>視頻</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">參數</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>視頻</code></th>
+						<td><p>要過濾的視頻數組</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">討論</h4>
+				<p>返回一個無錯誤的數組<a href="../Classes/BCOVVideo.html">BCOV視頻</a>對象，去掉任何<a href="../Classes/BCOVVideo.html">BCOV視頻</a>包含錯誤的對象。</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">申報在</h4>
+				<p><code class="declared-in-ref">BCOV播放列表.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/allFailedVideosFrom:" title="allFailedVideosFrom:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/allFailedVideosFrom:">+ &nbsp;所有失敗的視頻來自：</a></code><span class="task-item-suffix">所需方法</span></h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>返回一個數組<a href="../Classes/BCOVVideo.html">BCOV視頻</a>包含錯誤的對象，刪除任何<a href="../Classes/BCOVVideo.html">BCOV視頻</a>不包含錯誤的對象。</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration">+ (NSArray&lt;BCOVVideo*&gt; *)allFailedVideosFrom:(id&lt;NSFastEnumeration&gt;)<code><em>視頻</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">參數</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>視頻</code></th>
+						<td><p>要過濾的視頻數組</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">討論</h4>
+				<p>返回一個數組<a href="../Classes/BCOVVideo.html">BCOV視頻</a>包含錯誤的對象，刪除任何<a href="../Classes/BCOVVideo.html">BCOV視頻</a>不包含錯誤的對象。</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">申報在</h4>
+				<p><code class="declared-in-ref">BCOV播放列表.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div>
+						</div>
+						
+					</div>
+					
+					
+
+                    
+				</main>
+
+				<footer>
+					<div class="footer-copyright">
+						
+						<p class="copyright">版權&copy; 2021 年光明灣。版權所有。更新：2021-07-08</p>
+						
+						
+						<p class="generator">生成者<a href="http://appledoc.gentlebytes.com">蘋果文檔 2.2.1（內部版本 1334）</a> .</p>
+						
+					</div>
+				</footer>
+			</div>
+		</div>
+	</article>
+
+	<script src="../js/script.js"></script>
+</body>
+</html>

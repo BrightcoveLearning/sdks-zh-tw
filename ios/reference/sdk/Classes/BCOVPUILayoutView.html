@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+
+	<title>BCOVPUILayoutView 類參考</title>
+
+	<link rel="stylesheet" href="../css/style.css">
+	<meta name="viewport" content="initial-scale=1, maximum-scale=1.4">
+	<meta name="generator" content="appledoc 2.2.1 (build 1334)">
+</head>
+<body class="appledoc">
+	<header>
+		<div class="container" class="hide-in-xcode">
+			
+			<h1 id="library-title"><a href="../index.html">適用於 iOS 的 Brightcove 原生播放器</a></h1>
+
+			<p id="developer-home">
+				<a href="../index.html">亮灣</a>
+			</p>
+			
+		</div>
+	</header>
+
+	<aside>
+		<div class="container">
+			<nav>
+				<ul id="header-buttons" role="toolbar">
+					<li><a href="../index.html">指數</a></li>
+<li><a href="../hierarchy.html">等級制度</a></li>
+
+					<li id="on-this-page" role="navigation">
+						<label>
+							在本頁
+
+							<div class="chevron">
+								<div class="chevy chevron-left"></div>
+								<div class="chevy chevron-right"></div>
+							</div>
+
+							<select id="jump-to">
+	<option value="top">跳到…</option>
+	
+	<option value="overview">概述</option>
+	
+
+	
+	
+	<option value="tasks">任務</option>
+	
+	
+
+	
+	
+	<optgroup label="Properties">
+		
+		<option value="//api/name/elasticity">彈性</option>
+		
+		<option value="//api/name/minimumWidth">最小寬度</option>
+		
+		<option value="//api/name/removed">移除</option>
+		
+	</optgroup>
+	
+
+	
+
+	
+	
+</select>
+						</label>
+					</li>
+				</ul>
+			</nav>
+		</div>
+	</aside>
+
+	<article>
+		<div id="overview_contents" class="container">
+			<div id="content">
+				<main role="main">
+					<h1 class="title">BCOVPUILayoutView 類參考</h1>
+
+					
+					<div class="section section-specification"><table cellspacing="0"><tbody>
+						<tr>
+	<th>繼承自</th>
+	<td>界面視圖</td>
+</tr><tr>
+	<th>聲明於</th>
+	<td>BCOVPUILayoutView.h</td>
+</tr>
+						</tbody></table></div>
+					
+
+                    
+					
+					<div class="section section-overview">
+						<a title="Overview" name="overview"></a>
+						<h2 class="subtitle subtitle-overview">概述</h2>
+						<p>BCOVPUILayoutView 視圖對像用於在<a href="../Classes/BCOVPUIBasicControlView.html">BCOVPUIBasicControlView</a> .佈局視圖通常使用 BCOVPUIBasicControlView 創建&rsquo; s +layoutViewWithControlFromTag:width:elasticity: 方法，並包含標準的播放器 UI 元素，例如播放按鈕、時間碼標籤或進度滑塊。您還可以創建空佈局視圖，在其中添加您自己的子視圖。佈局視圖屬性準確地確定了視圖在可變寬度佈局中相對於彼此的定位方式。</p>
+					</div>
+					
+					
+
+					
+					
+					<div class="section section-tasks">
+						<a title="Tasks" name="tasks"></a>
+						
+
+						
+						
+
+						<div class="task-list">
+							<div class="section-method">
+	<a name="//api/name/minimumWidth" title="minimumWidth"></a>
+	<h3 class="method-title"><code><a href="#//api/name/minimumWidth">&nbsp;&nbsp;最小寬度</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>為佈局調整大小時將為視圖設置的最小寬度。如果<a href="#//api/name/elasticity">彈性</a>設置為零，這將是視圖的確切寬度。</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration">@property (nonatomic, readwrite) float minimumWidth<code></code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">討論</h4>
+				<p>為佈局調整大小時將為視圖設置的最小寬度。如果<a href="#//api/name/elasticity">彈性</a>設置為零，這將是視圖的確切寬度。</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">申報在</h4>
+				<p>BCOVPUILayoutView.h<code class="declared-in-ref"></code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/elasticity" title="elasticity"></a>
+	<h3 class="method-title"><code><a href="#//api/name/elasticity">&nbsp;&nbsp;彈性</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>彈性決定每個視圖的大小以填充播放器 UI 的可用寬度&rsquo; s 相對於所有其他視圖的控制欄。如果一個控制欄中有兩個佈局視圖，一個彈性為1.0，另一個彈性為2.0，當視圖調整大小時，後者會增長兩倍。控件佈局的每一行通常應至少包含一個彈性大於零的佈局視圖。彈性為零的視圖將保持其最小寬度。</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>@property (nonatomic, readwrite) 浮動彈性</code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">討論</h4>
+				<p>彈性決定每個視圖的大小以填充播放器 UI 的可用寬度&rsquo; s 相對於所有其他視圖的控制欄。如果一個控制欄中有兩個佈局視圖，一個彈性為1.0，另一個彈性為2.0，當視圖調整大小時，後者會增長兩倍。控件佈局的每一行通常應至少包含一個彈性大於零的佈局視圖。彈性為零的視圖將保持其最小寬度。</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">申報在</h4>
+				<p>BCOVPUILayoutView.h<code class="declared-in-ref"></code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/removed" title="removed"></a>
+	<h3 class="method-title"><code><a href="#//api/name/removed">&nbsp;&nbsp;移除</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>這&ldquo;移除&rdquo;屬性可以設置為 YES 或 NO 以快速隱藏或顯示特定的佈局視圖。這比設置一個全新的更有效<a href="../Classes/BCOVPUIControlLayout.html">BCOVPUI控件佈局</a>帶有刪除或添加的視圖。調用 -setNeedsLayout <a href="../Classes/BCOVPUIBasicControlView.html"> BCOVPUIBasicControlView</a>設置此屬性以顯示新佈局後。</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>@property (nonatomic, readwrite, getter=isRemoved) BOOL 刪除</code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">討論</h4>
+				<p>這&ldquo;移除&rdquo;屬性可以設置為 YES 或 NO 以快速隱藏或顯示特定的佈局視圖。這比設置一個全新的更有效<a href="../Classes/BCOVPUIControlLayout.html">BCOVPUI控件佈局</a>帶有刪除或添加的視圖。調用 -setNeedsLayout <a href="../Classes/BCOVPUIBasicControlView.html"> BCOVPUIBasicControlView</a>設置此屬性以顯示新佈局後。</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">申報在</h4>
+				<p>BCOVPUILayoutView.h<code class="declared-in-ref"></code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div>
+						</div>
+						
+					</div>
+					
+					
+
+                    
+				</main>
+
+				<footer>
+					<div class="footer-copyright">
+						
+						<p class="copyright">版權&copy; 2021 年光明灣。版權所有。更新：2021-07-08</p>
+						
+						
+						<p class="generator">生成者<a href="http://appledoc.gentlebytes.com">蘋果文檔 2.2.1（內部版本 1334）</a> .</p>
+						
+					</div>
+				</footer>
+			</div>
+		</div>
+	</article>
+
+	<script src="../js/script.js"></script>
+</body>
+</html>

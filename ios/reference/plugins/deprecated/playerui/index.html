@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+
+	<title>BCOVPlayerUI 參考</title>
+
+	<link rel="stylesheet" href="css/style.css">
+	<meta name="viewport" content="initial-scale=1, maximum-scale=1.4">
+	<meta name="generator" content="appledoc 2.2.1 (build 1334)">
+</head>
+<body class="appledoc">
+	<header>
+		<div class="container" class="hide-in-xcode">
+			
+			<h1 id="library-title"><a href="index.html">BCOVPlayerUI</a></h1>
+
+			<p id="developer-home">
+				<a href="index.html">亮灣</a>
+			</p>
+			
+		</div>
+	</header>
+
+	<aside>
+		<div class="container">
+			<nav>
+				<ul id="header-buttons" role="toolbar">
+					<li><a href="hierarchy.html">等級制度</a></li>
+				</ul>
+			</nav>
+		</div>
+	</aside>
+
+	<article>
+		<div id="overview-contents" class="container">
+			<div id="content">
+				<main role="main">
+					<h1 class="title">BCOVPlayerUI 參考</h1>
+
+					
+					<div class="section section-overview index-overview">
+						
+						
+						<h1>適用於 iOS 版 Brightcove Player SDK 的 BCOVPlayerUI 插件，版本 1.0.4.143</h1><h1>支持的平台</h1>
+
+<p>iOS 7.0 及以上。</p>
+
+<h1>安裝</h1>
+
+<p>Brightcove PlayerUI Plugin 為 iOS 提供了兩個安裝包，一個是靜態庫框架，一個是動態框架。靜態庫目標支持在 iOS 7 上部署，而動態框架僅支持 iOS 8 及更高版本。</p>
+
+<h2>可可豆</h2>
+
+<p>您可以使用<a href="http://cocoapods.org">可可豆</a>將適用於 Brightcove Player SDK 的 PlayerUI 插件添加到您的項目中。你可以找到最新的<code>Brightcove-Player-SDK-Player-UI</code> podspec <a href="https://github.com/CocoaPods/Specs/tree/master/Specs/Brightcove-Player-SDK-Player-UI">這裡</a> .</p>
+
+<p>靜態框架示例：</p>
+
+<pre><code>pod 'Brightcove-Player-SDK-Player-UI' </code></pre>
+
+<p>動態框架示例：</p>
+
+<pre><code>pod 'Brightcove-Player-SDK-Player-UI/動態' </code></pre>
+
+<h2>手動的</h2>
+
+<p>將適用於 Brightcove Player SDK 的 PlayerUI 插件手動添加到您的項目中：</p>
+
+<ol>
+<li>安裝最新版本的<a href="https://github.com/brightcove/brightcove-player-sdk-ios">Brightcove 播放器 SDK</a> .</li>
+<li>從我們的網站下載插件的最新壓縮版本<a href="https://github.com/brightcove/brightcove-player-sdk-ios-player-ui/releases">發布頁面</a> .</li>
+<li>添加&lsquo; BrightcovePlayerUI.framework &rsquo;到您的項目。</li>
+<li>在&ldquo;構建設置&rdquo;應用程序目標的選項卡，確保&ldquo;框架搜索路徑&rdquo;包括框架的路徑。這應該自動完成，除非框架存儲在與您的項目不同的根目錄下。</li>
+<li>在&ldquo;構建階段&rdquo;應用程序目標的選項卡，將以下內容添加到&ldquo;將二進製文件與庫鏈接&rdquo;階段：
+
+<ul>
+<li>BrightcovePlayerUI.framework<code></code></li>
+</ul>
+</li>
+<li>（僅限動態框架）在&ldquo;一般的&rdquo;應用程序目標的選項卡，添加&lsquo; BrightcovePlayerUI.framework &rsquo;到&ldquo;嵌入式二進制&rdquo;部分。</li>
+<li>（僅限動態框架）在&ldquo;構建階段&rdquo;選項卡，添加一個&ldquo;運行腳本&rdquo;階段與命令<code>猛擊 $ {BUILT_PRODUCTS_DIR} /$ {FRAMEWORKS_FOLDER_PATH} /BrightcovePlayerUI.framework/strip-frameworks.sh</code> .查看&ldquo;僅在安裝時運行腳本&rdquo; .這將從構建中刪除不需要的架構，這對於 App Store 提交很重要。 ([rdar://19209161][19209161])</li>
+<li>（僅限靜態框架）在&ldquo;構建設置&rdquo;應用程序目標的選項卡，添加<code>-ObjC</code>到&ldquo;其他鏈接器標誌&rdquo;構建設置。</li>
+<li>（僅限靜態框架）添加文件<code>bcovpuiiconfont.ttf</code>來自<code>BrightcovePlayerUI.framework</code>直接捆綁到您的項目列表，以便將字體文件複製到應用程序包中。最後，字體文件應該與應用程序處於同一級別&rsquo;秒<code>信息表</code>文件。字體文件提供了一些 BrightcovePlayerUI 界面元素，但不需要在 plist 本身中列出。</li>
+</ol>
+
+
+<h2>進口</h2>
+
+<p>適用於 iOS 的 Brightcove Player SDK 可以通過幾種不同的方式導入代碼；<code> @import BrightcovePlayerUI;</code> , <code> #import &lt;BrightcovePlayerUI/BrightcovePlayerUI.h&gt;</code>或者<code>#import &lt;BrightcovePlayerUI/[特定類].h&gt;</code> .</p>
+
+<h1>快速開始</h1>
+
+<p>它的使用相對簡單。此示例創建適用於一般點播視頻流的基本佈局：</p>
+
+<pre><code>BCOVPlayerSDKManager *manager = [BCOVPlayerSDKManager sharedManager]; [1] id&lt;BCOVPlaybackController&gt; controller = [manager createPlaybackController]; [2] BCOVPUIPlayerView *playerView = [[BCOVPUIPlayerView alloc] initWithPlaybackController:playbackController]; playerView.frame = self.videoContainer.bounds; playerView.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth; [self.videoContainer addSubview:playerView]; [3] NSString *token; // (Brightcove Media API token with URL access) NSString *playlistID; //（您希望使用的播放列表的 ID） BCOVCatalogService *catalog = [[BCOVCatalogService alloc] initWithToken:token]; [目錄 findPlaylistWithPlaylistID:playlistID 參數:nil 補全:^(BCOVPlaylist *playlist, NSDictionary *jsonResponse, NSError *error) { [controller setVideos:playlist]; [controller play]; } ];</code></pre>
+
+<p>讓&rsquo;將這段代碼分解成幾個步驟，使其更容易消化：</p>
+
+<ol>
+<li>使用默認設置創建播放控制器。</li>
+<li>使用播放控制器創建播放器視圖。這將使用其默認設置實例化播放器視圖。設置播放器視圖以匹配視頻容器視圖的大小。</li>
+<li>檢索並播放視頻。</li>
+</ol>
+
+
+<h1>自定義插件行為</h1>
+
+<p>BCOVPlayerUI 插件提供了簡單的開箱即用體驗。然而，它&rsquo;可以更改默認行為。</p>
+
+<h2>BCOVPUIPlayerViewOptions<a href="Classes/BCOVPUIPlayerViewOptions.html"></a></h2>
+
+<p>這<code>BCOVPUIPlayerViewOptions</code>類允許您在初始化時自定義一些 BCOVPlayerUI 行為。您可以自定義：</p>
+
+<ul>
+<li><code>回跳間隔</code>按下跳回按鈕時玩家將跳回的時間（以秒為單位）。</li>
+<li><code>隱藏控件間隔</code>上次觸摸事件後、隱藏控件之前的時間（以秒為單位）。</li>
+<li><code>隱藏控件動畫持續時間</code>控件動畫到隱藏所需的時間（以秒為單位）。</li>
+<li><code>showControlsAnimationDuration</code>控件動畫到可見所需的時間（以秒為單位）。</li>
+<li><code>呈現視圖控制器</code>用於呈現模式和全屏等內容的視圖控制器。</li>
+</ul>
+
+
+<p>可以使用以下方法設置選項：</p>
+
+<pre><code>BCOVPlayerSDKManager *manager = [BCOVPlayerSDKManager sharedManager]; id&lt;BCOVPlaybackController&gt; controller = [manager createPlaybackController]; BCOVPUIPlayerViewOptions *options = [[BCOVPUIPlayerViewOptions alloc] init]; options.jumpBackInterval = 5; BCOVPUIPlayerView *playerView = [[BCOVPUIPlayerView alloc] initWithPlaybackController:playbackController options:options];</code></pre>
+
+<h2>提供的佈局</h2>
+
+<p>提供了三種佈局來支持不同類型的視頻：</p>
+
+<ul>
+<li><p><code>BCOVPUIControlLayout basicVODControlLayout</code>是一般點播視頻流的基本佈局。</p></li>
+<li><p><code>BCOVPUIControlLayout basicLiveControlLayout</code>是針對實時視頻的佈局。</p></li>
+<li><p><code>BCOVPUIControlLayout basicLiveDVRControlLayout</code>針對具有 DVR 控件的實時視頻流。</p></li>
+</ul>
+
+
+<p>你通常在你之後立即設置一個新的佈局<code>BCOVPUIPlayerView</code>已創建，但您也可以隨時設置新佈局。例如，您可以像這樣設置新的 VOD 佈局：</p>
+
+<pre><code>playerview.controlView.layout = [BCOVPUIControlLayout basicVODControlLayout]</code></pre>
+
+<h2>自定義佈局</h2>
+
+<p>除了默認佈局之外，您還可以通過實例化一個新的佈局來創建您自己的高度自定義的佈局。<code> BCOVPUI控件佈局</code>用你自己的設計。</p>
+
+<p>首先，使用創建將進入您的佈局的控件<code>BCOVPUIBasicControlView layoutViewWithControlFromTag:width:elasticity:</code> .每個控件都封裝在一個<code>BCOVPUI佈局視圖</code>這決定了控制間距。您可以設置<code>寬度</code>每個佈局視圖的默認寬度（這是基於控件的類型），或者您可以指定自己的寬度。</p>
+
+<p>這<code>彈性</code>參數確定包含控件的佈局視圖調整其寬度以填充控制欄的程度。彈性為零意味著佈局視圖的大小將是固定的。大於零的彈性值決定了佈局視圖相對於該控制欄中的所有其他彈性視圖將增長多少來填充可用空間。彈性值為 2.0 的佈局視圖的增長速度是彈性值為 1.0 的佈局視圖的兩倍。通常，一行佈局視圖將具有至少一個彈性大於零的控件。</p>
+
+<p>以下是創建各種基本控件的示例。</p>
+
+<pre><code>BCOVPUILayoutView *playbackLayoutView = [BCOVPUIBasicControlView layoutViewWithControlFromTag:BCOVPUIViewTagButtonPlayback width:kBCOVPUILayoutUseDefaultValue elastic:0.0]; BCOVPUILayoutView *jumpBackButtonLayoutView = [BCOVPUIBasicControlView layoutViewWithControlFromTag:BCOVPUIViewTagButtonJumpBack width:kBCOVPUILayoutUseDefaultValue elastic:0.0]; BCOVPUILayoutView *currentTimeLayoutView = [BCOVPUIBasicControlView layoutViewWithControlFromTag:BCOVPUIViewTagLabelCurrentTime width:kBCOVPUILayoutUseDefaultValue elastic:0.0]; BCOVPUILayoutView *timeSeparatorLayoutView = [BCOVPUIBasicControlView layoutViewWithControlFromTag:BCOVPUIViewTagLabelTimeSeparator width:kBCOVPUILayoutUseDefaultValue elastic:0.0]; BCOVPUILayoutView *durationLayoutView = [BCOVPUIBasicControlView layoutViewWithControlFromTag:BCOVPUIViewTagLabelDuration width:kBCOVPUILayoutUseDefaultValue elastic:0.0]; BCOVPUILayoutView *progressLayoutView = [BCOVPUIBasicControlView layoutViewWithControlFromTag:BCOVPUIViewTagSliderProgress width:kBCOVPUILayoutUseDefaultValue elastic:1.0]; BCOVPUILayoutView *closedCaptionLayoutView = [BCOVPUIBasicControlView layoutViewWithControlFromTag:BCOVPUIViewTagButtonClosedCaption width:kBCOVPUILayoutUseDefaultValue elastic:0.0]; BCOVPUILayoutView *screenModeLayoutView = [BCOVPUIBasicControlView layoutViewWithControlFromTag:BCOVPUIViewTagButtonScreenMode width:kBCOVPUILayoutUseDefaultValue elastic:0.0]; BCOVPUILayoutView *externalRouteLayoutView = [BCOVPUIBasicControlView layoutViewWithControlFromTag:BCOVPUIViewTagViewExternalRoute width:kBCOVPUILayoutUseDefaultValue elastic:0.0]; BCOVPUILayoutView *spacerLayoutView1 = [BCOVPUIBasicControlView layoutViewWithControlFromTag:BCOVPUIViewTagViewEmpty width:1.0 elastic:1.0]; BCOVPUILayoutView *spacerLayoutView2 = [BCOVPUIBasicControlView layoutViewWithControlFromTag:BCOVPUIViewTagViewEmpty width:1.0 elastic:1.0]; BCOVPUILayoutView *logoLayoutView1 = [BCOVPUIBasicControlView layoutViewWithControlFromTag:BCOVPUIViewTagViewEmpty width:80.0 elastic:1.0]; BCOVPUILayoutView *logoLayoutView2 = [BCOVPUIBasicControlView layoutViewWithControlFromTag:BCOVPUIViewTagViewEmpty width:36.0 elastic:0.0]; // 隱藏隱藏式字幕和 AirPlay 控件，直到明確需要。 closedCaptionLayoutView.removed = YES; externalRouteLayoutView.removed = YES;</code></pre>
+
+<p>請注意，您還可以創建一個空的佈局視圖，您可以在其中放置您自己的視圖（徽標、控件、無等）。這段代碼展示瞭如何在我們上面創建的 logoLayoutView1 中放置一個 UIImage 標誌。</p>
+
+<pre><code>// 在圖像視圖中創建徽標圖像以在控制欄中顯示。UIImage *logoImage1 = [UIImage imageNamed:@"myLogo"]; UIImageView *logoImageView1 = [[UIImageView alloc] initWithImage:logoImage1]; logoImageView1.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight; logoImageView1.contentMode = UIViewContentModeScaleAspectFit; logoImageView1.frame = logoLayoutView1.frame; // 將圖像視圖添加到我們的空佈局視圖中。 [logoLayoutView1 addSubview:logoImageView1];</code></pre>
+
+<p>現在我們在佈局視圖中打包了一組控件，我們可以將它們排列成數組，每個數組代表一行控件，即一個控件欄。請注意，您可以為縱向和橫向使用不同的佈局，因此您通常會設置兩個不同的控制欄陣列。</p>
+
+<p>在此橫向標準佈局中，我們將控件排列在一行中，然後將該數組放入另一個表示整個配置的數組中。</p>
+
+<pre><code>NSArray *standardLayoutLine1 = @[playbackLayoutView、jumpBackButtonLayoutView、currentTimeLayoutView、timeSeparatorLayoutView、durationLayoutView、progressLayoutView、spacerLayoutView1、logoLayoutView1、spacerLayoutView2、closedCaptionLayoutView、screenModeLayoutView、externalRouteLayoutView]； NSArray *standardLayoutLines = @[standardLayoutLine1];</code></pre>
+
+<p>在緊湊佈局中，對於縱向，我們創建兩個控件數組，然後將這兩個數組打包成另一個表示緊湊佈局的數組。</p>
+
+<p>請注意，我們對每個佈局中的大多數控件使用了完全相同的對象。完成後，您在縱向和橫向之間切換，對象將使用平滑動畫移動到新位置。</p>
+
+<pre><code>NSArray *compactLayoutLine1 = @[ currentTimeLayoutView, progressLayoutView, durationLayoutView ]; NSArray *compactLayoutLine2 = @[playbackLayoutView, jumpBackButtonLayoutView, separatorLayoutView1, closedCaptionLayoutView, screenModeLayoutView, externalRouteLayoutView, logoLayoutView2 ]; NSArray *compactLayoutLines = @[ compactLayoutLine1, compactLayoutLine2 ];</code></pre>
+
+<p>最後，現在我們有兩種佈局配置，一種用於全寬，一種用於緊湊寬度，我們可以創建一個新的<code>BCOVPUI控件佈局</code>對象，並將其設置在播放器中&rsquo; s 控制視圖。</p>
+
+<pre><code>BCOVPUIControlLayout *customLayout = [[BCOVPUIControlLayout alloc] initWithStandardControls:standardLayoutLines compactControls:compactLayoutLines]; playerView.controlView.layout = customLayout;</code></pre>
+
+<p>如果您有需要頻繁顯示或隱藏的控件，您可以設置<code>移除</code>該控件上的屬性&rsquo; s 佈局視圖。更改控件後，請調用<code>設置需要佈局</code>在播放器視圖上&rsquo;控制視圖：</p>
+
+<pre><code>logoLayoutView1.removed = YES; [playerView.controlsView setNeedsLayout];</code></pre>
+
+<p>您還可以自定義幾個通用<a href="Classes/BCOVPUIControlLayout.html"><code>BCOVPUI控件佈局</code></a>特性：</p>
+
+<ul>
+<li><code>控制條高度</code>設置每行控件的大小。</li>
+<li><code>水平項間距</code>設置每個之間的間距<a href="Classes/BCOVPUILayoutView.html"><code>BCOVPUI佈局視圖</code></a>在每個控制欄中。</li>
+<li><code>緊湊佈局最大寬度</code>確定使用哪組控件。如果控制視圖小於<code>緊湊佈局最大寬度</code>，將使用緊湊控件集，否則將使用標準控件。</li>
+</ul>
+
+
+<p>要更改顯示的控件集，您必須創建並安裝一個新的<a href="Classes/BCOVPUIControlLayout.html"><code>BCOVPUI控件佈局</code></a> .</p>
+
+<h1>經常問的問題</h1>
+
+<p><strong>這是否適用於所有 Brightcove Player SDK 插件？</strong></p>
+
+<p>此版本支持無廣告的基本 VOD、Live 和 Live DVR 播放。我們將在未來版本中添加對其他插件的支持。</p>
+
+<p><strong>如何自定義上述屬性以外的屬性？</strong></p>
+
+<p>我們的目標是創造一些&rsquo;易於定制，同時仍然提供許多開箱即用的功能和行為。在即將發布的版本中，我們將使用新 API 和更多文檔來涵蓋更多自定義。如果有您正在尋找的功能，請在我們的論壇中告訴我們。</p>
+
+<p><strong>在未來的版本中會有重大的 API 變化嗎？</strong></p>
+
+<p>我們將盡最大努力不改變事情，除非我們真的需要。但是，如果我們確實需要更改 API，我們將在 CHANGELOG 中提供明確的遷移步驟。</p>
+						
+						
+					</div>
+					
+
+					<div class="index-container">
+						
+
+						
+						<div class="index-column">
+							<h2 class="index-title">類引用</h2>
+							<ul>
+								
+								<li>BCOVPUIBasicControlView<a href="Classes/BCOVPUIBasicControlView.html"></a></li>
+								
+								<li><a href="Classes/BCOVPUIButton.html">BCOVPUI按鈕</a></li>
+								
+								<li>BCOVPUICommon<a href="Classes/BCOVPUICommon.html"></a></li>
+								
+								<li><a href="Classes/BCOVPUIControlLayout.html">BCOVPUI控件佈局</a></li>
+								
+								<li><a href="Classes/BCOVPUILayoutView.html">BCOVPUI佈局視圖</a></li>
+								
+								<li>BCOVPUIPlayerView<a href="Classes/BCOVPUIPlayerView.html"></a></li>
+								
+								<li>BCOVPUIPlayerViewOptions<a href="Classes/BCOVPUIPlayerViewOptions.html"></a></li>
+								
+								<li><a href="Classes/BCOVPUISlider.html">BCOVPUIS滑塊</a></li>
+								
+							</ul>
+						</div>
+						
+
+						
+						<div class="index-column">
+							
+							<h2 class="index-title">協議參考</h2>
+							<ul>
+								
+								<li>BCOVPUIPlayerViewDelegate<a href="Protocols/BCOVPUIPlayerViewDelegate.html"></a></li>
+								
+							</ul>
+							
+
+							
+							<h2 class="index-title">常量引用</h2>
+							<ul>
+								
+									<li><a href="Constants/BCOVPUIButtonIcon.html">BCOVPUI按鈕圖標</a></li>
+								
+									<li>BCOVPUIScreenMode<a href="Constants/BCOVPUIScreenMode.html"></a></li>
+								
+									<li><a href="Constants/BCOVPUIVideoType.html">BCOVPUI視頻類型</a></li>
+								
+									<li><a href="Constants/BCOVPUIViewTag.html">BCOVPUI視圖標籤</a></li>
+								
+							</ul>
+							
+
+							
+						</div>
+						
+					</div>
+
+					<footer>
+						<div class="footer-copyright">
+							
+							<p class="copyright">版權&copy; 2016 年光明灣。版權所有。更新：2016-06-09</p>
+							
+							
+							<p class="generator">生成者<a href="http://appledoc.gentlebytes.com">蘋果文檔 2.2.1（內部版本 1334）</a> .</p>
+							
+						</div>
+					</footer>
+				</main>
+			</div>
+		</div>
+	</article>
+
+	<script src="js/script.js"></script>
+<script src="https://learning-services-media.brightcove.com/doc-assets/js/https-fix.js"></script>
+<script src="https://learning-services-media.brightcove.com/doc-assets/js/support-feedback.js"></script><script src="https://support.brightcove.com/site-assets/js/site/feedback-docs.js"></script>
+</body>
+</html>

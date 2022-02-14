@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+
+	<title>適用於 iOS 的 Brightcove Native Player 參考</title>
+
+	<link rel="stylesheet" href="css/style.css">
+	<meta name="viewport" content="initial-scale=1, maximum-scale=1.4">
+	<meta name="generator" content="appledoc 2.2.1 (build 1334)">
+</head>
+<body class="appledoc">
+	<header>
+		<div class="container" class="hide-in-xcode">
+			
+			<h1 id="library-title"><a href="index.html">適用於 iOS 的 Brightcove 原生播放器</a></h1>
+
+			<p id="developer-home">
+				<a href="index.html">亮灣</a>
+			</p>
+			
+		</div>
+	</header>
+
+	<aside>
+		<div class="container">
+			<nav>
+				<ul id="header-buttons" role="toolbar">
+					<li><a href="hierarchy.html">等級制度</a></li>
+				</ul>
+			</nav>
+		</div>
+	</aside>
+
+	<article>
+		<div id="overview-contents" class="container">
+			<div id="content">
+				<main role="main">
+					<h1 class="title">適用於 iOS 的 Brightcove Native Player 參考</h1>
+
+					
+					<div class="section section-overview index-overview">
+						
+						
+						<h1>適用於 iOS 版 Brightcove Player SDK 的 FreeWheel 插件，版本 6.9.0.1697</h1><h1>要求</h1>
+
+<ul>
+<li>Xcode 11.0+</li>
+<li>弧</li>
+</ul>
+
+
+<h1>支持的平台</h1>
+
+<p>iOS 11.0 及更高版本。</p>
+
+<p>tvOS 11.0 及以上。</p>
+
+<h1>安裝</h1>
+
+<p>適用於 Brightcove Player SDK 的 FreeWheel 插件提供了一個用於安裝的靜態庫框架。未來 FreeWheel 發布 dylib 版本時將添加動態框架。</p>
+
+<p>適用於 Brightcove Player SDK 的 FreeWheel 插件已與 FreeWheel AdManager 框架的 6.38.0 版集成，該框架可從<a href="https://hub.freewheel.tv/display/techdocs/AdManager+SDK+Integration+Downloads">AdManager SDK 集成下載</a>頁。</p>
+
+<h2>可可豆</h2>
+
+<p>您可以使用<a href="http://cocoapods.org">可可豆</a>將適用於 Brightcove Player SDK 的 FreeWheel 插件添加到您的項目中。你可以找到最新的<code>Brightcove-Player-FreeWheel</code> podspec <a href="https://github.com/brightcove/BrightcoveSpecs/tree/master/Brightcove-Player-FreeWheel">這裡</a> .要使用此規範，請將以下內容添加到 Podfile 的頂部：<code>來源 '</code> https://github.com/brightcove/BrightcoveSpecs.git' <code></code> .需要 CocoaPods 1.0 或更高版本。</p>
+
+<p>自由輪 SDK <strong>不是</strong>包含在這個吊艙中。你<strong>必須</strong>手動將 FreeWheel SDK AdManager.framework 添加到您的項目。但是，該 pod 將添加 AdManager.framework 框架所需的所有庫。</p>
+
+<p>靜態框架示例：</p>
+
+<pre><code>來源'https://github.com/brightcove/BrightcoveSpecs.git'  pod 'Brightcove-Player-FreeWheel' </code></pre>
+
+<p>更新安裝時，它&rsquo;刷新 BrightcoveSpecs 存儲庫的本地副本是一個好主意，以便您在本地擁有最新的 podspec，就像更新 CococaPods 主存儲庫一樣。</p>
+
+<p>通常，如果您使用<code>豆莢更新</code>在終端中，這將自動發生，或者您可以使用<code>pod repo 更新 Brightcove</code> .（如果您明確將 BrightcoveSpecs 存儲庫添加到 podspecs 存儲庫列表中，則它可能具有不同的名稱。）</p>
+
+<h2>手動的</h2>
+
+<p>手動將適用於 Brightcove Player SDK 的 FreeWheel 插件添加到您的項目中：</p>
+
+<ol>
+<li>安裝最新版本的<a href="https://github.com/brightcove/brightcove-player-sdk-ios">Brightcove 播放器 SDK</a>並按照說明安裝 [ <strong>靜態框架</strong> ][ <a href="https://github.com/brightcove/brightcove-player-sdk-ios/"> https://github.com/brightcove/brightcove-player-sdk-ios/</a> #手動安裝]。</li>
+<li>從我們的網站下載插件的最新壓縮版本<a href="https://github.com/brightcove/brightcove-player-sdk-ios-fw/releases">發布頁面</a> .</li>
+<li>添加&lsquo; BrightcoveFW.framework &rsquo;到您的項目。您可以通過右鍵單擊 Frameworks 文件夾並選擇&ldquo;添加文件到&rdquo;選項並從存儲路徑中選擇 BrightcoveFW.framework。</li>
+<li>在&ldquo;構建設置&rdquo;應用程序目標的選項卡，確保&ldquo;框架搜索路徑&rdquo;包括框架的路徑。這應該自動完成，除非框架存儲在與您的項目不同的根目錄下。</li>
+<li>在&ldquo;構建階段&rdquo;應用程序目標的選項卡，將以下內容添加到&ldquo;將二進製文件與庫鏈接&rdquo;階段：
+
+<ul>
+<li>BrightcoveFW.framework<code></code></li>
+</ul>
+</li>
+<li>在&ldquo;構建設置&rdquo;應用程序目標的選項卡：
+
+<ul>
+<li>確保這件事<code>-ObjC</code>已添加到&ldquo;其他鏈接器標誌&rdquo;構建設置。</li>
+</ul>
+</li>
+<li>安裝 FreeWheel 庫，該庫必須從您的 FreeWheel 帳戶中檢索。</li>
+</ol>
+
+
+<h2>進口</h2>
+
+<p>Brightcove Player SDK 的 FreeWheel 插件可以通過幾種不同的方式導入代碼；<code> @import BrightcoveFW;</code> , <code> #import &lt;BrightcoveFW/BrightcoveFW.h&gt;</code>或者<code>#import &lt;BrightcoveFW/[特定類].h&gt;</code> .</p>
+
+<h1>快速開始</h1>
+
+<p>使用適用於 iOS 的 Brightcove Player SDK 播放帶有 FreeWheel 廣告的視頻：</p>
+
+<pre><code>@property (nonatomic, strong) id&lt;FWAdManager&gt; adManager; @property (nonatomic, weak) IBOutlet UIView *videoContainerView; -（無效）設置{ NSString *policyKey = &lt;your-policy-key&gt;; NSString *accountId = &lt;your-account-id&gt;; NSString *videoId = &lt;your-video-id&gt;; [1] self.adManager = newAdManager(); [self.adManager setNetworkId:90750]; BCOVPlayerSDKManager *sdkManager = [BCOVPlayerSDKManager sharedManager]; [2] id&lt;BCOVPlaybackController&gt; playbackController = [sdkManager createFWPlaybackControllerWithAdContextPolicy:[self adContextPolicy] viewStrategy:nil]; [self.view addSubview:playbackController.view]; BCOVPlaybackService *service = [[BCOVPlaybackService alloc] initWithAccuntID:accountId policyKey:policyKey]; [service findVideoWithVideoID:videoId parameters:nil completion:^(BCOVVideo *video, NSDictionary *jsonResponse, NSError *error) { [playbackController setVideos:@[ video ]]; [playbackController play]; } ]; } - (BCOVFWSessionProviderAdContextPolicy)adContextPolicy { __weak typeof(self) weakSelf = self; return [^ BCOVFWContext*(BCOVVideo *video, BCOVSource *source, NSTimeInterval videoDuration) { // Prevent retain cycles when using self typeof(self) strongSelf = weakSelf; [3] id&lt;FWContext&gt; adContext = [strongSelf.adManager newContext]; FWRequestConfiguration *adRequestConfig = [[FWRequestConfiguration alloc] initWithServerURL:@"http://demo.v.fwmrm.net" playerProfile:&lt;player-profile&gt;]; adRequestConfig.siteSectionConfiguration = [[FWSiteSectionConfiguration alloc] initWithSiteSectionId:&lt;site-section-id&gt; idType:FWIdTypeCustom]; adRequestConfig.videoAssetConfiguration = [[FWVideoAssetConfiguration alloc] initWithVideoAssetId:&lt;video-asset-id&gt; idType:FWIdTypeCustom duration:videoDuration durationType:FWVideoAssetDurationTypeExact autoPlayType:FWVideoAssetAutoPlayTypeAttended]; [adContext setVideoDisplayBase:strongSelf.videoContainerView]; [adRequestConfig addSlotConfiguration:[[FWTemporalSlotConfiguration alloc] initWithCustomId:@"preroll" adUnit:FWAdUnitPreroll timePosition:0.0]]; [adRequestConfig addSlotConfiguration:[[FWTemporalSlotConfiguration alloc] initWithCustomId:@"midroll" adUnit:FWAdUnitMidroll timePosition:&lt;non-zero-time-interval&gt;]]; [adRequestConfig addSlotConfiguration:[[FWTemporalSlotConfiguration alloc] initWithCustomId:@"postroll" adUnit:FWAdUnitPostroll timePosition:0.0]]; BCOVFWContext *bcovAdContext = [[BCOVFWContext alloc] initWithAdContext:adContext requestConfiguration:adRequestConfig]; return bcovAdContext; }複製]; }</code></pre>
+
+<p>代碼分解為以下步驟：</p>
+
+<ol>
+<li>您創建的廣告管理器與使用 FreeWheel 時創建的廣告管理器相同&rsquo; s 直接iOS SDK；這將在以後需要。</li>
+<li>Brightcove FreeWheel 插件向 BCOVPlayerSDKManager 添加了一些類別方法。其中第一個是<code>-createFWPlaybackControllerWithAdContextPolicy:viewStrategy:</code> .使用此方法創建您的播放控制器。或者（如果您使用多個會話提供程序），您可以創建一個<a href="Classes/BCOVFWSessionProvider.html">BCOVFWSessionProvider</a>並將其傳遞給 SDK 管理器方法，該方法使用上游會話提供程序創建播放控制器。*</li>
+<li>您創建的廣告上下文與使用 FreeWheel 時創建的廣告上下文相同&rsquo; s 直接使用在步驟 1 中創建的 SDK 管理器的 iOS SDK。您可以在此處註冊隨播廣告位、啟用默認廣告控件或您需要更改的任何其他設置。此塊將在每個新會話交付之前被調用。</li>
+</ol>
+
+
+<p>* 注意<a href="Classes/BCOVFWSessionProvider.html">BCOVFWSessionProvider</a>未針對與其他廣告會話提供程序（例如 BCOVIMASessionProvider）一起使用進行測試。還要注意的是<a href="Classes/BCOVFWSessionProvider.html">BCOVFWSessionProvider</a>在構造播放控制器時，鏈中的任何其他會話提供程序都應該在傳遞給管理器之後出現。</p>
+
+<h1>播放和暫停</h1>
+
+<p>Brightcove FreeWheel 插件實現了自定義播放和暫停邏輯，以確保盡可能流暢的廣告體驗。因此，您需要確保在<code>BCOVPlaybackController</code>或者<code>[BCOVSessionProviderExtension fw_play]</code>或者<code>[BCOVSessionProviderExtension fw_pause]</code> ( <a href="https://github.com/brightcove/brightcove-player-sdk-ios-fw/blob/master/ios/BrightcoveFW.framework/Headers/BCOVFWComponent.h"> BCOVSessionProviderExtension</a> )，而不是 AVPlayer。</p>
+
+<p>例如，第一次調用 play <code> BCOVPlaybackController</code>允許 Brightcove FreeWheel 插件處理前貼片廣告，而無需在前貼片前播放任何內容。</p>
+
+<h1>使用內置 PlayerUI</h1>
+
+<p>如果您使用的是 Brightcove Player SDK 5.1 或更高版本，則可以利用 Brightcove FreeWheel 插件的內置廣告控件。</p>
+
+<p>要使用 PlayerUI，請按照上面的快速入門代碼創建播放控制器。</p>
+
+<pre><code>BCOVPlayerSDKManager *sdkManager = [BCOVPlayerSDKManager sharedManager]; id&lt;BCOVPlaybackController&gt;playbackController = [sdkManager createFWPlaybackControllerWithAdContextPolicy:[self adContextPolicy] viewStrategy:nil];</code></pre>
+
+<p>然後創建您的播放器視圖。此視圖包含視頻播放器視圖和顯示播放和廣告控件的視圖。無論您使用什麼插件，此設置都是相同的。</p>
+
+<p><strong>筆記：</strong>這<code>Brightcove 播放器用戶界面</code>不再需要模塊並已刪除。（在 Brightcove Player SDK 5.1 版之前，Brightcove PlayerUI 插件是一個單獨的框架和模塊。）您可以刪除任何引用 Brightcove PlayerUI 模塊的導入。所有 PlayerUI 標頭現在都可以在<code>Brightcove播放器SDK</code>模塊。</p>
+
+<p>在您的 UIViewController 中創建一個屬性以跟踪 BCOVPIPlayerView。BCOVPUIPlayerView 將包含播放控制器&rsquo; s 視圖和控件視圖。</p>
+
+<pre><code>// PlayerUI 的播放器視圖 @property (nonatomic) BCOVPUIPlayerView *playerView;</code></pre>
+
+<p>創建 BCOVPUIBasicControlView，然後創建 BCOVPPUIPlayerView。這是我們將播放控制器（以及它播放的所有視頻）與控件關聯的地方。</p>
+
+<pre><code>// 創建和配置控制視圖。BCOVPUIBasicControlView *controlView = [BCOVPUIBasicControlView basicControlViewWithVODLayout]; self.playerView = [[BCOVPUIPlayerView alloc] initWithPlaybackController:self.playbackController options:nil controlsView:controlView]; // 將 BCOPUIPlayerView 添加到您的視頻視圖中。 [self.videoView addSubview:self.playerView];</code></pre>
+
+<p>你&rsquo;需要為播放器視圖設置佈局，您可以使用自動佈局或較舊的 Springs &amp; Struts 方法來完成此操作。</p>
+
+<p><strong>彈簧和支柱：</strong></p>
+
+<p>設置播放器視圖以匹配佈局中的視頻容器 ( <code>視頻視圖</code> ) 調整大小時。</p>
+
+<pre><code>self.playerView.frame = self.videoView.bounds; self.playerView.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;</code></pre>
+
+<p><strong>自動佈局</strong></p>
+
+<p>設置<code>翻譯AutoresizingMaskIntoConstraints</code>在 BCOVPUIPlayerView 上<code>不</code> .</p>
+
+<pre><code>self.videoView.translatesAutoresizingMaskIntoConstraints = NO;</code></pre>
+
+<p>然後為佈局添加約束；將 BCOVPUIPlayerView 的頂部、右側、左側和底部錨點設置為等於<code>視頻視圖</code></p>
+
+<pre><code>[NSLayoutConstraint activateConstraints:@[ [self.playerView.topAnchor constraintEqualToAnchor:self.videoView.topAnchor], [self.playerView.rightAnchor constraintEqualToAnchor:self.videoView.rightAnchor], [self.playerView.leftAnchor constraintEqualvideoToAnchor.leftAnchor] , [self.playerView.bottomAnchor constraintEqualToAnchor:self.videoView.bottomAnchor], ]];</code></pre>
+
+<p>最後一步特定於 FreeWheel。在您的 adContextPolicy 中，確保將您的視頻顯示基礎設置為播放器視圖&rsquo; s 內容疊加視圖。這允許 FreeWheel 廣告在視頻上播放，但將廣告控件保留在 FreeWheel 廣告上方。</p>
+
+<pre><code>- (BCOVFWSessionProviderAdContextPolicy)adContextPolicy { // Prevent retain cycles when using self __weak typeof(self) weakSelf = self; return [^ id&lt;FWContext&gt;(BCOVVideo *video, BCOVSource *source, NSTimeInterval videoDuration) { typeof(self) strongSelf = weakSelf; ... FREEWHEEL SETUP CODE ... // Tell FreeWheel to display ads in they content overlay view [adContext setVideoDisplayBase:strongSelf.playerView.contentOverlayView]; return adContext; }複製]; }</code></pre>
+
+<p>現在，在播放帶有廣告的視頻時，您會在時間軸滑塊上看到廣告標記，以及在廣告播放期間對廣告的廣告控件。</p>
+
+<p>PlayerUI 是高度可定制的。有關更多信息和示例代碼，請參閱<strong>自定義佈局</strong> README 文件中的部分<a href="https://github.com/brightcove/brightcove-player-sdk-ios">Brightcove Native Player SDK 存儲庫</a> .</p>
+
+<h1>無廣告搜索</h1>
+
+<p>用<code>-[BCOVPlaybackController seekWithoutAds:(CMTime)seekToTime completionHandler:(void (^)(BOOL finished))completion]</code>在特定時間恢復播放而不強迫用戶觀看之前安排的廣告<code>尋找時間</code> .</p>
+
+<p>在準備<code>seekWithoutAds:completionHandler:</code> , 禁用<code>自動播放</code>當設置<code>BCOVPlaybackController</code> .</p>
+
+<p>Apple 建議在使用 AVPlayerItem 之前等待 AVPlayerItem 的狀態更改為準備播放。因此，調用<code>seekWithoutAds:completionHandler:</code>在裡面<code>kBCOVPlaybackSessionLifecycleEventReady</code>的處理者<code>播放控制器：播放會話：didReceiveLifecycleEvent</code>你的方法<code>BCOVPlaybackControllerDelegate</code> .</p>
+
+<p>```objective-c - (void)playbackController:(NSObject<BCOVPlaybackController><em>)控制器播放會話:(NSObject<BCOVPlaybackSession></em>)session didReceiveLifecycleEvent:(BCOVPlaybackSessionLifecycleEvent *)lifecycleEvent { if ([kBCOVPlaybackSessionLifecycleEventReady isEqualToString:lifecycleEvent.eventType]) {</p>
+
+<pre><code>// self.resumePlayback 是一個假設的實例變量，此處用於說明。如果（self.resumePlayback）{ __weak typeof(controller) weakController = controller; // seek without playing ads which are scheduled before the seek time, i.e. resume playback. [controller seekWithoutAds:CMTimeMake(seekWithoutAdsValue, seekWithoutAdsTimescale) completionHandler:^(BOOL finished) { if (!finished) { NSLog (@"seekWithoutAds failed to finish"); } typeof(controller) strongController = weakController;如果（強控制器）{ // fade out the shutter to reveal the player view. strongController.shutterFadeTime = 0.25; strongController.shutter = NO; // turn off seek without ads - especially important if this player is being used with a playlist self.resumePlayback = NO; } }]; }</code></pre>
+
+<p>  } }```</p>
+
+<p>這<code>快門</code>和<code>快門淡入淡出時間</code>的屬性<code>BCOVPlaybackController</code>可以與<code>seekWithoutAds:completionHandler:</code>隱藏在 AVPlayer 加載資產時可能發生的幀閃爍。在您的 BCOVPlaybackController 設置代碼中，啟用快門以隱藏播放器視圖：</p>
+
+<p>```objective-c NSObject<BCOVPlaybackController> *播放控制器；</p>
+
+<p>  播放控制器 = [sdkManager createFWPlaybackControllerWithAdContextPolicy:nil viewStrategy:nil];播放控制器.delegate = self;</p>
+
+<p>  if (self.resumePlayback) { // 將快門淡入淡出時間設置為零以立即隱藏播放器視圖。播放控制器.shutterFadeTime = 0.0;播放控制器.shutter = YES;</p>
+
+<pre><code>// 恢復播放時禁用自動播放。播放控制器.autoPlay = NO;</code></pre>
+
+<p>  }```</p>
+
+<p>請注意，在您的應用程序中使用 Seek without Ads 時，您可能會觀察到網絡流量，這通常作為設置 IMA 插件的一部分發生。此流量是正確設置插件所必需的，並且不會影響無廣告搜索功能。</p>
+
+<h1>自定義插件行為</h1>
+
+<p>您可以通過創建一個實例來自定義默認插件行為<a href="Classes/BCOVFWSessionProviderOptions.html"><code>BCOVFWSessionProviderOptions</code></a>並覆蓋默認屬性。使用一個<a href="Classes/BCOVFWSessionProviderOptions.html"><code>BCOVFWSessionProviderOptions</code></a>選項實例，您需要創建<a href="Classes/BCOVFWSessionProvider.html"><code>BCOVFWSessionProvider</code></a>使用<code>[BCOVSDKManager createFWSessionProviderWithAdContextPolicy:upstreamSessionProvider:options:]</code> .</p>
+
+<pre><code>BCOVFWSessionProviderOptions *options = [[BCOVFWSessionProviderOptions alloc] init]; options.cuePointProgressPolicy = [BCOVCuePointProgressPolicy progressPolicyProcessingCuePoints:BCOVProgressPolicyProcessFinalCuePoint resumingPlaybackFrom:BCOVProgressPolicyResumeFromContentPlayhead ignoringPreviouslyProcessedCuePoints:YES]; id&lt;BCOVPlaybackSessionProvider&gt; sessionProvider = [sdkManager createFWSessionProviderWithAdContextPolicy:[self adContextPolicy] upstreamSessionProvider:nil options:options]; id&lt;BCOVPlaybackController&gt;playbackController = [sdkManager createPlaybackControllerWithSessionProvider:sessionProvider viewStrategy:nil];</code></pre>
+
+<h2>預加載插槽</h2>
+
+<p>根據網絡條件，一旦廣告位置被點擊，廣告播放所需的時間可能會有延遲。為了提高廣告性能，可以預加載 FreeWheel 插槽。要打開預加載，請啟用<code>預載插槽</code>在<a href="Classes/BCOVFWSessionProviderOptions.html"><code>BCOVFWSessionProviderOptions</code></a> .</p>
+
+<p>啟用後，將盡快加載預卷插槽。對於插播廣告，插槽將預加載可配置的秒數，由<code>廣告到預加載時間</code>在<a href="Classes/BCOVFWSessionProviderOptions.html"><code>BCOVFWSessionProviderOptions</code></a> .</p>
+
+<h2>使用準確的持續時間</h2>
+
+<p>根據您的 FreeWheel 配置，在調用中提供準確的持續時間<code>設置視頻ID：</code>是接收到正確數量的插播廣告與否之間的差異。</p>
+
+<p>默認情況下，SDK 將等待調用<a href="Blocks/BCOVFWSessionProviderAdContextPolicy.html"><code>BCOVFWSessionProviderAdContextPolicy</code></a>直到 AVPlayerItem 具有準確的持續時間，並且該值將提供給塊調用。如果您不想等到 AVPlayerItem 持續時間準備好並且您可以從其他來源（如 BCOVVideo/BCOVSource 屬性或您自己的 CMS）獲得此信息，<code>等待AVPlayer持續時間</code>可用於禁用等待。</p>
+
+<h2>處理尋道</h2>
+
+<p>在搜索多個廣告連播時（如兩個插播廣告位，在不同位置），SDK 提供了一種便利機制來確定播放哪些連播。這可以通過更改默認值來修改<code>BCOVCuePointProgressPolicy</code>在<a href="Classes/BCOVFWSessionProviderOptions.html"><code>BCOVFWSessionProviderOptions</code></a> .欲了解更多信息<code>BCOVCuePointProgressPolicy</code>，請諮詢<code></code> BCOVFWSessionProvider <code>。H</code>文件。</p>
+
+<h1>跟踪 FreeWheel 錯誤</h1>
+
+<p>FreeWheel 錯誤事件 ( <code> FWAdErrorEvent</code> ) 通過<code>FWAd事件通知</code>將傳遞給<code>播放控制器：播放會話：didReceiveLifecycleEvent：</code>具有事件類型的委託方法<code>kBCOVFWLifecycleEventAdError</code> .FreeWheel SDK 隨通知一起發送的整個 userInfo 對象包含在 events 屬性中，可以使用<code>kBCOVFWLifecycleEventPropertyKeyAdError</code>鑰匙。</p>
+
+<p>以下是如何捕獲這些錯誤的示例：</p>
+
+<pre><code>- (void)playbackController:(id&lt;BCOVPlaybackController&gt;)controller playbackSession:(id&lt;BCOVPlaybackSession&gt;)session didReceiveLifecycleEvent:(BCOVPlaybackSessionLifecycleEvent *)lifecycleEvent { if ([kBCOVFWLifecycleEventAdError isEqualToString:lifecycleEvent.eventType]) { NSDictionary *errorInfo = lifecycleEvent.properties[kBCOVFWLifecycleEventPropertyKeyAdError]; NSLog(@"FreeWheel Error Encountered: %@", errorInfo[FWInfoKeyErrorInfo]); } }</code></pre>
+
+<h1>支持</h1>
+
+<p>如果您有問題、需要幫助或想提供反饋，請使用<a href="https://supportportal.brightcove.com/s/login/">支持門戶</a>或聯繫您的客戶經理。要接收新 SDK 軟件發布的通知，請訂閱 Brightcove Native Player SDK <a href="https://groups.google.com/g/brightcove-native-player-sdks">谷歌集團</a> .如果您不確定您的廣告設置是什麼，或者對 FWContext 和其他 FW 類有什麼疑問，請聯繫 FreeWheel 支持：<a href="http://freewheel.tv"> http://freewheel.tv</a> .</p>
+						
+						
+					</div>
+					
+
+					<div class="index-container">
+						
+
+						
+						<div class="index-column">
+							<h2 class="index-title">類引用</h2>
+							<ul>
+								
+								<li><a href="Classes/BCOVFWContext.html">BCOVFW上下文</a></li>
+								
+								<li>BCOVFWSessionProvider<a href="Classes/BCOVFWSessionProvider.html"></a></li>
+								
+								<li>BCOVFWSessionProviderOptions<a href="Classes/BCOVFWSessionProviderOptions.html"></a></li>
+								
+							</ul>
+						</div>
+						
+
+						
+						<div class="index-column">
+							
+
+							
+
+							
+							<h2 class="index-title">類別參考</h2>
+							<ul>
+								
+								<li>BCOVPlayerSDKManager(BCOVFWAdditions)<a href="Categories/BCOVPlayerSDKManager-BCOVFWAdditions.html"></a></li>
+								
+								<li>BCOVSessionProviderExtension(BCOVFWAdditions)<a href="Categories/BCOVSessionProviderExtension-BCOVFWAdditions.html"></a></li>
+								
+							</ul>
+							
+						</div>
+						
+					</div>
+
+					<footer>
+						<div class="footer-copyright">
+							
+							<p class="copyright">版權&copy; 2021 年光明灣。版權所有。更新：2021-07-08</p>
+							
+							
+							<p class="generator">生成者<a href="http://appledoc.gentlebytes.com">蘋果文檔 2.2.1（內部版本 1334）</a> .</p>
+							
+						</div>
+					</footer>
+				</main>
+			</div>
+		</div>
+	</article>
+
+	<script src="js/script.js"></script>
+</body>
+</html>

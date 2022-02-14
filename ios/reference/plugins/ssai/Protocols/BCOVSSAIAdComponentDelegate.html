@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+
+	<title>BCOVSSAIAdComponentDelegate 協議參考</title>
+
+	<link rel="stylesheet" href="../css/style.css">
+	<meta name="viewport" content="initial-scale=1, maximum-scale=1.4">
+	<meta name="generator" content="appledoc 2.2.1 (build 1334)">
+</head>
+<body class="appledoc">
+	<header>
+		<div class="container" class="hide-in-xcode">
+			
+			<h1 id="library-title"><a href="../index.html">適用於 iOS 的 Brightcove 原生播放器</a></h1>
+
+			<p id="developer-home">
+				<a href="../index.html">亮灣</a>
+			</p>
+			
+		</div>
+	</header>
+
+	<aside>
+		<div class="container">
+			<nav>
+				<ul id="header-buttons" role="toolbar">
+					<li><a href="../index.html">指數</a></li>
+<li><a href="../hierarchy.html">等級制度</a></li>
+
+					<li id="on-this-page" role="navigation">
+						<label>
+							在本頁
+
+							<div class="chevron">
+								<div class="chevy chevron-left"></div>
+								<div class="chevy chevron-right"></div>
+							</div>
+
+							<select id="jump-to">
+	<option value="top">跳到…</option>
+	
+	<option value="overview">概述</option>
+	
+
+	
+	
+	<option value="tasks">任務</option>
+	
+	
+
+	
+	
+
+	
+
+	
+	<optgroup label="Instance Methods">
+		
+		<option value="//api/name/didCloseInAppBrowserWithAd:">- didCloseInAppBrowserWithAd：</option>
+		
+		<option value="//api/name/didOpenInAppBrowserWithAd:">- didOpenInAppBrowserWithAd：</option>
+		
+		<option value="//api/name/willCloseInAppBrowserWithAd:">- willCloseInAppBrowserWithAd：</option>
+		
+		<option value="//api/name/willOpenExternalBrowserWithAd:">- willOpenExternalBrowserWithAd：</option>
+		
+		<option value="//api/name/willOpenInAppBrowserWithAd:">- willOpenInAppBrowserWithAd：</option>
+		
+	</optgroup>
+	
+	
+</select>
+						</label>
+					</li>
+				</ul>
+			</nav>
+		</div>
+	</aside>
+
+	<article>
+		<div id="overview_contents" class="container">
+			<div id="content">
+				<main role="main">
+					<h1 class="title">BCOVSSAIAdComponentDelegate 協議參考</h1>
+
+					
+					<div class="section section-specification"><table cellspacing="0"><tbody>
+						<tr>
+	<th>符合</th>
+	<td>NSObject</td>
+</tr><tr>
+	<th>聲明於</th>
+	<td>BCOVSSAIAdComponentDisplayContainer.h</td>
+</tr>
+						</tbody></table></div>
+					
+
+                    
+					
+					<div class="section section-overview">
+						<a title="Overview" name="overview"></a>
+						<h2 class="subtitle subtitle-overview">概述</h2>
+						<p>一個代表<a href="../Classes/BCOVSSAIAdComponentDisplayContainer.html">BCOVSSAIAdComponentDisplayContainer</a> .</p>
+					</div>
+					
+					
+
+					
+					
+					<div class="section section-tasks">
+						<a title="Tasks" name="tasks"></a>
+						
+
+						
+						
+
+						<div class="task-list">
+							<div class="section-method">
+	<a name="//api/name/willOpenInAppBrowserWithAd:" title="willOpenInAppBrowserWithAd:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/willOpenInAppBrowserWithAd:">&ndash;&nbsp; willOpenInAppBrowserWithAd：</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>當“了解更多”按鈕被按下並且與廣告關聯的點擊 URL 將在應用程序內瀏覽器中打開時，將調用此委託方法。</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration">- (void)willOpenInAppBrowserWithAd:(BCOVAd *)<code><em>廣告</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">參數</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>廣告</code></th>
+						<td><p>點擊後到達網址將在應用內瀏覽器中打開的廣告。</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">討論</h4>
+				<p>當“了解更多”按鈕被按下並且與廣告關聯的點擊 URL 將在應用程序內瀏覽器中打開時，將調用此委託方法。</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">申報在</h4>
+				<p>BCOVSSAIAdComponentDisplayContainer.h<code class="declared-in-ref"></code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/didOpenInAppBrowserWithAd:" title="didOpenInAppBrowserWithAd:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/didOpenInAppBrowserWithAd:">&ndash;&nbsp; didOpenInAppBrowserWithAd：</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>當“了解更多”按鈕被按下並且點擊 URL 與在應用程序內瀏覽器中打開的廣告相關聯時，將調用此委託方法。</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration">- (void)didOpenInAppBrowserWithAd:(BCOVAd *)<code><em>廣告</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">參數</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>廣告</code></th>
+						<td><p>點擊後到達網址在應用內瀏覽器中打開的廣告。</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">討論</h4>
+				<p>當“了解更多”按鈕被按下並且點擊 URL 與在應用程序內瀏覽器中打開的廣告相關聯時，將調用此委託方法。</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">申報在</h4>
+				<p>BCOVSSAIAdComponentDisplayContainer.h<code class="declared-in-ref"></code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/willCloseInAppBrowserWithAd:" title="willCloseInAppBrowserWithAd:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/willCloseInAppBrowserWithAd:">&ndash;&nbsp; willCloseInAppBrowserWithAd：</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>當應用內瀏覽器關閉時，將調用此委託方法。</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration">- (void)willCloseInAppBrowserWithAd:(BCOVAd *)<code><em>廣告</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">參數</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>廣告</code></th>
+						<td><p>點擊後到達網址將在應用內瀏覽器中關閉的廣告。</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">討論</h4>
+				<p>當應用內瀏覽器關閉時，將調用此委託方法。</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">申報在</h4>
+				<p>BCOVSSAIAdComponentDisplayContainer.h<code class="declared-in-ref"></code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/didCloseInAppBrowserWithAd:" title="didCloseInAppBrowserWithAd:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/didCloseInAppBrowserWithAd:">&ndash;&nbsp; didCloseInAppBrowserWithAd：</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>當應用內瀏覽器關閉時，將調用此委託方法。</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration">- (void)didCloseInAppBrowserWithAd:(BCOVAd *)<code><em>廣告</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">參數</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>廣告</code></th>
+						<td><p>點擊後到達網址從應用內瀏覽器關閉的廣告。</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">討論</h4>
+				<p>當應用內瀏覽器關閉時，將調用此委託方法。</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">申報在</h4>
+				<p>BCOVSSAIAdComponentDisplayContainer.h<code class="declared-in-ref"></code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/willOpenExternalBrowserWithAd:" title="willOpenExternalBrowserWithAd:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/willOpenExternalBrowserWithAd:">&ndash;&nbsp; willOpenExternalBrowserWithAd：</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>當應用內瀏覽器將在系統瀏覽器中打開點擊 url 時，將調用此可選委託方法。</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration">- (void)willOpenExternalBrowserWithAd:(BCOVAd *)<code><em>廣告</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">參數</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>廣告</code></th>
+						<td><p>其點擊後到達網址將在系統瀏覽器中打開的廣告。</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">討論</h4>
+				<p>當應用內瀏覽器將在系統瀏覽器中打開點擊 url 時，將調用此可選委託方法。</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">申報在</h4>
+				<p>BCOVSSAIAdComponentDisplayContainer.h<code class="declared-in-ref"></code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div>
+						</div>
+						
+					</div>
+					
+					
+
+                    
+				</main>
+
+				<footer>
+					<div class="footer-copyright">
+						
+						<p class="copyright">版權&copy; 2021 年光明灣。版權所有。更新：2021-07-08</p>
+						
+						
+						<p class="generator">生成者<a href="http://appledoc.gentlebytes.com">蘋果文檔 2.2.1（內部版本 1334）</a> .</p>
+						
+					</div>
+				</footer>
+			</div>
+		</div>
+	</article>
+
+	<script src="../js/script.js"></script>
+</body>
+</html>

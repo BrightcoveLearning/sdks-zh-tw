@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+
+	<title>BCOVWidevine 參考</title>
+
+	<link rel="stylesheet" href="css/style.css">
+	<meta name="viewport" content="initial-scale=1, maximum-scale=1.4">
+	<meta name="generator" content="appledoc 2.2.1 (build 1334)">
+</head>
+<body class="appledoc">
+	<header>
+		<div class="container" class="hide-in-xcode">
+			
+			<h1 id="library-title"><a href="index.html">BCOVWidevine</a></h1>
+
+			<p id="developer-home">
+				<a href="index.html">亮灣</a>
+			</p>
+			
+		</div>
+	</header>
+
+	<aside>
+		<div class="container">
+			<nav>
+				<ul id="header-buttons" role="toolbar">
+					<li><a href="hierarchy.html">等級制度</a></li>
+				</ul>
+			</nav>
+		</div>
+	</aside>
+
+	<article>
+		<div id="overview-contents" class="container">
+			<div id="content">
+				<main role="main">
+					<h1 class="title">BCOVWidevine 參考</h1>
+
+					
+					<div class="section section-overview index-overview">
+						
+						
+						<h1>適用於 iOS 版 Brightcove Player SDK 的 Widevine 插件，版本 2.1.4.358</h1><h1>支持的平台</h1>
+
+<p>iOS 8.0 和 9.0。<strong>Widevine 不會在 iOS 模擬器上運行。</strong></p>
+
+<h1>重要 - 請注意</h1>
+
+<p>適用於 iOS 的 Brightcove Player SDK 的 Widevine 插件是<strong>已棄用</strong> .</p>
+
+<h1>安裝</h1>
+
+<p>Brightcove Player SDK 的 Widevine 插件提供了一個用於安裝的靜態庫框架。</p>
+
+<h2>可可豆</h2>
+
+<p>您可以使用<a href="http://cocoapods.org">可可豆</a>將適用於 Brightcove Player SDK 的 Widevine 插件添加到您的項目中。你可以找到最新的<code>Brightcove-Player-SDK-Widevine</code> podspec <a href="https://github.com/brightcove/BCOVSpecs/tree/master/Brightcove-Player-SDK-Widevine">這裡</a> .要使用此規範，請將以下內容添加到 Podfile 的頂部：<code>來源 '</code> https://github.com/brightcove/BCOVSpecs.git' <code></code>或運行<code>pod repo 添加 BCOVSpecs</code> https://github.com/brightcove/BCOVSpecs.git <code></code> .需要 CocoaPods 0.39 或更新版本。</p>
+
+<p>Widevine SDK <strong>不是</strong>包含在這個吊艙中。你<strong>必須</strong>即使在使用 Cocoapods 時，也可以手動將 Widevine 庫添加到您的項目中。然而，pod 將添加 Widevine 庫所需的所有庫，例如<code>庫++</code> , <code> libxml2</code> , <code> libresolv</code> , <code>庫系統</code>， 和<code>庫茲</code> .<strong>請聯繫 Brightcove 支持以訪問 Widevine 庫。</strong></p>
+
+<p>要手動安裝 Widevine 庫：</p>
+
+<ol>
+<li>從 Brightcove 支持請求 Widevine 庫。</li>
+<li>將包的內容添加到您的項目中。</li>
+<li>在&ldquo;構建階段&rdquo;應用程序目標的選項卡，將以下內容添加到&ldquo;將二進製文件與庫鏈接&rdquo;階段：
+
+<ul>
+<li>libWViPhoneAPI.a<code></code></li>
+</ul>
+</li>
+<li>在&ldquo;構建設置&rdquo;應用程序目標的選項卡：
+
+<ul>
+<li>確保 Widevine 標頭在您的應用程序中&rsquo;秒&ldquo;標題搜索路徑&rdquo; .</li>
+<li>確保這件事<code>-ObjC</code>已添加到&ldquo;其他鏈接器標誌&rdquo;構建設置。</li>
+</ul>
+</li>
+</ol>
+
+
+<p>靜態框架示例：</p>
+
+<pre><code>來源'https://github.com/CocoaPods/Specs.git' 來源'https://github.com/brightcove/BCOVSpecs.git'  pod 'Brightcove-Player-SDK-Widevine' </code></pre>
+
+<h2>手動的</h2>
+
+<p>手動將適用於 Brightcove Player SDK 的 Widevine 插件添加到您的項目中：</p>
+
+<ol>
+<li>安裝最新版本的<a href="https://github.com/brightcove/brightcove-player-sdk-ios">Brightcove 播放器 SDK</a> .</li>
+<li>從我們的網站下載插件的最新壓縮版本<a href="https://github.com/brightcove/brightcove-player-sdk-ios-widevine/releases">發布頁面</a> .</li>
+<li>從 Brightcove 支持請求 Widevine 庫並將其添加到您的項目中。</li>
+<li>添加&lsquo; BrightcoveWidevine.framework &rsquo;到您的項目。</li>
+<li>在&ldquo;構建設置&rdquo;應用程序目標的選項卡，確保&ldquo;框架搜索路徑&rdquo;包括框架的路徑。這應該自動完成，除非框架存儲在與您的項目不同的根目錄下。</li>
+<li>在&ldquo;構建階段&rdquo;應用程序目標的選項卡，將以下內容添加到&ldquo;將二進製文件與庫鏈接&rdquo;階段：
+
+<ul>
+<li>BrightcoveWidevine.framework<code></code></li>
+<li>libWViPhoneAPI.a<code></code></li>
+<li><code>庫++</code></li>
+<li>libxml2<code></code></li>
+<li>libresolv<code></code></li>
+<li><code>庫系統</code></li>
+<li><code>庫茲</code></li>
+</ul>
+</li>
+<li>在&ldquo;構建設置&rdquo;應用程序目標的選項卡：
+
+<ul>
+<li>確保這件事<code>-ObjC</code>已添加到&ldquo;其他鏈接器標誌&rdquo;構建設置。</li>
+<li>確保 Widevine 標頭在您的應用程序中&rsquo;秒&ldquo;標題搜索路徑&rdquo; .</li>
+</ul>
+</li>
+</ol>
+
+
+<h1>快速開始</h1>
+
+<pre><code>NSString *token; // (Brightcove Media API token with URL access) NSString *playlistID; //（您要使用的播放列表的 ID） BCOVPlayerSDKManager *manager = [BCOVPlayerSDKManager sharedManager]; [1] id&lt;BCOVPlaybackController&gt; controller = [playbackManager createWidevinePlaybackControllerWithViewStrategy:nil]viewStrategy:nil]; [self.view addSubview:controller.view]; BCOVCatalogService *catalog = [[BCOVCatalogService alloc] initWithToken:token]; [2] [目錄 findWidevinePlaylistWithPlaylistID:playlistID 參數：nil 補全:^(BCOVPlaylist *playlist, NSDictionary *jsonResponse, NSError *error) { [controller setVideos:playlist]; [controller play]; } ];</code></pre>
+
+<p>讓&rsquo;將這段代碼分解成幾個步驟，使其更容易消化：</p>
+
+<ol>
+<li>BCOVWidevine 為 BCOVPlaybackManager 添加了一些分類方法。其中第一個是<code>-createWidevinePlaybackControllerWithViewStrategy</code> .使用此方法創建您的播放控制器。或者（如果您使用多個會話提供程序），您可以創建一個<a href="Classes/BCOVWidevineSessionProvider.html">BCOVWidevineSessionProvider</a>並將其傳遞給使用上游會話提供程序創建播放控制器的管理器方法。*</li>
+<li>BCOVWidevine 向 BCOVPlaybackManager 添加了一些類別方法，用於從目錄中檢索 Widevine 再現。</li>
+</ol>
+
+
+<p>* 請注意，在構建播放控制器時，BCOVWidevineSessionProvider 應位於傳遞給管理器的鏈中的任何廣告會話提供程序之前。</p>
+
+<p>如果您有問題或需要幫助，我們有 Brightcove 支持論壇&rsquo; s 本機播放器 SDK，位於<a href="https://groups.google.com/forum/">https://groups.google.com/forum/</a> #!forum/brightcove-native-player-sdks 。</p>
+
+<h1>自定義插件行為</h1>
+
+<p>您可以通過創建一個實例來自定義默認插件行為<a href="Classes/BCOVWidevineSessionProviderOptions.html"><code>BCOVWidevineSessionProviderOptions</code></a>並覆蓋默認屬性。使用一個<code>BCOVWideSessionProviderOptions</code>選項實例，您需要創建<code>BCOVWideSessionProvider</code>使用<code>[BCOVSDKManager createWidevineSessionProviderWithOptions:]</code> .</p>
+
+<pre><code>BCOVWidevineSessionProviderOptions *options = [[BCOVWidevineSessionProviderOptions alloc] init]; options.widevineSettings = @ { WVPlayerDrivenAdaptationKey: @0 } ; id&lt;BCOVPlaybackSessionProvider&gt; sessionProvider = [playbackManager createWidevineSessionProviderWithOptions:options]; id&lt;BCOVPlaybackController&gt;playbackController = [playbackManager createPlaybackControllerWithSessionProvider:sessionProvider viewStrategy:nil];</code></pre>
+
+<h2>源選擇（WVM、HTTP/HTTPs）</h2>
+
+<p>適用於 iOS 的 Brightcove Player SDK 為客戶端提供附加多個 url 和交付類型（<code> BCOV源</code> ) 到單個視頻 ( <code> BCOV視頻</code>）。例如，如果目錄或播放服務正在檢索您的視頻，則單個視頻可能會混合使用 WVM、HLS 或 MP4 格式，以及 HTTP 和 HTTPs 版本。選擇這些源中的哪一個由源選擇塊確定。Widevine 插件使用的默認源選擇策略選擇第一個 Widevine <code> BCOV源</code>在各個<code>BCOV視頻</code>，無論方案如何。</p>
+
+<p>源選擇可以通過創建一個<a href="Classes/BCOVWidevineSessionProviderOptions.html"><code>BCOVWidevineSessionProviderOptions</code></a>並使用它來創建一個<a href="Classes/BCOVWidevineSessionProvider.html"><code>BCOVWidevineSessionProvider</code></a> .例如：</p>
+
+<pre><code>BCOVPlayerSDKManager *sdkManager = [BCOVPlayerSDKManager sharedManager]; BCOVWidevineSessionProviderOptions *options = [[BCOVWidevineSessionProviderOptions alloc] init]; options.sourceSelectionPolicy = &lt;policy&gt; id&lt;BCOVWidevineSessionProvider&gt; provider = [sdkManager createWidevineSessionProviderWithOptions:options]; id&lt;BCOVPlaybackController&gt; 播放控制器 [sdkManager createPlaybackControllerWithSessionProvider:provider viewStrategy:nil];</code></pre>
+
+<p>如果此默認選擇策略對您不起作用，則有幾種選擇來源的替代方法：</p>
+
+<ul>
+<li><p>如果通過目錄服務或播放服務從 Video Cloud 檢索視頻，則在調用之前<code>[BCOVPlaybackController setVideos:]</code> , 使用更新方法<code>BCOV視頻</code>只包含您想要的來源（請參閱&ldquo;價值觀&rdquo;部分了解更多信息）。</p></li>
+<li><p>如果您更喜歡 HTTPS 源，Widevine 插件提供了用於選擇具有特定方案的 Widevine 源的附加選項。<code> [BCOVWidevineSourceSelectionPolicy sourceSelectionWidevineWithScheme:kBCOVSourceURLSchemeHTTPS]</code>提供了首選使用 HTTPS 的 Widevine 源的源選擇策略。這不會將非 HTTP url 轉換為 HTTPS url。如果您選擇選擇 HTTPs，請確保您的 CDN 配置為使用 HTTPs。如果 CDN 是為 HTTPs 配置的，請使用<code>BCOVPlaybackService</code>代替<code>BCOV目錄服務</code>檢索視頻/播放列表元數據。</p></li>
+<li><p>與更新視頻對像類似，您也可以實現自己的源選擇塊。</p>
+
+<pre><code>options.sourceSelectionPolicy = ^ BCOVSource *(BCOVVideo *video) { &lt;Check video.sources for source&gt;</code></pre></li>
+</ul>
+
+						
+						
+					</div>
+					
+
+					<div class="index-container">
+						
+
+						
+						<div class="index-column">
+							<h2 class="index-title">類引用</h2>
+							<ul>
+								
+								<li>BCOVWidevineSessionProvider<a href="Classes/BCOVWidevineSessionProvider.html"></a></li>
+								
+								<li>BCOVWidevineSessionProviderOptions<a href="Classes/BCOVWidevineSessionProviderOptions.html"></a></li>
+								
+								<li>BCOVWidevineSourceSelectionPolicy<a href="Classes/BCOVWidevineSourceSelectionPolicy.html"></a></li>
+								
+							</ul>
+						</div>
+						
+
+						
+						<div class="index-column">
+							
+
+							
+
+							
+							<h2 class="index-title">類別參考</h2>
+							<ul>
+								
+								<li>BCOVCatalogService(BCOVWidevineAdditions)<a href="Categories/BCOVCatalogService+BCOVWidevineAdditions.html"></a></li>
+								
+								<li>BCOVCatalogService(BCOVWidevineImperativeCallbacks)<a href="Categories/BCOVCatalogService+BCOVWidevineImperativeCallbacks.html"></a></li>
+								
+								<li>BCOVPlayerSDKManager(BCOVWidevineAdditions)<a href="Categories/BCOVPlayerSDKManager+BCOVWidevineAdditions.html"></a></li>
+								
+							</ul>
+							
+						</div>
+						
+					</div>
+
+					<footer>
+						<div class="footer-copyright">
+							
+							<p class="copyright">版權&copy; 2017 年光明灣。版權所有。更新：2017-01-26</p>
+							
+							
+							<p class="generator">生成者<a href="http://appledoc.gentlebytes.com">蘋果文檔 2.2.1（內部版本 1334）</a> .</p>
+							
+						</div>
+					</footer>
+				</main>
+			</div>
+		</div>
+	</article>
+
+	<script src="js/script.js"></script>
+<script src="https://learning-services-media.brightcove.com/doc-assets/js/https-fix.js"></script>
+<script src="https://learning-services-media.brightcove.com/doc-assets/js/support-feedback.js"></script><script src="https://support.brightcove.com/site-assets/js/site/feedback-docs.js"></script>
+</body>
+</html>

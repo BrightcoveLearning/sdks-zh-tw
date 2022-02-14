@@ -1,0 +1,1064 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+
+	<title>BCOVOfflineVideoDownloadState 常量參考</title>
+
+	<link rel="stylesheet" href="../css/style.css">
+	<meta name="viewport" content="initial-scale=1, maximum-scale=1.4">
+	<meta name="generator" content="appledoc 2.2.1 (build 1334)">
+</head>
+<body class="appledoc">
+	<header>
+		<div class="container" class="hide-in-xcode">
+			
+			<h1 id="library-title"><a href="../index.html">適用於 iOS 的 Brightcove 原生播放器</a></h1>
+
+			<p id="developer-home">
+				<a href="../index.html">亮灣</a>
+			</p>
+			
+		</div>
+	</header>
+
+	<aside>
+		<div class="container">
+			<nav>
+				<ul id="header-buttons" role="toolbar">
+					<li><a href="../index.html">指數</a></li>
+<li><a href="../hierarchy.html">等級制度</a></li>
+
+					<li id="on-this-page" role="navigation">
+						<label>
+							在本頁
+
+							<div class="chevron">
+								<div class="chevy chevron-left"></div>
+								<div class="chevy chevron-right"></div>
+							</div>
+
+							<select id="jump-to">
+	<option value="top">跳到…</option>
+	
+
+	
+
+	
+</select>
+						</label>
+					</li>
+				</ul>
+			</nav>
+		</div>
+	</aside>
+
+	<article>
+		<div id="overview_contents" class="container">
+			<div id="content">
+				<main role="main">
+					<h1 class="title">BCOVOfflineVideoDownloadState 常量參考</h1>
+
+					
+					<div class="section section-specification"><table cellspacing="0"><tbody>
+						<tr>
+	<th>聲明於</th>
+	<td>BCOVOfflineVideoManagerTypes.h</td>
+</tr>
+						</tbody></table></div>
+					
+
+                    
+
+					
+
+                    
+                    <h3 class="subsubtitle method-title">BCOV離線視頻下載狀態</h3>
+                    
+					
+					<div class="section section-overview">
+                        <p>BCOVOfflineVideoDownloadState 視頻下載的各種可能狀態</p>
+					</div>
+					
+					
+                    <div class="section">
+                        <!-- display enum values -->
+                        
+                        <h4 class="method-subtitle">定義</h4>
+                        <code>typedef NS_ENUM（NSInteger，BCOVOfflineVideoDownloadState）{<br>
+                            
+                            &nbsp;&nbsp;<a href="">BCOVOfflineVideoDownloadStateRequested</a> = 0,<br>
+                            
+                            &nbsp;&nbsp;<a href="">BCOVOfflineVideoDownloadStateDownloading</a> = 1,<br>
+                            
+                            &nbsp;&nbsp;<a href="">BCOVOfflineVideoDownloadStateSuspended</a> = 2,<br>
+                            
+                            &nbsp;&nbsp;<a href="">BCOVOfflineVideoDownloadStateCancelled</a> = 3,<br>
+                            
+                            &nbsp;&nbsp;<a href="">BCOVOfflineVideoDownloadStateCompleted</a> = 4,<br>
+                            
+                            &nbsp;&nbsp;<a href="">BCOVOfflineVideoDownloadStateError</a> = 5,<br>
+                            
+                            &nbsp;&nbsp;<a href="">BCOVOfflineVideoDownloadLicensePreloaded</a> = 6,<br>
+                            
+                            &nbsp;&nbsp;<a href="">BCOVOfflineVideoDownloadStateTracksRequested</a> ,<br>
+                            
+                            &nbsp;&nbsp;<a href="">__屬性__</a> ,<br>
+                            
+                            &nbsp;&nbsp;<a href="">(</a> ,<br>
+                            
+                            &nbsp;&nbsp;<a href="">(</a> ,<br>
+                            
+                            &nbsp;&nbsp;<a href="">已棄用</a> ,<br>
+                            
+                            &nbsp;&nbsp;<a href="">)</a> ,<br>
+                            
+                            &nbsp;&nbsp;<a href="">)</a> = 7,<br>
+                            
+                            &nbsp;&nbsp;<a href="">BCOVOfflineVideoDownloadStateTracksDownloading</a> ,<br>
+                            
+                            &nbsp;&nbsp;<a href="">__屬性__</a> ,<br>
+                            
+                            &nbsp;&nbsp;<a href="">(</a> ,<br>
+                            
+                            &nbsp;&nbsp;<a href="">(</a> ,<br>
+                            
+                            &nbsp;&nbsp;<a href="">已棄用</a> ,<br>
+                            
+                            &nbsp;&nbsp;<a href="">)</a> ,<br>
+                            
+                            &nbsp;&nbsp;<a href="">)</a> = 8,<br>
+                            
+                            &nbsp;&nbsp;<a href="">BCOVOfflineVideoDownloadStateTracksSuspended</a> ,<br>
+                            
+                            &nbsp;&nbsp;<a href="">__屬性__</a> ,<br>
+                            
+                            &nbsp;&nbsp;<a href="">(</a> ,<br>
+                            
+                            &nbsp;&nbsp;<a href="">(</a> ,<br>
+                            
+                            &nbsp;&nbsp;<a href="">已棄用</a> ,<br>
+                            
+                            &nbsp;&nbsp;<a href="">)</a> ,<br>
+                            
+                            &nbsp;&nbsp;<a href="">)</a> = 9,<br>
+                            
+                            &nbsp;&nbsp;<a href="">BCOVOfflineVideoDownloadStateTracksCancelled</a> ,<br>
+                            
+                            &nbsp;&nbsp;<a href="">__屬性__</a> ,<br>
+                            
+                            &nbsp;&nbsp;<a href="">(</a> ,<br>
+                            
+                            &nbsp;&nbsp;<a href="">(</a> ,<br>
+                            
+                            &nbsp;&nbsp;<a href="">已棄用</a> ,<br>
+                            
+                            &nbsp;&nbsp;<a href="">)</a> ,<br>
+                            
+                            &nbsp;&nbsp;<a href="">)</a> = 10,<br>
+                            
+                            &nbsp;&nbsp;<a href="">BCOVOfflineVideoDownloadStateTracksCompleted</a> ,<br>
+                            
+                            &nbsp;&nbsp;<a href="">__屬性__</a> ,<br>
+                            
+                            &nbsp;&nbsp;<a href="">(</a> ,<br>
+                            
+                            &nbsp;&nbsp;<a href="">(</a> ,<br>
+                            
+                            &nbsp;&nbsp;<a href="">已棄用</a> ,<br>
+                            
+                            &nbsp;&nbsp;<a href="">)</a> ,<br>
+                            
+                            &nbsp;&nbsp;<a href="">)</a> = 11,<br>
+                            
+                            &nbsp;&nbsp;<a href="">BCOVOfflineVideoDownloadStateTracksError</a> ,<br>
+                            
+                            &nbsp;&nbsp;<a href="">__屬性__</a> ,<br>
+                            
+                            &nbsp;&nbsp;<a href="">(</a> ,<br>
+                            
+                            &nbsp;&nbsp;<a href="">(</a> ,<br>
+                            
+                            &nbsp;&nbsp;<a href="">已棄用</a> ,<br>
+                            
+                            &nbsp;&nbsp;<a href="">)</a> ,<br>
+                            
+                            &nbsp;&nbsp;<a href="">)</a> = 12,<br>
+                            
+                            };</code>
+                    
+                    </div>
+                    
+                    <div class="section section-methods">
+                        <h4 class="method-subtitle">常數</h4>
+                        <dl class="termdef">
+                            
+                            <dt>BCOVOfflineVideoDownloadStateRequested<a name="" title="BCOVOfflineVideoDownloadStateRequested"></a><code></code></dt>
+<dd>
+
+
+<p>BCOVOfflineVideoDownloadState 視頻下載的各種可能狀態</p>
+
+
+
+
+
+    
+	<p>
+		申報在<code class="declared-in-ref">BCOVOfflineVideoManagerTypes.h</code> .
+	</p>
+	
+</dd>
+                            
+                            <dt>BCOVOfflineVideoDownloadStateDownloading<a name="" title="BCOVOfflineVideoDownloadStateDownloading"></a><code></code></dt>
+<dd>
+
+
+<p>BCOVOfflineVideoDownloadState 視頻下載的各種可能狀態</p>
+
+
+
+
+
+    
+	<p>
+		申報在<code class="declared-in-ref">BCOVOfflineVideoManagerTypes.h</code> .
+	</p>
+	
+</dd>
+                            
+                            <dt>BCOVOfflineVideoDownloadStateSuspended<a name="" title="BCOVOfflineVideoDownloadStateSuspended"></a><code></code></dt>
+<dd>
+
+
+<p>BCOVOfflineVideoDownloadState 視頻下載的各種可能狀態</p>
+
+
+
+
+
+    
+	<p>
+		申報在<code class="declared-in-ref">BCOVOfflineVideoManagerTypes.h</code> .
+	</p>
+	
+</dd>
+                            
+                            <dt>BCOVOfflineVideoDownloadStateCancelled<a name="" title="BCOVOfflineVideoDownloadStateCancelled"></a><code></code></dt>
+<dd>
+
+
+<p>BCOVOfflineVideoDownloadState 視頻下載的各種可能狀態</p>
+
+
+
+
+
+    
+	<p>
+		申報在<code class="declared-in-ref">BCOVOfflineVideoManagerTypes.h</code> .
+	</p>
+	
+</dd>
+                            
+                            <dt>BCOVOfflineVideoDownloadStateCompleted<a name="" title="BCOVOfflineVideoDownloadStateCompleted"></a><code></code></dt>
+<dd>
+
+
+<p>BCOVOfflineVideoDownloadState 視頻下載的各種可能狀態</p>
+
+
+
+
+
+    
+	<p>
+		申報在<code class="declared-in-ref">BCOVOfflineVideoManagerTypes.h</code> .
+	</p>
+	
+</dd>
+                            
+                            <dt>BCOVOfflineVideoDownloadStateError<a name="" title="BCOVOfflineVideoDownloadStateError"></a><code></code></dt>
+<dd>
+
+
+<p>BCOVOfflineVideoDownloadState 視頻下載的各種可能狀態</p>
+
+
+
+
+
+    
+	<p>
+		申報在<code class="declared-in-ref">BCOVOfflineVideoManagerTypes.h</code> .
+	</p>
+	
+</dd>
+                            
+                            <dt>BCOVOfflineVideoDownloadLicensePreloaded<a name="" title="BCOVOfflineVideoDownloadLicensePreloaded"></a><code></code></dt>
+<dd>
+
+
+<p>BCOVOfflineVideoDownloadState 視頻下載的各種可能狀態</p>
+
+
+
+
+
+    
+	<p>
+		申報在<code class="declared-in-ref">BCOVOfflineVideoManagerTypes.h</code> .
+	</p>
+	
+</dd>
+                            
+                            <dt>BCOVOfflineVideoDownloadStateTracksRequested<a name="" title="BCOVOfflineVideoDownloadStateTracksRequested"></a><code></code></dt>
+<dd>
+
+
+<p>BCOVOfflineVideoDownloadState 視頻下載的各種可能狀態</p>
+
+
+
+
+
+    
+	<p>
+		申報在<code class="declared-in-ref">BCOVOfflineVideoManagerTypes.h</code> .
+	</p>
+	
+</dd>
+                            
+                            <dt><a name="" title="__attribute__"></a><code>__屬性__</code></dt>
+<dd>
+
+
+<p>BCOVOfflineVideoDownloadState 視頻下載的各種可能狀態</p>
+
+
+
+
+
+    
+	<p>
+		申報在<code class="declared-in-ref">BCOVOfflineVideoManagerTypes.h</code> .
+	</p>
+	
+</dd>
+                            
+                            <dt>(<a name="" title="("></a><code></code></dt>
+<dd>
+
+
+<p>BCOVOfflineVideoDownloadState 視頻下載的各種可能狀態</p>
+
+
+
+
+
+    
+	<p>
+		申報在<code class="declared-in-ref">BCOVOfflineVideoManagerTypes.h</code> .
+	</p>
+	
+</dd>
+                            
+                            <dt>(<a name="" title="("></a><code></code></dt>
+<dd>
+
+
+<p>BCOVOfflineVideoDownloadState 視頻下載的各種可能狀態</p>
+
+
+
+
+
+    
+	<p>
+		申報在<code class="declared-in-ref">BCOVOfflineVideoManagerTypes.h</code> .
+	</p>
+	
+</dd>
+                            
+                            <dt><a name="" title="deprecated"></a><code>已棄用</code></dt>
+<dd>
+
+
+<p>BCOVOfflineVideoDownloadState 視頻下載的各種可能狀態</p>
+
+
+
+
+
+    
+	<p>
+		申報在<code class="declared-in-ref">BCOVOfflineVideoManagerTypes.h</code> .
+	</p>
+	
+</dd>
+                            
+                            <dt>)<a name="" title=")"></a><code></code></dt>
+<dd>
+
+
+<p>BCOVOfflineVideoDownloadState 視頻下載的各種可能狀態</p>
+
+
+
+
+
+    
+	<p>
+		申報在<code class="declared-in-ref">BCOVOfflineVideoManagerTypes.h</code> .
+	</p>
+	
+</dd>
+                            
+                            <dt>)<a name="" title=")"></a><code></code></dt>
+<dd>
+
+
+<p>BCOVOfflineVideoDownloadState 視頻下載的各種可能狀態</p>
+
+
+
+
+
+    
+	<p>
+		申報在<code class="declared-in-ref">BCOVOfflineVideoManagerTypes.h</code> .
+	</p>
+	
+</dd>
+                            
+                            <dt>BCOVOfflineVideoDownloadStateTracksDownloading<a name="" title="BCOVOfflineVideoDownloadStateTracksDownloading"></a><code></code></dt>
+<dd>
+
+
+<p>BCOVOfflineVideoDownloadState 視頻下載的各種可能狀態</p>
+
+
+
+
+
+    
+	<p>
+		申報在<code class="declared-in-ref">BCOVOfflineVideoManagerTypes.h</code> .
+	</p>
+	
+</dd>
+                            
+                            <dt><a name="" title="__attribute__"></a><code>__屬性__</code></dt>
+<dd>
+
+
+<p>BCOVOfflineVideoDownloadState 視頻下載的各種可能狀態</p>
+
+
+
+
+
+    
+	<p>
+		申報在<code class="declared-in-ref">BCOVOfflineVideoManagerTypes.h</code> .
+	</p>
+	
+</dd>
+                            
+                            <dt>(<a name="" title="("></a><code></code></dt>
+<dd>
+
+
+<p>BCOVOfflineVideoDownloadState 視頻下載的各種可能狀態</p>
+
+
+
+
+
+    
+	<p>
+		申報在<code class="declared-in-ref">BCOVOfflineVideoManagerTypes.h</code> .
+	</p>
+	
+</dd>
+                            
+                            <dt>(<a name="" title="("></a><code></code></dt>
+<dd>
+
+
+<p>BCOVOfflineVideoDownloadState 視頻下載的各種可能狀態</p>
+
+
+
+
+
+    
+	<p>
+		申報在<code class="declared-in-ref">BCOVOfflineVideoManagerTypes.h</code> .
+	</p>
+	
+</dd>
+                            
+                            <dt><a name="" title="deprecated"></a><code>已棄用</code></dt>
+<dd>
+
+
+<p>BCOVOfflineVideoDownloadState 視頻下載的各種可能狀態</p>
+
+
+
+
+
+    
+	<p>
+		申報在<code class="declared-in-ref">BCOVOfflineVideoManagerTypes.h</code> .
+	</p>
+	
+</dd>
+                            
+                            <dt>)<a name="" title=")"></a><code></code></dt>
+<dd>
+
+
+<p>BCOVOfflineVideoDownloadState 視頻下載的各種可能狀態</p>
+
+
+
+
+
+    
+	<p>
+		申報在<code class="declared-in-ref">BCOVOfflineVideoManagerTypes.h</code> .
+	</p>
+	
+</dd>
+                            
+                            <dt>)<a name="" title=")"></a><code></code></dt>
+<dd>
+
+
+<p>BCOVOfflineVideoDownloadState 視頻下載的各種可能狀態</p>
+
+
+
+
+
+    
+	<p>
+		申報在<code class="declared-in-ref">BCOVOfflineVideoManagerTypes.h</code> .
+	</p>
+	
+</dd>
+                            
+                            <dt>BCOVOfflineVideoDownloadStateTracksSuspended<a name="" title="BCOVOfflineVideoDownloadStateTracksSuspended"></a><code></code></dt>
+<dd>
+
+
+<p>BCOVOfflineVideoDownloadState 視頻下載的各種可能狀態</p>
+
+
+
+
+
+    
+	<p>
+		申報在<code class="declared-in-ref">BCOVOfflineVideoManagerTypes.h</code> .
+	</p>
+	
+</dd>
+                            
+                            <dt><a name="" title="__attribute__"></a><code>__屬性__</code></dt>
+<dd>
+
+
+<p>BCOVOfflineVideoDownloadState 視頻下載的各種可能狀態</p>
+
+
+
+
+
+    
+	<p>
+		申報在<code class="declared-in-ref">BCOVOfflineVideoManagerTypes.h</code> .
+	</p>
+	
+</dd>
+                            
+                            <dt>(<a name="" title="("></a><code></code></dt>
+<dd>
+
+
+<p>BCOVOfflineVideoDownloadState 視頻下載的各種可能狀態</p>
+
+
+
+
+
+    
+	<p>
+		申報在<code class="declared-in-ref">BCOVOfflineVideoManagerTypes.h</code> .
+	</p>
+	
+</dd>
+                            
+                            <dt>(<a name="" title="("></a><code></code></dt>
+<dd>
+
+
+<p>BCOVOfflineVideoDownloadState 視頻下載的各種可能狀態</p>
+
+
+
+
+
+    
+	<p>
+		申報在<code class="declared-in-ref">BCOVOfflineVideoManagerTypes.h</code> .
+	</p>
+	
+</dd>
+                            
+                            <dt><a name="" title="deprecated"></a><code>已棄用</code></dt>
+<dd>
+
+
+<p>BCOVOfflineVideoDownloadState 視頻下載的各種可能狀態</p>
+
+
+
+
+
+    
+	<p>
+		申報在<code class="declared-in-ref">BCOVOfflineVideoManagerTypes.h</code> .
+	</p>
+	
+</dd>
+                            
+                            <dt>)<a name="" title=")"></a><code></code></dt>
+<dd>
+
+
+<p>BCOVOfflineVideoDownloadState 視頻下載的各種可能狀態</p>
+
+
+
+
+
+    
+	<p>
+		申報在<code class="declared-in-ref">BCOVOfflineVideoManagerTypes.h</code> .
+	</p>
+	
+</dd>
+                            
+                            <dt>)<a name="" title=")"></a><code></code></dt>
+<dd>
+
+
+<p>BCOVOfflineVideoDownloadState 視頻下載的各種可能狀態</p>
+
+
+
+
+
+    
+	<p>
+		申報在<code class="declared-in-ref">BCOVOfflineVideoManagerTypes.h</code> .
+	</p>
+	
+</dd>
+                            
+                            <dt>BCOVOfflineVideoDownloadStateTracksCancelled<a name="" title="BCOVOfflineVideoDownloadStateTracksCancelled"></a><code></code></dt>
+<dd>
+
+
+<p>BCOVOfflineVideoDownloadState 視頻下載的各種可能狀態</p>
+
+
+
+
+
+    
+	<p>
+		申報在<code class="declared-in-ref">BCOVOfflineVideoManagerTypes.h</code> .
+	</p>
+	
+</dd>
+                            
+                            <dt><a name="" title="__attribute__"></a><code>__屬性__</code></dt>
+<dd>
+
+
+<p>BCOVOfflineVideoDownloadState 視頻下載的各種可能狀態</p>
+
+
+
+
+
+    
+	<p>
+		申報在<code class="declared-in-ref">BCOVOfflineVideoManagerTypes.h</code> .
+	</p>
+	
+</dd>
+                            
+                            <dt>(<a name="" title="("></a><code></code></dt>
+<dd>
+
+
+<p>BCOVOfflineVideoDownloadState 視頻下載的各種可能狀態</p>
+
+
+
+
+
+    
+	<p>
+		申報在<code class="declared-in-ref">BCOVOfflineVideoManagerTypes.h</code> .
+	</p>
+	
+</dd>
+                            
+                            <dt>(<a name="" title="("></a><code></code></dt>
+<dd>
+
+
+<p>BCOVOfflineVideoDownloadState 視頻下載的各種可能狀態</p>
+
+
+
+
+
+    
+	<p>
+		申報在<code class="declared-in-ref">BCOVOfflineVideoManagerTypes.h</code> .
+	</p>
+	
+</dd>
+                            
+                            <dt><a name="" title="deprecated"></a><code>已棄用</code></dt>
+<dd>
+
+
+<p>BCOVOfflineVideoDownloadState 視頻下載的各種可能狀態</p>
+
+
+
+
+
+    
+	<p>
+		申報在<code class="declared-in-ref">BCOVOfflineVideoManagerTypes.h</code> .
+	</p>
+	
+</dd>
+                            
+                            <dt>)<a name="" title=")"></a><code></code></dt>
+<dd>
+
+
+<p>BCOVOfflineVideoDownloadState 視頻下載的各種可能狀態</p>
+
+
+
+
+
+    
+	<p>
+		申報在<code class="declared-in-ref">BCOVOfflineVideoManagerTypes.h</code> .
+	</p>
+	
+</dd>
+                            
+                            <dt>)<a name="" title=")"></a><code></code></dt>
+<dd>
+
+
+<p>BCOVOfflineVideoDownloadState 視頻下載的各種可能狀態</p>
+
+
+
+
+
+    
+	<p>
+		申報在<code class="declared-in-ref">BCOVOfflineVideoManagerTypes.h</code> .
+	</p>
+	
+</dd>
+                            
+                            <dt>BCOVOfflineVideoDownloadStateTracksCompleted<a name="" title="BCOVOfflineVideoDownloadStateTracksCompleted"></a><code></code></dt>
+<dd>
+
+
+<p>BCOVOfflineVideoDownloadState 視頻下載的各種可能狀態</p>
+
+
+
+
+
+    
+	<p>
+		申報在<code class="declared-in-ref">BCOVOfflineVideoManagerTypes.h</code> .
+	</p>
+	
+</dd>
+                            
+                            <dt><a name="" title="__attribute__"></a><code>__屬性__</code></dt>
+<dd>
+
+
+<p>BCOVOfflineVideoDownloadState 視頻下載的各種可能狀態</p>
+
+
+
+
+
+    
+	<p>
+		申報在<code class="declared-in-ref">BCOVOfflineVideoManagerTypes.h</code> .
+	</p>
+	
+</dd>
+                            
+                            <dt>(<a name="" title="("></a><code></code></dt>
+<dd>
+
+
+<p>BCOVOfflineVideoDownloadState 視頻下載的各種可能狀態</p>
+
+
+
+
+
+    
+	<p>
+		申報在<code class="declared-in-ref">BCOVOfflineVideoManagerTypes.h</code> .
+	</p>
+	
+</dd>
+                            
+                            <dt>(<a name="" title="("></a><code></code></dt>
+<dd>
+
+
+<p>BCOVOfflineVideoDownloadState 視頻下載的各種可能狀態</p>
+
+
+
+
+
+    
+	<p>
+		申報在<code class="declared-in-ref">BCOVOfflineVideoManagerTypes.h</code> .
+	</p>
+	
+</dd>
+                            
+                            <dt><a name="" title="deprecated"></a><code>已棄用</code></dt>
+<dd>
+
+
+<p>BCOVOfflineVideoDownloadState 視頻下載的各種可能狀態</p>
+
+
+
+
+
+    
+	<p>
+		申報在<code class="declared-in-ref">BCOVOfflineVideoManagerTypes.h</code> .
+	</p>
+	
+</dd>
+                            
+                            <dt>)<a name="" title=")"></a><code></code></dt>
+<dd>
+
+
+<p>BCOVOfflineVideoDownloadState 視頻下載的各種可能狀態</p>
+
+
+
+
+
+    
+	<p>
+		申報在<code class="declared-in-ref">BCOVOfflineVideoManagerTypes.h</code> .
+	</p>
+	
+</dd>
+                            
+                            <dt>)<a name="" title=")"></a><code></code></dt>
+<dd>
+
+
+<p>BCOVOfflineVideoDownloadState 視頻下載的各種可能狀態</p>
+
+
+
+
+
+    
+	<p>
+		申報在<code class="declared-in-ref">BCOVOfflineVideoManagerTypes.h</code> .
+	</p>
+	
+</dd>
+                            
+                            <dt>BCOVOfflineVideoDownloadStateTracksError<a name="" title="BCOVOfflineVideoDownloadStateTracksError"></a><code></code></dt>
+<dd>
+
+
+<p>BCOVOfflineVideoDownloadState 視頻下載的各種可能狀態</p>
+
+
+
+
+
+    
+	<p>
+		申報在<code class="declared-in-ref">BCOVOfflineVideoManagerTypes.h</code> .
+	</p>
+	
+</dd>
+                            
+                            <dt><a name="" title="__attribute__"></a><code>__屬性__</code></dt>
+<dd>
+
+
+<p>BCOVOfflineVideoDownloadState 視頻下載的各種可能狀態</p>
+
+
+
+
+
+    
+	<p>
+		申報在<code class="declared-in-ref">BCOVOfflineVideoManagerTypes.h</code> .
+	</p>
+	
+</dd>
+                            
+                            <dt>(<a name="" title="("></a><code></code></dt>
+<dd>
+
+
+<p>BCOVOfflineVideoDownloadState 視頻下載的各種可能狀態</p>
+
+
+
+
+
+    
+	<p>
+		申報在<code class="declared-in-ref">BCOVOfflineVideoManagerTypes.h</code> .
+	</p>
+	
+</dd>
+                            
+                            <dt>(<a name="" title="("></a><code></code></dt>
+<dd>
+
+
+<p>BCOVOfflineVideoDownloadState 視頻下載的各種可能狀態</p>
+
+
+
+
+
+    
+	<p>
+		申報在<code class="declared-in-ref">BCOVOfflineVideoManagerTypes.h</code> .
+	</p>
+	
+</dd>
+                            
+                            <dt><a name="" title="deprecated"></a><code>已棄用</code></dt>
+<dd>
+
+
+<p>BCOVOfflineVideoDownloadState 視頻下載的各種可能狀態</p>
+
+
+
+
+
+    
+	<p>
+		申報在<code class="declared-in-ref">BCOVOfflineVideoManagerTypes.h</code> .
+	</p>
+	
+</dd>
+                            
+                            <dt>)<a name="" title=")"></a><code></code></dt>
+<dd>
+
+
+<p>BCOVOfflineVideoDownloadState 視頻下載的各種可能狀態</p>
+
+
+
+
+
+    
+	<p>
+		申報在<code class="declared-in-ref">BCOVOfflineVideoManagerTypes.h</code> .
+	</p>
+	
+</dd>
+                            
+                            <dt>)<a name="" title=")"></a><code></code></dt>
+<dd>
+
+
+<p>BCOVOfflineVideoDownloadState 視頻下載的各種可能狀態</p>
+
+
+
+
+
+    
+	<p>
+		申報在<code class="declared-in-ref">BCOVOfflineVideoManagerTypes.h</code> .
+	</p>
+	
+</dd>
+                            
+                        </dl>
+                    </div>
+                    
+
+                    
+                    
+
+                    
+
+                    
+                    <div class="method-subsection declared-in-section">
+                        <h4 class="method-subtitle">申報在</h4>
+                        <p>BCOVOfflineVideoManagerTypes.h<code class="declared-in-ref"></code></p>
+                    </div>
+                    
+                    
+                    
+				</main>
+
+				<footer>
+					<div class="footer-copyright">
+						
+						<p class="copyright">版權&copy; 2021 年光明灣。版權所有。更新：2021-07-08</p>
+						
+						
+						<p class="generator">生成者<a href="http://appledoc.gentlebytes.com">蘋果文檔 2.2.1（內部版本 1334）</a> .</p>
+						
+					</div>
+				</footer>
+			</div>
+		</div>
+	</article>
+
+	<script src="../js/script.js"></script>
+</body>
+</html>

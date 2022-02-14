@@ -1,0 +1,751 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+
+	<title>BCOVTVSettingsView 類參考</title>
+
+	<link rel="stylesheet" href="../css/style.css">
+	<meta name="viewport" content="initial-scale=1, maximum-scale=1.4">
+	<meta name="generator" content="appledoc 2.2.1 (build 1334)">
+</head>
+<body class="appledoc">
+	<header>
+		<div class="container" class="hide-in-xcode">
+			
+			<h1 id="library-title"><a href="../index.html">適用於 iOS 的 Brightcove 原生播放器</a></h1>
+
+			<p id="developer-home">
+				<a href="../index.html">亮灣</a>
+			</p>
+			
+		</div>
+	</header>
+
+	<aside>
+		<div class="container">
+			<nav>
+				<ul id="header-buttons" role="toolbar">
+					<li><a href="../index.html">指數</a></li>
+<li><a href="../hierarchy.html">等級制度</a></li>
+
+					<li id="on-this-page" role="navigation">
+						<label>
+							在本頁
+
+							<div class="chevron">
+								<div class="chevy chevron-left"></div>
+								<div class="chevy chevron-right"></div>
+							</div>
+
+							<select id="jump-to">
+	<option value="top">跳到…</option>
+	
+	<option value="overview">概述</option>
+	
+
+	
+	
+	<option value="tasks">任務</option>
+	
+	
+
+	
+	
+	<optgroup label="Properties">
+		
+		<option value="//api/name/accessibilityDelegate">可訪問性委託</option>
+		
+		<option value="//api/name/advertisingMode">廣告模式</option>
+		
+		<option value="//api/name/currentTopTabBarItemView">currentTopTabBarItemView</option>
+		
+		<option value="//api/name/insets">插圖</option>
+		
+		<option value="//api/name/isPlaying">正在玩</option>
+		
+		<option value="//api/name/topTabBar">頂部標籤欄</option>
+		
+		<option value="//api/name/topTabBarBackgroundView">頂部標籤欄背景視圖</option>
+		
+		<option value="//api/name/topTabBarIndicatorView">topTabBarIndicatorView</option>
+		
+		<option value="//api/name/topTabBarItemContainerView">topTabBarItemContainerView</option>
+		
+		<option value="//api/name/topTabBarItemContainerViewFocusGuide">topTabBarItemContainerViewFocusGuide</option>
+		
+		<option value="//api/name/topTabBarItemViews">topTabBarItemViews</option>
+		
+	</optgroup>
+	
+
+	
+
+	
+	<optgroup label="Instance Methods">
+		
+		<option value="//api/name/enable:tabBarItemView:">- 啟用：tabBarItemView：</option>
+		
+		<option value="//api/name/showTopTabBar:">- 顯示TopTabBar：</option>
+		
+	</optgroup>
+	
+	
+</select>
+						</label>
+					</li>
+				</ul>
+			</nav>
+		</div>
+	</aside>
+
+	<article>
+		<div id="overview_contents" class="container">
+			<div id="content">
+				<main role="main">
+					<h1 class="title">BCOVTVSettingsView 類參考</h1>
+
+					
+					<div class="section section-specification"><table cellspacing="0"><tbody>
+						<tr>
+	<th>繼承自</th>
+	<td>界面視圖</td>
+</tr><tr>
+	<th>聲明於</th>
+	<td>BCOVTVSettingsView.h</td>
+</tr>
+						</tbody></table></div>
+					
+
+                    
+					
+					<div class="section section-overview">
+						<a title="Overview" name="overview"></a>
+						<h2 class="subtitle subtitle-overview">概述</h2>
+						<p>BCOVTVSettingsView 包含頂部標籤欄視圖及其相關頂部標籤欄項目視圖的視圖。此視圖位於 BCOVTVPlayerView 內&rsquo; s controlsStaticView，一個靜態疊加視圖。</p>
+					</div>
+					
+					
+
+					
+					
+					<div class="section section-tasks">
+						<a title="Tasks" name="tasks"></a>
+						
+
+						
+						
+
+						<div class="task-list">
+							<div class="section-method">
+	<a name="//api/name/insets" title="insets"></a>
+	<h3 class="method-title"><code><a href="#//api/name/insets">&nbsp;&nbsp;插圖</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>控件從 TV Player 視圖邊緣插入的量。默認值是 (top, left, bottom, right) = (60, 90, 60, 90)。頂部選項卡欄始終固定在頂部邊緣，但其高度會根據頂部插圖而變化。</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration">@property (nonatomic) UIEdgeInsets insets<code></code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">討論</h4>
+				<p>控件從 TV Player 視圖邊緣插入的量。默認值是 (top, left, bottom, right) = (60, 90, 60, 90)。頂部選項卡欄始終固定在頂部邊緣，但其高度會根據頂部插圖而變化。</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">申報在</h4>
+				<p>BCOVTVSettingsView.h<code class="declared-in-ref"></code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/topTabBar" title="topTabBar"></a>
+	<h3 class="method-title"><code><a href="#//api/name/topTabBar">&nbsp;&nbsp;頂部標籤欄</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>這是用於選擇各種設置面板視圖的主要頂部標籤欄。默認面板 (BCOVVTabBarItemViews) 是&ldquo;信息&rdquo; , &ldquo;字幕&rdquo;， 和&ldquo;聲音的&rdquo; .您可以添加或刪除自己的<a href="../Classes/BCOVTVTabBarItemView.html">BCOVTVTabBarItemView</a>通過修改此選項卡欄中的實例<a href="#//api/name/topTabBarItemViews">topTabBarItemViews</a>大批。</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration">@property (nonatomic, weak, readonly) UITabBar *topTabBar<code></code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">討論</h4>
+				<p>這是用於選擇各種設置面板視圖的主要頂部標籤欄。默認面板 (BCOVVTabBarItemViews) 是&ldquo;信息&rdquo; , &ldquo;字幕&rdquo;， 和&ldquo;聲音的&rdquo; .您可以添加或刪除自己的<a href="../Classes/BCOVTVTabBarItemView.html">BCOVTVTabBarItemView</a>通過修改此選項卡欄中的實例<a href="#//api/name/topTabBarItemViews">topTabBarItemViews</a>大批。</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">申報在</h4>
+				<p>BCOVTVSettingsView.h<code class="declared-in-ref"></code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/topTabBarBackgroundView" title="topTabBarBackgroundView"></a>
+	<h3 class="method-title"><code><a href="#//api/name/topTabBarBackgroundView">&nbsp;&nbsp;頂部標籤欄背景視圖</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>此視圖跨越屏幕的寬度，並為頂部標籤欄和頂部標籤欄項目容器視圖提供背景。這種觀點給出了&ldquo;模糊效果&rdquo;頂部標籤欄及其所有相關視圖的背景。</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration">@property (nonatomic, weak, readonly) UIVisualEffectView *topTabBarBackgroundView<code></code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">討論</h4>
+				<p>此視圖跨越屏幕的寬度，並為頂部標籤欄和頂部標籤欄項目容器視圖提供背景。這種觀點給出了&ldquo;模糊效果&rdquo;頂部標籤欄及其所有相關視圖的背景。</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">申報在</h4>
+				<p>BCOVTVSettingsView.h<code class="declared-in-ref"></code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/topTabBarItemContainerView" title="topTabBarItemContainerView"></a>
+	<h3 class="method-title"><code><a href="#//api/name/topTabBarItemContainerView">&nbsp;&nbsp; topTabBarItemContainerView</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>此視圖跨越屏幕的寬度並包含每個選項卡欄項目視圖。它的高度會自動調整大小以適應當前選擇的標籤欄項目視圖的高度。</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration">@property (nonatomic, weak, readonly) UIView *topTabBarItemContainerView<code></code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">討論</h4>
+				<p>此視圖跨越屏幕的寬度並包含每個選項卡欄項目視圖。它的高度會自動調整大小以適應當前選擇的標籤欄項目視圖的高度。</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">申報在</h4>
+				<p>BCOVTVSettingsView.h<code class="declared-in-ref"></code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/topTabBarIndicatorView" title="topTabBarIndicatorView"></a>
+	<h3 class="method-title"><code><a href="#//api/name/topTabBarIndicatorView">&nbsp;&nbsp; topTabBarIndicatorView</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>此視圖包含一個子視圖，該子視圖繪製寬向下箭頭，提醒用戶可以向下滑動以顯示頂部選項卡欄。子視圖可以替換為您自己的視圖。</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration">@property (nonatomic, weak, readonly) UIView *topTabBarIndicatorView<code></code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">討論</h4>
+				<p>此視圖包含一個子視圖，該子視圖繪製寬向下箭頭，提醒用戶可以向下滑動以顯示頂部選項卡欄。子視圖可以替換為您自己的視圖。</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">申報在</h4>
+				<p>BCOVTVSettingsView.h<code class="declared-in-ref"></code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/topTabBarItemContainerViewFocusGuide" title="topTabBarItemContainerViewFocusGuide"></a>
+	<h3 class="method-title"><code><a href="#//api/name/topTabBarItemContainerViewFocusGuide">&nbsp;&nbsp; topTabBarItemContainerViewFocusGuide</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>此焦點指南沿頂部選項卡欄項目容器視圖的底部邊緣安裝。如果標籤欄項目視圖不夠寬，無法直接位於頂部標籤欄中的項目標題下方，則此焦點指南會將焦點重定向到頂部標籤欄中當前選定的標籤欄項目視圖中的默認可聚焦項目。</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration">@property (nonatomic, weak, readonly) UIFocusGuide *topTabBarItemContainerViewFocusGuide<code></code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">討論</h4>
+				<p>此焦點指南沿頂部選項卡欄項目容器視圖的底部邊緣安裝。如果標籤欄項目視圖不夠寬，無法直接位於頂部標籤欄中的項目標題下方，則此焦點指南會將焦點重定向到頂部標籤欄中當前選定的標籤欄項目視圖中的默認可聚焦項目。</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">申報在</h4>
+				<p>BCOVTVSettingsView.h<code class="declared-in-ref"></code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/currentTopTabBarItemView" title="currentTopTabBarItemView"></a>
+	<h3 class="method-title"><code><a href="#//api/name/currentTopTabBarItemView">&nbsp;&nbsp; currentTopTabBarItemView</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>當前選擇的標籤欄項目視圖。</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration">@property (nonatomic, weak, readonly) BCOVTVTabBarItemView *currentTopTabBarItemView<code></code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">討論</h4>
+				<p>當前選擇的標籤欄項目視圖。</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">申報在</h4>
+				<p>BCOVTVSettingsView.h<code class="declared-in-ref"></code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/topTabBarItemViews" title="topTabBarItemViews"></a>
+	<h3 class="method-title"><code><a href="#//api/name/topTabBarItemViews">&nbsp;&nbsp; topTabBarItemViews</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>安裝在頂部標籤欄中的標籤欄項目視圖數組。這個數組可以被讀取、修改，然後根據需要重新分配。</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>@property (nonatomic) NSArray&lt;BCOVVTabBarItemView*&gt; *topTabBarItemViews</code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">討論</h4>
+				<p>安裝在頂部標籤欄中的標籤欄項目視圖數組。這個數組可以被讀取、修改，然後根據需要重新分配。</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">申報在</h4>
+				<p>BCOVTVSettingsView.h<code class="declared-in-ref"></code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/advertisingMode" title="advertisingMode"></a>
+	<h3 class="method-title"><code><a href="#//api/name/advertisingMode">&nbsp;&nbsp;廣告模式</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>設置為 YES 以更改控制視圖&rsquo; s UI 到廣告狀態。</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>@property (nonatomic, readwrite) BOOL AdvertisingMode</code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">討論</h4>
+				<p>設置為 YES 以更改控制視圖&rsquo; s UI 到廣告狀態。</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">申報在</h4>
+				<p>BCOVTVSettingsView.h<code class="declared-in-ref"></code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/isPlaying" title="isPlaying"></a>
+	<h3 class="method-title"><code><a href="#//api/name/isPlaying">&nbsp;&nbsp;正在玩</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>如果玩家正在玩，則設置為 YES</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>@property (nonatomic,assign) BOOL isPlaying</code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">討論</h4>
+				<p>如果玩家正在玩，則設置為 YES</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">申報在</h4>
+				<p>BCOVTVSettingsView.h<code class="declared-in-ref"></code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/accessibilityDelegate" title="accessibilityDelegate"></a>
+	<h3 class="method-title"><code><a href="#//api/name/accessibilityDelegate">&nbsp;&nbsp;可訪問性委託</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+
+			<div class="method-subsection method-declaration"><code>@property (nonatomic, weak) id&lt;BCOVTVAccessibilityDelegate&gt;accessibilityDelegate</code></div>
+
+		    
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/showTopTabBar:" title="showTopTabBar:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/showTopTabBar:">&ndash;&nbsp;顯示TopTabBar：</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>顯示或隱藏頂部標籤欄視圖。不要使用此方法顯示或隱藏頂部選項卡欄視圖。用<a href="../Classes/BCOVTVPlayerView.html#//api/name/showTopTabBar:">[BCOVTVPlayerView showTopTabBar:]</a>反而。</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration">- (void)showTopTabBar:(BOOL)<code><em>展示</em></code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">討論</h4>
+				<p>顯示或隱藏頂部標籤欄視圖。不要使用此方法顯示或隱藏頂部選項卡欄視圖。用<a href="../Classes/BCOVTVPlayerView.html#//api/name/showTopTabBar:">[BCOVTVPlayerView showTopTabBar:]</a>反而。</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">申報在</h4>
+				<p>BCOVTVSettingsView.h<code class="declared-in-ref"></code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/enable:tabBarItemView:" title="enable:tabBarItemView:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/enable:tabBarItemView:">&ndash;&nbsp;啟用：tabBarItemView：</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>在頂部標籤欄中啟用或禁用標籤欄項目視圖。默認情況下，所有選項卡欄項目視圖在創建並安裝到頂部選項卡欄時都處於啟用狀態。打電話<code>[settingsView enable:NO tabBarItemView:...]</code>禁用選項卡欄項目視圖並將其從頂部選項卡欄中刪除，但不會將其從已安裝的頂部選項卡欄項目視圖數組中刪除。打電話<code>[settingsView enable:YES tabBarItemView:...]</code>重新啟用標籤欄項目視圖並再次在頂部標籤欄中顯示這在標籤欄項目視圖沒有可顯示當前視頻的有用信息時非常有用。</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>-（無效）啟用：（BOOL）<em>使能夠</em> tabBarItemView:(BCOVTVTabBarItemView *)<em>tabBarItemView</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">參數</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>使能夠</code></th>
+						<td><p>通過 YES 使標籤欄項目視圖可見。NO隱藏。</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name">tabBarItemView<code></code></th>
+						<td><p>您希望顯示或隱藏的選項卡欄項目視圖。</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">討論</h4>
+				<p>在頂部標籤欄中啟用或禁用標籤欄項目視圖。默認情況下，所有選項卡欄項目視圖在創建並安裝到頂部選項卡欄時都處於啟用狀態。打電話<code>[settingsView enable:NO tabBarItemView:...]</code>禁用選項卡欄項目視圖並將其從頂部選項卡欄中刪除，但不會將其從已安裝的頂部選項卡欄項目視圖數組中刪除。打電話<code>[settingsView enable:YES tabBarItemView:...]</code>重新啟用標籤欄項目視圖並再次在頂部標籤欄中顯示這在標籤欄項目視圖沒有可顯示當前視頻的有用信息時非常有用。</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">申報在</h4>
+				<p>BCOVTVSettingsView.h<code class="declared-in-ref"></code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div>
+						</div>
+						
+					</div>
+					
+					
+
+                    
+				</main>
+
+				<footer>
+					<div class="footer-copyright">
+						
+						<p class="copyright">版權&copy; 2021 年光明灣。版權所有。更新：2021-07-08</p>
+						
+						
+						<p class="generator">生成者<a href="http://appledoc.gentlebytes.com">蘋果文檔 2.2.1（內部版本 1334）</a> .</p>
+						
+					</div>
+				</footer>
+			</div>
+		</div>
+	</article>
+
+	<script src="../js/script.js"></script>
+</body>
+</html>

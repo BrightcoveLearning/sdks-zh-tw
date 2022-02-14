@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+
+	<title>BCOVSessionProviderExtension(BCOVOUXAdditions) 分類參考</title>
+
+	<link rel="stylesheet" href="../css/style.css">
+	<meta name="viewport" content="initial-scale=1, maximum-scale=1.4">
+	<meta name="generator" content="appledoc 2.2.1 (build 1334)">
+</head>
+<body class="appledoc">
+	<header>
+		<div class="container" class="hide-in-xcode">
+			
+			<h1 id="library-title"><a href="../index.html">適用於 iOS 的 Brightcove 原生播放器</a></h1>
+
+			<p id="developer-home">
+				<a href="../index.html">亮灣</a>
+			</p>
+			
+		</div>
+	</header>
+
+	<aside>
+		<div class="container">
+			<nav>
+				<ul id="header-buttons" role="toolbar">
+					<li><a href="../index.html">指數</a></li>
+<li><a href="../hierarchy.html">等級制度</a></li>
+
+					<li id="on-this-page" role="navigation">
+						<label>
+							在本頁
+
+							<div class="chevron">
+								<div class="chevy chevron-left"></div>
+								<div class="chevy chevron-right"></div>
+							</div>
+
+							<select id="jump-to">
+	<option value="top">跳到…</option>
+	
+	<option value="overview">概述</option>
+	
+
+	
+	
+	<option value="tasks">任務</option>
+	
+	
+
+	
+	
+	<optgroup label="Properties">
+		
+		<option value="//api/name/)">）</option>
+		
+	</optgroup>
+	
+
+	
+
+	
+	<optgroup label="Instance Methods">
+		
+		<option value="//api/name/oux_absoluteTimeAtContentTime:">- oux_absoluteTimeAtContentTime：</option>
+		
+		<option value="//api/name/oux_contentTimeAtAbsoluteTime:">- oux_contentTimeAtAbsoluteTime：</option>
+		
+		<option value="//api/name/oux_seekToTime:completionHandler:">- oux_seekToTime:completionHandler:</option>
+		
+	</optgroup>
+	
+	
+</select>
+						</label>
+					</li>
+				</ul>
+			</nav>
+		</div>
+	</aside>
+
+	<article>
+		<div id="overview_contents" class="container">
+			<div id="content">
+				<main role="main">
+					<h1 class="title">BCOVSessionProviderExtension(BCOVOUXAdditions) 分類參考</h1>
+
+					
+					<div class="section section-specification"><table cellspacing="0"><tbody>
+						<tr>
+	<th>聲明於</th>
+	<td>BCOVOUXComponent.h</td>
+</tr>
+						</tbody></table></div>
+					
+
+                    
+					
+					<div class="section section-overview">
+						<a title="Overview" name="overview"></a>
+						<h2 class="subtitle subtitle-overview">概述</h2>
+						<p>插件上下文的 OUX 特定方法。</p>
+					</div>
+					
+					
+
+					
+					
+					<div class="section section-tasks">
+						<a title="Tasks" name="tasks"></a>
+						
+
+						
+						
+
+						<div class="task-list">
+							<div class="section-method">
+	<a name="//api/name/)" title=")"></a>
+	<h3 class="method-title"><code><a href="#//api/name/)">&nbsp;&nbsp; )</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>該屬性的值表示接收者是否會忽略<a href="#//api/name/oux_seekToTime:completionHandler:"><code>oux_seekToTime:completionHandler:</code></a>或不。當廣告正在進行中或接收者仍在處理之前的消息時，該值為 NO <a href="#//api/name/oux_seekToTime:completionHandler:"><code> oux_seekToTime:completionHandler:</code></a> ;否則，此屬性的值為 YES。也可以看看<a href="#//api/name/oux_seekToTime:completionHandler:"><code>oux_seekToTime:completionHandler:</code></a> .</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration">@property (nonatomic, readonly) BOOL oux_canSeek __deprecated_msg ( "Migrate to BrightcoveSSAI" )<code></code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">討論</h4>
+				<p>該屬性的值表示接收者是否會忽略<a href="#//api/name/oux_seekToTime:completionHandler:"><code>oux_seekToTime:completionHandler:</code></a>或不。當廣告正在進行中或接收者仍在處理之前的消息時，該值為 NO <a href="#//api/name/oux_seekToTime:completionHandler:"><code> oux_seekToTime:completionHandler:</code></a> ;否則，此屬性的值為 YES。也可以看看<a href="#//api/name/oux_seekToTime:completionHandler:"><code>oux_seekToTime:completionHandler:</code></a> .</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">申報在</h4>
+				<p>BCOVOUXComponent.h<code class="declared-in-ref"></code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/oux_seekToTime:completionHandler:" title="oux_seekToTime:completionHandler:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/oux_seekToTime:completionHandler:">&ndash;&nbsp; oux_seekToTime:completionHandler:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>此方法實現了 BCOVOUX 插件的默認搜索行為。這個方法必須在主線程上調用。當廣告正在進行中或先前調用<code>oux_seekToTime:completionHandler:</code>還在處理中。也可以看看<code>oux_canSeek</code> .</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration">- (void)oux_seekToTime:(CMTime)<code><em>時間</em> completionHandler:(void (^) (BOOL 完成))<em>完成處理程序</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">參數</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>時間</code></th>
+						<td><p>尋求的合乎邏輯的時間</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>完成處理程序</code></th>
+						<td><p>執行查找時要執行的塊</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">討論</h4>
+				<p>此方法實現了 BCOVOUX 插件的默認搜索行為。這個方法必須在主線程上調用。當廣告正在進行中或先前調用<code>oux_seekToTime:completionHandler:</code>還在處理中。也可以看看<code>oux_canSeek</code> .</p>
+
+<p>規則如下：</p>
+
+<ul>
+<li>如果尋求結束邏輯內容時間，則將播放後滾動。</li>
+<li>如果在廣告序列上搜索，則將播放該廣告，並且播放頭將在搜索嘗試搜索到的位置恢復。</li>
+<li>如果搜索多個廣告序列，則只會播放最後一個廣告序列。</li>
+<li>如果向後搜索，則不會播放廣告。</li>
+<li>如果搜索已經播放過的廣告，它們會再次播放。</li>
+</ul>
+
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">申報在</h4>
+				<p>BCOVOUXComponent.h<code class="declared-in-ref"></code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/oux_absoluteTimeAtContentTime:" title="oux_absoluteTimeAtContentTime:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/oux_absoluteTimeAtContentTime:">&ndash;&nbsp; oux_absoluteTimeAtContentTime：</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>返回對應於指定內容時間的絕對時間。</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration">- (CMTime)oux_absoluteTimeAtContentTime:(CMTime)<code><em>內容時間</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">參數</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>內容時間</code></th>
+						<td><p>視頻內容的時間偏移。</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">返回值</h4>
+				<p>對應於指定內容時間的絕對時間。</p>
+			</div>
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">討論</h4>
+				<p>返回對應於指定內容時間的絕對時間。</p>
+
+<p>此方法用於獲取與相對於內容的時間相對應的絕對流時間。例如，流可以包括一個 30 秒的廣告序列，位於<code>kCMTimeZero</code>，之後內容開始。在這種情況下，內容時間為零將對應於 30 秒的絕對流時間，而 2:00 的內容時間將對應於 2:30 的絕對流時間（假設在該時間之前沒有其他廣告序列發生） .</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">申報在</h4>
+				<p>BCOVOUXComponent.h<code class="declared-in-ref"></code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/oux_contentTimeAtAbsoluteTime:" title="oux_contentTimeAtAbsoluteTime:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/oux_contentTimeAtAbsoluteTime:">&ndash;&nbsp; oux_contentTimeAtAbsoluteTime：</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>返回對應於指定絕對時間的內容時間。</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration">- (CMTime)oux_contentTimeAtAbsoluteTime:(CMTime)<code><em>絕對時間</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">參數</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>絕對時間</code></th>
+						<td><p>視頻有效負載的時間偏移。</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">返回值</h4>
+				<p>對應於指定絕對時間的內容時間。</p>
+			</div>
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">討論</h4>
+				<p>返回對應於指定絕對時間的內容時間。</p>
+
+<p>該方法用於獲取與有效載荷相關的時間對應的內容流時間。例如，流可以包括在 1:30 的 30 秒廣告序列，之後內容開始。</p>
+
+<p>在這種情況下，內容時間為零將對應於絕對流時間為零，內容時間 2:00 將對應於絕對流時間 2:30，而內容時間 1:30 將對應於任何絕對流時間從 1:30 到 2:00。</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">申報在</h4>
+				<p>BCOVOUXComponent.h<code class="declared-in-ref"></code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div>
+						</div>
+						
+					</div>
+					
+					
+
+                    
+                    
+          
+				</main>
+
+				<footer>
+					<div class="footer-copyright">
+						
+						<p class="copyright">版權&copy; 2019 年光明灣。版權所有。更新：2019-04-22</p>
+						
+						
+						<p class="generator">生成者<a href="http://appledoc.gentlebytes.com">蘋果文檔 2.2.1（內部版本 1334）</a> .</p>
+						
+					</div>
+				</footer>
+			</div>
+		</div>
+	</article>
+
+	<script src="../js/script.js"></script>
+<script src="https://learning-services-media.brightcove.com/doc-assets/js/https-fix.js"></script>
+<script src="https://learning-services-media.brightcove.com/doc-assets/js/support-feedback.js"></script><script src="https://support.brightcove.com/site-assets/js/site/feedback-docs.js"></script>
+</body>
+</html>

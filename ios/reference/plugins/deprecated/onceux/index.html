@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+
+	<title>適用於 iOS 的 Brightcove Native Player 參考</title>
+
+	<link rel="stylesheet" href="css/style.css">
+	<meta name="viewport" content="initial-scale=1, maximum-scale=1.4">
+	<meta name="generator" content="appledoc 2.2.1 (build 1334)">
+</head>
+<body class="appledoc">
+	<header>
+		<div class="container" class="hide-in-xcode">
+			
+			<h1 id="library-title"><a href="index.html">適用於 iOS 的 Brightcove 原生播放器</a></h1>
+
+			<p id="developer-home">
+				<a href="index.html">亮灣</a>
+			</p>
+			
+		</div>
+	</header>
+
+	<aside>
+		<div class="container">
+			<nav>
+				<ul id="header-buttons" role="toolbar">
+					<li><a href="hierarchy.html">等級制度</a></li>
+				</ul>
+			</nav>
+		</div>
+	</aside>
+
+	<article>
+		<div id="overview-contents" class="container">
+			<div id="content">
+				<main role="main">
+					<h1 class="title">適用於 iOS 的 Brightcove Native Player 參考</h1>
+
+					
+					<div class="section section-overview index-overview">
+						
+						
+						<h1>適用於 iOS 版 Brightcove Player SDK 的 Brightcove OnceUX 插件，版本 6.4.3.616</h1>
+
+<h2>棄用通知：</h2>
+
+<p>OnceUX 插件正在被適用於 iOS 的 Brightcove Player SDK 的 SSAI 插件所取代。所有OnceUX 功能都在SSAI 中可用。參考&ldquo;將 OnceUX 遷移到 SSAI &rdquo;有關升級應用程序的詳細信息，請參閱本自述文件的部分。</p>
+
+<h1>支持的平台</h1>
+
+<p>iOS 10.0 及更高版本。</p>
+
+<p>tvOS 9.0 及以上。</p>
+
+<h1>安裝</h1>
+
+<p>Brightcove OneUX for Brightcove Player SDK 為 iOS 提供了兩個安裝包，一個是靜態庫框架，一個是動態框架。</p>
+
+<h2>可可豆</h2>
+
+<p>您可以使用<a href="http://cocoapods.org">可可豆</a>將適用於 Brightcove Player SDK 的 OnceUX 插件添加到您的項目中。你可以找到最新的<code>Brightcove-Player-OnceUX</code> podspec <a href="https://github.com/brightcove/BrightcoveSpecs/tree/master/Brightcove-Player-OnceUX">這裡</a> .</p>
+
+<p>靜態框架示例：</p>
+
+<pre><code>來源'https://github.com/brightcove/BrightcoveSpecs.git'  pod 'Brightcove-Player-OnceUX' </code></pre>
+
+<p>動態框架示例：</p>
+
+<pre><code>來源'https://github.com/brightcove/BrightcoveSpecs.git'  pod 'Brightcove-Player-OnceUX/動態' </code></pre>
+
+<p>更新安裝時，它&rsquo;刷新 BrightcoveSpecs 存儲庫的本地副本是一個好主意，以便您在本地擁有最新的 podspec，就像更新 CococaPods 主存儲庫一樣。</p>
+
+<p>通常，如果您使用<code>豆莢更新</code>在終端中，這將自動發生，或者您可以使用<code>pod repo 更新 Brightcove</code> .（如果您明確將 BrightcoveSpecs 存儲庫添加到 podspecs 存儲庫列表中，則它可能具有不同的名稱。）</p>
+
+<h2>手動的</h2>
+
+<p>將適用於 Brightcove Player SDK 的 OUX 插件手動添加到您的項目中：</p>
+
+<ol>
+<li>安裝最新版本的<a href="https://github.com/brightcove/brightcove-player-sdk-ios">Brightcove 播放器 SDK</a> .</li>
+<li>從我們的網站下載 BrightcoveOUX 插件的最新壓縮版本<a href="https://github.com/brightcove/brightcove-player-sdk-ios-oux/releases">發布頁面</a> .</li>
+<li>添加<code>BrightcoveOUX.framework</code>到您的項目。</li>
+<li>在&ldquo;構建設置&rdquo;應用程序目標的選項卡，確保&ldquo;框架搜索路徑&rdquo;包括框架的路徑。這應該自動完成，除非框架存儲在與您的項目不同的根目錄下。</li>
+<li>（僅限動態框架）在&ldquo;一般的&rdquo;應用程序目標的選項卡，添加&lsquo; BrightcoveOUX.framework &rsquo;到&ldquo;嵌入式二進製文件&rdquo;部分。</li>
+<li>（僅限動態框架）在&ldquo;構建階段&rdquo;選項卡，添加一個&ldquo;運行腳本&rdquo;階段與命令<code>猛擊 $ {BUILT_PRODUCTS_DIR} /$ {FRAMEWORKS_FOLDER_PATH} /BrightcoveOUX.framework/strip-frameworks.sh</code> .查看&ldquo;僅在安裝時運行腳本&rdquo; .這將從構建中刪除不需要的架構，這對於 App Store 提交很重要。</li>
+<li>（僅限靜態框架）在&ldquo;構建設置&rdquo;應用程序目標的選項卡，添加<code>-ObjC</code>到&ldquo;其他鏈接器標誌&rdquo;構建設置。</li>
+</ol>
+
+
+<h2>進口</h2>
+
+<p>適用於 iOS 的 Brightcove Player SDK 的 OUX 插件可以通過幾種不同的方式導入代碼；<code> @import BrightcoveOUX;</code> , <code> #import &lt;BrightcoveOUX/BrightcoveOUX.h&gt;</code>或者<code>#import &lt;BrightcoveOUX/[特定類].h&gt;</code> .</p>
+
+<h1>快速開始</h1>
+
+<p>BrightcoveOUX 是一個插件<a href="https://github.com/brightcove/brightcove-player-sdk-ios">適用於 iOS 的 Brightcove Player SDK</a>為 Brightcove OnceUX 服務器端廣告拼接提供支持。它的使用相對簡單。</p>
+
+<pre><code>[1] BCOVOUXAdComponentDisplayContainer *displayContainer = [[BCOVOUXAdComponentDisplayContainer alloc] initWithCompanionSlots:@[]]; BCOVPlayerSDKManager *manager = [BCOVPlayerSDKManager sharedManager]; [2] id&lt;BCOVPlaybackController&gt;playbackController = [sdkManager createOUXPlaybackControllerWithViewStrategy:nil]; [3] [playbackController addSessionConsumer:displayContainer]; [4] [self.videoContainer addSubview:playbackController.view]; [5] BCOVVideo *video = [BCOVVideo videoWithURL:[NSURL URLWithString:&lt;url-to-once-ux-video&gt;]]; [6] [playbackController setVideos:@[視頻]]; [播放控制器播放];</code></pre>
+
+<p>總結一下：</p>
+
+<ol>
+<li>首先創建一個<a href="Classes/BCOVOUXAdComponentDisplayContainer.html"><code>BCOVOUXAdComponentDisplayContainer</code></a> .此對象將幫助管理隨播廣告位。傳入您擁有的隨播廣告位（如果有）。</li>
+<li>BrightcoveOUX 添加了一些分類方法<code>BCOV播放管理器</code> .其中第一個是<code>-createOUXPlaybackControllerWithViewStrategy：</code> .使用此方法創建您的播放控制器。你通常會通過<code>零</code>對於視圖策略。</li>
+<li>為了使<a href="Classes/BCOVOUXAdComponentDisplayContainer.html"><code>BCOVOUXAdComponentDisplayContainer</code></a>要顯示廣告信息並填充隨播廣告視圖，必須將其添加為會話使用者。</li>
+<li>添加播放控制器&rsquo; s 視圖到您自己的視圖層次結構中的視頻容器。</li>
+<li>創建一個<code>BCOV視頻</code>使用您的 OnceUX 視頻的 URL。</li>
+<li>將視頻加載到播放控制器中。</li>
+</ol>
+
+
+<p>如果您有疑問或需要幫助，請訪問 Brightcove Native Player SDK 的支持論壇，網址為<a href="https://groups.google.com/forum/#!forum/brightcove-native-player-sdks">[https://groups.google.com/forum/](https://groups.google.com/forum/)#!forum/brightcove-native-player-sdks</a> .</p>
+
+<h1>將 OnceUX 遷移到 SSAI</h1>
+
+<p>BrightcoveSSAI 插件框架正在取代 BrightcoveOUX。BrightcoveSSAI 支持 BrightcoveOUX 的所有當前功能，但未來的更新只會添加到 BrightcoveSSAI。按照這些說明將您的 OnceUX 應用程序遷移到 Brightcove SSAI。</p>
+
+<p>1) 如果您使用 CocoaPods 安裝 Brightcove 插件，請通過更改更新您的 Podfile <code> Brightcove-Player-OnceUX</code>到<code>Brightcove-Player-SSAI</code>，例如這個：<code>目標 'MyVideoPlayer' 做 pod 'Brightcove-Player-OnceUX/dynamic' 結尾</code>變成這樣：<code>目標 'MyVideoPlayer' 做 pod 'Brightcove-Player-SSAI/dynamic' 結尾</code>如果您使用靜態框架，請離開<code>/動態的</code>像這樣：<code> pod 'Brightcove-Player-SSAI'</code> .跑<code>“豆莢更新”</code>準備好時。</p>
+
+<p>如果您手動安裝 Brightcove 插件，請從您的 Xcode 項目中刪除 Brightcove-Player-OnceUX 框架，然後按照上述步驟手動添加 Brightcove-Player-SSAI 框架。</p>
+
+<p>2) 在您的源代碼中，對於所有引用 BrightcoveOUX 框架的@import / #import 語句、數據類型、方法名稱、屬性、常量和協議，更改每次出現的&ldquo;奧克斯&rdquo;到&ldquo; SSAI &rdquo; .部分列表在這裡：</p>
+
+<pre><code>"@import BrightcoveOUX;"現在是“@import BrightcoveSSAI;” “createOUXSessionProviderWithUpstreamSessionProvider”現在是“createSSAISessionProviderWithUpstreamSessionProvider”“createOUXPlaybackControllerWithViewStrategy”現在是“createSSAIPlaybackControllerWithViewStrategy”“oux_seekToTime”現在是“ssai_seekToTime”“BCOVOUXAdComponentDisplayContainer”現在是“BCOVSSAIAdComponentDisplayContainer”“BCOVOlotSCompanyDisplayContainer”現在是“BCOVOlotSCompaniesan”</code></pre>
+
+<h1>獲取廣告播放信息</h1>
+
+<p>BrightcoveOUX 通過<code>BCOVPlaybackControllerAdsDelegate</code> .例如，如果您想在廣告期間隱藏您的控件，您可以實施<code>[BCOVPlaybackControllerAdsDelegate playbackController:playbackSession:didEnterAdSequence:]</code>隱藏它們。</p>
+
+<p>有關如何使用這些委託方法的更多信息，請參閱<a href="https://github.com/brightcove/brightcove-player-sdk-ios">適用於 iOS 的 Brightcove Player SDK</a> .</p>
+
+<h1>尋求</h1>
+
+<p>BrightcoveOUX 插件提供了一個在實現控件時應該使用的搜索功能。此搜索功能通過會話在會話中公開<code>提供者擴展</code>財產。以下是它的使用方法：</p>
+
+<pre><code>CMTime contentTimeToSeekTo = &lt;calculation-from-scrub-bar&gt;; [self.currentSession.providerExtension oux_seekToTime:contentTimeToSeekTo completionHandler:^(BOOL 完成) { if (finished) { [self.currentSession.player play]; } }];</code></pre>
+
+<p>這<code>完成處理程序</code>將在成功搜索完成時執行。如果先前調用已啟動查找，則不會執行<code>-[BCOVSessionProviderExtension oux_seekToTime:completionHandler:]</code>或者是否正在播放廣告。要測試是否可以進行搜索嘗試，請檢查<code>-[BCOVSessionProviderExtension oux_canSeek]</code>財產。有關這兩種方法的更多信息，請務必閱讀<a href="[https://github.com/brightcove/brightcove-player-sdk-ios-oux/blob/master/ios/static/BrightcoveOUX.framework/Headers/BCOVOUXComponent.h](https://github.com/brightcove/brightcove-player-sdk-ios-oux/blob/master/ios/static/BrightcoveOUX.framework/Headers/BCOVOUXComponent.h)">頭文件</a> .</p>
+
+<h1>搜索禁用廣告</h1>
+
+<p>BrightcovePlayerSDK 提供了一個 BOOL 屬性，用於在搜索時禁用廣告。OnceUX 的預期用途是允許應用程序在重新啟動後恢復視頻播放，而無需最終用戶查看他們的廣告&rsquo;已經看過了。</p>
+
+<p>建議將禁用廣告的邏輯添加到<code>kBCOVPlaybackSessionLifecycleEventReady</code>的處理者<code>-playbackController:playbackSession:didReceiveLifecycleEvent:</code>你的方法<code>BCOVPlaybackController</code>代表。</p>
+
+<pre><code>- (void)playbackController:(id&lt;BCOVPlaybackController&gt;)controller playbackSession:(id&lt;BCOVPlaybackSession&gt;)session didReceiveLifecycleEvent:(BCOVPlaybackSessionLifecycleEvent *)lifecycleEvent { if ([kBCOVPlaybackSessionLifecycleEventReady isEqualToString:lifecycleEvent.eventType]) { // disable ads. _playbackController.adsDisabled = YES; // seek somewhere into the video content. [session.providerExtension oux_seekToTime:resumeTime completionHandler:^(BOOL finished) { // re-enable ads. _playbackController.adsDisabled = NO; // open the shutter. _playbackController.shutterFadeTime = 0.25; _playbackController.shutter = NO; } ]; }</code></pre>
+
+<p>打電話時<code>oux_seekTo：完成：</code>要在特定時間恢復播放，視頻的第一幀將可見，直到搜索完成。為了更清晰的演示，在搜索過程中通過設置 BOOL 臨時覆蓋視頻視圖<code>快門</code> BCOVPlabackController 的屬性為<code>是的</code>打電話之前<code>-setVideos：</code> .搜索完成後，通過設置關閉快門<code>快門</code>財產到<code>不</code> .這<code>快門淡入淡出時間</code>屬性定義快門淡入淡出動畫的持續時間。</p>
+
+<pre><code>self.playbackController = [sdkManager createOUXPlaybackControllerWithViewStrategy:[sdkManager BCOVOUXdefaultControlsViewStrategy]]; // 恢復播放，因此在加載視頻之前激活快門。 self.playbackController.shutterFadeTime = 0.0; self.playbackController.shutter = YES; NSArray *videos = @[[BCOVVideo videoWithURL: [NSURL URLWithString:onceUxUrl]]]; [self.playbackController setVideos:videos];</code></pre>
+
+<h1>播放器 UI 內置控件</h1>
+
+<p>BrightcovePlayerSDK 提供了一組內置的 UI 控件，可與 OnceUX 插件一起用於基本播放和廣告控件。要使用控件，請創建一個<code>BCOVPUIPlayerView</code>，並將其與您的 OnceUX 播放控制器相關聯。</p>
+
+<p>首先，在您的類中創建一個 playerView 屬性。</p>
+
+<pre><code>@property (nonatomic) BCOVPUIPlayerView *playerView;</code></pre>
+
+<p>創建<code>BCOVPUIPlayerView</code>實例並保存對對象的引用。</p>
+
+<pre><code>BCOVPUIBasicControlView *controlView = [BCOVPUIBasicControlView basicControlViewWithVODLayout]; self.playerView = [[BCOVPUIPlayerView alloc] initWithPlaybackController:nil options:nil controlsView:controlView]; // 將 playerView 插入到您自己的視頻視圖中。 [self.videoContainer addSubview:self.playerView];</code></pre>
+
+<p>你&rsquo;需要為播放器視圖設置佈局，您可以使用自動佈局或較舊的 Springs &amp; Struts 方法來完成此操作。</p>
+
+<p><strong>彈簧和支柱</strong></p>
+
+<p>設置其框架以匹配您的容器視圖，然後將播放器視圖添加到您的視圖層次結構中的容器視圖中。注意<code>視頻容器</code>是您自己的應用程序中的視圖對象&rsquo; s 佈局。</p>
+
+<pre><code>self.playerView.frame = self.videoContainer.bounds; self.playerView.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;</code></pre>
+
+<p><strong>自動佈局</strong></p>
+
+<pre><code>self.playerView.translatesAutoresizingMaskIntoConstraints = NO; [NSLayoutConstraint activateConstraints:@[ [self.playerView.topAnchor constraintEqualToAnchor:self.videoContainer.topAnchor], [self.playerView.rightAnchor constraintEqualToAnchor:self.videoContainer.rightAnchor], [self.playerView.leftAnchor constraintEqualvideoToAnchor:leftAnchor] , [self.playerView.bottomAnchor constraintEqualToAnchor:self.videoContainer.bottomAnchor], ]];</code></pre>
+
+<p>現在創建<code>BCOVPlaybackController</code>，將其分配給您的播放器視圖，然後開始播放視頻。</p>
+
+<pre><code>// 初始化伴隨槽 BCOVOUXAdComponentDisplayContainer *displayContainer = [[BCOVOUXAdComponentDisplayContainer alloc] initWithCompanionSlots:@[]]; // 創建播放控制器 BCOVPlayerSDKManager *manager = [BCOVPlayerSDKManager sharedManager]; id&lt;BCOVPlaybackController&gt;playbackController = [sdkManager createOUXPlaybackControllerWithViewStrategy:nil]; // 監聽顯示/隨播廣告消息 [playbackController addSessionConsumer:displayContainer]; // 告訴播放器視圖這是我們使用的播放控制器 self.playerView.playbackController = playbackController; // 創建並播放您的視頻 BCOVVideo *video = [BCOVVideo videoWithURL:[NSURL URLWithString:&lt;url-to-once-ux-video&gt;]]; [playbackController setVideos:@[視頻]]; [播放控制器播放];</code></pre>
+
+<p>有關如何使用和自定義 PlayerUI 控件的更多詳細信息，請參閱 BrightcovePlayerSDK 中的自述文件。</p>
+
+<h1>訪問 VMAP 響應數據</h1>
+
+<p>如果您想訪問 VMAP 響應數據，您可以訂閱<code>kBCOVOUXVMAPResponseReceivedNotification</code>通知。收到通知後，&rsquo; s userInfo 字典將包含 VMAP 響應作為 NSData。您可以使用<code>kBCOVOUXVMAPResponseReceivedNotificationDataUserInfoKey</code>常量從 userInfo 訪問它。由於您可能有多個播放控制器，因此有多個 VMAP 響應，您可以檢查通知&rsquo;對象，<code> id 播放控制器 = 通知對象</code>驗證 VMAP 數據用於哪個視頻。此外，當您訂閱通知時，您可以將播放控制器設置為對象，以便僅接收有關該播放控制器的 VMAP 數據通知。例如：</p>
+
+<pre><code>[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(vmapResponseReceived:) name:kBCOVOUXVMAPResponseReceivedNotification object:self.playbackController];</code></pre>
+
+<h1>已知的問題</h1>
+
+<ul>
+<li><p>除了 BrightcoveFairPlay 插件之外，您不能將 BrightcoveOUX 與任何其他 Brightcove 插件一起使用。</p></li>
+<li><p>該插件目前不支持在同一播放控制器中播放OnceUX 內容和非OnceUX 內容。如果您需要同時播放兩者，則需要為此內容創建單獨的播放控制器。</p></li>
+<li><p>播放 OnceUX 內容時，您可能會在日誌中看到一條消息，指出&ldquo;沒有找到HLS或MP4的deliveryMethod的來源，回退到第一個來源。&rdquo; .此消息可以被忽略，並將在未來的更新中解決。</p></li>
+<li><p>如果對OnceUX VMAP 文檔的請求加載失敗，除了收到錯誤事件外，您可能會在日誌中看到一條消息，指出&ldquo;不能 -forwardInvocation: 到不存在的內部播放會話。&rdquo; .此消息可以被忽略，並將在未來的更新中解決。</p></li>
+</ul>
+
+						
+						
+					</div>
+					
+
+					<div class="index-container">
+						
+
+						
+						<div class="index-column">
+							<h2 class="index-title">類引用</h2>
+							<ul>
+								
+								<li>BCOVOUXAdComponentDisplayContainer<a href="Classes/BCOVOUXAdComponentDisplayContainer.html"></a></li>
+								
+								<li>BCOVOUXCompanionSlot<a href="Classes/BCOVOUXCompanionSlot.html"></a></li>
+								
+							</ul>
+						</div>
+						
+
+						
+						<div class="index-column">
+							
+							<h2 class="index-title">協議參考</h2>
+							<ul>
+								
+								<li>BCOVOUXAdComponentDelegate<a href="Protocols/BCOVOUXAdComponentDelegate.html"></a></li>
+								
+							</ul>
+							
+
+							
+
+							
+							<h2 class="index-title">類別參考</h2>
+							<ul>
+								
+								<li>BCOVPlayerSDKManager(BCOVOUXAdditions)<a href="Categories/BCOVPlayerSDKManager+BCOVOUXAdditions.html"></a></li>
+								
+								<li>BCOVSessionProviderExtension(BCOVOUXAdditions)<a href="Categories/BCOVSessionProviderExtension+BCOVOUXAdditions.html"></a></li>
+								
+							</ul>
+							
+						</div>
+						
+					</div>
+
+					<footer>
+						<div class="footer-copyright">
+							
+							<p class="copyright">版權&copy; 2019 年光明灣。版權所有。更新：2019-04-22</p>
+							
+							
+							<p class="generator">生成者<a href="http://appledoc.gentlebytes.com">蘋果文檔 2.2.1（內部版本 1334）</a> .</p>
+							
+						</div>
+					</footer>
+				</main>
+			</div>
+		</div>
+	</article>
+
+	<script src="js/script.js"></script>
+<script src="https://learning-services-media.brightcove.com/doc-assets/js/https-fix.js"></script>
+<script src="https://learning-services-media.brightcove.com/doc-assets/js/support-feedback.js"></script><script src="https://support.brightcove.com/site-assets/js/site/feedback-docs.js"></script>
+</body>
+</html>

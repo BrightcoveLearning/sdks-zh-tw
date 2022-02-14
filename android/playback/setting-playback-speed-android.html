@@ -1,0 +1,148 @@
+---
+title:在 Android 設備上設置播放速度
+description:在本主題中，您將學習如何使用適用於 Android 的 Brightcove Native SDK 向應用程序添加變速播放功能。
+parent: Playback 
+grandparent: Android Development
+---
+ <h1>{{ page.title }}</h1>
+<article class="bcls-article">
+  <summary>{{ page.description }}</summary>
+
+<section class="bcls-section">
+<h2 id="Introduction">介紹</h2>
+
+<p>對於某些應用程序，您可能希望為用戶提供一種在他們觀看視頻時（例如，電子學習環境）更改播放速度的功能。您可以使用適用於 Android 的本機 SDK 添加此功能。</p>
+<p>在您的播放器活動類中，您可以創建一個對話框菜單，以從所需的播放速度列表中進行選擇。</p>
+
+</section>
+
+<section class="bcls-section">
+<h2 id="Implementation">執行</h2>
+
+<p>要將變速播放添加到您的 Android 應用程序，請按照下列步驟操作：</p>
+<ol class="bcls-tasklist">
+  <li>
+    <p>首先，創建菜單，您可以在其中選擇速度。在這裡我們將使用<code translate="No">TextView</code>點擊時，將打開包含速度值的菜單。其他菜單選項包括微調器。</p>
+    <pre><code class="language-java" translate="No">private TextView playbackSpeed;</code></pre>
+    <p>然後，添加<code translate="No">TextView</code>給你的<code translate="No">Activity</code>佈局：</p>
+    <pre class="line-numbers"><code class="language-java" translate="No">&lt;com.brightcove.player.view.BrightcoveExoPlayerVideoView
+   android:id=&quot;@+id/brightcove_video_view&quot;
+   android:layout_width=&quot;match_parent&quot;
+   android:layout_height=&quot;280dp&quot;
+   android:layout_gravity=&quot;center_horizontal|top&quot;/&gt;
+
+&lt;LinearLayout
+   android:layout_width=&quot;match_parent&quot;
+   android:layout_height=&quot;wrap_content&quot;
+   android:orientation=&quot;horizontal&quot;
+   android:layout_gravity=&quot;center_vertical&quot;
+   android:layout_below=&quot;@id/brightcove_video_view&quot;
+   android:padding=&quot;20dp&quot;&gt;
+
+   &lt;TextView
+       android:id=&quot;@+id/playbackSpeed&quot;
+       android:layout_width=&quot;match_parent&quot;
+       android:layout_height=&quot;wrap_content&quot;
+       android:gravity=&quot;end&quot;
+       android:padding=&quot;20dp&quot;
+       android:text=&quot;Change Speed&quot;
+       android:textAlignment=&quot;textEnd&quot; /&gt;
+
+&lt;/LinearLayout&gt;</code></pre>
+  </li>
+  <li>
+    <p>將播放速度控制添加到播放器<code translate="No">Activity</code>：</p>
+    <pre class="line-numbers"><code class="language-java" translate="No">playbackSpeed = (TextView) findViewById(R.id.playbackSpeed);
+playbackSpeed.setVisibility(View.VISIBLE);</code></pre>
+  </li>
+  <li>
+    <p>設置一個<code translate="No">onClick</code>聽者在<code translate="No">TextView</code>：</p>
+    <pre class="line-numbers"><code class="language-java" translate="No">playbackSpeed.setOnClickListener(new View.OnClickListener() {
+   @Override
+   public void onClick(View v) {
+       showPlayerSpeedDialog();
+   }
+});
+</code></pre>
+  </li>
+  <li>
+    <p>添加方法以顯示播放器速度對話框：</p>
+    <pre class="line-numbers"><code class="language-java" translate="No">private void showPlayerSpeedDialog() {
+   String[] playerSpeedArrayLabels = {&quot;0.8x&quot;, &quot;1.0x&quot;, &quot;1.2x&quot;, &quot;1.5x&quot;, &quot;1.8x&quot;, &quot;2.0x&quot;};
+
+   PopupMenu popupMenu = new PopupMenu(MainActivity.this, playbackSpeed);
+   for (int i = 0; i &lt; playerSpeedArrayLabels.length; i++) {
+       popupMenu.getMenu().add(i, i, i, playerSpeedArrayLabels[i]);
+   }
+   popupMenu.setOnMenuItemClickListener(item -&gt; {
+       int id = item.getItemId();
+       CharSequence itemTitle = item.getTitle();
+       float playbackSpeed = Float.parseFloat(itemTitle.subSequence(0, 3).toString());
+       changePlayerSpeed(playbackSpeed, itemTitle.subSequence(0, 3).toString());
+       return false;
+   });
+   popupMenu.show();
+}
+</code></pre>
+  </li>
+  <li>
+    <p>添加一種將播放器速度更改為從菜單中選擇的值的方法。此外，該方法可以將選定的值設置到標籤中<code translate="No">TextView</code>：</p>
+    <pre class="line-numbers"><code class="language-java" translate="No">private void changePlayerSpeed(float speed, String speedLabel) {
+   // Set playback speed
+   ((ExoPlayerVideoDisplayComponent) brightcoveVideoView.getVideoDisplay()).getExoPlayer().setPlaybackParameters(new PlaybackParameters(speed, 1.0f));
+   // Set playback speed label
+   playbackSpeed.setText(&quot;Speed: &quot; + speedLabel + &quot;x&quot;);
+}
+</code></pre>
+  </li>
+</ol>
+</section>
+
+<section class="bcls-section">
+<h2 id="Handling_playback_problems">處理播放問題</h2>
+<p>如果在設置較高或較低的播放速度時遇到問題，請根據以下條件考慮限制是顯示播放速度控件，還是限制可用速度。</p>
+
+<ul>
+  <li>
+    <p>操作系統級別使用：</p>
+    <pre><code class="language-java" translate="No">Build.VERSION_CODES.&lt;API_LEVEL&gt;</code></pre>
+  </li>
+  <li>
+    <p>製造商使用：（不保證可靠性）</p>
+    <pre><code class="language-java" translate="No">Build.MANUFACTURER
+or
+Build.BRAND
+</code></pre>
+  </li>
+  <li>
+    <p>通過檢查以下各項的布爾值來獲得硬件配置文件（電視或電話/手機）：</p>
+    <pre><code class="language-java" translate="No">BrightcoveMediaController.checkTvMode(Context context)</code></pre>
+  </li>
+</ul>
+</section>
+
+<section class="bcls-section">
+<h2 id="Limitations">局限性</h2>
+<p>重要的是要注意，雖然可以使用ExoPlayer和Brightcove Native SDK for Android設置播放速度，但不能保證設置給定的播放速度將提供無縫的觀看和收聽體驗。</p>
+<p>測試表明，對於較舊的操作系統版本和較低規格的設備來說，可以設置過高的播放速度，而不會導致音頻和視頻質量出現不可接受的下降。</p>
+
+<p>如果要實現播放速度控制，建議考慮以下因素：</p>
+<ul>
+  <li>我的應用程序最古老的 Android 操作系統級別是什麼？
+    <ul>
+      <li>較舊的OS可能沒有適當的編解碼器支持，因此播放速度比正常情況下更高或更低</li>
+      <li>較舊的操作系統可能具有較舊的芯片組，無法以高效的方式處理視頻和音頻數據</li>
+    </ul>
+  </li>
+  <li>我的內容受DRM保護嗎？ 
+    <ul>
+      <li>由於測試揭示了一些與 DRM 相關的播放速度問題，我們不希望排除在以高於或低於正常速度播放時出現解密問題的可能性</li>
+    </ul></li>
+  <li>我的內容使用隱藏式字幕還是多個音軌？ 
+    <ul>
+      <li>啟用或禁用字幕，或在字幕之間切換（尤其是在較舊的設備或OS級別上）是需要考慮的情況。</li>
+    </ul></li>
+</ul>
+</section>
+
+</article>

@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+
+	<title>BCOVMutableAnalytics 協議參考</title>
+
+	<link rel="stylesheet" href="../css/style.css">
+	<meta name="viewport" content="initial-scale=1, maximum-scale=1.4">
+	<meta name="generator" content="appledoc 2.2.1 (build 1334)">
+</head>
+<body class="appledoc">
+	<header>
+		<div class="container" class="hide-in-xcode">
+			
+			<h1 id="library-title"><a href="../index.html">適用於 iOS 的 Brightcove 原生播放器</a></h1>
+
+			<p id="developer-home">
+				<a href="../index.html">亮灣</a>
+			</p>
+			
+		</div>
+	</header>
+
+	<aside>
+		<div class="container">
+			<nav>
+				<ul id="header-buttons" role="toolbar">
+					<li><a href="../index.html">指數</a></li>
+<li><a href="../hierarchy.html">等級制度</a></li>
+
+					<li id="on-this-page" role="navigation">
+						<label>
+							在本頁
+
+							<div class="chevron">
+								<div class="chevy chevron-left"></div>
+								<div class="chevy chevron-right"></div>
+							</div>
+
+							<select id="jump-to">
+	<option value="top">跳到…</option>
+	
+	<option value="overview">概述</option>
+	
+
+	
+	
+	<option value="tasks">任務</option>
+	
+	
+
+	
+	
+	<optgroup label="Properties">
+		
+		<option value="//api/name/account">帳戶</option>
+		
+		<option value="//api/name/destination">目的地</option>
+		
+		<option value="//api/name/source">來源</option>
+		
+		<option value="//api/name/uniqueIdentifierEnabled">唯一標識符已啟用</option>
+		
+	</optgroup>
+	
+
+	
+
+	
+	
+</select>
+						</label>
+					</li>
+				</ul>
+			</nav>
+		</div>
+	</aside>
+
+	<article>
+		<div id="overview_contents" class="container">
+			<div id="content">
+				<main role="main">
+					<h1 class="title">BCOVMutableAnalytics 協議參考</h1>
+
+					
+					<div class="section section-specification"><table cellspacing="0"><tbody>
+						<tr>
+	<th>符合</th>
+	<td>NSObject</td>
+</tr><tr>
+	<th>聲明於</th>
+	<td>BCOVPlaybackController.h</td>
+</tr>
+						</tbody></table></div>
+					
+
+                    
+					
+					<div class="section section-overview">
+						<a title="Overview" name="overview"></a>
+						<h2 class="subtitle subtitle-overview">概述</h2>
+						<p>修改這些屬性後，這些更改將在下一個交付的會話中生效。要將這些屬性應用於所有會話，請在調用之前修改它們<a href="../Protocols/BCOVPlaybackController.html#//api/name/setVideos:">[BCOVPlaybackController setVideos:]</a> .</p>
+					</div>
+					
+					
+
+					
+					
+					<div class="section section-tasks">
+						<a title="Tasks" name="tasks"></a>
+						
+
+						
+						
+
+						<div class="task-list">
+							<div class="section-method">
+	<a name="//api/name/account" title="account"></a>
+	<h3 class="method-title"><code><a href="#//api/name/account">&nbsp;&nbsp;帳戶</a></code><span class="task-item-suffix">所需方法</span></h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>此屬性將為 Brightcove Analytics 設置帳戶 ID 值。設置此屬性還將替換通過 Brightcove Media API 請求檢索的任何視頻的 accountId 值。</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration">@property (nonatomic, copy) NSString *account<code></code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">討論</h4>
+				<p>此屬性將為 Brightcove Analytics 設置帳戶 ID 值。設置此屬性還將替換通過 Brightcove Media API 請求檢索的任何視頻的 accountId 值。</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">申報在</h4>
+				<p>BCOVPlaybackController.h<code class="declared-in-ref"></code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/destination" title="destination"></a>
+	<h3 class="method-title"><code><a href="#//api/name/destination">&nbsp;&nbsp;目的地</a></code><span class="task-item-suffix">所需方法</span></h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>此屬性必須是具有有效結構的 URI，並且必須包含授權。此屬性的默認值（如果未被覆蓋）將為&ldquo; bcsdk:// &rdquo;後跟捆綁標識符。</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration">@property (nonatomic, copy) NSString *destination<code></code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">討論</h4>
+				<p>此屬性必須是具有有效結構的 URI，並且必須包含授權。此屬性的默認值（如果未被覆蓋）將為&ldquo; bcsdk:// &rdquo;後跟捆綁標識符。</p>
+
+<p>請參閱<a href="http://en.wikipedia.org/wiki/URI">http://en.wikipedia.org/wiki/URI</a> _scheme#Generic_syntax 有關 URI 語法的更多信息和示例。</p>
+
+<p>特別是，沒有分層部分（例如，只有方案）的目的地被認為是無效的，任何沒有方案的值也是如此。</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">申報在</h4>
+				<p>BCOVPlaybackController.h<code class="declared-in-ref"></code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/source" title="source"></a>
+	<h3 class="method-title"><code><a href="#//api/name/source">&nbsp;&nbsp;來源</a></code><span class="task-item-suffix">所需方法</span></h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>此屬性必須是具有有效結構的 URI，並且必須包含授權。默認值為 nil。</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration">@property (nonatomic, copy) NSString *source<code></code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">討論</h4>
+				<p>此屬性必須是具有有效結構的 URI，並且必須包含授權。默認值為 nil。</p>
+
+<p>請參閱<a href="http://en.wikipedia.org/wiki/URI">http://en.wikipedia.org/wiki/URI</a> _scheme#Generic_syntax 有關 URI 語法的更多信息和示例。</p>
+
+<p>特別是，沒有分層部分（例如只有一個方案）的源被認為是無效的，任何沒有方案的值也是如此。</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">申報在</h4>
+				<p>BCOVPlaybackController.h<code class="declared-in-ref"></code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/uniqueIdentifierEnabled" title="uniqueIdentifierEnabled"></a>
+	<h3 class="method-title"><code><a href="#//api/name/uniqueIdentifierEnabled">&nbsp;&nbsp;唯一標識符已啟用</a></code><span class="task-item-suffix">所需方法</span></h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>此屬性切換客戶端唯一標識符的生成。如果啟用，sdk 將使用設備識別唯一身份&rsquo;■ 供應商標識符。如果禁用，sdk 將不提供唯一值，分析將依賴服務器端驅動的啟發式方法來確定唯一值。</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration">@property (nonatomic, assign, getter=isUniqueIdentifierEnabled) BOOL uniqueIdentifierEnabled<code></code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">討論</h4>
+				<p>此屬性切換客戶端唯一標識符的生成。如果啟用，sdk 將使用設備識別唯一身份&rsquo;■ 供應商標識符。如果禁用，sdk 將不提供唯一值，分析將依賴服務器端驅動的啟發式方法來確定唯一值。</p>
+
+<p>默認值為是。</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">申報在</h4>
+				<p>BCOVPlaybackController.h<code class="declared-in-ref"></code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div>
+						</div>
+						
+					</div>
+					
+					
+
+                    
+				</main>
+
+				<footer>
+					<div class="footer-copyright">
+						
+						<p class="copyright">版權&copy; 2021 年光明灣。版權所有。更新：2021-07-08</p>
+						
+						
+						<p class="generator">生成者<a href="http://appledoc.gentlebytes.com">蘋果文檔 2.2.1（內部版本 1334）</a> .</p>
+						
+					</div>
+				</footer>
+			</div>
+		</div>
+	</article>
+
+	<script src="../js/script.js"></script>
+</body>
+</html>

@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+
+	<title>BCOVPlayerSDKManager(BCOVSSAIAdditions) 分類參考</title>
+
+	<link rel="stylesheet" href="../css/style.css">
+	<meta name="viewport" content="initial-scale=1, maximum-scale=1.4">
+	<meta name="generator" content="appledoc 2.2.1 (build 1334)">
+</head>
+<body class="appledoc">
+	<header>
+		<div class="container" class="hide-in-xcode">
+			
+			<h1 id="library-title"><a href="../index.html">適用於 iOS 的 Brightcove 原生播放器</a></h1>
+
+			<p id="developer-home">
+				<a href="../index.html">亮灣</a>
+			</p>
+			
+		</div>
+	</header>
+
+	<aside>
+		<div class="container">
+			<nav>
+				<ul id="header-buttons" role="toolbar">
+					<li><a href="../index.html">指數</a></li>
+<li><a href="../hierarchy.html">等級制度</a></li>
+
+					<li id="on-this-page" role="navigation">
+						<label>
+							在本頁
+
+							<div class="chevron">
+								<div class="chevy chevron-left"></div>
+								<div class="chevy chevron-right"></div>
+							</div>
+
+							<select id="jump-to">
+	<option value="top">跳到…</option>
+	
+	<option value="overview">概述</option>
+	
+
+	
+	
+	<option value="tasks">任務</option>
+	
+	
+
+	
+	
+
+	
+
+	
+	<optgroup label="Instance Methods">
+		
+		<option value="//api/name/createSSAIPlaybackController">- 創建SSAIPlaybackController</option>
+		
+		<option value="//api/name/createSSAIPlaybackControllerWithViewStrategy:">- createSSAIPlaybackControllerWithViewStrategy:</option>
+		
+		<option value="//api/name/createSSAISessionProviderWithUpstreamSessionProvider:">- createSSAISessionProviderWithUpstreamSessionProvider:</option>
+		
+		<option value="//api/name/createSSAISessionProviderWithUpstreamSessionProvider:omidPartner:">- createSSAISessionProviderWithUpstreamSessionProvider:omidPartner:</option>
+		
+	</optgroup>
+	
+	
+</select>
+						</label>
+					</li>
+				</ul>
+			</nav>
+		</div>
+	</aside>
+
+	<article>
+		<div id="overview_contents" class="container">
+			<div id="content">
+				<main role="main">
+					<h1 class="title">BCOVPlayerSDKManager(BCOVSSAIAdditions) 分類參考</h1>
+
+					
+					<div class="section section-specification"><table cellspacing="0"><tbody>
+						<tr>
+	<th>聲明於</th>
+	<td>BCOVSSAIComponent.h</td>
+</tr>
+						</tbody></table></div>
+					
+
+                    
+					
+					<div class="section section-overview">
+						<a title="Overview" name="overview"></a>
+						<h2 class="subtitle subtitle-overview">概述</h2>
+						<p>添加到 BCOVPlayerSDKManager 的類別方法以支持 BCOVSSAI。</p>
+					</div>
+					
+					
+
+					
+					
+					<div class="section section-tasks">
+						<a title="Tasks" name="tasks"></a>
+						
+
+						
+						
+
+						<div class="task-list">
+							<div class="section-method">
+	<a name="//api/name/createSSAIPlaybackController" title="createSSAIPlaybackController"></a>
+	<h3 class="method-title"><code><a href="#//api/name/createSSAIPlaybackController">&ndash;&nbsp;創建SSAIPlaybackController</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>創建並返回一個新的播放控制器。返回的播放控制器將使用 BCOVSSAI 會話提供程序進行配置。</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration">- (id&lt;BCOVPlaybackController&gt;)createSSAIPlaybackController<code></code></div>
+
+		    
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">返回值</h4>
+				<p>具有指定參數的新播放控制器。</p>
+			</div>
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">討論</h4>
+				<p>創建並返回一個新的播放控制器。返回的播放控制器將使用 BCOVSSAI 會話提供程序進行配置。</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">申報在</h4>
+				<p>BCOVSSAIComponent.h<code class="declared-in-ref"></code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/createSSAIPlaybackControllerWithViewStrategy:" title="createSSAIPlaybackControllerWithViewStrategy:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/createSSAIPlaybackControllerWithViewStrategy:">&ndash;&nbsp; createSSAIPlaybackControllerWithViewStrategy:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>使用指定的視圖策略創建並返回一個新的 SSAI 播放控制器。返回的播放控制器將使用 BCOVSSAI 會話提供程序進行配置。</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (id&lt;BCOVPlaybackController&gt;)createSSAIPlaybackControllerWithViewStrategy:(可為空的BCOVPlaybackControllerViewStrategy)<em>戰略</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">參數</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>戰略</code></th>
+						<td><p>一種視圖策略，用於確定返回的播放控制器的視圖。</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">返回值</h4>
+				<p>具有指定參數的新播放控制器。</p>
+			</div>
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">討論</h4>
+				<p>使用指定的視圖策略創建並返回一個新的 SSAI 播放控制器。返回的播放控制器將使用 BCOVSSAI 會話提供程序進行配置。</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">申報在</h4>
+				<p>BCOVSSAIComponent.h<code class="declared-in-ref"></code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/createSSAISessionProviderWithUpstreamSessionProvider:" title="createSSAISessionProviderWithUpstreamSessionProvider:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/createSSAISessionProviderWithUpstreamSessionProvider:">&ndash;&nbsp; createSSAISessionProviderWithUpstreamSessionProvider:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>創建並返回具有指定參數的新 BCOVSSAI 會話提供程序。</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration">- (id&lt;BCOVPlaybackSessionProvider&gt;)createSSAISessionProviderWithUpstreamSessionProvider:(nullable id&lt;BCOVPlaybackSessionProvider&gt;)<code><em>提供者</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">參數</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>提供者</code></th>
+						<td><p>可選的上游會話提供程序。</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">返回值</h4>
+				<p>具有指定參數的新 BCOVSSAISessionProvider。</p>
+			</div>
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">討論</h4>
+				<p>創建並返回具有指定參數的新 BCOVSSAI 會話提供程序。</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">申報在</h4>
+				<p>BCOVSSAIComponent.h<code class="declared-in-ref"></code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/createSSAISessionProviderWithUpstreamSessionProvider:omidPartner:" title="createSSAISessionProviderWithUpstreamSessionProvider:omidPartner:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/createSSAISessionProviderWithUpstreamSessionProvider:omidPartner:">&ndash;&nbsp; createSSAISessionProviderWithUpstreamSessionProvider:omidPartner:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>創建並返回具有指定參數的新 BCOVSSAI 會話提供程序。</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration">- (id&lt;BCOVPlaybackSessionProvider&gt;)createSSAISessionProviderWithUpstreamSessionProvider:(nullable id&lt;BCOVPlaybackSessionProvider&gt;)<code><em>提供者</em> omidPartner:(NSString *)<em>omidPartnerName</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">參數</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>提供者</code></th>
+						<td><p>可選的上游會話提供程序。</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name">omidPartnerName<code></code></th>
+						<td><p>IAB 技術實驗室為集成提供的唯一合作夥伴名稱。</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">返回值</h4>
+				<p>具有指定參數的新 BCOVSSAISessionProvider。</p>
+			</div>
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">討論</h4>
+				<p>創建並返回具有指定參數的新 BCOVSSAI 會話提供程序。</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">申報在</h4>
+				<p>BCOVSSAIComponent.h<code class="declared-in-ref"></code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div>
+						</div>
+						
+					</div>
+					
+					
+
+                    
+				</main>
+
+				<footer>
+					<div class="footer-copyright">
+						
+						<p class="copyright">版權&copy; 2021 年光明灣。版權所有。更新：2021-07-08</p>
+						
+						
+						<p class="generator">生成者<a href="http://appledoc.gentlebytes.com">蘋果文檔 2.2.1（內部版本 1334）</a> .</p>
+						
+					</div>
+				</footer>
+			</div>
+		</div>
+	</article>
+
+	<script src="../js/script.js"></script>
+</body>
+</html>

@@ -1,0 +1,3055 @@
+﻿<!DOCTYPE html>
+<html lang="zh-TW"> 
+    <head>
+        <title>創建一個 JSON 網絡令牌（JWT）</title>
+        
+        <!-- Meta -->
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="在本主題中，您將了解如何創建可與 Brightcove 播放限制一起使用的 JSON Web 令牌 (JWT)。">
+        
+        <!-- Google Font -->
+        <link href="/assets/s-site-assets-stylesheets/fonts/poppins.css" rel="stylesheet">
+        <link rel="stylesheet" href="/assets/s-site-assets-stylesheets/fonts/articulat-site.css">
+        <link href="/assets/s-site-assets-stylesheets/fonts/source-code-pro.css" rel="stylesheet">
+        
+        <!-- FontAwesome JS-->
+        
+        <script src="https://kit.fontawesome.com/d67c74a882.js" crossorigin="anonymous"></script>  
+        
+        <!-- Plugins CSS -->
+        <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.2/styles/atom-one-dark.min.css">
+        <link rel="stylesheet" href="/assets/s-site-assets-template-stylesheets/plugins/simplelightbox/simple-lightbox.min.css">
+
+        <!-- Theme CSS -->  
+        <link id="theme-style" rel="stylesheet" href="/assets/s-site-assets-template-stylesheets/css/theme.css">
+        <link rel="stylesheet" href="/assets/s-site-assets-stylesheets/prism.css">
+        <link rel="stylesheet" href="/assets/s-site-assets-template-stylesheets/custom-css/styles.css">
+
+
+        <!-- Google tag (gtag.js) -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-XBJC11HF8Z"></script>
+        <script translate="no">
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-XBJC11HF8Z');
+        </script>
+        <script src="/assets/s-site-assets-scripts/sixth-sense.js"></script>
+        <script src="/assets/s-site-assets-scripts/sajari-head.js"></script>
+        <script src="/assets/s-site-assets-scripts/feather.min.js"></script>
+
+    </head> 
+
+    <body class="docs-page">
+        
+
+<header class="header fixed-top">
+  <div class="branding docs-branding">
+    <div class="container-fluid position-relative py-2">
+      <div class="docs-logo-wrapper">
+        <button id="docs-sidebar-toggler" class="docs-sidebar-toggler"
+          type="button">
+          <span></span> <span></span> <span></span>
+        </button>
+        <div class="site-logo"><a class="navbar-brand" href="https://support.brightcove.com/" style="margin-left: 15px;"> <img class="logo-icon me-2" src="/assets/s-site-assets-template-stylesheets/images/bc_logo_black_1@1x.png" alt="商標" style="margin-bottom: 9px;"/>
+            <!-- <span class="logo-text">BRIGHTCOVE</span> -->
+          </a></div>
+      </div><!--//docs-logo-wrapper-->
+
+      <div class="docs-top-utilities d-flex justify-content-end
+        align-items-center">
+        
+        <!-- Search bar -->
+        <div id="nav-search-box" class="top-search-box d-none d-lg-flex" style="margin-right: 10px ;"></div>
+
+<select id="site_select" class="form-select select-focus" style="width:
+          20%; margin-right: 10px;" translate="no">
+          <option value="">Other Brightcove Docs</option>
+          
+          
+          <option value="https://support.brightcove.com" translate="no">Documentation Home</option>
+          
+          
+          
+          <option value="https://support.brightcove.com/" translate="no">-- VIDEO CLOUD --</option>
+          
+          
+          
+          <option value="https://studio.support.brightcove.com" translate="no">&nbsp;&nbsp;&nbsp;&nbsp;Video Cloud Studio</option>
+          
+          
+          
+          <option value="https://mstudio.support.brightcove.com" translate="no">&nbsp;&nbsp;&nbsp;&nbsp;Marketing Studio</option>
+          
+          
+          
+          <option value="https://player.support.brightcove.com" translate="no">&nbsp;&nbsp;&nbsp;&nbsp;Brightcove Player Development</option>
+          
+          
+          
+          <option value="https://apis.support.brightcove.com" translate="no">&nbsp;&nbsp;&nbsp;&nbsp;Video Cloud Platform APIs</option>
+          
+          
+          
+          <option value="https://sdks.support.brightcove.com" translate="no">&nbsp;&nbsp;&nbsp;&nbsp;Video Cloud Device SDKs</option>
+          
+          
+          
+          <option value="https://integrations.support.brightcove.com" translate="no">&nbsp;&nbsp;&nbsp;&nbsp;Integrations and CMS Connectors</option>
+          
+          
+          
+          <option value="https://general.support.brightcove.com" translate="no">&nbsp;&nbsp;&nbsp;&nbsp;Video Cloud General Information</option>
+          
+          
+          
+          <option value="https://support.brightcove.com/" translate="no">-- VIDEO ESSENTIALS --</option>
+          
+          
+          
+          <option value="https://audience-insights.support.brightcove.com" translate="no">&nbsp;&nbsp;&nbsp;&nbsp;Brightcove Audience Insights</option>
+          
+          
+          
+          <option value="https://beacon-help.support.brightcove.com" translate="no">&nbsp;&nbsp;&nbsp;&nbsp;Brightcove Beacon Studio</option>
+          
+          
+          
+          <option value="https://beacon.support.brightcove.com" translate="no">&nbsp;&nbsp;&nbsp;&nbsp;Brightcove Beacon Classic</option>
+          
+          
+          
+          <option value="https://corptv.support.brightcove.com" translate="no">&nbsp;&nbsp;&nbsp;&nbsp;CorpTV</option>
+          
+          
+          
+          <option value="https://live.support.brightcove.com" translate="no">&nbsp;&nbsp;&nbsp;&nbsp;Brightcove Live</option>
+          
+          
+          
+          <option value="https://zencoder.support.brightcove.com" translate="no">&nbsp;&nbsp;&nbsp;&nbsp;Zencoder</option>
+          
+          
+          
+          <option value="https://support.brightcove.com/" translate="no">-- VIDEO CLOUD ADD-ONS --</option>
+          
+          
+          
+          <option value="https://gallery.support.brightcove.com" translate="no">&nbsp;&nbsp;&nbsp;&nbsp;Brightcove Gallery</option>
+          
+          
+          
+          <option value="https://studio.support.brightcove.com/social/index.html" translate="no">&nbsp;&nbsp;&nbsp;&nbsp;Brightcove Social</option>
+          
+          
+          
+          <option value="https://interactivity.support.brightcove.com/index.html" translate="no">&nbsp;&nbsp;&nbsp;&nbsp;Brightcove Interactivity</option>
+          
+          
+          
+          <option value="https://ssai.support.brightcove.com" translate="no">&nbsp;&nbsp;&nbsp;&nbsp;Brightcove SSAI</option>
+          
+          
+          
+          <option value="https://campaign.support.brightcove.com" translate="no">&nbsp;&nbsp;&nbsp;&nbsp;Brightcove Campaign</option>
+          
+          
+        </select>
+
+        <select id="language_select" class="form-select select-focus" style="width: 10%;"
+          onchange="doGTranslate(this);" translate="no">
+          <!-- <option value="">Select Language</option> -->
+          <option value="en|en" translate="No">English</option>
+          <option value="en|zh-TW" translate="No">繁體中文</option>
+          <option value="en|fr" translate="No">Français</option>
+          <option value="en|de" translate="No">Deutsche</option>
+          <option value="en|ja" translate="No">日本語</option>
+          <option value="en|ko" translate="No">한국어</option>
+          <option value="en|es" translate="No">Español</option>
+        </select>
+
+        <script translate="no">
+          /* <![CDATA[ */
+          function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;if(lang_pair=='')return;var lang=lang_pair.split('|')[1];var plang=location.hostname.split('.')[0];if(plang.length !=2 && plang.toLowerCase() != 'zh-cn' && plang.toLowerCase() != 'zh-tw')plang='en';location.href=location.protocol+'//'+(lang == 'en' ? '' : lang+'.')+location.hostname.replace('www.', '').replace(RegExp('^' + plang + '\\.'), '')+location.pathname+location.search;}
+          /* ]]> */
+        </script>
+      </div>
+    </div>
+  </div>
+</header><!--//header-->
+
+<div class="docs-wrapper">
+  <div id="docs-sidebar" class="docs-sidebar" style="padding-right: 15px;">
+    <div id="nav-search-box" class="top-search-box d-lg-none p-3"></div>
+    <div class="row">
+      
+        <div id="side_nav" style="margin-left: 1em; display: inline-block; border-right: 1px solid #e5e5e6; padding-right: 1em;">
+          
+          <nav class="docs-nav sidenav" aria-label="Main">
+            <ul class="site-nav" style="list-style-type: none;">
+            
+            
+            
+            <li class="nav-item section-title"><a class="nav-link" href="/index.html">首頁</a></li>
+            
+            
+            
+            
+            <li class="nav-item section-title"><a class="nav-link" href="/getting-started/index.html"><span class="theme-icon-holder me-2"><i class="fa-solid fa-plus"></i></span>&nbsp;入門</a>
+              <ul role="list" class="section-items list-unstyled nav flex-column pb-3" style="display:none;">
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/getting-started/brightcove-native-player-sdks.html">Brightcove 本機 SDK</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/developer-support/guides/debugging-mobile-devices.html">行動裝置上的除錯</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/getting-started/brightcove-native-sdks-feature-support.html">功能支援表</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/getting-started/native-video-playback.html">原生視訊播放</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/getting-started/brightcove-native-sdk-features.html">原生 SDK 功能</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/getting-started/running-sample-apps-native-sdk-android.html">執行安卓範例應用程式</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/getting-started/running-sample-apps-native-sdk-ios.html">執行IoS/tvOS 範例應用程式</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/getting-started/brightcove-native-sdks-training-videos.html">培訓視頻</a></li>
+              
+              
+              
+            </ul>
+            </li>
+            
+            
+            
+            <li class="nav-item section-title"><a class="nav-link" href="/features/index.html"><span class="theme-icon-holder me-2"><i class="fa-solid fa-plus"></i></span>&nbsp;特徵</a>
+              <ul role="list" class="section-items list-unstyled nav flex-column pb-3" style="display:none;">
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/features/using-360deg-videos-native-sdks.html">360 度視訊</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/features/advertising-sdks.html">廣告</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/features/analytics-sdks.html">分析</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/features/audio-only-with-sdks.html">僅音頻</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/features/bumper-video-with-sdks.html">保險槓視頻</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/features/using-captions-brightcove-native-sdks.html">標題</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/features/china-delivery-sdks.html">中國配送</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/features/chromecast-with-sdks.html">鉻</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/features/connected-tv-set-top-box-apps.html">已連線的電視</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/features/content-security-drm-native-player-sdks.html">內容安全性 (DRM) </a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/features/cross-device-resume-sdks.html">跨裝置繼續</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/features/using-delivery-rules-with-sdks.html">發貨規則</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/features/fallback-hdcp-sdks.html">回退 HDCP</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/features/forensic-watermarking-with-sdks.html">取證水印</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/features/live-streams-native-sdks.html">即時串流</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/features/multiple-audio-tracks-native-sdks.html">多個音軌</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/features/offline-playback-native-player-sdks.html">離線播放</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/features/playback-restrictions-with-sdks.html">播放限制</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/features/brightcove-native-player-controls.html">播放器控制</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/features/picture-picture-native-sdks.html">子母畫面</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/features/thumbnails-native-sdks.html">縮略圖搜索</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/features/video-formats-and-captioning-native-sdks.html">視訊格式與字幕</a></li>
+              
+              
+              
+            </ul>
+            </li>
+            
+            
+            
+            <li class="nav-item section-title"><a class="nav-link" href="/android/index.html"><span class="theme-icon-holder me-2"><i class="fa-solid fa-plus"></i></span>&nbsp;安卓開發</a>
+              <ul role="list" class="section-items list-unstyled nav flex-column pb-3" style="display:none;">
+              
+              
+
+              <li class="nav-item subsection-title">
+                
+                <a class="nav-link" href="/android/basics/index.html"><span class="theme-icon-holder me-2"><i class="fa-solid fa-minus"></i></span>&nbsp;基本</a>
+                
+
+                <ul role="list" class="section-items list-unstyled nav flex-column pb-3" style="display:none;">
+                  
+                  
+                  
+                  <li class="nav-item"><a class="nav-link" href="/android/basics/overview-brightcove-player-sdk-android.html">v8.0.0:Android 原生 SDK 概覽</a></li>
+                  
+                  
+                  
+                  
+                  
+                  <li class="nav-item"><a class="nav-link" href="/android/framework/android-sdk-8-release.html">原生 SDK 版本 v8.0.0</a></li>
+                  
+                  
+                  
+                  
+                  
+                  <li class="nav-item"><a class="nav-link" href="/android/basics/architecture-brightcove-player-sdk-android.html">建築</a></li>
+                  
+                  
+                  
+                  
+                  
+                  <li class="nav-item"><a class="nav-link" href="/android/basics/android-understanding-brightcoveplayer-class.html">最高級玩家類</a></li>
+                  
+                  
+                  
+                  
+                  
+                  <li class="nav-item"><a class="nav-link" href="/android/basics/android-choosing-video-view.html">選擇視訊檢視</a></li>
+                  
+                  
+                  
+                  
+                  
+                  <li class="nav-item"><a class="nav-link" href="/android/basics/android-brightcove-registration.html">布萊特灣註冊</a></li>
+                  
+                  
+                  
+                  
+                  
+                  <li class="nav-item"><a class="nav-link" href="/android/basics/understanding-events-native-sdk-android.html">瞭解事件</a></li>
+                  
+                  
+                  
+                  
+                  
+                  <li class="nav-item"><a class="nav-link" href="/android/basics/android-working-media-content.html">使用媒體內容</a></li>
+                  
+                  
+                  
+                  
+                  
+                  <li class="nav-item"><a class="nav-link" href="/android/basics/training-demand-developing-brightcove-native-player-sdk-android.html">原生 SDK 訓練影片</a></li>
+                  
+                  
+                  
+                  
+                  
+                  <li class="nav-item"><a class="nav-link" href="/android/basics/step-step-simple-video-app-using-native-sdk-android.html">逐步：簡易視訊應用程式</a></li>
+                  
+                  
+                  
+                </ul>
+              </li>
+              
+              
+              
+
+              <li class="nav-item subsection-title">
+                
+                <a class="nav-link" href="/android/advertising/index.html"><span class="theme-icon-holder me-2"><i class="fa-solid fa-minus"></i></span>&nbsp;廣告</a>
+                
+
+                <ul role="list" class="section-items list-unstyled nav flex-column pb-3" style="display:none;">
+                  
+                  
+                  
+                  <li class="nav-item"><a class="nav-link" href="/android/advertising/android-ad-ui-customization-server-side-ad-insertion-ssai.html">使用 SAI 自訂廣告使用者介面</a></li>
+                  
+                  
+                  
+                  
+                  
+                  <li class="nav-item"><a class="nav-link" href="/features/appending-ad-query-params-native-sdks.html">附加廣告查詢參數</a></li>
+                  
+                  
+                  
+                  
+                  
+                  <li class="nav-item"><a class="nav-link" href="/android/advertising/migrating-to-ima-plugin.html">Brightcove 的 IMA 插件 8.0.0</a></li>
+                  
+                  
+                  
+                  
+                  
+                  <li class="nav-item"><a class="nav-link" href="/android/advertising/ssai-seeking-behavior.html">Brightcove 的 SSAI 插件</a></li>
+                  
+                  
+                  
+                  
+                  
+                  <li class="nav-item"><a class="nav-link" href="/features/ima-open-measurement-native-sdks.html">IMA 開放測量</a></li>
+                  
+                  
+                  
+                  
+                  
+                  <li class="nav-item"><a class="nav-link" href="/features/implementing-client-side-ads-native-sdks.html">實作客戶端廣告 (CSAI) </a></li>
+                  
+                  
+                  
+                  
+                  
+                  <li class="nav-item"><a class="nav-link" href="/features/implementing-server-side-ads-native-player-sdks.html">實作伺服器端廣告 (SSAI) </a></li>
+                  
+                  
+                  
+                  
+                  
+                  <li class="nav-item"><a class="nav-link" href="/android/advertising/using-pulse-plugin-native-sdk-android.html">英威迪脈衝插件</a></li>
+                  
+                  
+                  
+                </ul>
+              </li>
+              
+              
+              
+
+              <li class="nav-item subsection-title">
+                
+                <a class="nav-link" href="/android/analytics/index.html"><span class="theme-icon-holder me-2"><i class="fa-solid fa-minus"></i></span>&nbsp;分析</a>
+                
+
+                <ul role="list" class="section-items list-unstyled nav flex-column pb-3" style="display:none;">
+                  
+                  
+                  
+                  <li class="nav-item"><a class="nav-link" href="/android/analytics/analytics-related-offline-playback-native-sdks.html">離線播放相關的分析</a></li>
+                  
+                  
+                  
+                  
+                  
+                  <li class="nav-item"><a class="nav-link" href="/android/analytics/sending-brightcove-analytics-native-sdk-android.html">發送布萊特灣分析</a></li>
+                  
+                  
+                  
+                  
+                  
+                  <li class="nav-item"><a class="nav-link" href="/features/viewing-brightcove-analytics-player-sdks.html">觀看布萊特灣分析</a></li>
+                  
+                  
+                  
+                </ul>
+              </li>
+              
+              
+              
+
+              <li class="nav-item subsection-title">
+                
+                <a class="nav-link" href="/android/captions/index.html"><span class="theme-icon-holder me-2"><i class="fa-solid fa-minus"></i></span>&nbsp;字幕</a>
+                
+
+                <ul role="list" class="section-items list-unstyled nav flex-column pb-3" style="display:none;">
+                  
+                  
+                  
+                  <li class="nav-item"><a class="nav-link" href="/android/captions/removing-android-captions-background-image.html">移除標題背景影像</a></li>
+                  
+                  
+                  
+                  
+                  
+                  <li class="nav-item"><a class="nav-link" href="/android/captions/selecting-captions-programmatically-native-sdk-android.html">以程式設計方式選取標題</a></li>
+                  
+                  
+                  
+                  
+                  
+                  <li class="nav-item"><a class="nav-link" href="/features/synchronizing-webvtt-captions.html">同步化網路 VTT 字幕</a></li>
+                  
+                  
+                  
+                </ul>
+              </li>
+              
+              
+              
+
+              <li class="nav-item subsection-title">
+                
+                <a class="nav-link" href="/android/tv/index.html"><span class="theme-icon-holder me-2"><i class="fa-solid fa-minus"></i></span>&nbsp;聯網電視</a>
+                
+
+                <ul role="list" class="section-items list-unstyled nav flex-column pb-3" style="display:none;">
+                  
+                  
+                  
+                  <li class="nav-item"><a class="nav-link" href="/features/chromecast-with-sdks.html">鉻外掛程式</a></li>
+                  
+                  
+                  
+                  
+                  
+                  <li class="nav-item"><a class="nav-link" href="/features/connected-tv-set-top-box-apps.html">連線電視應用程式</a></li>
+                  
+                  
+                  
+                  
+                  
+                  <li class="nav-item"><a class="nav-link" href="/android/tv/customizing-android-tv-controls.html">自訂安卓電視控制項</a></li>
+                  
+                  
+                  
+                </ul>
+              </li>
+              
+              
+              
+
+              <li class="nav-item subsection-title">
+                
+                <a class="nav-link" href="/android/content-protection/index.html"><span class="theme-icon-holder me-2"><i class="fa-solid fa-minus"></i></span>&nbsp;內容保護</a>
+                
+
+                <ul role="list" class="section-items list-unstyled nav flex-column pb-3" style="display:none;">
+                  
+                  
+                  
+                  <li class="nav-item"><a class="nav-link" href="/features/content-security-drm-native-player-sdks.html">內容安全性 (DRM) </a></li>
+                  
+                  
+                  
+                  
+                  
+                  <li class="nav-item"><a class="nav-link" href="/features/fallback-hdcp-sdks.html">回退 HDCP</a></li>
+                  
+                  
+                  
+                  
+                  
+                  <li class="nav-item"><a class="nav-link" href="/features/playback-restrictions-with-sdks.html">播放限制</a></li>
+                  
+                  
+                  
+                </ul>
+              </li>
+              
+              
+              
+
+              <li class="nav-item subsection-title">
+                
+                <a class="nav-link" href="/android/framework/index.html"><span class="theme-icon-holder me-2"><i class="fa-solid fa-minus"></i></span>&nbsp;框架</a>
+                
+
+                <ul role="list" class="section-items list-unstyled nav flex-column pb-3" style="display:none;">
+                  
+                  
+                  
+                  <li class="nav-item"><a class="nav-link" href="/android/framework/android-adding-viewmanaging-layout.html">新增檢視/管理配置</a></li>
+                  
+                  
+                  
+                  
+                  
+                  <li class="nav-item"><a class="nav-link" href="/android/framework/android-pie-support-native-sdk-android.html">支援安卓圓形圖</a></li>
+                  
+                  
+                  
+                  
+                  
+                  <li class="nav-item"><a class="nav-link" href="/android/framework/creating-plugin-native-sdk-android.html">建立外掛程式</a></li>
+                  
+                  
+                  
+                  
+                  
+                  <li class="nav-item"><a class="nav-link" href="/android/framework/migrating-exoplayer-2-framework.html">遷移到第 2 層框架</a></li>
+                  
+                  
+                  
+                  
+                  
+                  <li class="nav-item"><a class="nav-link" href="/android/framework/android-sdk-7-release.html">原生 SDK 版本 7.0.1</a></li>
+                  
+                  
+                  
+                  
+                  
+                  <li class="nav-item"><a class="nav-link" href="/android/framework/resizing-video-view.html">調整視訊檢視的大小</a></li>
+                  
+                  
+                  
+                </ul>
+              </li>
+              
+              
+              
+
+              <li class="nav-item subsection-title">
+                
+                <a class="nav-link" href="/android/live/index.html"><span class="theme-icon-holder me-2"><i class="fa-solid fa-minus"></i></span>&nbsp;居住</a>
+                
+
+                <ul role="list" class="section-items list-unstyled nav flex-column pb-3" style="display:none;">
+                  
+                  
+                  
+                  <li class="nav-item"><a class="nav-link" href="/features/using-live-ssai-native-sdks.html">使用即時 SAI </a></li>
+                  
+                  
+                  
+                  
+                  
+                  <li class="nav-item"><a class="nav-link" href="/features/using-player-enhancements-live-ssai-native-sdks.html">即時 SSAI 的玩家增強功能</a></li>
+                  
+                  
+                  
+                  
+                  
+                  <li class="nav-item"><a class="nav-link" href="/features/client-side-ads-with-live-ssai.html">使用即時 SSAI 的客戶端預先廣告</a></li>
+                  
+                  
+                  
+                </ul>
+              </li>
+              
+              
+              
+
+              <li class="nav-item subsection-title">
+                
+                <a class="nav-link" href="/android/playback/index.html"><span class="theme-icon-holder me-2"><i class="fa-solid fa-minus"></i></span>&nbsp;回放</a>
+                
+
+                <ul role="list" class="section-items list-unstyled nav flex-column pb-3" style="display:none;">
+                  
+                  
+                  
+                  <li class="nav-item"><a class="nav-link" href="/features/bumper-video-with-sdks.html">保險槓視頻</a></li>
+                  
+                  
+                  
+                  
+                  
+                  <li class="nav-item"><a class="nav-link" href="/android/playback/hevc-selection-native-sdk-android.html">HEVC 選擇</a></li>
+                  
+                  
+                  
+                  
+                  
+                  <li class="nav-item"><a class="nav-link" href="/android/playback/hls-playback-native-sdk-android.html">HLS 播放</a></li>
+                  
+                  
+                  
+                  
+                  
+                  <li class="nav-item"><a class="nav-link" href="/android/playback/multiple-audio-tracks-offline-playback-native-sdk-android.html">多個音軌供離線播放</a></li>
+                  
+                  
+                  
+                  
+                  
+                  <li class="nav-item"><a class="nav-link" href="/features/offline-playback-native-player-sdks.html">離線播放</a></li>
+                  
+                  
+                  
+                  
+                  
+                  <li class="nav-item"><a class="nav-link" href="/android/playback/playhead-position-and-video-duration.html">播放頭位置和視頻持續時間</a></li>
+                  
+                  
+                  
+                  
+                  
+                  <li class="nav-item"><a class="nav-link" href="/android/playback/setting-playback-speed-android.html">設置播放速度</a></li>
+                  
+                  
+                  
+                  
+                  
+                  <li class="nav-item"><a class="nav-link" href="/android/playback/android-source-selection.html">來源選擇</a></li>
+                  
+                  
+                  
+                  
+                  
+                  <li class="nav-item"><a class="nav-link" href="/android/playback/video-and-playlist-objects-json.html">來自 JSON 的視訊和播放清單物件</a></li>
+                  
+                  
+                  
+                </ul>
+              </li>
+              
+              
+              
+
+              <li class="nav-item subsection-title">
+                
+                <a class="nav-link" href="/android/troubleshooting/index.html"><span class="theme-icon-holder me-2"><i class="fa-solid fa-minus"></i></span>&nbsp;故障排除</a>
+                
+
+                <ul role="list" class="section-items list-unstyled nav flex-column pb-3" style="display:none;">
+                  
+                  
+                  
+                  <li class="nav-item"><a class="nav-link" href="/android/troubleshooting/error-messages-native-sdk-android.html">錯誤訊息指南</a></li>
+                  
+                  
+                  
+                  
+                  
+                  <li class="nav-item"><a class="nav-link" href="/android/troubleshooting/removing-android-log-messages.html">移除安卓記錄訊息</a></li>
+                  
+                  
+                  
+                </ul>
+              </li>
+              
+              
+              
+
+              <li class="nav-item subsection-title">
+                
+                <a class="nav-link" href="/android/ui/index.html"><span class="theme-icon-holder me-2"><i class="fa-solid fa-minus"></i></span>&nbsp;用戶界面</a>
+                
+
+                <ul role="list" class="section-items list-unstyled nav flex-column pb-3" style="display:none;">
+                  
+                  
+                  
+                  <li class="nav-item"><a class="nav-link" href="/features/brightcove-native-player-controls.html">基本播放器控制</a></li>
+                  
+                  
+                  
+                  
+                  
+                  <li class="nav-item"><a class="nav-link" href="/features/localization-with-native-sdks.html">本地化播放程式</a></li>
+                  
+                  
+                  
+                  
+                  
+                  <li class="nav-item"><a class="nav-link" href="/android/playback/android-managing-player-controls.html">管理播放器控制項</a></li>
+                  
+                  
+                  
+                  
+                  
+                  <li class="nav-item"><a class="nav-link" href="/android/playback/handling-orientation-change-native-sdk-android.html">方位變更</a></li>
+                  
+                  
+                  
+                </ul>
+              </li>
+              
+              
+              
+
+              <li class="nav-item subsection-title">
+                
+                <a class="nav-link" href="/android/resources/index.html"><span class="theme-icon-holder me-2"><i class="fa-solid fa-minus"></i></span>&nbsp;資源</a>
+                
+
+                <ul role="list" class="section-items list-unstyled nav flex-column pb-3" style="display:none;">
+                  
+                  
+                  
+                  <li class="nav-item"><a class="nav-link" href="https://github.com/BrightcoveOS/android-player-samples">安卓程式碼範例</a></li>
+                  
+                  
+                  
+                  
+                  
+                  <li class="nav-item"><a class="nav-link" href="/android/resources/code-snippets-using-native-sdk-android.html">程式碼片段</a></li>
+                  
+                  
+                  
+                  
+                  
+                  <li class="nav-item"><a class="nav-link" href="/android/reference/javadoc/index.html">適用於安卓參考的原生 SDK </a></li>
+                  
+                  
+                  
+                  
+                  
+                  <li class="nav-item"><a class="nav-link" href="https://docs.brightcove.com/index.html">外掛程式參考</a></li>
+                  
+                  
+                  
+                  
+                  
+                  <li class="nav-item"><a class="nav-link" href="/android/resources/brightcove-player-sdk-android-previous-sdk-information.html">舊版本</a></li>
+                  
+                  
+                  
+                  
+                  
+                  <li class="nav-item"><a class="nav-link" href="/android/resources/brightcove-native-sdk-android-release-notes.html">版本資訊</a></li>
+                  
+                  
+                  
+                </ul>
+              </li>
+              
+              
+            </ul>
+            </li>
+            
+            
+            
+            <li class="nav-item section-title"><a class="nav-link" href="/ios/index.html"><span class="theme-icon-holder me-2"><i class="fa-solid fa-plus"></i></span>&nbsp;開發</a>
+              <ul role="list" class="section-items list-unstyled nav flex-column pb-3" style="display:none;">
+              
+              
+
+              <li class="nav-item subsection-title">
+                
+                <a class="nav-link" href="/ios/basics/index.html"><span class="theme-icon-holder me-2"><i class="fa-solid fa-minus"></i></span>&nbsp;基本</a>
+                
+
+                <ul role="list" class="section-items list-unstyled nav flex-column pb-3" style="display:none;">
+                  
+                  
+                  
+                  <li class="nav-item"><a class="nav-link" href="/ios/basics/overview-brightcove-player-sdk-ios.html">v6.12.0：iOS 原生 SDK 概覽</a></li>
+                  
+                  
+                  
+                  
+                  
+                  <li class="nav-item"><a class="nav-link" href="/ios/basics/architecture-brightcove-player-sdk-ios.html">建築</a></li>
+                  
+                  
+                  
+                  
+                  
+                  <li class="nav-item"><a class="nav-link" href="/ios/basics/ios-brightcove-registration.html">布萊特灣註冊</a></li>
+                  
+                  
+                  
+                  
+                  
+                  <li class="nav-item"><a class="nav-link" href="/ios/basics/ios-working-media-content.html">使用媒體內容</a></li>
+                  
+                  
+                  
+                  
+                  
+                  <li class="nav-item"><a class="nav-link" href="/ios/basics/understanding-events-native-sdk-ios.html">瞭解事件</a></li>
+                  
+                  
+                  
+                  
+                  
+                  <li class="nav-item"><a class="nav-link" href="/ios/basics/training-demand-developing-brightcove-native-player-sdk-ios.html">原生 SDK 訓練影片</a></li>
+                  
+                  
+                  
+                  
+                  
+                  <li class="nav-item"><a class="nav-link" href="/ios/basics/step-step-simple-video-app-using-objective-c.html">逐步：使用目標 C 的簡單視頻應用程序</a></li>
+                  
+                  
+                  
+                  
+                  
+                  <li class="nav-item"><a class="nav-link" href="/ios/basics/step-step-simple-video-app-using-swift.html">逐步：使用 Swift 的簡單視頻應用</a></li>
+                  
+                  
+                  
+                </ul>
+              </li>
+              
+              
+              
+
+              <li class="nav-item subsection-title">
+                
+                <a class="nav-link" href="/ios/advertising/index.html"><span class="theme-icon-holder me-2"><i class="fa-solid fa-minus"></i></span>&nbsp;廣告</a>
+                
+
+                <ul role="list" class="section-items list-unstyled nav flex-column pb-3" style="display:none;">
+                  
+                  
+                  
+                  <li class="nav-item"><a class="nav-link" href="/features/implementing-client-side-ads-native-sdks.html">實作客戶端廣告 (CSAI) </a></li>
+                  
+                  
+                  
+                  
+                  
+                  <li class="nav-item"><a class="nav-link" href="/features/implementing-server-side-ads-native-player-sdks.html">實作伺服器端廣告 (SSAI) </a></li>
+                  
+                  
+                  
+                  
+                  
+                  <li class="nav-item"><a class="nav-link" href="/features/appending-ad-query-params-native-sdks.html">附加廣告查詢參數</a></li>
+                  
+                  
+                  
+                  
+                  
+                  <li class="nav-item"><a class="nav-link" href="/features/ima-open-measurement-native-sdks.html">IMA 開放測量</a></li>
+                  
+                  
+                  
+                </ul>
+              </li>
+              
+              
+              
+
+              <li class="nav-item subsection-title">
+                
+                <a class="nav-link" href="/ios/analytics/index.html"><span class="theme-icon-holder me-2"><i class="fa-solid fa-minus"></i></span>&nbsp;分析</a>
+                
+
+                <ul role="list" class="section-items list-unstyled nav flex-column pb-3" style="display:none;">
+                  
+                  
+                  
+                  <li class="nav-item"><a class="nav-link" href="/ios/analytics/sending-brightcove-analytics-native-sdk-ios.html">發送布萊特灣分析</a></li>
+                  
+                  
+                  
+                  
+                  
+                  <li class="nav-item"><a class="nav-link" href="/features/viewing-brightcove-analytics-player-sdks.html">觀看布萊特灣分析</a></li>
+                  
+                  
+                  
+                </ul>
+              </li>
+              
+              
+              
+
+              <li class="nav-item subsection-title">
+                
+                <a class="nav-link" href="/ios/captions/index.html"><span class="theme-icon-holder me-2"><i class="fa-solid fa-minus"></i></span>&nbsp;字幕</a>
+                
+
+                <ul role="list" class="section-items list-unstyled nav flex-column pb-3" style="display:none;">
+                  
+                  
+                  
+                  <li class="nav-item"><a class="nav-link" href="/features/synchronizing-webvtt-captions.html">同步化網路 VTT 字幕</a></li>
+                  
+                  
+                  
+                </ul>
+              </li>
+              
+              
+              
+
+              <li class="nav-item subsection-title">
+                
+                <a class="nav-link" href="/ios/tv/index.html"><span class="theme-icon-holder me-2"><i class="fa-solid fa-minus"></i></span>&nbsp;聯網電視</a>
+                
+
+                <ul role="list" class="section-items list-unstyled nav flex-column pb-3" style="display:none;">
+                  
+                  
+                  
+                  <li class="nav-item"><a class="nav-link" href="/features/chromecast-with-sdks.html">鉻外掛程式</a></li>
+                  
+                  
+                  
+                  
+                  
+                  <li class="nav-item"><a class="nav-link" href="/features/connected-tv-set-top-box-apps.html">連線電視應用程式</a></li>
+                  
+                  
+                  
+                </ul>
+              </li>
+              
+              
+              
+
+              <li class="nav-item subsection-title">
+                
+                <a class="nav-link" href="/ios/content-protection/index.html"><span class="theme-icon-holder me-2"><i class="fa-solid fa-minus"></i></span>&nbsp;內容保護</a>
+                
+
+                <ul role="list" class="section-items list-unstyled nav flex-column pb-3" style="display:none;">
+                  
+                  
+                  
+                  <li class="nav-item"><a class="nav-link" href="/features/content-security-drm-native-player-sdks.html">內容安全性 (DRM) </a></li>
+                  
+                  
+                  
+                  
+                  
+                  <li class="nav-item"><a class="nav-link" href="/features/fallback-hdcp-sdks.html">回退 HDCP</a></li>
+                  
+                  
+                  
+                  
+                  
+                  <li class="nav-item"><a class="nav-link" href="/features/playback-restrictions-with-sdks.html">播放限制</a></li>
+                  
+                  
+                  
+                </ul>
+              </li>
+              
+              
+              
+
+              <li class="nav-item subsection-title">
+                
+                <a class="nav-link" href="/ios/framework/index.html"><span class="theme-icon-holder me-2"><i class="fa-solid fa-minus"></i></span>&nbsp;框架</a>
+                
+
+                <ul role="list" class="section-items list-unstyled nav flex-column pb-3" style="display:none;">
+                  
+                  
+                  
+                  <li class="nav-item"><a class="nav-link" href="/ios/framework/working-app-transport-security-ats.html">使用應用程式傳輸安全性 (ATS) </a></li>
+                  
+                  
+                  
+                </ul>
+              </li>
+              
+              
+              
+
+              <li class="nav-item subsection-title">
+                
+                <a class="nav-link" href="/ios/live/index.html"><span class="theme-icon-holder me-2"><i class="fa-solid fa-minus"></i></span>&nbsp;居住</a>
+                
+
+                <ul role="list" class="section-items list-unstyled nav flex-column pb-3" style="display:none;">
+                  
+                  
+                  
+                  <li class="nav-item"><a class="nav-link" href="/features/using-live-ssai-native-sdks.html">使用即時 SAI </a></li>
+                  
+                  
+                  
+                  
+                  
+                  <li class="nav-item"><a class="nav-link" href="/features/using-player-enhancements-live-ssai-native-sdks.html">即時 SSAI 的玩家增強功能</a></li>
+                  
+                  
+                  
+                  
+                  
+                  <li class="nav-item"><a class="nav-link" href="/features/client-side-ads-with-live-ssai.html">使用即時 SSAI 的客戶端預先廣告</a></li>
+                  
+                  
+                  
+                </ul>
+              </li>
+              
+              
+              
+
+              <li class="nav-item subsection-title">
+                
+                <a class="nav-link" href="/ios/playback/index.html"><span class="theme-icon-holder me-2"><i class="fa-solid fa-minus"></i></span>&nbsp;回放</a>
+                
+
+                <ul role="list" class="section-items list-unstyled nav flex-column pb-3" style="display:none;">
+                  
+                  
+                  
+                  <li class="nav-item"><a class="nav-link" href="/features/bumper-video-with-sdks.html">保險槓視頻</a></li>
+                  
+                  
+                  
+                  
+                  
+                  <li class="nav-item"><a class="nav-link" href="/features/offline-playback-native-player-sdks.html">離線播放</a></li>
+                  
+                  
+                  
+                  
+                  
+                  <li class="nav-item"><a class="nav-link" href="/ios/playback/ios-source-selection.html">來源選擇</a></li>
+                  
+                  
+                  
+                </ul>
+              </li>
+              
+              
+              
+
+              <li class="nav-item subsection-title">
+                
+                <a class="nav-link" href="/ios/privacy/index.html"><span class="theme-icon-holder me-2"><i class="fa-solid fa-minus"></i></span>&nbsp;隱私</a>
+                
+
+                <ul role="list" class="section-items list-unstyled nav flex-column pb-3" style="display:none;">
+                  
+                  
+                  
+                  <li class="nav-item"><a class="nav-link" href="/ios/privacy/app-tracking-transparency.html">應用跟踪透明度</a></li>
+                  
+                  
+                  
+                </ul>
+              </li>
+              
+              
+              
+
+              <li class="nav-item subsection-title">
+                
+                <a class="nav-link" href="/ios/troubleshooting/index.html"><span class="theme-icon-holder me-2"><i class="fa-solid fa-minus"></i></span>&nbsp;故障排除</a>
+                
+
+                <ul role="list" class="section-items list-unstyled nav flex-column pb-3" style="display:none;">
+                  
+                  
+                  
+                  <li class="nav-item"><a class="nav-link" href="/ios/troubleshooting/error-handling-native-sdk-ios.html">錯誤處理</a></li>
+                  
+                  
+                  
+                </ul>
+              </li>
+              
+              
+              
+
+              <li class="nav-item subsection-title">
+                
+                <a class="nav-link" href="/ios/ui/index.html"><span class="theme-icon-holder me-2"><i class="fa-solid fa-minus"></i></span>&nbsp;界面</a>
+                
+
+                <ul role="list" class="section-items list-unstyled nav flex-column pb-3" style="display:none;">
+                  
+                  
+                  
+                  <li class="nav-item"><a class="nav-link" href="/features/brightcove-native-player-controls.html">基本播放器控制</a></li>
+                  
+                  
+                  
+                  
+                  
+                  <li class="nav-item"><a class="nav-link" href="/features/localization-with-native-sdks.html">本地化播放程式</a></li>
+                  
+                  
+                  
+                </ul>
+              </li>
+              
+              
+              
+
+              <li class="nav-item subsection-title">
+                
+                <a class="nav-link" href="/ios/resources/index.html"><span class="theme-icon-holder me-2"><i class="fa-solid fa-minus"></i></span>&nbsp;資源</a>
+                
+
+                <ul role="list" class="section-items list-unstyled nav flex-column pb-3" style="display:none;">
+                  
+                  
+                  
+                  <li class="nav-item"><a class="nav-link" href="https://github.com/BrightcoveOS/ios-player-samples">iOS 程式碼範例</a></li>
+                  
+                  
+                  
+                  
+                  
+                  <li class="nav-item"><a class="nav-link" href="/ios/resources/code-snippets-using-native-sdk-ios.html">程式碼片段</a></li>
+                  
+                  
+                  
+                  
+                  
+                  <li class="nav-item"><a class="nav-link" href="/ios/reference/sdk/index.html">適用於 iOS 的原生 SDK 參考</a></li>
+                  
+                  
+                  
+                  
+                  
+                  <li class="nav-item"><a class="nav-link" href="https://docs.brightcove.com/index.html">外掛程式參考</a></li>
+                  
+                  
+                  
+                  
+                  
+                  <li class="nav-item"><a class="nav-link" href="https://github.com/brightcove/brightcove-player-sdk-ios/blob/master/CHANGELOG.md">版本資訊</a></li>
+                  
+                  
+                  
+                  
+                  
+                  <li class="nav-item"><a class="nav-link" href="/ios/resources/brightcove-player-sdk-ios-previous-sdk-information.html">舊版本</a></li>
+                  
+                  
+                  
+                </ul>
+              </li>
+              
+              
+            </ul>
+            </li>
+            
+            
+            
+            <li class="nav-item section-title"><a class="nav-link" href="/tvos/index.html"><span class="theme-icon-holder me-2"><i class="fa-solid fa-plus"></i></span>&nbsp; tvOS 開發</a>
+              <ul role="list" class="section-items list-unstyled nav flex-column pb-3" style="display:none;">
+              
+              
+
+              <li class="nav-item subsection-title">
+                
+                <a class="nav-link" href="/tvos/basics/index.html"><span class="theme-icon-holder me-2"><i class="fa-solid fa-minus"></i></span>&nbsp;基本</a>
+                
+
+                <ul role="list" class="section-items list-unstyled nav flex-column pb-3" style="display:none;">
+                  
+                  
+                  
+                  <li class="nav-item"><a class="nav-link" href="/tvos/basics/overview-brightcove-player-sdk-tvos.html">v6.12.0：適用於 tvOS 的本機 SDK 概覽</a></li>
+                  
+                  
+                  
+                  
+                  
+                  <li class="nav-item"><a class="nav-link" href="/ios/basics/architecture-brightcove-player-sdk-ios.html">建築</a></li>
+                  
+                  
+                  
+                  
+                  
+                  <li class="nav-item"><a class="nav-link" href="/ios/basics/ios-brightcove-registration.html">布萊特灣註冊</a></li>
+                  
+                  
+                  
+                  
+                  
+                  <li class="nav-item"><a class="nav-link" href="/ios/basics/ios-working-media-content.html">使用媒體內容</a></li>
+                  
+                  
+                  
+                  
+                  
+                  <li class="nav-item"><a class="nav-link" href="/ios/basics/understanding-events-native-sdk-ios.html">瞭解事件</a></li>
+                  
+                  
+                  
+                  
+                  
+                  <li class="nav-item"><a class="nav-link" href="/features/connected-tv-set-top-box-apps.html">連線電視應用程式</a></li>
+                  
+                  
+                  
+                  
+                  
+                  <li class="nav-item"><a class="nav-link" href="/ios/basics/training-demand-developing-brightcove-native-player-sdk-ios.html">原生 SDK 訓練影片</a></li>
+                  
+                  
+                  
+                  
+                  
+                  <li class="nav-item"><a class="nav-link" href="/tvos/basics/step-step-simple-tv-video-app-using-swift.html">逐步：簡單的電視視頻應用程序</a></li>
+                  
+                  
+                  
+                </ul>
+              </li>
+              
+              
+              
+
+              <li class="nav-item subsection-title">
+                
+                <a class="nav-link" href="/tvos/advertising/index.html"><span class="theme-icon-holder me-2"><i class="fa-solid fa-minus"></i></span>&nbsp;廣告</a>
+                
+
+                <ul role="list" class="section-items list-unstyled nav flex-column pb-3" style="display:none;">
+                  
+                  
+                  
+                  <li class="nav-item"><a class="nav-link" href="/features/implementing-client-side-ads-native-sdks.html">實作客戶端廣告 (CSAI) </a></li>
+                  
+                  
+                  
+                  
+                  
+                  <li class="nav-item"><a class="nav-link" href="/features/implementing-server-side-ads-native-player-sdks.html">實作伺服器端廣告 (SSAI) </a></li>
+                  
+                  
+                  
+                  
+                  
+                  <li class="nav-item"><a class="nav-link" href="/features/appending-ad-query-params-native-sdks.html">附加廣告查詢參數</a></li>
+                  
+                  
+                  
+                  
+                  
+                  <li class="nav-item"><a class="nav-link" href="/features/ima-open-measurement-native-sdks.html">IMA 開放測量</a></li>
+                  
+                  
+                  
+                </ul>
+              </li>
+              
+              
+              
+
+              <li class="nav-item subsection-title">
+                
+                <a class="nav-link" href="/tvos/analytics/index.html"><span class="theme-icon-holder me-2"><i class="fa-solid fa-minus"></i></span>&nbsp;分析</a>
+                
+
+                <ul role="list" class="section-items list-unstyled nav flex-column pb-3" style="display:none;">
+                  
+                  
+                  
+                  <li class="nav-item"><a class="nav-link" href="/ios/analytics/sending-brightcove-analytics-native-sdk-ios.html">發送布萊特灣分析</a></li>
+                  
+                  
+                  
+                  
+                  
+                  <li class="nav-item"><a class="nav-link" href="/features/viewing-brightcove-analytics-player-sdks.html">觀看布萊特灣分析</a></li>
+                  
+                  
+                  
+                </ul>
+              </li>
+              
+              
+              
+
+              <li class="nav-item subsection-title">
+                
+                <a class="nav-link" href="/tvos/captions/index.html"><span class="theme-icon-holder me-2"><i class="fa-solid fa-minus"></i></span>&nbsp;字幕</a>
+                
+
+                <ul role="list" class="section-items list-unstyled nav flex-column pb-3" style="display:none;">
+                  
+                  
+                  
+                  <li class="nav-item"><a class="nav-link" href="/features/synchronizing-webvtt-captions.html">同步化網路 VTT 字幕</a></li>
+                  
+                  
+                  
+                </ul>
+              </li>
+              
+              
+              
+
+              <li class="nav-item subsection-title">
+                
+                <a class="nav-link" href="/tvos/content-protection/index.html"><span class="theme-icon-holder me-2"><i class="fa-solid fa-minus"></i></span>&nbsp;內容保護</a>
+                
+
+                <ul role="list" class="section-items list-unstyled nav flex-column pb-3" style="display:none;">
+                  
+                  
+                  
+                  <li class="nav-item"><a class="nav-link" href="/tvos/content-protection/adding-fairplay-protection-your-apple-tv-apps.html">蘋果電視</a></li>
+                  
+                  
+                  
+                  
+                  
+                  <li class="nav-item"><a class="nav-link" href="/features/content-security-drm-native-player-sdks.html">內容安全性 (DRM) </a></li>
+                  
+                  
+                  
+                  
+                  
+                  <li class="nav-item"><a class="nav-link" href="/features/fallback-hdcp-sdks.html">回退 HDCP</a></li>
+                  
+                  
+                  
+                  
+                  
+                  <li class="nav-item"><a class="nav-link" href="/features/playback-restrictions-with-sdks.html">播放限制</a></li>
+                  
+                  
+                  
+                </ul>
+              </li>
+              
+              
+              
+
+              <li class="nav-item subsection-title">
+                
+                <a class="nav-link" href="/tvos/framework/index.html"><span class="theme-icon-holder me-2"><i class="fa-solid fa-minus"></i></span>&nbsp;框架</a>
+                
+
+                <ul role="list" class="section-items list-unstyled nav flex-column pb-3" style="display:none;">
+                  
+                  
+                  
+                  <li class="nav-item"><a class="nav-link" href="/ios/framework/working-app-transport-security-ats.html">使用應用程式傳輸安全性 (ATS) </a></li>
+                  
+                  
+                  
+                </ul>
+              </li>
+              
+              
+              
+
+              <li class="nav-item subsection-title">
+                
+                <a class="nav-link" href="/tvos/live/index.html"><span class="theme-icon-holder me-2"><i class="fa-solid fa-minus"></i></span>&nbsp;居住</a>
+                
+
+                <ul role="list" class="section-items list-unstyled nav flex-column pb-3" style="display:none;">
+                  
+                  
+                  
+                  <li class="nav-item"><a class="nav-link" href="/features/using-live-ssai-native-sdks.html">使用即時 SAI </a></li>
+                  
+                  
+                  
+                  
+                  
+                  <li class="nav-item"><a class="nav-link" href="/features/using-player-enhancements-live-ssai-native-sdks.html">即時 SSAI 的玩家增強功能</a></li>
+                  
+                  
+                  
+                  
+                  
+                  <li class="nav-item"><a class="nav-link" href="/features/client-side-ads-with-live-ssai.html">使用即時 SSAI 的客戶端預先廣告</a></li>
+                  
+                  
+                  
+                </ul>
+              </li>
+              
+              
+              
+
+              <li class="nav-item subsection-title">
+                
+                <a class="nav-link" href="/tvos/playback/index.html"><span class="theme-icon-holder me-2"><i class="fa-solid fa-minus"></i></span>&nbsp;回放</a>
+                
+
+                <ul role="list" class="section-items list-unstyled nav flex-column pb-3" style="display:none;">
+                  
+                  
+                  
+                  <li class="nav-item"><a class="nav-link" href="/features/bumper-video-with-sdks.html">保險槓視頻</a></li>
+                  
+                  
+                  
+                  
+                  
+                  <li class="nav-item"><a class="nav-link" href="/ios/playback/ios-source-selection.html">來源選擇</a></li>
+                  
+                  
+                  
+                </ul>
+              </li>
+              
+              
+              
+
+              <li class="nav-item subsection-title">
+                
+                <a class="nav-link" href="/tvos/privacy/index.html"><span class="theme-icon-holder me-2"><i class="fa-solid fa-minus"></i></span>&nbsp;隱私</a>
+                
+
+                <ul role="list" class="section-items list-unstyled nav flex-column pb-3" style="display:none;">
+                  
+                  
+                  
+                  <li class="nav-item"><a class="nav-link" href="/ios/privacy/app-tracking-transparency.html">應用跟踪透明度</a></li>
+                  
+                  
+                  
+                </ul>
+              </li>
+              
+              
+              
+
+              <li class="nav-item subsection-title">
+                
+                <a class="nav-link" href="/tvos/troubleshooting/index.html"><span class="theme-icon-holder me-2"><i class="fa-solid fa-minus"></i></span>&nbsp;故障排除</a>
+                
+
+                <ul role="list" class="section-items list-unstyled nav flex-column pb-3" style="display:none;">
+                  
+                  
+                  
+                  <li class="nav-item"><a class="nav-link" href="/ios/troubleshooting/error-handling-native-sdk-ios.html">錯誤處理</a></li>
+                  
+                  
+                  
+                </ul>
+              </li>
+              
+              
+              
+
+              <li class="nav-item subsection-title">
+                
+                <a class="nav-link" href="/tvos/ui/index.html"><span class="theme-icon-holder me-2"><i class="fa-solid fa-minus"></i></span>&nbsp;用戶界面</a>
+                
+
+                <ul role="list" class="section-items list-unstyled nav flex-column pb-3" style="display:none;">
+                  
+                  
+                  
+                  <li class="nav-item"><a class="nav-link" href="/tvos/playback/apple-tv-ui-controls-native-sdk-tvos.html">蘋果電視界面控制</a></li>
+                  
+                  
+                  
+                  
+                  
+                  <li class="nav-item"><a class="nav-link" href="/features/localization-with-native-sdks.html">本地化播放程式</a></li>
+                  
+                  
+                  
+                </ul>
+              </li>
+              
+              
+              
+
+              <li class="nav-item subsection-title">
+                
+                <a class="nav-link" href="/tvos/resources/index.html"><span class="theme-icon-holder me-2"><i class="fa-solid fa-minus"></i></span>&nbsp;資源</a>
+                
+
+                <ul role="list" class="section-items list-unstyled nav flex-column pb-3" style="display:none;">
+                  
+                  
+                  
+                  <li class="nav-item"><a class="nav-link" href="https://github.com/BrightcoveOS/ios-player-samples/tree/master/Player/AppleTV">蘋果電視基本樣本</a></li>
+                  
+                  
+                  
+                  
+                  
+                  <li class="nav-item"><a class="nav-link" href="https://github.com/BrightcoveOS/ios-player-samples/tree/master/SSAI/BasicSSAItvOSPlayer">蘋果電視</a></li>
+                  
+                  
+                  
+                  
+                  
+                  <li class="nav-item"><a class="nav-link" href="/ios/reference/sdk/index.html">適用於 iOS 的原生 SDK 參考</a></li>
+                  
+                  
+                  
+                  
+                  
+                  <li class="nav-item"><a class="nav-link" href="https://docs.brightcove.com/index.html">外掛程式參考</a></li>
+                  
+                  
+                  
+                  
+                  
+                  <li class="nav-item"><a class="nav-link" href="https://github.com/brightcove/brightcove-player-sdk-ios/blob/master/CHANGELOG.md">版本資訊</a></li>
+                  
+                  
+                  
+                  
+                  
+                  <li class="nav-item"><a class="nav-link" href="/tvos/resources/brightcove-player-sdk-tvos-previous-sdk-information.html">舊版本</a></li>
+                  
+                  
+                  
+                </ul>
+              </li>
+              
+              
+            </ul>
+            </li>
+            
+            
+            
+            <li class="nav-item section-title"><a class="nav-link" href="/developer-support/index.html"><span class="theme-icon-holder me-2"><i class="fa-solid fa-plus"></i></span>&nbsp;開發人員支持</a>
+              <ul role="list" class="section-items list-unstyled nav flex-column pb-3" style="display:none;">
+              
+              
+
+              <li class="nav-item subsection-title">
+                
+                <a class="nav-link" href="/developer-support/announcements/index.html"><span class="theme-icon-holder me-2"><i class="fa-solid fa-minus"></i></span>&nbsp;公告</a>
+                
+
+                <ul role="list" class="section-items list-unstyled nav flex-column pb-3" style="display:none;">
+                  
+                  
+                  
+                  <li class="nav-item"><a class="nav-link" href="/developer-support/announcements/native-sdk-android-will-eol-support-exoplayer-1.html">安卓 SDK EOL 支持代理程序 1 </a></li>
+                  
+                  
+                  
+                  
+                  
+                  <li class="nav-item"><a class="nav-link" href="/developer-support/announcements/announcement-brightcove-sdk-android-version-support.html">安卓版本支援</a></li>
+                  
+                  
+                  
+                  
+                  
+                  <li class="nav-item"><a class="nav-link" href="/developer-support/announcements/apple-announces-new-app-submission-requirement.html">蘋果應用程式提交要求</a></li>
+                  
+                  
+                  
+                  
+                  
+                  <li class="nav-item"><a class="nav-link" href="/developer-support/announcements/native-sdk-ios-eol-support-iostvos-10.html">iOS 開發套件生命週期支援</a></li>
+                  
+                  
+                  
+                </ul>
+              </li>
+              
+              
+              
+
+              <li class="nav-item subsection-title">
+                
+                <a class="nav-link" href="/developer-support/guides/index.html"><span class="theme-icon-holder me-2"><i class="fa-solid fa-minus"></i></span>&nbsp;導遊</a>
+                
+
+                <ul role="list" class="section-items list-unstyled nav flex-column pb-3" style="display:none;">
+                  
+                  
+                  
+                  <li class="nav-item"><a class="nav-link" href="/developer-support/guides/concepts-javascript-debugging-basics.html">調試基礎知識</a></li>
+                  
+                  
+                  
+                  
+                  
+                  <li class="nav-item section-doc"><a class="nav-link" href="/developer-support/guides/create-json-web-token.html" aria-current="page">創建一個 JSON 網絡令牌（JWT）</a></li>
+                  
+                  
+                  
+                  
+                  
+                  <li class="nav-item"><a class="nav-link" href="/developer-support/guides/debugging-mobile-devices.html">行動裝置上的除錯</a></li>
+                  
+                  
+                  
+                </ul>
+              </li>
+              
+              
+              
+
+              <li class="nav-item subsection-title">
+                
+                <a class="nav-link" href="/developer-support/questions/index.html"><span class="theme-icon-holder me-2"><i class="fa-solid fa-minus"></i></span>&nbsp;問題和問題</a>
+                
+
+                <ul role="list" class="section-items list-unstyled nav flex-column pb-3" style="display:none;">
+                  
+                  
+                  
+                  <li class="nav-item"><a class="nav-link" href="/developer-support/questions/release-notes-brightcove-native-sdks.html">版本資訊</a></li>
+                  
+                  
+                  
+                  
+                  
+                  <li class="nav-item"><a class="nav-link" href="/developer-support/questions/known-issues-brightcove-native-player-sdks.html">已知問題</a></li>
+                  
+                  
+                  
+                  
+                  
+                  <li class="nav-item"><a class="nav-link" href="https://groups.google.com/forum/#!forum/brightcove-native-player-sdks">郵件列表/論壇存檔</a></li>
+                  
+                  
+                  
+                  
+                  
+                  <li class="nav-item"><a class="nav-link" href="/developer-support/questions/faq-brightcove-native-player-sdks.html">常見問題</a></li>
+                  
+                  
+                  
+                  
+                  
+                  <li class="nav-item"><a class="nav-link" href="/developer-support/questions/report-issue-brightcove-native-sdks.html">報告問題</a></li>
+                  
+                  
+                  
+                </ul>
+              </li>
+              
+              
+            </ul>
+            </li>
+            
+            
+            
+            <li class="nav-item section-title"><a class="nav-link" href="/support/index.html"><span class="theme-icon-holder me-2"><i class="fa-solid fa-plus"></i></span>&nbsp;支持</a>
+              <ul role="list" class="section-items list-unstyled nav flex-column pb-3" style="display:none;">
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/support/viewing-brightcove-system-status-page.html">檢視布萊特灣系統狀態頁面</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/support/contact-sales.html">聯絡銷售人員</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/support/opening-case-with-brightcove-support.html">開啟支援案例</a></li>
+              
+              
+              
+              
+              
+              <li class="nav-item"><a class="nav-link" href="/support/reset-support-portal-password.html">重置您的支持門戶密碼</a></li>
+              
+              
+              
+            </ul>
+            </li>
+            
+            
+          </ul>
+          </nav>
+        </div>
+      </div>
+    </div><!--//docs-sidebar-->
+  </div>
+</div>
+
+<div style="margin-top: 20px;">
+  <div class="docs-content" style="padding-bottom: 0px;">
+    <div class="container">
+      <div class="docs-overview">
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb">
+            
+            <li class="breadcrumb-item"><a class="theme-link" href="/">首頁</a></li>
+            
+            
+            <li class="breadcrumb-item"><a class="theme-link" href="/developer-support/">開發人員支持</a></li>
+            
+            
+            
+            <li class="breadcrumb-item"><a class="theme-link" href="/developer-support/guides/">導遊</a></li>
+            
+            
+            
+            <li class="breadcrumb-item active" aria-current="page">創建一個 JSON 網絡令牌（JWT）</li>
+            
+            
+          </ol>
+        </nav>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="docs-content">
+  <div class="container">
+    <div class="docs-overview py-5">
+      
+      <div class="centered-inpage-nav" id="centered_inpage_nav">
+        <nav id="centered_toc">
+          <select id="centered_in_page_toc" class="form-select select-focus"></select>
+        </nav>
+      </div>
+      <br/>
+      
+      
+<h1>創建一個 JSON 網絡令牌（JWT）</h1>
+<article class="bcls-article">
+  <summary>在本主題中，您將了解如何創建可與 Brightcove 播放限制一起使用的 JSON Web 令牌 (JWT)。</summary>
+
+  <section class="bcls-section">
+    <h2 id="Introduction">簡介</h2>
+
+    <p>要在訪問您的視頻庫時添加額外級別的保護，或對您的內容應用用戶級別限制，您可以通過<span translate="No">JSON Web Token (JWT)</span>通過調用 Brightcove Playback API。</p>
+    <p>如果您不熟悉<span translate="No">JWT's</span> , 查看以下內容：</p>
+    <ul>
+      <li><a href="https://jwt.io/introduction/">JSON Web Token 簡介</a></li>
+      <li><a href="https://auth0.com/docs/security/tokens/json-web-tokens/json-web-token-claims">JSON Web 令牌聲明</a></li>
+    </ul>
+   
+  </section>
+
+  <section class="bcls-section">
+    <h2 id="Workflow">工作流程</h2>
+
+    <p>創建一個<span translate="No">JSON Web Token (JWT)</span>並在 Brightcove 註冊，請按照以下步驟操作：</p>
+    <ol class="bcls-tasklist">
+      <li><a href="#Generate_public_private_key_pair">產生公開私密金鑰組</a></li>
+      <li>
+        <a href="#Register_public_key">向布萊特灣註冊公開金鑰</a>
+      </li>
+      <li>
+        <a href="#Create_a_JSON_Web_Token">建立<span translate="No">JSON Web Token</span></a>
+      </li>
+      <li>
+        <a href="#Test_playback">測試播放</a>
+      </li>
+    </ol>
+  </section>
+
+  <section class="bcls-section">
+    <h2 id="Generate_public_private_key_pair">產生公開私密金鑰組</h2>
+
+    <p>您（發布者）將生成一對公私密鑰並將公鑰提供給 Brightcove。您將使用私鑰對令牌進行簽名。私鑰不與 Brightcove 共享。</p>
+
+    <p>
+      有很多方法可以產生公開私密金鑰組。以下是一些範例：
+    </p>
+    <h3>
+      bash 腳本示例：
+    </h3>
+    <aside class="bcls-aside bcls-aside--information">請注意，下面的腳本使用<strong> jq </strong>包來解析 JSON。如果您沒有安裝 jq，請參閱安<a href="https://github.com/stedolan/jq/wiki/Installation">裝說明</a>。</aside>
+    <p>
+      產生金鑰配對的範例指令碼：
+    </p>
+    <pre class="line-numbers"><code class="language-bash" translate="No">#!/bin/bash
+set -euo pipefail
+
+NAME=${1:-}
+test -z "${NAME:-}" &amp;&amp; NAME="brightcove-playback-auth-key-$(date +%s)"
+mkdir "$NAME"
+
+PRIVATE_PEM="./$NAME/private.pem"
+PUBLIC_PEM="./$NAME/public.pem"
+PUBLIC_TXT="./$NAME/public_key.txt"
+
+ssh-keygen -t rsa -b 2048 -m PEM -f "$PRIVATE_PEM" -q -N ""
+openssl rsa -in "$PRIVATE_PEM" -pubout -outform PEM -out "$PUBLIC_PEM" 2&gt;/dev/null
+openssl rsa -in "$PRIVATE_PEM" -pubout -outform DER | base64 &gt; "$PUBLIC_TXT"
+
+rm "$PRIVATE_PEM".pub
+
+echo "Public key to saved in $PUBLIC_TXT"
+</code></pre>
+    <p>
+      執行指令碼：
+    </p>
+    <pre><code class="language-bash" translate="No">$ bash keygen.sh
+</code></pre>
+
+    <details id="Example_using_Go">
+      <summary>使用範例<span translate="No">Go</span></summary>
+      <p>
+        使用<span translate="No">Go</span>編程語言生成密鑰對的示例：
+      </p>
+      <aside class="bcls-aside bcls-aside--tip">如果你是新來的<span translate="No">Go</span>，請參閱<a href="https://golang.org/"><span translate="No">Go</span>編程語言</a>主頁。</aside>
+      <pre class="line-numbers"><code class="language-bash" translate="No">package main
+  
+  import (
+    "crypto/rand"
+    "crypto/rsa"
+    "crypto/x509"
+    "encoding/base64"
+    "encoding/pem"
+    "flag"
+    "fmt"
+    "io/ioutil"
+    "os"
+    "path"
+    "strconv"
+    "time"
+  )
+  
+  func main() {
+    var out string
+  
+    flag.StringVar(&amp;out, "output-dir", "", "Output directory to write files into")
+    flag.Parse()
+  
+    if out == "" {
+      out = "rsa-key_" + strconv.FormatInt(time.Now().Unix(), 10)
+    }
+  
+    if err := os.MkdirAll(out, os.ModePerm); err != nil {
+      panic(err.Error())
+    }
+  
+    priv, err := rsa.GenerateKey(rand.Reader, 2048)
+    if err != nil {
+      panic(err.Error())
+    }
+  
+    privBytes := x509.MarshalPKCS1PrivateKey(priv)
+  
+    pubBytes, err := x509.MarshalPKIXPublicKey(priv.Public())
+    if err != nil {
+      panic(err.Error())
+    }
+  
+    privOut, err := os.OpenFile(path.Join(out, "private.pem"), os.O_WRONLY|os.O_CREATE|os.O_TRUNC, 0600)
+    if err != nil {
+      panic(err.Error())
+    }
+  
+    if err := pem.Encode(privOut, &amp;pem.Block{Type: "RSA PRIVATE KEY", Bytes: privBytes}); err != nil {
+      panic(err.Error())
+    }
+  
+    pubOut, err := os.OpenFile(path.Join(out, "public.pem"), os.O_WRONLY|os.O_CREATE|os.O_TRUNC, 0600)
+    if err != nil {
+      panic(err.Error())
+    }
+  
+    if err := pem.Encode(pubOut, &amp;pem.Block{Type: "PUBLIC KEY", Bytes: pubBytes}); err != nil {
+      panic(err.Error())
+    }
+  
+    var pubEnc = base64.StdEncoding.EncodeToString(pubBytes)
+  
+    var pubEncOut = path.Join(out, "public_key.txt")
+    if err := ioutil.WriteFile(pubEncOut, []byte(pubEnc+"\n"), 0600); err != nil {
+      panic(err.Error())
+    }
+  
+    fmt.Println("Public key saved in " + pubEncOut)
+  }
+  </code></pre>
+    </details>
+    <br/>
+
+    <details id="Example_using_node_js">
+      <summary>使用 node.js 的範例</summary>
+      <p>
+        使用 node.js 生成密鑰對的示例：
+      </p>
+      <aside class="bcls-aside bcls-aside--tip">此指令碼範例需要節點版本 11 或更新版本。</aside>
+      <pre class="line-numbers"><code class="language-javascript" translate="No">var crypto = require("crypto");
+  var fs = require("fs");
+  
+  var now = Math.floor(new Date() / 1000);
+  var dir = "rsa-key_" + now;
+  fs.mkdirSync(dir);
+  
+  crypto.generateKeyPair(
+    "rsa",
+    {modulusLength: 2048},
+    (err, publicKey, privateKey) =&gt; {
+      fs.writeFile(
+        dir + "/public.pem",
+        publicKey.export({ type: "spki", format: "pem" }),
+        err =&gt; {}
+      );
+      fs.writeFile(
+        dir + "/public_key.txt",
+        publicKey.export({ type: "spki", format: "der" }).toString("base64") +
+          "\n",
+        err =&gt; {}
+      );
+      fs.writeFile(
+        dir + "/private.pem",
+        privateKey.export({ type: "pkcs1", format: "pem" }),
+        err =&gt; {}
+      );
+    }
+  );
+  
+  console.log("Public key saved in " + dir + "/public_key.txt");</code></pre>
+    </details>
+  </section>
+
+  <section class="bcls-section">
+    <h2 id="Register_public_key">註冊公開金鑰</h2>
+    <p>您擁有私鑰，您將使用它來生成簽名令牌。您將與 Brightcove 共享公鑰以驗證您的令牌。密鑰 API 允許您使用 Brightcove 註冊您的公鑰。</p>
+
+    <p>有關 API 的詳細信息，請參閱 <a href="https://apis.support.brightcove.com/playback-restrictions/guides/authentication-apis.html">使用身份驗證 API</a> 文檔。</p>
+  </section>
+
+  <section class="bcls-section">
+    <h2 id="Create_a_JSON_Web_Token">建立<span translate="No">JSON Web Token</span></h2>
+
+    <p>發行者創建一個<a href="https://jwt.io/introduction/" translate="No">JSON Web Token</a>（JWT）。使用 SHA-256 雜湊演算法 (在 JWT 規格中識別為 " <a href="https://jwt.io/"> RS256 </a>」) 使用 RSA 演算法簽署該令牌不會支援其他 JWT 演算法。</p>
+    <p>
+      <a href="https://auth0.com/docs/tokens/jwt-claims" translate="No">JSON Web Token claims</a>將使用標準的一部分，以及 Brightcove 定義的一些私人索賠。您將創建一個用您的私鑰<span translate="No">JSON Web Token</span>簽名。
+    </p>
+  </section>
+
+  <section class="bcls-section">
+    <h2 id="Claims_for_Static_URL_Delivery">靜態 URL 傳遞的宣告</h2>
+    <p>
+      以下聲明可用於 <a href="https://apis.support.brightcove.com/playback/guides/static-url-delivery.html">Brightcove 的靜態 URL 交付</a>。
+    </p>
+    <aside class="bcls-aside bcls-aside--tip">請注意，靜態 URL 傳遞不需要任何宣告。</aside>
+
+    <div style="overflow-x:auto;">
+    <table class="bcls-table">
+      <thead class="bcls-table__head">
+        <tr>
+          <th>宣稱</th>
+          <th>類型</th>
+          <th>必填</th>
+          <th>描述</th>
+        </tr>
+      </thead>
+      <tbody class="bcls-table__body">
+        <tr>
+          <td><code translate="No">accid</code></td>
+          <td>字串</td>
+          <td></td>
+          <td>擁有播放內容的帳號 ID</td>
+        </tr>
+        <tr>
+          <td><code translate="No">iat</code></td>
+          <td>整數</td>
+          <td></td>
+          <td>這個令牌發出的時間，以秒為單位，自紀元</td>
+        </tr>
+        <tr>
+          <td><code translate="No">exp</code></td>
+          <td>整數</td>
+          <td></td>
+          <td>
+            這個令牌的時間將不再有效，以秒為單位，自紀元以來。必須不超過 30 天<code translate="No">iat</code>
+            <aside class="bcls-aside bcls-aside--warning language-editable">請注意，您可以省略<code translate="No">exp</code>創建一個非現有令牌。但是，安全專家強烈反對創建不會過期的令牌。</aside>
+          </td>
+        </tr>
+        <tr>
+          <td><code translate="No">drules</code></td>
+          <td>串[]</td>
+          <td></td>
+          <td>要應用的傳送規則操作 ID 列表。有關詳細信息，請參閱 <a href="https://apis.support.brightcove.com/delivery-rules/getting-started/implementing-delivery-rules.html">實施交付規則</a> 文檔。<br/>如果<code translate="No">config_id</code>查詢參數也已設置，它將被忽略，因為此聲明會覆蓋它。
+            <!-- <br><br>
+              <aside class="bcls-aside bcls-aside--information">
+                Setting this claim in the JWT overrides:
+                <ul>
+                  <li>The <code translate="No">config_id</code> query parameter</li>
+                  <li>Any other rule ids set at the account level</li>
+                </ul>
+              </aside> -->
+          </td>
+        </tr>
+        <tr>
+          <td><code translate="No">conid</code></td>
+          <td>字串</td>
+          <td></td>
+          <td>如果存在，此令牌將僅授權特定的 Video Cloud 視頻 ID。這可以是 DRM/HLSe 流或非 DRM 資產。<br/><br/> 必須是有效的視頻 ID。請注意，不支持參考 ID。
+          </td>
+        </tr>
+        <tr>
+          <td><code translate="No">pro</code></td>
+          <td>字串</td>
+          <td></td>
+          <td>在單一視訊可用多個情況下，指定保護類型。<br/><br/>值：
+            <ul>
+              <li>
+                「」(預設為清晰內容)
+              </li>
+              <li>
+                「第 128」
+              </li>
+              <li>
+                「威德維恩」
+              </li>
+              <li>
+                「播放就緒」
+              </li>
+              <li>
+                「公平遊戲」
+              </li>
+            </ul>
+          </td>
+        </tr>
+        <tr>
+          <td><code translate="No">vod</code></td>
+          <td>物件</td>
+          <td></td>
+          <td>包含視訊隨選視訊的特定組態選項。</td>
+        </tr>
+        <tr>
+          <td><code translate="No">vod.ssai</code></td>
+          <td>字串</td>
+          <td></td>
+          <td>您的伺服器端廣告插入 (SSAI) 組態識別碼。擷取 HLS 或破折號 VMAP <strong>需要</strong>此宣告。</td>
+        </tr>
+      </tbody>
+    </table>
+    </div>
+    <br/>
+    <p>
+      以下是您可能使用的<span translate="No">JSON Web Token</span>（JWT）聲明的示例：
+    </p>
+    <pre class="line-numbers"><code class="language-json" translate="No">{
+// account id: JWT is only valid for this accounts
+"accid":"4590388311111",
+// issued at: timestamp when the JWT was created
+"iat":1575484132,
+// expires: timestamp when JWT expires
+"exp":1577989732,
+// drules: list of delivery rule IDs to be applied
+"drules": ["0758da1f-e913-4f30-a587-181db8b1e4eb"],
+// content id: JWT is only valid for video ID
+"conid":"5805807122222",
+// protection: specify a protection type in the case where multiple are available for a single video
+"pro":"aes128",
+// VOD specific configuration options
+"vod":{
+// SSAI configuration to apply
+"ssai":"efcc566-b44b-5a77-a0e2-d33333333333"
+}
+}</code></pre>
+  </section>
+
+  <section class="bcls-section">
+    <h2 id="Claims_for_Playback_Restrictions">播放限制索賠</h2>
+    <p>
+      以下聲明可與 <a href="https://apis.support.brightcove.com/playback-restrictions/getting-started/overview-playback-restrictions.html">Brightcove 播放限制</a>一起使用。作為播放限制的一部分，您可以執行以下操作：
+    </p>
+    <ul>
+      <li><a href="https://apis.support.brightcove.com/playback-restrictions/getting-started/implementing-playback-rights.html">播放權</a></li>
+      <li><a href="https://apis.support.brightcove.com/playback-restrictions/getting-started/overview-playback-restrictions.html#License_Keys_Protection">許可證密鑰保護</a></li>
+      <li><a href="https://apis.support.brightcove.com/live-api/guides/live-playback-restrictions.html">現場播放限制</a></li>
+      <li><a href="https://apis.support.brightcove.com/playback-restrictions/guides/stream-concurrency.html">並發流</a></li>
+      <li><a href="https://apis.support.brightcove.com/playback-restrictions/guides/device-limits.html">設備限制</a></li>
+      <li><a href="https://apis.support.brightcove.com/delivery-rules/getting-started/overview-delivery-rules.html">發貨規則</a></li>
+    </ul>
+    <aside class="bcls-aside bcls-aside--information">在 DRM 中使用播放權限時，您不能使用 AES-128。</aside>
+    <aside class="bcls-aside bcls-aside--information">所有功能都需要 <strong>常規</strong> 部分中指定的必需聲明。</aside>
+
+    <div style="overflow-x:auto;">
+    <table class="bcls-table">
+      <thead class="bcls-table__head">
+        <tr>
+          <th style="border-bottom:1px solid #707070;">功能</th>
+          <th style="border-bottom:1px solid #707070;">宣稱</th>
+          <th style="border-bottom:1px solid #707070;">類型</th>
+          <th style="border-bottom:1px solid #707070;">功能所需</th>
+          <th style="border-bottom:1px solid #707070;">僅限 DRM</th>
+          <th style="border-bottom:1px solid #707070;">描述</th>
+        </tr>
+      </thead>
+      <tbody class="bcls-table__body">
+        <tr>
+          <td rowspan="4" style="background-color:#dbdbdb;font-weight: bold;border-bottom:1px solid #707070;">一般</td>
+          <td><code translate="No">accid</code></td>
+          <td>字串</td>
+          <td>是</td>
+          <td></td>
+          <td>擁有播放內容的帳號 ID</td>
+        </tr>
+        <tr>
+          <td><code translate="No">iat</code></td> 
+          <td>整數</td>
+          <td>是</td>
+          <td></td>
+          <td>這個令牌發出的時間，以秒為單位，自紀元</td>
+        </tr>
+        <tr>
+          <td><code translate="No">exp</code></td>
+          <td>整數</td>
+          <td>是</td>
+          <td></td>
+          <td>
+            不是必需的，但強烈推薦。<br/><br/> 此令牌不再有效的時間，自紀元以來的秒數。必須不超過 30 天<code translate="No">iat</code>
+            <aside class="bcls-aside bcls-aside--warning language-editable">請注意，您可以省略<code translate="No">exp</code>創建一個非現有令牌。但是，安全專家強烈反對創建不會過期的令牌。</aside>
+          </td>
+        </tr>
+        <tr>
+          <td><code translate="No">nbf</code></td>
+          <td>整數</td>
+          <td></td>
+          <td></td>
+          <td>此令牌開始生效的時間，自紀元以來的秒數。<br/> 如果未指定，令牌將立即可用。</td>
+        </tr>
+        <tr>
+          <td rowspan="3" style="background-color:#dbdbdb;font-weight: bold;border-bottom:1px solid #707070;">播放權限</td>
+          <td><code translate="No">prid</code></td>
+          <td>字串</td>
+          <td></td>
+          <td></td>
+          <td>A <code translate="No">playback_rights_id</code>用於覆蓋此視頻目錄中設置的 ID <br/><br/>該字段未經驗證<br/><br/>
+            <aside class="bcls-aside bcls-aside--information">
+              這<code translate="No">prid</code>來自 JWT 的聲明只會在<code translate="No">prid_restriction</code>標誌已啟用。聯繫您的客戶成功經理設置標誌。<br/><br/> 與資產關聯的播放限制仍將得到驗證。這<code translate="No">prid_restriction</code>標誌只影響<code translate="No">prid</code>在 JWT 中聲明。
+            </aside>
+          </td>
+        </tr>
+        <tr>
+          <td><code translate="No">tags</code></td>
+          <td>陣列 &lt; 字串 &gt;</td>
+          <td></td>
+          <td></td>
+          <td>如果存在，此令牌僅對具有列出的標籤值的視頻有效。只有這些視頻才有權播放。</td>
+        </tr>
+        <tr>
+          <td><code translate="No">vids</code></td>
+          <td>陣列 &lt; 字串 &gt;</td>
+          <td></td>
+          <td></td>
+          <td>如果存在，此令牌將只授權獲取一組視頻 ID 的許可證。 <br/><br/>
+            <aside class="bcls-aside bcls-aside--information">
+              這<code translate="No">vids</code>來自 JWT 的聲明只會在<code translate="No">vids_restriction</code>標誌已啟用。聯繫您的客戶成功經理設置標誌。
+            </aside>
+          </td>
+        </tr>
+        <tr>
+          <td rowspan="4" style="background-color:#dbdbdb;font-weight: bold;border-bottom:1px solid #707070;">許可證密鑰保護</td>
+          <td><code translate="No">ua</code></td>
+          <td>字串</td>
+          <td></td>
+          <td></td>
+          <td>如果存在，此令牌將僅對來自此用戶代理的請求有效。<br/><br/> 該字段不必遵循任何特定格式。<br/>你必須有<strong>許可證密鑰保護</strong>啟用。
+          </td>
+        </tr>
+        <tr>
+          <td><code translate="No">conid</code></td>
+          <td>字串</td>
+          <td></td>
+          <td></td>
+          <td>如果存在，此權杖只會授權擷取特定 Video Cloud 視訊 ID 的授權。<br/><br/>必須是有效的視頻 ID <br/>你必須有<strong>許可證密鑰保護</strong>啟用。
+          </td>
+        </tr>
+        <tr>
+          <td><code translate="No">maxip</code></td>
+          <td>整數</td>
+          <td>是</td>
+          <td></td>
+          <td>如果存在，則此令牌將只能由此數量的不同 IP 地址使用。<br/><br/><strong>必需的</strong>用於會話跟踪；僅限 HLSe (AES-128) <br/>你必須有<strong>許可證密鑰保護</strong>啟用。
+          </td>
+        </tr>
+        <tr>
+          <td><code translate="No">maxu</code></td>
+          <td>整數</td>
+          <td>是</td>
+          <td></td>
+          <td>
+            如果存在，此令牌將僅對此數量的許可請求有效。 <br/><br/>
+            <ul>
+              <li>
+                對於 HLSE，播放器在播放視訊時會提出多個要求，通常每個節目一次。<code translate="No">maxu</code>必須設定足夠高，才能解決這些額外的要求。
+              </li>
+              <!-- <li>
+                  For DRM, one license request is made per playback
+                </li> -->
+            </ul>
+            <strong>必需的</strong>用於會話跟踪；僅限 HLSe (AES-128) <br/>你必須有<strong>許可證密鑰保護</strong>啟用。
+          </td>
+        </tr>
+        <tr>
+          <td rowspan="4" style="background-color:#dbdbdb;font-weight: bold;border-bottom:1px solid #707070;">並發流</td>
+          <td><code translate="No">uid</code></td>
+          <td>字串</td>
+          <td>是</td>
+          <td>是</td>
+          <td>最終檢視器的使用者 ID。該字段用於關聯多個會話以實施流並發。<br/><br/> 您可以使用任意 ID（最多 64 個字符，限於 AZ、az、0-9 和 =/、@_.+-）。但是，根據您的用例，Brightcove 建議使用用戶標識符來跟踪每個用戶的會話，或者使用帳戶標識符來跟踪每個付費帳戶的會話。<br/><br/><strong>必需的</strong>對於會話並發
+          </td>
+          <!-- <td>DRM only</td> -->
+        </tr>
+        <tr>
+          <td><code translate="No">climit</code></td>
+          <td>整數</td>
+          <td>是</td>
+          <td>是</td>
+          <td>包括此字段後，它將啟用流並發檢查以及許可證續訂請求。此值表示允許並行觀察者的數目。<br/><br/><strong>必需的</strong>對於會話並發
+          </td>
+          <!-- <td>DRM only</td> -->
+        </tr>
+        <tr>
+          <td><code translate="No">cbeh</code></td>
+          <td>字串</td>
+          <td></td>
+          <td>是</td>
+          <td>將值設置為<code translate="No">BLOCK_NEW</code>啟用並發流限制以在達到最大流數時阻止任何新請求，即使來自同一用戶也是如此。<br/><br/>將值設置為<code translate="No">BLOCK_NEW_USER</code>當達到最大流數時，僅阻止來自新用戶的任何新請求。<br/><br/>當達到最大流數時，默認值將阻止最早的流。
+          </td>
+          <!-- <td>DRM only</td> -->
+        </tr>
+        <tr>
+          <td><code translate="No">sid</code></td>
+          <td>字串</td>
+          <td></td>
+          <td>是</td>
+          <td>
+            通過指定當前流的會話ID，您可以控制如何定義會話。默認情況下，會話定義為用戶代理（瀏覽器）+ IP地址+視頻ID。
+
+              <aside class="bcls-aside bcls-aside--warning language-editable">注意：你<strong>必須</strong>覆蓋默認值<code translate="No">sid</code>通過使用聲明來指定您的<a href="https://apis.support.brightcove.com/playback-restrictions/guides/generic-stream-concurrency.html#correlator_identifier">相關符標識符</a>如果您正在為通用流並發創建 JWT。</aside>
+
+            <p>比如可以把session的定義放寬到IP地址+視頻ID</p>
+          </td>
+          <!-- <td>DRM only</td> -->
+        </tr>
+        <tr>
+          <td rowspan="2" style="background-color:#dbdbdb;font-weight: bold;border-bottom:1px solid #707070;">裝置限制</td>
+          <td><code translate="No">uid</code></td>
+          <td>字串</td>
+          <td>是</td>
+          <td>是</td>
+          <td>最終檢視器的使用者 ID。該字段用於關聯多個會話以實施流並發。<br/><br/> 您可以使用任意 ID（最多 64 個字符，限於 AZ、az、0-9 和 =/、@_.+-）。但是，根據您的用例，Brightcove 建議使用用戶標識符來跟踪每個用戶的會話，或者使用帳戶標識符來跟踪每個付費帳戶的會話。<br/><br/><strong>必需的</strong>用於設備註冊
+          </td>
+          <!-- <td>DRM only</td> -->
+        </tr>
+        <tr>
+          <td><code translate="No">dlimit</code></td>
+          <td>整數</td>
+          <td>是</td>
+          <td>是</td>
+          <td>包含此欄位時，它會控制可以與指定的使用者 ( <code translate="No">uid</code> ) 關聯的裝置數目。值必須是 &gt; <code translate="No">0</code>。<br/><br/>如果在稍後的要求中捨棄該<code translate="No">dlimit</code>值，先前允許的裝置將繼續運作。<br/><br/>範例：如果值設定為<code translate="No">3</code>，則使用者可以在裝置 A、B 和 C 上播放 (所有將被允許)。嘗試在裝置 D 上播放將被拒絕。<br/><br/>如果將值更改為<code translate="No">1</code>，用戶仍然可以在A，B和C的所有3種設備上播放，除非通過使用以下命令管理設備來手動撤消設備<a href="https://apis.support.brightcove.com/playback-restrictions/references/playback-rights/reference.html">播放權限API</a>。<br/><br/><strong>必需的</strong>用於設備註冊
+          </td>
+          <!-- <td>DRM only</td> -->
+        </tr>
+        <tr>
+          <td rowspan="1" style="background-color:#dbdbdb;font-weight: bold;border-bottom:1px solid #707070;">傳送規則</td>
+          <td><code translate="No">drules</code></td>
+          <td>串[]</td>
+          <td></td>
+          <td></td>
+          <td>要應用的傳送規則操作 ID 列表。有關詳細信息，請參閱 <a href="https://apis.support.brightcove.com/delivery-rules/getting-started/implementing-delivery-rules.html">實施交付規則</a> 文檔。
+            <!-- If the <code translate="No">config_id</code> query parameter is also set it will be ignored, as this claim overrides it. -->
+            <br/><br/>
+            <aside class="bcls-aside bcls-aside--information">
+              在 JWT 中設置此聲明會覆蓋：
+              <ul>
+                <li>這<code translate="No">config_id</code>查詢參數</li>
+                <li>在帳戶級別設置的任何其他規則 ID</li>
+              </ul>
+            </aside>
+            <aside class="bcls-aside bcls-aside--warning"> 
+              <p>這<code translate="No">drules</code>聲明僅在使用以下端點時適用：</p>
+              <pre><code class="language-html" translate="No">edge-auth.api.brightcove.com</code></pre>
+              <p>當使用<code translate="No">edge.api.brightcove.com</code>端點，使用<code translate="No">config_id</code>查詢參數。</p>
+            </aside>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    </div>
+
+    <h3 id="Claims_by_tier">按等級索賠</h3>
+    <p>有幾個安全包可用於播放限制。有關詳細信息，請參見<a href="https://apis.support.brightcove.com/playback-restrictions/getting-started/overview-playback-restrictions.html">概述：Brightcove 播放限制</a>文檔。</p>
+    <p>以下是每個播放限制包的可用聲明：</p>
+    <div style="overflow-x:auto;">
+    <table class="bcls-table">
+      <thead class="bcls-table__head">
+        <tr>
+          <th style="border-bottom:1px solid #707070;">功能</th>
+          <th style="border-bottom:1px solid #707070;">理賠</th>
+          <th style="border-bottom:1px solid #707070;">安全等級 1</th>
+          <th style="border-bottom:1px solid #707070;">安全等級 2</th>
+          <th style="border-bottom:1px solid #707070;">安全等級 3</th>
+        </tr>
+      </thead>
+      <tbody class="bcls-table__body">
+        <tr>
+          <td rowspan="4" style="background-color:#dbdbdb;font-weight: bold;border-bottom:1px solid #707070;">一般</td>
+          <td>酸</td>
+          <td style="background-color: #D7F6E6;text-align: center;">是</td>
+          <td style="background-color: #D7F6E6;text-align: center;">是</td>
+          <td style="background-color: #D7F6E6;text-align: center;">是</td>
+        </tr>
+        <tr>
+          <td>我在</td>
+          <td style="background-color: #D7F6E6;text-align: center;">是</td>
+          <td style="background-color: #D7F6E6;text-align: center;">是</td>
+          <td style="background-color: #D7F6E6;text-align: center;">是</td>
+        </tr>
+        <tr>
+          <td>exp</td>
+          <td style="background-color: #D7F6E6;text-align: center;">是</td>
+          <td style="background-color: #D7F6E6;text-align: center;">是</td>
+          <td style="background-color: #D7F6E6;text-align: center;">是</td>
+        </tr>
+        <tr>
+          <td>nbf</td>
+          <td style="background-color: #D7F6E6;text-align: center;">是</td>
+          <td style="background-color: #D7F6E6;text-align: center;">是</td>
+          <td style="background-color: #D7F6E6;text-align: center;">是</td>
+        </tr>
+        <tr>
+          <td rowspan="3" style="background-color:#dbdbdb;font-weight: bold;border-bottom:1px solid #707070;">播放權 <sup><a href="#n1">[1]</a></sup></td> 
+          <td>驕傲</td>
+          <td style="background-color: #D7F6E6;text-align: center;">是</td>
+          <td style="background-color: #D7F6E6;text-align: center;">是</td>
+          <td style="background-color: #D7F6E6;text-align: center;">是</td>
+        </tr>
+        <tr>
+          <td>標籤</td>
+          <td style="background-color: #D7F6E6;text-align: center;">是</td>
+          <td style="background-color: #D7F6E6;text-align: center;">是</td>
+          <td style="background-color: #D7F6E6;text-align: center;">是</td>
+        </tr>
+        <tr>
+          <td>西元</td>
+          <td style="background-color: #D7F6E6;text-align: center;">是</td>
+          <td style="background-color: #D7F6E6;text-align: center;">是</td>
+          <td style="background-color: #D7F6E6;text-align: center;">是</td>
+        </tr>
+        <tr>
+          <td rowspan="4" style="background-color:#dbdbdb;font-weight: bold;border-bottom:1px solid #707070;">許可證密鑰保護</td>
+          <td>ua</td>
+          <td style="text-align: center;">否</td>
+          <td style="background-color: #D7F6E6;text-align: center;">是</td>
+          <td style="background-color: #D7F6E6;text-align: center;">是</td>
+        </tr>
+        <tr>
+          <td>錐度</td>
+          <td style="text-align: center;">否</td>
+          <td style="background-color: #D7F6E6;text-align: center;">是</td>
+          <td style="background-color: #D7F6E6;text-align: center;">是</td>
+        </tr>
+        <tr>
+          <td>最大的</td>
+          <td style="text-align: center;">否</td>
+          <td style="background-color: #D7F6E6;text-align: center;">是</td>
+          <td style="background-color: #D7F6E6;text-align: center;">是</td>
+        </tr>
+        <tr>
+          <td>最大</td>
+          <td style="text-align: center;">否</td>
+          <td style="background-color: #D7F6E6;text-align: center;">是</td>
+          <td style="background-color: #D7F6E6;text-align: center;">是</td>
+        </tr>
+        <tr>
+          <td rowspan="4" style="background-color:#dbdbdb;font-weight: bold;border-bottom:1px solid #707070;">並發流</td>
+          <td>uid</td>
+          <td style="text-align: center;">否</td>
+          <td style="text-align: center;">否</td>
+          <td style="background-color: #D7F6E6;text-align: center;">是</td>
+        </tr>
+        <tr>
+          <td>極限</td>
+          <td style="text-align: center;">否</td>
+          <td style="text-align: center;">否</td>
+          <td style="background-color: #D7F6E6;text-align: center;">是</td>
+        </tr>
+        <tr>
+          <td>cbeh</td>
+          <td style="text-align: center;">否</td>
+          <td style="text-align: center;">否</td>
+          <td style="background-color: #D7F6E6;text-align: center;">是</td>
+        </tr>
+        <tr>
+          <td>資料庫</td>
+          <td style="text-align: center;">否</td>
+          <td style="text-align: center;">否</td>
+          <td style="background-color: #D7F6E6;text-align: center;">是</td>
+        </tr>
+        <tr>
+          <td rowspan="3" style="background-color:#dbdbdb;font-weight: bold;border-bottom:1px solid #707070;">通用並發流</td>
+          <td>uid</td>
+          <td style="text-align: center;">否</td>
+          <td style="text-align: center;">否</td>
+          <td style="background-color: #D7F6E6;text-align: center;">是</td>
+        </tr>
+        <tr>
+          <td>極限</td>
+          <td style="text-align: center;">否</td>
+          <td style="text-align: center;">否</td>
+          <td style="background-color: #D7F6E6;text-align: center;">是</td>
+        </tr>
+        <tr>
+          <td>資料庫</td>
+          <td style="text-align: center;">否</td>
+          <td style="text-align: center;">否</td>
+          <td style="background-color: #D7F6E6;text-align: center;">是</td>
+        </tr>
+        <tr>
+          <td rowspan="2" style="background-color:#dbdbdb;font-weight: bold;border-bottom:1px solid #707070;">設備註冊</td>
+          <td>uid</td>
+          <td style="text-align: center;">否</td>
+          <td style="text-align: center;">否</td>
+          <td style="background-color: #D7F6E6;text-align: center;">是</td>
+        </tr>
+        <tr>
+          <td>限制</td>
+          <td style="text-align: center;">否</td>
+          <td style="text-align: center;">否</td>
+          <td style="background-color: #D7F6E6;text-align: center;">是</td>
+        </tr>
+      </tbody>
+    </table>
+    </div>
+    <br/>
+    <aside class="bcls-aside bcls-aside--information">
+      <p>以下註釋參考上表。</p>
+
+      <p id="n1"><sup>[1]</sup> 所有與播放權相關的聲明都是可選的。因此，您無需創建 JWT 即可使用播放權限。</p>
+      <p>在 Video Cloud Studio Admin 中，創建新的 <strong>Playback Rights</strong>時，您可以選擇 <strong>Allow Playback Right without token</strong> 。 </p>
+    </aside>
+  </section>
+
+  <section class="bcls-section">
+    <h2 id="Generate_a_token">產生權杖</h2>
+    <p>
+      庫通常可用於生成 JWT 令牌。有關詳細信息，請參閱<a href="https://jwt.io/" translate="No">JSON Web Tokens</a>網站。
+    </p>
+    <p>一個 <a href="https://www.epochconvert.com/">時代 &amp; Unix 時間戳轉換工具</a> 在處理時間字段時可能會有幫助。</p>
+    <h4>
+      bash 腳本示例：
+    </h4>
+    <p>
+      生成 JWT 令牌的示例腳本：
+    </p>
+    <pre class="line-numbers"><code class="language-bash" translate="No">#! /usr/bin/env bash
+# Static header fields.
+HEADER='{
+	"type": "JWT",
+	"alg": "RS256"
+}'
+
+payload='{
+	"accid": "<span class="bcls-input">{your_account_id}</span>"
+}'
+
+# Use jq to set the dynamic `iat` and `exp`
+# fields on the payload using the current time.
+# `iat` is set to now, and `exp` is now + 1 hour. Note: 3600 seconds = 1 hour
+PAYLOAD=$(
+	echo "${payload}" | jq --arg time_str "$(date +%s)" \
+	'
+	($time_str | tonumber) as $time_num
+	| .iat=$time_num
+	| .exp=($time_num + 60 * 60)
+	'
+)
+
+function b64enc() { openssl enc -base64 -A | tr '+/' '-_' | tr -d '='; }
+
+function rs_sign() { openssl dgst -binary -sha256 -sign playback-auth-keys/private.pem ; }
+
+JWT_HDR_B64="$(echo -n "$HEADER" | b64enc)"
+JWT_PAY_B64="$(echo -n "$PAYLOAD" | b64enc)"
+UNSIGNED_JWT="$JWT_HDR_B64.$JWT_PAY_B64"
+SIGNATURE=$(echo -n "$UNSIGNED_JWT" | rs_sign | b64enc)
+
+echo "$UNSIGNED_JWT.$SIGNATURE"
+</code></pre>
+    <p>
+      執行指令碼：
+    </p>
+    <pre><code class="language-bash" translate="No">$ bash jwtgen.sh
+</code></pre>
+    <br/>
+
+    <details>
+      <summary>
+        使用範例<span translate="No">Go</span>
+      </summary>
+      <p>以下是一個引用<span translate="No">Go</span>實現（作為 cli 工具）的示例，用於在不使用任何第三方庫的情況下生成令牌：</p>
+      <pre class="line-numbers"><code class="language-bash" translate="No">package main
+
+import (
+	"crypto"
+	"crypto/ecdsa"
+	"crypto/rand"
+	"crypto/rsa"
+	"crypto/sha256"
+	"crypto/x509"
+	"encoding/base64"
+	"encoding/json"
+	"encoding/pem"
+	"flag"
+	"fmt"
+	"io/ioutil"
+	"os"
+	"strings"
+	"time"
+)
+
+// Header is the base64UrlEncoded string of a JWT header for the RS256 algorithm
+const RSAHeader = "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9"
+
+// Header is the base64UrlEncoded string of a JWT header for the EC256 algorithm
+const ECHeader = "eyJhbGciOiJFUzI1NiIsInR5cCI6IkpXVCJ9"
+
+// Claims represents constraints that should be applied to the use of the token
+type Claims struct {
+	Iat   float64 `json:"iat,omitempty"`   // Issued At
+	Exp   float64 `json:"exp,omitempty"`   // Expires At
+	Accid string  `json:"accid,omitempty"` // Account ID
+	Conid string  `json:"conid,omitempty"` // Content ID
+	Maxu  float64 `json:"maxu,omitempty"`  // Max Uses
+	Maxip float64 `json:"maxip,omitempty"` // Max IPs
+	Ua    string  `json:"ua,omitempty"`    // User Agent
+}
+
+func main() {
+	var key, algorithm string
+
+	c := Claims{Iat: float64(time.Now().Unix())}
+
+	flag.StringVar(&amp;key, "key", "", "Path to private.pem key file")
+	flag.StringVar(&amp;c.Accid, "account-id", "", "Account ID")
+	flag.StringVar(&amp;c.Conid, "content-id", "", "Content ID (eg, video_id or live_job_id)")
+	flag.Float64Var(&amp;c.Exp, "expires-at", float64(time.Now().AddDate(0, 0, 1).Unix()), "Epoch timestamp (in seconds) for when the token should stop working")
+	flag.Float64Var(&amp;c.Maxu, "max-uses", 0, "Maximum number of times the token is valid for")
+	flag.Float64Var(&amp;c.Maxip, "max-ips", 0, "Maximum number of unique IP addresses the token is valid for")
+	flag.StringVar(&amp;c.Ua, "user-agent", "", "User Agent that the token is valid for")
+	flag.StringVar(&amp;algorithm, "algo", "", "Key algorithm to use for signing. Valid: ec256, rsa256")
+	flag.Parse()
+
+	if key == "" {
+		fmt.Printf("missing required flag: -key\n\n")
+		flag.Usage()
+		os.Exit(1)
+	}
+
+	if algorithm == "" {
+		fmt.Printf("missing required flag: -algo\n\n")
+		flag.Usage()
+		os.Exit(2)
+	}
+
+	if algorithm != "rsa256" &amp;&amp; algorithm != "ec256" {
+		fmt.Printf("missing valid value for -algo flag. Valid: rsa256, ec256\n\n")
+		flag.Usage()
+		os.Exit(3)
+	}
+
+	if c.Accid == "" {
+		fmt.Printf("missing required flag: -account-id\n\n")
+		flag.Usage()
+		os.Exit(4)
+	}
+
+	bs, err := json.Marshal(c)
+	if err != nil {
+		fmt.Println("failed to marshal token to json", err)
+		os.Exit(5)
+	}
+
+	kbs, err := ioutil.ReadFile(key)
+	if err != nil {
+		fmt.Println("failed to read private key", err)
+		os.Exit(6)
+	}
+
+	if algorithm == "rsa256" {
+		processRSA256(kbs, bs)
+	} else {
+		processEC256(kbs, bs)
+	}
+}
+
+func processRSA256(kbs, bs []byte) {
+	block, _ := pem.Decode(kbs)
+	if block == nil {
+		fmt.Println("failed to decode PEM block containing private key")
+		os.Exit(7)
+	}
+
+	if block.Type != "RSA PRIVATE KEY" {
+		fmt.Println("failed to decode PEM block containing private key")
+		os.Exit(8)
+	}
+
+	pKey, err := x509.ParsePKCS1PrivateKey(block.Bytes)
+	if err != nil {
+		fmt.Println("failed to parse rsa private key", err)
+		os.Exit(9)
+	}
+
+	message := RSAHeader + "." + base64.RawURLEncoding.EncodeToString(bs)
+
+	hash := crypto.SHA256
+	hasher := hash.New()
+	_, _ = hasher.Write([]byte(message))
+	hashed := hasher.Sum(nil)
+
+	r, err := rsa.SignPKCS1v15(rand.Reader, pKey, hash, hashed)
+	if err != nil {
+		fmt.Println("failed to sign token", err)
+		os.Exit(10)
+	}
+
+	sig := strings.TrimRight(base64.RawURLEncoding.EncodeToString(r), "=")
+
+	fmt.Println(message + "." + sig)
+}
+
+func processEC256(kbs, bs []byte) {
+	block, _ := pem.Decode(kbs)
+	if block == nil {
+		fmt.Println("failed to decode PEM block containing private key")
+		os.Exit(7)
+	}
+
+	if block.Type != "EC PRIVATE KEY" {
+		fmt.Println("failed to decode PEM block containing private key")
+		os.Exit(8)
+	}
+
+	pkey, err := x509.ParseECPrivateKey(block.Bytes)
+	if err != nil {
+		fmt.Println("failed to parse ec private key", err)
+		os.Exit(9)
+	}
+
+	message := ECHeader + "." + base64.RawURLEncoding.EncodeToString(bs)
+	hash := sha256.Sum256([]byte(message))
+
+	r, s, err := ecdsa.Sign(rand.Reader, pkey, hash[:])
+	if err != nil {
+		fmt.Println("failed to sign token", err)
+		os.Exit(10)
+	}
+
+	curveBits := pkey.Curve.Params().BitSize
+
+	keyBytes := curveBits / 8
+	if curveBits%8 &gt; 0 {
+		keyBytes++
+	}
+
+	rBytes := r.Bytes()
+	rBytesPadded := make([]byte, keyBytes)
+	copy(rBytesPadded[keyBytes-len(rBytes):], rBytes)
+
+	sBytes := s.Bytes()
+	sBytesPadded := make([]byte, keyBytes)
+	copy(sBytesPadded[keyBytes-len(sBytes):], sBytes)
+
+	out := append(rBytesPadded, sBytesPadded...)
+
+	sig := base64.RawURLEncoding.EncodeToString(out)
+	fmt.Println(message + "." + sig)
+}
+</code></pre>
+    </details>
+
+    <h4>結果</h4>
+    <p>
+      以下是一個使用<a href="https://jwt.io/"> https://JWT.io </a>指定完整的聲明集的解碼令牌的示例：
+    </p>
+    <p>
+      標頭：
+    </p>
+    <pre class="line-numbers"><code class="language-json" translate="No">{
+  "alg": "RS256",
+  "type": "JWT"
+}
+</code></pre>
+
+    <p>
+      有效載荷：
+    </p>
+    <pre class="line-numbers"><code class="language-json" translate="No">{
+  "accid": "1100863500123",
+  "conid": "51141412620123",
+  "exp": 1554200832,
+  "iat": 1554199032,
+  "maxip": 10,
+  "maxu": 10,
+  "ua": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.86 Safari/537.36"
+}
+</code></pre>
+  </section>
+
+  <section class="bcls-section">
+    <h2 id="Test_playback">測試播放</h2>
+
+    <p>雖然不是必要的，但您可能想要在設定播放器之前先測試視訊播放。</p>
+    <h3>靜態 URL 傳送</h3>
+    <p>
+      要求播放：
+    </p>
+    <pre class="line-numbers"><code class="language-http" translate="No">curl -X GET \
+https://edge.api.brightcove.com/playback/v1/accounts/{account_id}/videos/{video_id}/master.m3u8?bcov_auth={jwt}
+</code></pre>
+<p>有關靜態 URL 端點的列表，請參閱 <a href="https://apis.support.brightcove.com/playback/guides/static-url-delivery.html#Implementing_Static_URLs">靜態 URL 交付</a> 文檔。</p>
+<h3>播放限制</h3>
+<p>
+  要求播放：
+</p>
+<pre class="line-numbers"><code class="language-http" translate="No">curl -X GET \
+-H 'Authorization: Bearer {JWT}' \
+https://edge-auth.api.brightcove.com/playback/v1/accounts/{your_account_id}/videos/{your_video_id}
+</code></pre>
+  </section>
+</article>
+<!-- <div class="col-sm-2 right-side-bar" style="display: inline-block;max-width: 20%;"> -->
+  
+  <nav class="right-side-nav" id="right_side_nav">
+    <h6 class="toc">頁面內容</h6>
+    <ul id="in_page_nav" class="list-none"></ul>
+  </nav>
+  
+<!-- </div> -->
+</div>
+</div>
+</div>
+<div class="page-content" style="background-color: rgb(1, 5, 14);">
+  <div class="container" style="width: 50%;">
+    <footer class="py-5">
+      <div class="row">
+        <div class="col-6 col-md">
+          <h5 class="h5-text">布萊特灣支援</h5>
+          <ul class="list-unstyled text-small" style="color: white ;">
+            <li><a class="a-text" href="https://status.brightcove.com">系統狀態</a></li>
+            <li><a class="a-text" href="https://supportportal.brightcove.com">聯絡支援</a></li>
+            <li><a class="a-text" href="https://support.brightcove.com/search.html">搜索所有文檔</a></li>
+          </ul>
+        </div>
+      
+        <div class="col-6 col-md">
+          <h5 class="h5-text">訓練</h5>
+          <ul class="list-unstyled text-small">
+            <li><a class="a-text" href="https://studio.support.brightcove.com/get-started/training/online-training-courses.html">在線課程</a></li>
+            <li><a class="a-text" href="https://studio.support.brightcove.com/get-started/training/register-training.html">註冊課程</a></li>
+            <li><a class="a-text" href="https://academy.brightcove.com/">光明灣學院</a></li>
+          </ul>
+        </div>
+      
+        <div class="col-6 col-md">
+          <h5 class="h5-text">Brightcove</h5>
+          <ul class="list-unstyled text-small">
+            <li><a class="a-text" href="https://www.brightcove.com">亮麗</a></li>
+            <li><a class="a-text" href="https://community.brightcove.com/s/">亮點社區論壇</a></li>
+            <li><a class="a-text" href="https://support.brightcove.com/product-updates.html">產品發布說明</a></li>
+            <li><a class="a-text" href="https://support.brightcove.com/doc-updates.html">文檔更新</a></li>
+          </ul>
+        </div>
+      </div>
+    
+      <div class="d-flex flex-column flex-sm-row justify-content-between py-4 my-4 border-top">
+      <p>© Brightcove Inc. 保留所有權利。</p>
+      <a class="a-text" href="https://www.brightcove.com/en/legal/privacy">隱私</a> <a class="a-text" href="https://www.brightcove.com/en/terms-and-conditions">條款 &amp; 狀況</a>
+
+      <ul class="list-unstyled d-flex">
+        <li class="ms-3"><a href="https://www.linkedin.com/company/16439" title="LinkedIn" target="_blank" class="gf-social-linkedin" style="margin-right: 1rem;"><i data-feather="linkedin" style="color:#8E9093;height: 1.25rem;"></i></a></li>
+
+        <li class="ms-3"><a href="https://twitter.com/brightcove" title="Twitter" target="_blank" class="gf-social-twitter" style="margin-right: 1rem;"><i data-feather="twitter" style="color:#8E9093;height: 1.25rem;"></i></a></li>
+
+        <li class="ms-3"><a href="https://www.facebook.com/Brightcove" title="Facebook" target="_blank" class="gf-social-facebook"><i data-feather="facebook" style="color:#8E9093;height: 1.25rem;"></i></a></li>
+      </ul>
+      </div>
+    </footer>
+  </div>
+</div>
+
+
+<script translate="no">
+  var searchBox = sajari.init({
+    mode: "search-box",
+    project: "1588255093746585379", // Set this to your project.
+    collection: "brightcove-documentation", // Set this to your collection.
+    instantPipeline: "autocomplete", // Pipeline used as you type
+    inputPlaceholder: "Search", // Input element placeholder,
+    styling: {
+      components: {
+        
+        input: {
+          container: {
+          backgroundColor: 'white',
+          }
+        
+        }
+      }
+    },
+    maxSuggestions: 5, // Maximum number of suggestions to show
+      attachSearchBox: document.getElementById("nav-search-box") // DOM element to attach to
+  });
+
+  
+
+
+    searchBox("sub", "pipeline.search-sent", function (_, query) {
+    window.location = "/search.html?q=" + encodeURIComponent(query.q);
+    });
+  
+  </script>
+  
+  <!-- Javascript -->          
+  <script src="/assets/s-site-assets-template-stylesheets/plugins/popper.min.js"></script>
+  <script src="/assets/s-site-assets-template-stylesheets/plugins/bootstrap/js/bootstrap.min.js"></script>  
+
+
+  <!-- Page Specific JS -->
+  <script src="/assets/s-site-assets-template-stylesheets/plugins/smoothscroll.min.js"></script>
+  <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.8/highlight.min.js"></script> -->
+  <!-- <script src="/assets/s-site-assets-template-stylesheets/js/highlight-custom.js"></script>  -->
+  <script src="/assets/s-site-assets-template-stylesheets/plugins/simplelightbox/simple-lightbox.min.js"></script>      
+  <script src="/assets/s-site-assets-template-stylesheets/plugins/gumshoe/gumshoe.polyfills.min.js"></script> 
+  <script src="/assets/s-site-assets-template-stylesheets/js/docs.js"></script> 
+
+  <!-- original footer components -->
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+
+  <script src="/assets/s-site-assets-scripts/https-fix.js"></script>
+  <script src="/assets/s-site-assets-scripts/setDate.js"></script>
+  <script src="/assets/s-site-assets-scripts/selector.js"></script>
+  
+  <script src="/assets/s-site-assets-scripts/prism.js"></script>
+  <script src="/assets/s-site-assets-scripts/prism-normalize.js"></script>
+  
+  <script src="/assets/s-site-assets-scripts/site.js"></script>
+  <script src="https://support.brightcove.com/site-assets/js/learning-paths/learning-paths.js"></script>
+  <!-- <script src="/assets/s-site-assets-scripts/site.js"></script> -->
+  <script src="/assets/s-site-assets-scripts/tabs.js"></script>
+  
+  <script src="/assets/s-site-assets-scripts/toc-new-template.js"></script>
+  
+  <script src="/assets/js/sites_nav.js"></script>
+  <script src="/assets/s-site-assets-scripts/bcls-utils.js"></script>
+  <script src="/assets/s-site-assets-scripts/local-link-fix.js"></script>
+  <script src="/assets/s-site-assets-scripts/sajari-reindex.js"></script>
+  <script src="/assets/js/feedback.js"></script>
+  
+  <script src="/assets/s-site-assets-scripts/sajari-search-foot.js"></script>
+  
+  <script translate="no">
+    feather.replace()
+  </script>
+  <!-- <script src="/assets/js/sajari-index.js"></script> -->
+  <script src="/assets/s-site-assets-scripts/in-app.js"></script>
+  <style translate="no">
+    a.sj-paginator__page-number.sj-paginator__page-number--current.css-so0ov7 {
+      background-color: lightblue;
+    }
+    div.sj-tabs__tab {
+      margin-top: 3rem;
+      margin-left: .3rem;
+      border-top-left-radius: .4rem;
+      border-top-right-radius: .4rem;
+      background-color:#e8e8e8;
+    }
+
+    div.sj-tabs__tab.sj-tabs__tab--selected {
+      border-bottom-color: crimson;
+      background-color: #f8f8f8;
+    }
+
+    p.sj-results__result__description.css-p9jvyt {
+      font-size: 1rem;
+    }
+
+    .sj-result__text.css-31l7gp h3 {
+      color: navy;
+      font-size: 1.4rem;
+    }
+    </style>
+
+  </body>
+</html> 
